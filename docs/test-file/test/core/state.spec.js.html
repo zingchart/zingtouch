@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">test/core/state.spec.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ZingTouch">ZingTouch</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">core</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-arbiter">arbiter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dispatcher">dispatcher</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-interpreter">interpreter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-util">util</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">core/classes</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Binder.js~Binder.html">Binder</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Binding.js~Binding.html">Binding</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Input.js~Input.html">Input</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Region.js~Region.html">Region</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html">State</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/ZingEvent.js~ZingEvent.html">ZingEvent</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pan.js~Pan.html">Pan</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pinch.js~Pinch.html">Pinch</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Rotate.js~Rotate.html">Rotate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Swipe.js~Swipe.html">Swipe</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Tap.js~Tap.html">Tap</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">test/core/state.spec.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {state, getGestureType} from &apos;./../../src/core/state.js&apos;;
+import Tap from &apos;./../../src/gestures/Tap.js&apos;;
+import Gesture from &apos;./../../src/gestures/Gesture.js&apos;;
+
+/** @test {state} */
+describe(&apos;state&apos;, function () {
+  it(&apos;should be instantiated&apos;, function () {
+    expect(state).to.not.equal(null);
+  });
+});
+
+/** @test {state.addBinding} */
+describe(&apos;state.addBinding&apos;, function () {
+  beforeEach(function () {
+    state.bindings = [];
+  });
+
+  it(&apos;should create a binding with a new gesture&apos;, function () {
+    expect(state.bindings).to.be.empty;
+    var gesture = new Gesture();
+    var handler = function () {};
+
+    var binding = state.addBinding(document.body, gesture, handler);
+    expect(binding).to.not.be.null;
+    expect(state.bindings).to.not.be.empty;
+    expect(binding.element).to.equal(document.body);
+    expect(binding.gesture).to.equal(gesture);
+    expect(binding.gesture).to.not.equal(new Gesture());
+    expect(binding.handler).to.equal(handler);
+    expect(binding.handler).to.not.equal(function () {});
+
+  });
+
+  it(&apos;should create a binding with a key of an existing gesture&apos;, function () {
+    expect(state.bindings).to.be.empty;
+    var handler = function () {};
+
+    var binding = state.addBinding(document.body, &apos;tap&apos;, handler);
+    expect(binding).to.not.be.null;
+    expect(state.bindings).to.not.be.empty;
+    expect(binding.element).to.equal(document.body);
+    expect(binding.gesture).to.equal(state.registeredGestures.tap);
+    expect(binding.gesture).to.not.equal(new Gesture());
+    expect(binding.handler).to.equal(handler);
+    expect(binding.handler).to.not.equal(function () {});
+  });
+
+  it(&apos;should not create a binding with a key of a non-existing gesture&apos;, function () {
+    expect(state.bindings).to.be.empty;
+    var binding = state.addBinding(document.body, &apos;tapfoo&apos;, function () {});
+
+    expect(binding).to.be.null;
+    expect(state.bindings).to.be.empty;
+  });
+
+  it(&apos;should not create a binding with an invalid object&apos;, function () {
+    expect(state.bindings).to.be.empty;
+    var binding = state.addBinding(document.body, {}, function () {});
+
+    expect(binding).to.be.null;
+    expect(state.bindings).to.be.empty;
+  });
+});
+
+/** @test {getGestureType} */
+describe(&apos;getGestureType&apos;, function () {
+
+  it(&apos;should return tap if the string is a valid binding&apos;, function () {
+    expect(getGestureType(&apos;tap&apos;)).to.equal(&apos;tap&apos;);
+  });
+
+  it(&apos;should return null for an invalid string key binding&apos;, function () {
+    expect(getGestureType(&apos;quadruple-tap&apos;)).to.be.null;
+  });
+
+  it(&apos;should return tap for a valid gesture object&apos;, function () {
+    var tapGesture = new Tap();
+    expect(getGestureType(tapGesture)).to.equal(&apos;tap&apos;);
+  });
+
+  it(&apos;should return null for an invalid object&apos;, function () {
+    expect(getGestureType({})).to.be.null;
+  });
+
+});
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.6)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

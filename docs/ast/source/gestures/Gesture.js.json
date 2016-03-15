@@ -1,0 +1,5067 @@
+{
+  "type": "Program",
+  "body": [
+    {
+      "type": "Identifier",
+      "id": {
+        "type": "Identifier",
+        "name": "Gesture",
+        "range": [
+          126,
+          133
+        ],
+        "loc": {
+          "start": {
+            "line": 9,
+            "column": 6
+          },
+          "end": {
+            "line": 9,
+            "column": 13
+          }
+        }
+      },
+      "superClass": null,
+      "body": {
+        "type": "ClassBody",
+        "body": [
+          {
+            "type": "MethodDefinition",
+            "key": {
+              "type": "Identifier",
+              "name": "constructor",
+              "range": [
+                219,
+                230
+              ],
+              "loc": {
+                "start": {
+                  "line": 14,
+                  "column": 2
+                },
+                "end": {
+                  "line": 14,
+                  "column": 13
+                }
+              }
+            },
+            "value": {
+              "type": "FunctionExpression",
+              "id": null,
+              "params": [],
+              "body": {
+                "type": "BlockStatement",
+                "body": [
+                  {
+                    "type": "ExpressionStatement",
+                    "expression": {
+                      "type": "AssignmentExpression",
+                      "operator": "=",
+                      "left": {
+                        "type": "MemberExpression",
+                        "computed": false,
+                        "object": {
+                          "type": "ThisExpression",
+                          "range": [
+                            368,
+                            372
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 19,
+                              "column": 4
+                            },
+                            "end": {
+                              "line": 19,
+                              "column": 8
+                            }
+                          }
+                        },
+                        "property": {
+                          "type": "Identifier",
+                          "name": "type",
+                          "range": [
+                            373,
+                            377
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 19,
+                              "column": 9
+                            },
+                            "end": {
+                              "line": 19,
+                              "column": 13
+                            }
+                          }
+                        },
+                        "range": [
+                          368,
+                          377
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 19,
+                            "column": 4
+                          },
+                          "end": {
+                            "line": 19,
+                            "column": 13
+                          }
+                        }
+                      },
+                      "right": {
+                        "type": "Literal",
+                        "value": null,
+                        "raw": "null",
+                        "range": [
+                          380,
+                          384
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 19,
+                            "column": 16
+                          },
+                          "end": {
+                            "line": 19,
+                            "column": 20
+                          }
+                        }
+                      },
+                      "range": [
+                        368,
+                        384
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 19,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 19,
+                          "column": 20
+                        }
+                      }
+                    },
+                    "range": [
+                      368,
+                      385
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 19,
+                        "column": 4
+                      },
+                      "end": {
+                        "line": 19,
+                        "column": 21
+                      }
+                    },
+                    "leadingComments": [
+                      {
+                        "type": "Block",
+                        "value": "*\n     * The generic string type of gesture ('expand'|'pan'|'pinch'|'rotate'|'swipe'|'tap').\n     * @type {String}\n     ",
+                        "range": [
+                          239,
+                          363
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 15,
+                            "column": 4
+                          },
+                          "end": {
+                            "line": 18,
+                            "column": 7
+                          }
+                        }
+                      }
+                    ],
+                    "trailingComments": [
+                      {
+                        "type": "Block",
+                        "value": "*\n     * The unique identifier for each gesture determined at bind time by the state object. This\n     * allows for distinctions across instance variables of Gestures that are created on the fly\n     * (e.g. Tap-1, Tap-2, etc).\n     * @type {String|null}\n     ",
+                        "range": [
+                          391,
+                          655
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 21,
+                            "column": 4
+                          },
+                          "end": {
+                            "line": 26,
+                            "column": 7
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "ExpressionStatement",
+                    "expression": {
+                      "type": "AssignmentExpression",
+                      "operator": "=",
+                      "left": {
+                        "type": "MemberExpression",
+                        "computed": false,
+                        "object": {
+                          "type": "ThisExpression",
+                          "range": [
+                            660,
+                            664
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 27,
+                              "column": 4
+                            },
+                            "end": {
+                              "line": 27,
+                              "column": 8
+                            }
+                          }
+                        },
+                        "property": {
+                          "type": "Identifier",
+                          "name": "id",
+                          "range": [
+                            665,
+                            667
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 27,
+                              "column": 9
+                            },
+                            "end": {
+                              "line": 27,
+                              "column": 11
+                            }
+                          }
+                        },
+                        "range": [
+                          660,
+                          667
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 27,
+                            "column": 4
+                          },
+                          "end": {
+                            "line": 27,
+                            "column": 11
+                          }
+                        }
+                      },
+                      "right": {
+                        "type": "Literal",
+                        "value": null,
+                        "raw": "null",
+                        "range": [
+                          670,
+                          674
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 27,
+                            "column": 14
+                          },
+                          "end": {
+                            "line": 27,
+                            "column": 18
+                          }
+                        }
+                      },
+                      "range": [
+                        660,
+                        674
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 27,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 27,
+                          "column": 18
+                        }
+                      }
+                    },
+                    "range": [
+                      660,
+                      675
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 27,
+                        "column": 4
+                      },
+                      "end": {
+                        "line": 27,
+                        "column": 19
+                      }
+                    },
+                    "leadingComments": [
+                      {
+                        "type": "Block",
+                        "value": "*\n     * The unique identifier for each gesture determined at bind time by the state object. This\n     * allows for distinctions across instance variables of Gestures that are created on the fly\n     * (e.g. Tap-1, Tap-2, etc).\n     * @type {String|null}\n     ",
+                        "range": [
+                          391,
+                          655
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 21,
+                            "column": 4
+                          },
+                          "end": {
+                            "line": 26,
+                            "column": 7
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "range": [
+                  233,
+                  679
+                ],
+                "loc": {
+                  "start": {
+                    "line": 14,
+                    "column": 16
+                  },
+                  "end": {
+                    "line": 28,
+                    "column": 3
+                  }
+                }
+              },
+              "generator": false,
+              "expression": false,
+              "range": [
+                230,
+                679
+              ],
+              "loc": {
+                "start": {
+                  "line": 14,
+                  "column": 13
+                },
+                "end": {
+                  "line": 28,
+                  "column": 3
+                }
+              }
+            },
+            "kind": "constructor",
+            "computed": false,
+            "range": [
+              219,
+              679
+            ],
+            "loc": {
+              "start": {
+                "line": 14,
+                "column": 2
+              },
+              "end": {
+                "line": 28,
+                "column": 3
+              }
+            },
+            "leadingComments": [
+              {
+                "type": "Block",
+                "value": "*\n   * Constructor function for the Gesture class.\n   * @class Gesture\n   ",
+                "range": [
+                  138,
+                  216
+                ],
+                "loc": {
+                  "start": {
+                    "line": 10,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 13,
+                    "column": 5
+                  }
+                }
+              }
+            ],
+            "trailingComments": [
+              {
+                "type": "Block",
+                "value": "*\n   * Set the type of the gesture to be called during an event\n   * @param {String} type - The unique identifier of the gesture being created.\n   ",
+                "range": [
+                  683,
+                  834
+                ],
+                "loc": {
+                  "start": {
+                    "line": 30,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 33,
+                    "column": 5
+                  }
+                }
+              }
+            ],
+            "static": false
+          },
+          {
+            "type": "MethodDefinition",
+            "key": {
+              "type": "Identifier",
+              "name": "setType",
+              "range": [
+                837,
+                844
+              ],
+              "loc": {
+                "start": {
+                  "line": 34,
+                  "column": 2
+                },
+                "end": {
+                  "line": 34,
+                  "column": 9
+                }
+              }
+            },
+            "value": {
+              "type": "FunctionExpression",
+              "id": null,
+              "params": [
+                {
+                  "type": "Identifier",
+                  "name": "type",
+                  "range": [
+                    845,
+                    849
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 34,
+                      "column": 10
+                    },
+                    "end": {
+                      "line": 34,
+                      "column": 14
+                    }
+                  }
+                }
+              ],
+              "body": {
+                "type": "BlockStatement",
+                "body": [
+                  {
+                    "type": "ExpressionStatement",
+                    "expression": {
+                      "type": "AssignmentExpression",
+                      "operator": "=",
+                      "left": {
+                        "type": "MemberExpression",
+                        "computed": false,
+                        "object": {
+                          "type": "ThisExpression",
+                          "range": [
+                            857,
+                            861
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 35,
+                              "column": 4
+                            },
+                            "end": {
+                              "line": 35,
+                              "column": 8
+                            }
+                          }
+                        },
+                        "property": {
+                          "type": "Identifier",
+                          "name": "type",
+                          "range": [
+                            862,
+                            866
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 35,
+                              "column": 9
+                            },
+                            "end": {
+                              "line": 35,
+                              "column": 13
+                            }
+                          }
+                        },
+                        "range": [
+                          857,
+                          866
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 35,
+                            "column": 4
+                          },
+                          "end": {
+                            "line": 35,
+                            "column": 13
+                          }
+                        }
+                      },
+                      "right": {
+                        "type": "Identifier",
+                        "name": "type",
+                        "range": [
+                          869,
+                          873
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 35,
+                            "column": 16
+                          },
+                          "end": {
+                            "line": 35,
+                            "column": 20
+                          }
+                        }
+                      },
+                      "range": [
+                        857,
+                        873
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 35,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 35,
+                          "column": 20
+                        }
+                      }
+                    },
+                    "range": [
+                      857,
+                      874
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 35,
+                        "column": 4
+                      },
+                      "end": {
+                        "line": 35,
+                        "column": 21
+                      }
+                    }
+                  }
+                ],
+                "range": [
+                  851,
+                  878
+                ],
+                "loc": {
+                  "start": {
+                    "line": 34,
+                    "column": 16
+                  },
+                  "end": {
+                    "line": 36,
+                    "column": 3
+                  }
+                }
+              },
+              "generator": false,
+              "expression": false,
+              "range": [
+                844,
+                878
+              ],
+              "loc": {
+                "start": {
+                  "line": 34,
+                  "column": 9
+                },
+                "end": {
+                  "line": 36,
+                  "column": 3
+                }
+              }
+            },
+            "kind": "method",
+            "computed": false,
+            "range": [
+              837,
+              878
+            ],
+            "loc": {
+              "start": {
+                "line": 34,
+                "column": 2
+              },
+              "end": {
+                "line": 36,
+                "column": 3
+              }
+            },
+            "leadingComments": [
+              {
+                "type": "Block",
+                "value": "*\n   * Set the type of the gesture to be called during an event\n   * @param {String} type - The unique identifier of the gesture being created.\n   ",
+                "range": [
+                  683,
+                  834
+                ],
+                "loc": {
+                  "start": {
+                    "line": 30,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 33,
+                    "column": 5
+                  }
+                }
+              }
+            ],
+            "trailingComments": [
+              {
+                "type": "Block",
+                "value": "setId",
+                "range": [
+                  881,
+                  890
+                ],
+                "loc": {
+                  "start": {
+                    "line": 37,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 37,
+                    "column": 11
+                  }
+                }
+              },
+              {
+                "type": "Block",
+                "value": "*\n   * getType() - Returns the generic type of the gesture\n   * @returns {String} - The type of gesture\n   ",
+                "range": [
+                  894,
+                  1005
+                ],
+                "loc": {
+                  "start": {
+                    "line": 39,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 42,
+                    "column": 5
+                  }
+                }
+              }
+            ],
+            "static": false
+          },
+          {
+            "type": "MethodDefinition",
+            "key": {
+              "type": "Identifier",
+              "name": "getType",
+              "range": [
+                1008,
+                1015
+              ],
+              "loc": {
+                "start": {
+                  "line": 43,
+                  "column": 2
+                },
+                "end": {
+                  "line": 43,
+                  "column": 9
+                }
+              }
+            },
+            "value": {
+              "type": "FunctionExpression",
+              "id": null,
+              "params": [],
+              "body": {
+                "type": "BlockStatement",
+                "body": [
+                  {
+                    "type": "ReturnStatement",
+                    "argument": {
+                      "type": "MemberExpression",
+                      "computed": false,
+                      "object": {
+                        "type": "ThisExpression",
+                        "range": [
+                          1031,
+                          1035
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 44,
+                            "column": 11
+                          },
+                          "end": {
+                            "line": 44,
+                            "column": 15
+                          }
+                        }
+                      },
+                      "property": {
+                        "type": "Identifier",
+                        "name": "type",
+                        "range": [
+                          1036,
+                          1040
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 44,
+                            "column": 16
+                          },
+                          "end": {
+                            "line": 44,
+                            "column": 20
+                          }
+                        }
+                      },
+                      "range": [
+                        1031,
+                        1040
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 44,
+                          "column": 11
+                        },
+                        "end": {
+                          "line": 44,
+                          "column": 20
+                        }
+                      }
+                    },
+                    "range": [
+                      1024,
+                      1041
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 44,
+                        "column": 4
+                      },
+                      "end": {
+                        "line": 44,
+                        "column": 21
+                      }
+                    }
+                  }
+                ],
+                "range": [
+                  1018,
+                  1045
+                ],
+                "loc": {
+                  "start": {
+                    "line": 43,
+                    "column": 12
+                  },
+                  "end": {
+                    "line": 45,
+                    "column": 3
+                  }
+                }
+              },
+              "generator": false,
+              "expression": false,
+              "range": [
+                1015,
+                1045
+              ],
+              "loc": {
+                "start": {
+                  "line": 43,
+                  "column": 9
+                },
+                "end": {
+                  "line": 45,
+                  "column": 3
+                }
+              }
+            },
+            "kind": "method",
+            "computed": false,
+            "range": [
+              1008,
+              1045
+            ],
+            "loc": {
+              "start": {
+                "line": 43,
+                "column": 2
+              },
+              "end": {
+                "line": 45,
+                "column": 3
+              }
+            },
+            "leadingComments": [
+              {
+                "type": "Block",
+                "value": "setId",
+                "range": [
+                  881,
+                  890
+                ],
+                "loc": {
+                  "start": {
+                    "line": 37,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 37,
+                    "column": 11
+                  }
+                }
+              },
+              {
+                "type": "Block",
+                "value": "*\n   * getType() - Returns the generic type of the gesture\n   * @returns {String} - The type of gesture\n   ",
+                "range": [
+                  894,
+                  1005
+                ],
+                "loc": {
+                  "start": {
+                    "line": 39,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 42,
+                    "column": 5
+                  }
+                }
+              }
+            ],
+            "trailingComments": [
+              {
+                "type": "Block",
+                "value": "getType",
+                "range": [
+                  1048,
+                  1059
+                ],
+                "loc": {
+                  "start": {
+                    "line": 46,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 46,
+                    "column": 13
+                  }
+                }
+              },
+              {
+                "type": "Block",
+                "value": "*\n   * Set the id of the gesture to be called during an event\n   * @param {Number} id - The unique identifier of the gesture being created.\n   ",
+                "range": [
+                  1063,
+                  1210
+                ],
+                "loc": {
+                  "start": {
+                    "line": 48,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 51,
+                    "column": 5
+                  }
+                }
+              }
+            ],
+            "static": false
+          },
+          {
+            "type": "MethodDefinition",
+            "key": {
+              "type": "Identifier",
+              "name": "setId",
+              "range": [
+                1213,
+                1218
+              ],
+              "loc": {
+                "start": {
+                  "line": 52,
+                  "column": 2
+                },
+                "end": {
+                  "line": 52,
+                  "column": 7
+                }
+              }
+            },
+            "value": {
+              "type": "FunctionExpression",
+              "id": null,
+              "params": [
+                {
+                  "type": "Identifier",
+                  "name": "id",
+                  "range": [
+                    1219,
+                    1221
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 52,
+                      "column": 8
+                    },
+                    "end": {
+                      "line": 52,
+                      "column": 10
+                    }
+                  }
+                }
+              ],
+              "body": {
+                "type": "BlockStatement",
+                "body": [
+                  {
+                    "type": "ExpressionStatement",
+                    "expression": {
+                      "type": "AssignmentExpression",
+                      "operator": "=",
+                      "left": {
+                        "type": "MemberExpression",
+                        "computed": false,
+                        "object": {
+                          "type": "ThisExpression",
+                          "range": [
+                            1229,
+                            1233
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 53,
+                              "column": 4
+                            },
+                            "end": {
+                              "line": 53,
+                              "column": 8
+                            }
+                          }
+                        },
+                        "property": {
+                          "type": "Identifier",
+                          "name": "id",
+                          "range": [
+                            1234,
+                            1236
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 53,
+                              "column": 9
+                            },
+                            "end": {
+                              "line": 53,
+                              "column": 11
+                            }
+                          }
+                        },
+                        "range": [
+                          1229,
+                          1236
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 53,
+                            "column": 4
+                          },
+                          "end": {
+                            "line": 53,
+                            "column": 11
+                          }
+                        }
+                      },
+                      "right": {
+                        "type": "Identifier",
+                        "name": "id",
+                        "range": [
+                          1239,
+                          1241
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 53,
+                            "column": 14
+                          },
+                          "end": {
+                            "line": 53,
+                            "column": 16
+                          }
+                        }
+                      },
+                      "range": [
+                        1229,
+                        1241
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 53,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 53,
+                          "column": 16
+                        }
+                      }
+                    },
+                    "range": [
+                      1229,
+                      1242
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 53,
+                        "column": 4
+                      },
+                      "end": {
+                        "line": 53,
+                        "column": 17
+                      }
+                    }
+                  }
+                ],
+                "range": [
+                  1223,
+                  1246
+                ],
+                "loc": {
+                  "start": {
+                    "line": 52,
+                    "column": 12
+                  },
+                  "end": {
+                    "line": 54,
+                    "column": 3
+                  }
+                }
+              },
+              "generator": false,
+              "expression": false,
+              "range": [
+                1218,
+                1246
+              ],
+              "loc": {
+                "start": {
+                  "line": 52,
+                  "column": 7
+                },
+                "end": {
+                  "line": 54,
+                  "column": 3
+                }
+              }
+            },
+            "kind": "method",
+            "computed": false,
+            "range": [
+              1213,
+              1246
+            ],
+            "loc": {
+              "start": {
+                "line": 52,
+                "column": 2
+              },
+              "end": {
+                "line": 54,
+                "column": 3
+              }
+            },
+            "leadingComments": [
+              {
+                "type": "Block",
+                "value": "getType",
+                "range": [
+                  1048,
+                  1059
+                ],
+                "loc": {
+                  "start": {
+                    "line": 46,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 46,
+                    "column": 13
+                  }
+                }
+              },
+              {
+                "type": "Block",
+                "value": "*\n   * Set the id of the gesture to be called during an event\n   * @param {Number} id - The unique identifier of the gesture being created.\n   ",
+                "range": [
+                  1063,
+                  1210
+                ],
+                "loc": {
+                  "start": {
+                    "line": 48,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 51,
+                    "column": 5
+                  }
+                }
+              }
+            ],
+            "trailingComments": [
+              {
+                "type": "Block",
+                "value": "setId",
+                "range": [
+                  1249,
+                  1258
+                ],
+                "loc": {
+                  "start": {
+                    "line": 55,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 55,
+                    "column": 11
+                  }
+                }
+              },
+              {
+                "type": "Block",
+                "value": "*\n   * Return the id of the event. If the id does not exist, return the type.\n   * @return {String}\n   ",
+                "range": [
+                  1262,
+                  1369
+                ],
+                "loc": {
+                  "start": {
+                    "line": 57,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 60,
+                    "column": 5
+                  }
+                }
+              }
+            ],
+            "static": false
+          },
+          {
+            "type": "MethodDefinition",
+            "key": {
+              "type": "Identifier",
+              "name": "getId",
+              "range": [
+                1372,
+                1377
+              ],
+              "loc": {
+                "start": {
+                  "line": 61,
+                  "column": 2
+                },
+                "end": {
+                  "line": 61,
+                  "column": 7
+                }
+              }
+            },
+            "value": {
+              "type": "FunctionExpression",
+              "id": null,
+              "params": [],
+              "body": {
+                "type": "BlockStatement",
+                "body": [
+                  {
+                    "type": "ReturnStatement",
+                    "argument": {
+                      "type": "ConditionalExpression",
+                      "test": {
+                        "type": "MemberExpression",
+                        "computed": false,
+                        "object": {
+                          "type": "ThisExpression",
+                          "range": [
+                            1394,
+                            1398
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 62,
+                              "column": 12
+                            },
+                            "end": {
+                              "line": 62,
+                              "column": 16
+                            }
+                          }
+                        },
+                        "property": {
+                          "type": "Identifier",
+                          "name": "id",
+                          "range": [
+                            1399,
+                            1401
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 62,
+                              "column": 17
+                            },
+                            "end": {
+                              "line": 62,
+                              "column": 19
+                            }
+                          }
+                        },
+                        "range": [
+                          1394,
+                          1401
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 62,
+                            "column": 12
+                          },
+                          "end": {
+                            "line": 62,
+                            "column": 19
+                          }
+                        }
+                      },
+                      "consequent": {
+                        "type": "MemberExpression",
+                        "computed": false,
+                        "object": {
+                          "type": "ThisExpression",
+                          "range": [
+                            1405,
+                            1409
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 62,
+                              "column": 23
+                            },
+                            "end": {
+                              "line": 62,
+                              "column": 27
+                            }
+                          }
+                        },
+                        "property": {
+                          "type": "Identifier",
+                          "name": "id",
+                          "range": [
+                            1410,
+                            1412
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 62,
+                              "column": 28
+                            },
+                            "end": {
+                              "line": 62,
+                              "column": 30
+                            }
+                          }
+                        },
+                        "range": [
+                          1405,
+                          1412
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 62,
+                            "column": 23
+                          },
+                          "end": {
+                            "line": 62,
+                            "column": 30
+                          }
+                        }
+                      },
+                      "alternate": {
+                        "type": "MemberExpression",
+                        "computed": false,
+                        "object": {
+                          "type": "ThisExpression",
+                          "range": [
+                            1415,
+                            1419
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 62,
+                              "column": 33
+                            },
+                            "end": {
+                              "line": 62,
+                              "column": 37
+                            }
+                          }
+                        },
+                        "property": {
+                          "type": "Identifier",
+                          "name": "type",
+                          "range": [
+                            1420,
+                            1424
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 62,
+                              "column": 38
+                            },
+                            "end": {
+                              "line": 62,
+                              "column": 42
+                            }
+                          }
+                        },
+                        "range": [
+                          1415,
+                          1424
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 62,
+                            "column": 33
+                          },
+                          "end": {
+                            "line": 62,
+                            "column": 42
+                          }
+                        }
+                      },
+                      "range": [
+                        1393,
+                        1424
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 62,
+                          "column": 11
+                        },
+                        "end": {
+                          "line": 62,
+                          "column": 42
+                        }
+                      }
+                    },
+                    "range": [
+                      1386,
+                      1425
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 62,
+                        "column": 4
+                      },
+                      "end": {
+                        "line": 62,
+                        "column": 43
+                      }
+                    }
+                  }
+                ],
+                "range": [
+                  1380,
+                  1429
+                ],
+                "loc": {
+                  "start": {
+                    "line": 61,
+                    "column": 10
+                  },
+                  "end": {
+                    "line": 63,
+                    "column": 3
+                  }
+                }
+              },
+              "generator": false,
+              "expression": false,
+              "range": [
+                1377,
+                1429
+              ],
+              "loc": {
+                "start": {
+                  "line": 61,
+                  "column": 7
+                },
+                "end": {
+                  "line": 63,
+                  "column": 3
+                }
+              }
+            },
+            "kind": "method",
+            "computed": false,
+            "range": [
+              1372,
+              1429
+            ],
+            "loc": {
+              "start": {
+                "line": 61,
+                "column": 2
+              },
+              "end": {
+                "line": 63,
+                "column": 3
+              }
+            },
+            "leadingComments": [
+              {
+                "type": "Block",
+                "value": "setId",
+                "range": [
+                  1249,
+                  1258
+                ],
+                "loc": {
+                  "start": {
+                    "line": 55,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 55,
+                    "column": 11
+                  }
+                }
+              },
+              {
+                "type": "Block",
+                "value": "*\n   * Return the id of the event. If the id does not exist, return the type.\n   * @return {String}\n   ",
+                "range": [
+                  1262,
+                  1369
+                ],
+                "loc": {
+                  "start": {
+                    "line": 57,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 60,
+                    "column": 5
+                  }
+                }
+              }
+            ],
+            "trailingComments": [
+              {
+                "type": "Block",
+                "value": "getId",
+                "range": [
+                  1432,
+                  1441
+                ],
+                "loc": {
+                  "start": {
+                    "line": 64,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 64,
+                    "column": 11
+                  }
+                }
+              },
+              {
+                "type": "Line",
+                "value": "noinspection JSUnusedLocalSymbols",
+                "range": [
+                  1445,
+                  1480
+                ],
+                "loc": {
+                  "start": {
+                    "line": 66,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 66,
+                    "column": 37
+                  }
+                }
+              },
+              {
+                "type": "Block",
+                "value": "*\n   * start() - Event hook for the start of a gesture\n   * @param {Array} inputs - The array of Inputs on the screen\n   * @returns {null|Object}  - Default of null\n   ",
+                "range": [
+                  1483,
+                  1655
+                ],
+                "loc": {
+                  "start": {
+                    "line": 67,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 71,
+                    "column": 5
+                  }
+                }
+              }
+            ],
+            "static": false
+          },
+          {
+            "type": "MethodDefinition",
+            "key": {
+              "type": "Identifier",
+              "name": "start",
+              "range": [
+                1658,
+                1663
+              ],
+              "loc": {
+                "start": {
+                  "line": 72,
+                  "column": 2
+                },
+                "end": {
+                  "line": 72,
+                  "column": 7
+                }
+              }
+            },
+            "value": {
+              "type": "FunctionExpression",
+              "id": null,
+              "params": [
+                {
+                  "type": "Identifier",
+                  "name": "inputs",
+                  "range": [
+                    1664,
+                    1670
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 72,
+                      "column": 8
+                    },
+                    "end": {
+                      "line": 72,
+                      "column": 14
+                    }
+                  }
+                }
+              ],
+              "body": {
+                "type": "BlockStatement",
+                "body": [
+                  {
+                    "type": "ReturnStatement",
+                    "argument": {
+                      "type": "Literal",
+                      "value": null,
+                      "raw": "null",
+                      "range": [
+                        1685,
+                        1689
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 73,
+                          "column": 11
+                        },
+                        "end": {
+                          "line": 73,
+                          "column": 15
+                        }
+                      }
+                    },
+                    "range": [
+                      1678,
+                      1690
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 73,
+                        "column": 4
+                      },
+                      "end": {
+                        "line": 73,
+                        "column": 16
+                      }
+                    }
+                  }
+                ],
+                "range": [
+                  1672,
+                  1694
+                ],
+                "loc": {
+                  "start": {
+                    "line": 72,
+                    "column": 16
+                  },
+                  "end": {
+                    "line": 74,
+                    "column": 3
+                  }
+                }
+              },
+              "generator": false,
+              "expression": false,
+              "range": [
+                1663,
+                1694
+              ],
+              "loc": {
+                "start": {
+                  "line": 72,
+                  "column": 7
+                },
+                "end": {
+                  "line": 74,
+                  "column": 3
+                }
+              }
+            },
+            "kind": "method",
+            "computed": false,
+            "range": [
+              1658,
+              1694
+            ],
+            "loc": {
+              "start": {
+                "line": 72,
+                "column": 2
+              },
+              "end": {
+                "line": 74,
+                "column": 3
+              }
+            },
+            "leadingComments": [
+              {
+                "type": "Block",
+                "value": "getId",
+                "range": [
+                  1432,
+                  1441
+                ],
+                "loc": {
+                  "start": {
+                    "line": 64,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 64,
+                    "column": 11
+                  }
+                }
+              },
+              {
+                "type": "Line",
+                "value": "noinspection JSUnusedLocalSymbols",
+                "range": [
+                  1445,
+                  1480
+                ],
+                "loc": {
+                  "start": {
+                    "line": 66,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 66,
+                    "column": 37
+                  }
+                }
+              },
+              {
+                "type": "Block",
+                "value": "*\n   * start() - Event hook for the start of a gesture\n   * @param {Array} inputs - The array of Inputs on the screen\n   * @returns {null|Object}  - Default of null\n   ",
+                "range": [
+                  1483,
+                  1655
+                ],
+                "loc": {
+                  "start": {
+                    "line": 67,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 71,
+                    "column": 5
+                  }
+                }
+              }
+            ],
+            "trailingComments": [
+              {
+                "type": "Block",
+                "value": "start",
+                "range": [
+                  1697,
+                  1706
+                ],
+                "loc": {
+                  "start": {
+                    "line": 75,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 75,
+                    "column": 11
+                  }
+                }
+              },
+              {
+                "type": "Line",
+                "value": "noinspection JSUnusedLocalSymbols",
+                "range": [
+                  1710,
+                  1745
+                ],
+                "loc": {
+                  "start": {
+                    "line": 77,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 77,
+                    "column": 37
+                  }
+                }
+              },
+              {
+                "type": "Block",
+                "value": "*\n   * move() - Event hook for the move of a gesture\n   * @param {Array} inputs - The array of Inputs on the screen\n   * @returns {null|Object} - Default of null\n   ",
+                "range": [
+                  1748,
+                  1917
+                ],
+                "loc": {
+                  "start": {
+                    "line": 78,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 82,
+                    "column": 5
+                  }
+                }
+              }
+            ],
+            "static": false
+          },
+          {
+            "type": "MethodDefinition",
+            "key": {
+              "type": "Identifier",
+              "name": "move",
+              "range": [
+                1920,
+                1924
+              ],
+              "loc": {
+                "start": {
+                  "line": 83,
+                  "column": 2
+                },
+                "end": {
+                  "line": 83,
+                  "column": 6
+                }
+              }
+            },
+            "value": {
+              "type": "FunctionExpression",
+              "id": null,
+              "params": [
+                {
+                  "type": "Identifier",
+                  "name": "inputs",
+                  "range": [
+                    1925,
+                    1931
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 83,
+                      "column": 7
+                    },
+                    "end": {
+                      "line": 83,
+                      "column": 13
+                    }
+                  }
+                }
+              ],
+              "body": {
+                "type": "BlockStatement",
+                "body": [
+                  {
+                    "type": "ReturnStatement",
+                    "argument": {
+                      "type": "Literal",
+                      "value": null,
+                      "raw": "null",
+                      "range": [
+                        1946,
+                        1950
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 84,
+                          "column": 11
+                        },
+                        "end": {
+                          "line": 84,
+                          "column": 15
+                        }
+                      }
+                    },
+                    "range": [
+                      1939,
+                      1951
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 84,
+                        "column": 4
+                      },
+                      "end": {
+                        "line": 84,
+                        "column": 16
+                      }
+                    }
+                  }
+                ],
+                "range": [
+                  1933,
+                  1955
+                ],
+                "loc": {
+                  "start": {
+                    "line": 83,
+                    "column": 15
+                  },
+                  "end": {
+                    "line": 85,
+                    "column": 3
+                  }
+                }
+              },
+              "generator": false,
+              "expression": false,
+              "range": [
+                1924,
+                1955
+              ],
+              "loc": {
+                "start": {
+                  "line": 83,
+                  "column": 6
+                },
+                "end": {
+                  "line": 85,
+                  "column": 3
+                }
+              }
+            },
+            "kind": "method",
+            "computed": false,
+            "range": [
+              1920,
+              1955
+            ],
+            "loc": {
+              "start": {
+                "line": 83,
+                "column": 2
+              },
+              "end": {
+                "line": 85,
+                "column": 3
+              }
+            },
+            "leadingComments": [
+              {
+                "type": "Block",
+                "value": "start",
+                "range": [
+                  1697,
+                  1706
+                ],
+                "loc": {
+                  "start": {
+                    "line": 75,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 75,
+                    "column": 11
+                  }
+                }
+              },
+              {
+                "type": "Line",
+                "value": "noinspection JSUnusedLocalSymbols",
+                "range": [
+                  1710,
+                  1745
+                ],
+                "loc": {
+                  "start": {
+                    "line": 77,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 77,
+                    "column": 37
+                  }
+                }
+              },
+              {
+                "type": "Block",
+                "value": "*\n   * move() - Event hook for the move of a gesture\n   * @param {Array} inputs - The array of Inputs on the screen\n   * @returns {null|Object} - Default of null\n   ",
+                "range": [
+                  1748,
+                  1917
+                ],
+                "loc": {
+                  "start": {
+                    "line": 78,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 82,
+                    "column": 5
+                  }
+                }
+              }
+            ],
+            "trailingComments": [
+              {
+                "type": "Block",
+                "value": "move",
+                "range": [
+                  1958,
+                  1966
+                ],
+                "loc": {
+                  "start": {
+                    "line": 86,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 86,
+                    "column": 10
+                  }
+                }
+              },
+              {
+                "type": "Line",
+                "value": "noinspection JSUnusedLocalSymbols",
+                "range": [
+                  1970,
+                  2005
+                ],
+                "loc": {
+                  "start": {
+                    "line": 88,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 88,
+                    "column": 37
+                  }
+                }
+              },
+              {
+                "type": "Block",
+                "value": "*\n   * end() - Event hook for the move of a gesture\n   * @param {Array} inputs - The array of Inputs on the screen\n   * @returns {null|Object}  - Default of null\n   ",
+                "range": [
+                  2008,
+                  2177
+                ],
+                "loc": {
+                  "start": {
+                    "line": 89,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 93,
+                    "column": 5
+                  }
+                }
+              }
+            ],
+            "static": false
+          },
+          {
+            "type": "MethodDefinition",
+            "key": {
+              "type": "Identifier",
+              "name": "end",
+              "range": [
+                2180,
+                2183
+              ],
+              "loc": {
+                "start": {
+                  "line": 94,
+                  "column": 2
+                },
+                "end": {
+                  "line": 94,
+                  "column": 5
+                }
+              }
+            },
+            "value": {
+              "type": "FunctionExpression",
+              "id": null,
+              "params": [
+                {
+                  "type": "Identifier",
+                  "name": "inputs",
+                  "range": [
+                    2184,
+                    2190
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 94,
+                      "column": 6
+                    },
+                    "end": {
+                      "line": 94,
+                      "column": 12
+                    }
+                  }
+                }
+              ],
+              "body": {
+                "type": "BlockStatement",
+                "body": [
+                  {
+                    "type": "ReturnStatement",
+                    "argument": {
+                      "type": "Literal",
+                      "value": null,
+                      "raw": "null",
+                      "range": [
+                        2205,
+                        2209
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 95,
+                          "column": 11
+                        },
+                        "end": {
+                          "line": 95,
+                          "column": 15
+                        }
+                      }
+                    },
+                    "range": [
+                      2198,
+                      2210
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 95,
+                        "column": 4
+                      },
+                      "end": {
+                        "line": 95,
+                        "column": 16
+                      }
+                    }
+                  }
+                ],
+                "range": [
+                  2192,
+                  2214
+                ],
+                "loc": {
+                  "start": {
+                    "line": 94,
+                    "column": 14
+                  },
+                  "end": {
+                    "line": 96,
+                    "column": 3
+                  }
+                }
+              },
+              "generator": false,
+              "expression": false,
+              "range": [
+                2183,
+                2214
+              ],
+              "loc": {
+                "start": {
+                  "line": 94,
+                  "column": 5
+                },
+                "end": {
+                  "line": 96,
+                  "column": 3
+                }
+              }
+            },
+            "kind": "method",
+            "computed": false,
+            "range": [
+              2180,
+              2214
+            ],
+            "loc": {
+              "start": {
+                "line": 94,
+                "column": 2
+              },
+              "end": {
+                "line": 96,
+                "column": 3
+              }
+            },
+            "leadingComments": [
+              {
+                "type": "Block",
+                "value": "move",
+                "range": [
+                  1958,
+                  1966
+                ],
+                "loc": {
+                  "start": {
+                    "line": 86,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 86,
+                    "column": 10
+                  }
+                }
+              },
+              {
+                "type": "Line",
+                "value": "noinspection JSUnusedLocalSymbols",
+                "range": [
+                  1970,
+                  2005
+                ],
+                "loc": {
+                  "start": {
+                    "line": 88,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 88,
+                    "column": 37
+                  }
+                }
+              },
+              {
+                "type": "Block",
+                "value": "*\n   * end() - Event hook for the move of a gesture\n   * @param {Array} inputs - The array of Inputs on the screen\n   * @returns {null|Object}  - Default of null\n   ",
+                "range": [
+                  2008,
+                  2177
+                ],
+                "loc": {
+                  "start": {
+                    "line": 89,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 93,
+                    "column": 5
+                  }
+                }
+              }
+            ],
+            "trailingComments": [
+              {
+                "type": "Block",
+                "value": "end",
+                "range": [
+                  2217,
+                  2224
+                ],
+                "loc": {
+                  "start": {
+                    "line": 97,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 97,
+                    "column": 9
+                  }
+                }
+              }
+            ],
+            "static": false
+          }
+        ],
+        "range": [
+          134,
+          2227
+        ],
+        "loc": {
+          "start": {
+            "line": 9,
+            "column": 14
+          },
+          "end": {
+            "line": 99,
+            "column": 1
+          }
+        }
+      },
+      "range": [
+        120,
+        2227
+      ],
+      "loc": {
+        "start": {
+          "line": 9,
+          "column": 0
+        },
+        "end": {
+          "line": 99,
+          "column": 1
+        }
+      },
+      "leadingComments": [],
+      "name": "_",
+      "trailingComments": []
+    },
+    {
+      "type": "Identifier",
+      "declaration": {
+        "type": "Identifier",
+        "name": "Gesture",
+        "range": [
+          2244,
+          2251
+        ],
+        "loc": {
+          "start": {
+            "line": 101,
+            "column": 15
+          },
+          "end": {
+            "line": 101,
+            "column": 22
+          }
+        }
+      },
+      "range": [
+        2229,
+        2252
+      ],
+      "loc": {
+        "start": {
+          "line": 101,
+          "column": 0
+        },
+        "end": {
+          "line": 101,
+          "column": 23
+        }
+      },
+      "leadingComments": [],
+      "name": "_",
+      "trailingComments": []
+    },
+    {
+      "type": "ExportDefaultDeclaration",
+      "declaration": {
+        "type": "ClassDeclaration",
+        "id": {
+          "type": "Identifier",
+          "name": "Gesture",
+          "range": [
+            126,
+            133
+          ],
+          "loc": {
+            "start": {
+              "line": 9,
+              "column": 6
+            },
+            "end": {
+              "line": 9,
+              "column": 13
+            }
+          }
+        },
+        "superClass": null,
+        "body": {
+          "type": "ClassBody",
+          "body": [
+            {
+              "type": "MethodDefinition",
+              "key": {
+                "type": "Identifier",
+                "name": "constructor",
+                "range": [
+                  219,
+                  230
+                ],
+                "loc": {
+                  "start": {
+                    "line": 14,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 14,
+                    "column": 13
+                  }
+                }
+              },
+              "value": {
+                "type": "FunctionExpression",
+                "id": null,
+                "params": [],
+                "body": {
+                  "type": "BlockStatement",
+                  "body": [
+                    {
+                      "type": "ExpressionStatement",
+                      "expression": {
+                        "type": "AssignmentExpression",
+                        "operator": "=",
+                        "left": {
+                          "type": "MemberExpression",
+                          "computed": false,
+                          "object": {
+                            "type": "ThisExpression",
+                            "range": [
+                              368,
+                              372
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 19,
+                                "column": 4
+                              },
+                              "end": {
+                                "line": 19,
+                                "column": 8
+                              }
+                            }
+                          },
+                          "property": {
+                            "type": "Identifier",
+                            "name": "type",
+                            "range": [
+                              373,
+                              377
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 19,
+                                "column": 9
+                              },
+                              "end": {
+                                "line": 19,
+                                "column": 13
+                              }
+                            }
+                          },
+                          "range": [
+                            368,
+                            377
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 19,
+                              "column": 4
+                            },
+                            "end": {
+                              "line": 19,
+                              "column": 13
+                            }
+                          }
+                        },
+                        "right": {
+                          "type": "Literal",
+                          "value": null,
+                          "raw": "null",
+                          "range": [
+                            380,
+                            384
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 19,
+                              "column": 16
+                            },
+                            "end": {
+                              "line": 19,
+                              "column": 20
+                            }
+                          }
+                        },
+                        "range": [
+                          368,
+                          384
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 19,
+                            "column": 4
+                          },
+                          "end": {
+                            "line": 19,
+                            "column": 20
+                          }
+                        }
+                      },
+                      "range": [
+                        368,
+                        385
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 19,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 19,
+                          "column": 21
+                        }
+                      },
+                      "leadingComments": [
+                        {
+                          "type": "Block",
+                          "value": "*\n     * The generic string type of gesture ('expand'|'pan'|'pinch'|'rotate'|'swipe'|'tap').\n     * @type {String}\n     ",
+                          "range": [
+                            239,
+                            363
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 15,
+                              "column": 4
+                            },
+                            "end": {
+                              "line": 18,
+                              "column": 7
+                            }
+                          }
+                        }
+                      ],
+                      "trailingComments": [
+                        {
+                          "type": "Block",
+                          "value": "*\n     * The unique identifier for each gesture determined at bind time by the state object. This\n     * allows for distinctions across instance variables of Gestures that are created on the fly\n     * (e.g. Tap-1, Tap-2, etc).\n     * @type {String|null}\n     ",
+                          "range": [
+                            391,
+                            655
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 21,
+                              "column": 4
+                            },
+                            "end": {
+                              "line": 26,
+                              "column": 7
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "ExpressionStatement",
+                      "expression": {
+                        "type": "AssignmentExpression",
+                        "operator": "=",
+                        "left": {
+                          "type": "MemberExpression",
+                          "computed": false,
+                          "object": {
+                            "type": "ThisExpression",
+                            "range": [
+                              660,
+                              664
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 27,
+                                "column": 4
+                              },
+                              "end": {
+                                "line": 27,
+                                "column": 8
+                              }
+                            }
+                          },
+                          "property": {
+                            "type": "Identifier",
+                            "name": "id",
+                            "range": [
+                              665,
+                              667
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 27,
+                                "column": 9
+                              },
+                              "end": {
+                                "line": 27,
+                                "column": 11
+                              }
+                            }
+                          },
+                          "range": [
+                            660,
+                            667
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 27,
+                              "column": 4
+                            },
+                            "end": {
+                              "line": 27,
+                              "column": 11
+                            }
+                          }
+                        },
+                        "right": {
+                          "type": "Literal",
+                          "value": null,
+                          "raw": "null",
+                          "range": [
+                            670,
+                            674
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 27,
+                              "column": 14
+                            },
+                            "end": {
+                              "line": 27,
+                              "column": 18
+                            }
+                          }
+                        },
+                        "range": [
+                          660,
+                          674
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 27,
+                            "column": 4
+                          },
+                          "end": {
+                            "line": 27,
+                            "column": 18
+                          }
+                        }
+                      },
+                      "range": [
+                        660,
+                        675
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 27,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 27,
+                          "column": 19
+                        }
+                      },
+                      "leadingComments": [
+                        {
+                          "type": "Block",
+                          "value": "*\n     * The unique identifier for each gesture determined at bind time by the state object. This\n     * allows for distinctions across instance variables of Gestures that are created on the fly\n     * (e.g. Tap-1, Tap-2, etc).\n     * @type {String|null}\n     ",
+                          "range": [
+                            391,
+                            655
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 21,
+                              "column": 4
+                            },
+                            "end": {
+                              "line": 26,
+                              "column": 7
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "range": [
+                    233,
+                    679
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 14,
+                      "column": 16
+                    },
+                    "end": {
+                      "line": 28,
+                      "column": 3
+                    }
+                  }
+                },
+                "generator": false,
+                "expression": false,
+                "range": [
+                  230,
+                  679
+                ],
+                "loc": {
+                  "start": {
+                    "line": 14,
+                    "column": 13
+                  },
+                  "end": {
+                    "line": 28,
+                    "column": 3
+                  }
+                }
+              },
+              "kind": "constructor",
+              "computed": false,
+              "range": [
+                219,
+                679
+              ],
+              "loc": {
+                "start": {
+                  "line": 14,
+                  "column": 2
+                },
+                "end": {
+                  "line": 28,
+                  "column": 3
+                }
+              },
+              "leadingComments": [
+                {
+                  "type": "Block",
+                  "value": "*\n   * Constructor function for the Gesture class.\n   * @class Gesture\n   ",
+                  "range": [
+                    138,
+                    216
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 10,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 13,
+                      "column": 5
+                    }
+                  }
+                }
+              ],
+              "trailingComments": [
+                {
+                  "type": "Block",
+                  "value": "*\n   * Set the type of the gesture to be called during an event\n   * @param {String} type - The unique identifier of the gesture being created.\n   ",
+                  "range": [
+                    683,
+                    834
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 30,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 33,
+                      "column": 5
+                    }
+                  }
+                }
+              ],
+              "static": false
+            },
+            {
+              "type": "MethodDefinition",
+              "key": {
+                "type": "Identifier",
+                "name": "setType",
+                "range": [
+                  837,
+                  844
+                ],
+                "loc": {
+                  "start": {
+                    "line": 34,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 34,
+                    "column": 9
+                  }
+                }
+              },
+              "value": {
+                "type": "FunctionExpression",
+                "id": null,
+                "params": [
+                  {
+                    "type": "Identifier",
+                    "name": "type",
+                    "range": [
+                      845,
+                      849
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 34,
+                        "column": 10
+                      },
+                      "end": {
+                        "line": 34,
+                        "column": 14
+                      }
+                    }
+                  }
+                ],
+                "body": {
+                  "type": "BlockStatement",
+                  "body": [
+                    {
+                      "type": "ExpressionStatement",
+                      "expression": {
+                        "type": "AssignmentExpression",
+                        "operator": "=",
+                        "left": {
+                          "type": "MemberExpression",
+                          "computed": false,
+                          "object": {
+                            "type": "ThisExpression",
+                            "range": [
+                              857,
+                              861
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 35,
+                                "column": 4
+                              },
+                              "end": {
+                                "line": 35,
+                                "column": 8
+                              }
+                            }
+                          },
+                          "property": {
+                            "type": "Identifier",
+                            "name": "type",
+                            "range": [
+                              862,
+                              866
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 35,
+                                "column": 9
+                              },
+                              "end": {
+                                "line": 35,
+                                "column": 13
+                              }
+                            }
+                          },
+                          "range": [
+                            857,
+                            866
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 35,
+                              "column": 4
+                            },
+                            "end": {
+                              "line": 35,
+                              "column": 13
+                            }
+                          }
+                        },
+                        "right": {
+                          "type": "Identifier",
+                          "name": "type",
+                          "range": [
+                            869,
+                            873
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 35,
+                              "column": 16
+                            },
+                            "end": {
+                              "line": 35,
+                              "column": 20
+                            }
+                          }
+                        },
+                        "range": [
+                          857,
+                          873
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 35,
+                            "column": 4
+                          },
+                          "end": {
+                            "line": 35,
+                            "column": 20
+                          }
+                        }
+                      },
+                      "range": [
+                        857,
+                        874
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 35,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 35,
+                          "column": 21
+                        }
+                      }
+                    }
+                  ],
+                  "range": [
+                    851,
+                    878
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 34,
+                      "column": 16
+                    },
+                    "end": {
+                      "line": 36,
+                      "column": 3
+                    }
+                  }
+                },
+                "generator": false,
+                "expression": false,
+                "range": [
+                  844,
+                  878
+                ],
+                "loc": {
+                  "start": {
+                    "line": 34,
+                    "column": 9
+                  },
+                  "end": {
+                    "line": 36,
+                    "column": 3
+                  }
+                }
+              },
+              "kind": "method",
+              "computed": false,
+              "range": [
+                837,
+                878
+              ],
+              "loc": {
+                "start": {
+                  "line": 34,
+                  "column": 2
+                },
+                "end": {
+                  "line": 36,
+                  "column": 3
+                }
+              },
+              "leadingComments": [
+                {
+                  "type": "Block",
+                  "value": "*\n   * Set the type of the gesture to be called during an event\n   * @param {String} type - The unique identifier of the gesture being created.\n   ",
+                  "range": [
+                    683,
+                    834
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 30,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 33,
+                      "column": 5
+                    }
+                  }
+                }
+              ],
+              "trailingComments": [
+                {
+                  "type": "Block",
+                  "value": "setId",
+                  "range": [
+                    881,
+                    890
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 37,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 37,
+                      "column": 11
+                    }
+                  }
+                },
+                {
+                  "type": "Block",
+                  "value": "*\n   * getType() - Returns the generic type of the gesture\n   * @returns {String} - The type of gesture\n   ",
+                  "range": [
+                    894,
+                    1005
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 39,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 42,
+                      "column": 5
+                    }
+                  }
+                }
+              ],
+              "static": false
+            },
+            {
+              "type": "MethodDefinition",
+              "key": {
+                "type": "Identifier",
+                "name": "getType",
+                "range": [
+                  1008,
+                  1015
+                ],
+                "loc": {
+                  "start": {
+                    "line": 43,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 43,
+                    "column": 9
+                  }
+                }
+              },
+              "value": {
+                "type": "FunctionExpression",
+                "id": null,
+                "params": [],
+                "body": {
+                  "type": "BlockStatement",
+                  "body": [
+                    {
+                      "type": "ReturnStatement",
+                      "argument": {
+                        "type": "MemberExpression",
+                        "computed": false,
+                        "object": {
+                          "type": "ThisExpression",
+                          "range": [
+                            1031,
+                            1035
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 44,
+                              "column": 11
+                            },
+                            "end": {
+                              "line": 44,
+                              "column": 15
+                            }
+                          }
+                        },
+                        "property": {
+                          "type": "Identifier",
+                          "name": "type",
+                          "range": [
+                            1036,
+                            1040
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 44,
+                              "column": 16
+                            },
+                            "end": {
+                              "line": 44,
+                              "column": 20
+                            }
+                          }
+                        },
+                        "range": [
+                          1031,
+                          1040
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 44,
+                            "column": 11
+                          },
+                          "end": {
+                            "line": 44,
+                            "column": 20
+                          }
+                        }
+                      },
+                      "range": [
+                        1024,
+                        1041
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 44,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 44,
+                          "column": 21
+                        }
+                      }
+                    }
+                  ],
+                  "range": [
+                    1018,
+                    1045
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 43,
+                      "column": 12
+                    },
+                    "end": {
+                      "line": 45,
+                      "column": 3
+                    }
+                  }
+                },
+                "generator": false,
+                "expression": false,
+                "range": [
+                  1015,
+                  1045
+                ],
+                "loc": {
+                  "start": {
+                    "line": 43,
+                    "column": 9
+                  },
+                  "end": {
+                    "line": 45,
+                    "column": 3
+                  }
+                }
+              },
+              "kind": "method",
+              "computed": false,
+              "range": [
+                1008,
+                1045
+              ],
+              "loc": {
+                "start": {
+                  "line": 43,
+                  "column": 2
+                },
+                "end": {
+                  "line": 45,
+                  "column": 3
+                }
+              },
+              "leadingComments": [
+                {
+                  "type": "Block",
+                  "value": "setId",
+                  "range": [
+                    881,
+                    890
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 37,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 37,
+                      "column": 11
+                    }
+                  }
+                },
+                {
+                  "type": "Block",
+                  "value": "*\n   * getType() - Returns the generic type of the gesture\n   * @returns {String} - The type of gesture\n   ",
+                  "range": [
+                    894,
+                    1005
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 39,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 42,
+                      "column": 5
+                    }
+                  }
+                }
+              ],
+              "trailingComments": [
+                {
+                  "type": "Block",
+                  "value": "getType",
+                  "range": [
+                    1048,
+                    1059
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 46,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 46,
+                      "column": 13
+                    }
+                  }
+                },
+                {
+                  "type": "Block",
+                  "value": "*\n   * Set the id of the gesture to be called during an event\n   * @param {Number} id - The unique identifier of the gesture being created.\n   ",
+                  "range": [
+                    1063,
+                    1210
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 48,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 51,
+                      "column": 5
+                    }
+                  }
+                }
+              ],
+              "static": false
+            },
+            {
+              "type": "MethodDefinition",
+              "key": {
+                "type": "Identifier",
+                "name": "setId",
+                "range": [
+                  1213,
+                  1218
+                ],
+                "loc": {
+                  "start": {
+                    "line": 52,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 52,
+                    "column": 7
+                  }
+                }
+              },
+              "value": {
+                "type": "FunctionExpression",
+                "id": null,
+                "params": [
+                  {
+                    "type": "Identifier",
+                    "name": "id",
+                    "range": [
+                      1219,
+                      1221
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 52,
+                        "column": 8
+                      },
+                      "end": {
+                        "line": 52,
+                        "column": 10
+                      }
+                    }
+                  }
+                ],
+                "body": {
+                  "type": "BlockStatement",
+                  "body": [
+                    {
+                      "type": "ExpressionStatement",
+                      "expression": {
+                        "type": "AssignmentExpression",
+                        "operator": "=",
+                        "left": {
+                          "type": "MemberExpression",
+                          "computed": false,
+                          "object": {
+                            "type": "ThisExpression",
+                            "range": [
+                              1229,
+                              1233
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 53,
+                                "column": 4
+                              },
+                              "end": {
+                                "line": 53,
+                                "column": 8
+                              }
+                            }
+                          },
+                          "property": {
+                            "type": "Identifier",
+                            "name": "id",
+                            "range": [
+                              1234,
+                              1236
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 53,
+                                "column": 9
+                              },
+                              "end": {
+                                "line": 53,
+                                "column": 11
+                              }
+                            }
+                          },
+                          "range": [
+                            1229,
+                            1236
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 53,
+                              "column": 4
+                            },
+                            "end": {
+                              "line": 53,
+                              "column": 11
+                            }
+                          }
+                        },
+                        "right": {
+                          "type": "Identifier",
+                          "name": "id",
+                          "range": [
+                            1239,
+                            1241
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 53,
+                              "column": 14
+                            },
+                            "end": {
+                              "line": 53,
+                              "column": 16
+                            }
+                          }
+                        },
+                        "range": [
+                          1229,
+                          1241
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 53,
+                            "column": 4
+                          },
+                          "end": {
+                            "line": 53,
+                            "column": 16
+                          }
+                        }
+                      },
+                      "range": [
+                        1229,
+                        1242
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 53,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 53,
+                          "column": 17
+                        }
+                      }
+                    }
+                  ],
+                  "range": [
+                    1223,
+                    1246
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 52,
+                      "column": 12
+                    },
+                    "end": {
+                      "line": 54,
+                      "column": 3
+                    }
+                  }
+                },
+                "generator": false,
+                "expression": false,
+                "range": [
+                  1218,
+                  1246
+                ],
+                "loc": {
+                  "start": {
+                    "line": 52,
+                    "column": 7
+                  },
+                  "end": {
+                    "line": 54,
+                    "column": 3
+                  }
+                }
+              },
+              "kind": "method",
+              "computed": false,
+              "range": [
+                1213,
+                1246
+              ],
+              "loc": {
+                "start": {
+                  "line": 52,
+                  "column": 2
+                },
+                "end": {
+                  "line": 54,
+                  "column": 3
+                }
+              },
+              "leadingComments": [
+                {
+                  "type": "Block",
+                  "value": "getType",
+                  "range": [
+                    1048,
+                    1059
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 46,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 46,
+                      "column": 13
+                    }
+                  }
+                },
+                {
+                  "type": "Block",
+                  "value": "*\n   * Set the id of the gesture to be called during an event\n   * @param {Number} id - The unique identifier of the gesture being created.\n   ",
+                  "range": [
+                    1063,
+                    1210
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 48,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 51,
+                      "column": 5
+                    }
+                  }
+                }
+              ],
+              "trailingComments": [
+                {
+                  "type": "Block",
+                  "value": "setId",
+                  "range": [
+                    1249,
+                    1258
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 55,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 55,
+                      "column": 11
+                    }
+                  }
+                },
+                {
+                  "type": "Block",
+                  "value": "*\n   * Return the id of the event. If the id does not exist, return the type.\n   * @return {String}\n   ",
+                  "range": [
+                    1262,
+                    1369
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 57,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 60,
+                      "column": 5
+                    }
+                  }
+                }
+              ],
+              "static": false
+            },
+            {
+              "type": "MethodDefinition",
+              "key": {
+                "type": "Identifier",
+                "name": "getId",
+                "range": [
+                  1372,
+                  1377
+                ],
+                "loc": {
+                  "start": {
+                    "line": 61,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 61,
+                    "column": 7
+                  }
+                }
+              },
+              "value": {
+                "type": "FunctionExpression",
+                "id": null,
+                "params": [],
+                "body": {
+                  "type": "BlockStatement",
+                  "body": [
+                    {
+                      "type": "ReturnStatement",
+                      "argument": {
+                        "type": "ConditionalExpression",
+                        "test": {
+                          "type": "MemberExpression",
+                          "computed": false,
+                          "object": {
+                            "type": "ThisExpression",
+                            "range": [
+                              1394,
+                              1398
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 62,
+                                "column": 12
+                              },
+                              "end": {
+                                "line": 62,
+                                "column": 16
+                              }
+                            }
+                          },
+                          "property": {
+                            "type": "Identifier",
+                            "name": "id",
+                            "range": [
+                              1399,
+                              1401
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 62,
+                                "column": 17
+                              },
+                              "end": {
+                                "line": 62,
+                                "column": 19
+                              }
+                            }
+                          },
+                          "range": [
+                            1394,
+                            1401
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 62,
+                              "column": 12
+                            },
+                            "end": {
+                              "line": 62,
+                              "column": 19
+                            }
+                          }
+                        },
+                        "consequent": {
+                          "type": "MemberExpression",
+                          "computed": false,
+                          "object": {
+                            "type": "ThisExpression",
+                            "range": [
+                              1405,
+                              1409
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 62,
+                                "column": 23
+                              },
+                              "end": {
+                                "line": 62,
+                                "column": 27
+                              }
+                            }
+                          },
+                          "property": {
+                            "type": "Identifier",
+                            "name": "id",
+                            "range": [
+                              1410,
+                              1412
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 62,
+                                "column": 28
+                              },
+                              "end": {
+                                "line": 62,
+                                "column": 30
+                              }
+                            }
+                          },
+                          "range": [
+                            1405,
+                            1412
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 62,
+                              "column": 23
+                            },
+                            "end": {
+                              "line": 62,
+                              "column": 30
+                            }
+                          }
+                        },
+                        "alternate": {
+                          "type": "MemberExpression",
+                          "computed": false,
+                          "object": {
+                            "type": "ThisExpression",
+                            "range": [
+                              1415,
+                              1419
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 62,
+                                "column": 33
+                              },
+                              "end": {
+                                "line": 62,
+                                "column": 37
+                              }
+                            }
+                          },
+                          "property": {
+                            "type": "Identifier",
+                            "name": "type",
+                            "range": [
+                              1420,
+                              1424
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 62,
+                                "column": 38
+                              },
+                              "end": {
+                                "line": 62,
+                                "column": 42
+                              }
+                            }
+                          },
+                          "range": [
+                            1415,
+                            1424
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 62,
+                              "column": 33
+                            },
+                            "end": {
+                              "line": 62,
+                              "column": 42
+                            }
+                          }
+                        },
+                        "range": [
+                          1393,
+                          1424
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 62,
+                            "column": 11
+                          },
+                          "end": {
+                            "line": 62,
+                            "column": 42
+                          }
+                        }
+                      },
+                      "range": [
+                        1386,
+                        1425
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 62,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 62,
+                          "column": 43
+                        }
+                      }
+                    }
+                  ],
+                  "range": [
+                    1380,
+                    1429
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 61,
+                      "column": 10
+                    },
+                    "end": {
+                      "line": 63,
+                      "column": 3
+                    }
+                  }
+                },
+                "generator": false,
+                "expression": false,
+                "range": [
+                  1377,
+                  1429
+                ],
+                "loc": {
+                  "start": {
+                    "line": 61,
+                    "column": 7
+                  },
+                  "end": {
+                    "line": 63,
+                    "column": 3
+                  }
+                }
+              },
+              "kind": "method",
+              "computed": false,
+              "range": [
+                1372,
+                1429
+              ],
+              "loc": {
+                "start": {
+                  "line": 61,
+                  "column": 2
+                },
+                "end": {
+                  "line": 63,
+                  "column": 3
+                }
+              },
+              "leadingComments": [
+                {
+                  "type": "Block",
+                  "value": "setId",
+                  "range": [
+                    1249,
+                    1258
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 55,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 55,
+                      "column": 11
+                    }
+                  }
+                },
+                {
+                  "type": "Block",
+                  "value": "*\n   * Return the id of the event. If the id does not exist, return the type.\n   * @return {String}\n   ",
+                  "range": [
+                    1262,
+                    1369
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 57,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 60,
+                      "column": 5
+                    }
+                  }
+                }
+              ],
+              "trailingComments": [
+                {
+                  "type": "Block",
+                  "value": "getId",
+                  "range": [
+                    1432,
+                    1441
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 64,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 64,
+                      "column": 11
+                    }
+                  }
+                },
+                {
+                  "type": "Line",
+                  "value": "noinspection JSUnusedLocalSymbols",
+                  "range": [
+                    1445,
+                    1480
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 66,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 66,
+                      "column": 37
+                    }
+                  }
+                },
+                {
+                  "type": "Block",
+                  "value": "*\n   * start() - Event hook for the start of a gesture\n   * @param {Array} inputs - The array of Inputs on the screen\n   * @returns {null|Object}  - Default of null\n   ",
+                  "range": [
+                    1483,
+                    1655
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 67,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 71,
+                      "column": 5
+                    }
+                  }
+                }
+              ],
+              "static": false
+            },
+            {
+              "type": "MethodDefinition",
+              "key": {
+                "type": "Identifier",
+                "name": "start",
+                "range": [
+                  1658,
+                  1663
+                ],
+                "loc": {
+                  "start": {
+                    "line": 72,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 72,
+                    "column": 7
+                  }
+                }
+              },
+              "value": {
+                "type": "FunctionExpression",
+                "id": null,
+                "params": [
+                  {
+                    "type": "Identifier",
+                    "name": "inputs",
+                    "range": [
+                      1664,
+                      1670
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 72,
+                        "column": 8
+                      },
+                      "end": {
+                        "line": 72,
+                        "column": 14
+                      }
+                    }
+                  }
+                ],
+                "body": {
+                  "type": "BlockStatement",
+                  "body": [
+                    {
+                      "type": "ReturnStatement",
+                      "argument": {
+                        "type": "Literal",
+                        "value": null,
+                        "raw": "null",
+                        "range": [
+                          1685,
+                          1689
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 73,
+                            "column": 11
+                          },
+                          "end": {
+                            "line": 73,
+                            "column": 15
+                          }
+                        }
+                      },
+                      "range": [
+                        1678,
+                        1690
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 73,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 73,
+                          "column": 16
+                        }
+                      }
+                    }
+                  ],
+                  "range": [
+                    1672,
+                    1694
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 72,
+                      "column": 16
+                    },
+                    "end": {
+                      "line": 74,
+                      "column": 3
+                    }
+                  }
+                },
+                "generator": false,
+                "expression": false,
+                "range": [
+                  1663,
+                  1694
+                ],
+                "loc": {
+                  "start": {
+                    "line": 72,
+                    "column": 7
+                  },
+                  "end": {
+                    "line": 74,
+                    "column": 3
+                  }
+                }
+              },
+              "kind": "method",
+              "computed": false,
+              "range": [
+                1658,
+                1694
+              ],
+              "loc": {
+                "start": {
+                  "line": 72,
+                  "column": 2
+                },
+                "end": {
+                  "line": 74,
+                  "column": 3
+                }
+              },
+              "leadingComments": [
+                {
+                  "type": "Block",
+                  "value": "getId",
+                  "range": [
+                    1432,
+                    1441
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 64,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 64,
+                      "column": 11
+                    }
+                  }
+                },
+                {
+                  "type": "Line",
+                  "value": "noinspection JSUnusedLocalSymbols",
+                  "range": [
+                    1445,
+                    1480
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 66,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 66,
+                      "column": 37
+                    }
+                  }
+                },
+                {
+                  "type": "Block",
+                  "value": "*\n   * start() - Event hook for the start of a gesture\n   * @param {Array} inputs - The array of Inputs on the screen\n   * @returns {null|Object}  - Default of null\n   ",
+                  "range": [
+                    1483,
+                    1655
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 67,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 71,
+                      "column": 5
+                    }
+                  }
+                }
+              ],
+              "trailingComments": [
+                {
+                  "type": "Block",
+                  "value": "start",
+                  "range": [
+                    1697,
+                    1706
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 75,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 75,
+                      "column": 11
+                    }
+                  }
+                },
+                {
+                  "type": "Line",
+                  "value": "noinspection JSUnusedLocalSymbols",
+                  "range": [
+                    1710,
+                    1745
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 77,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 77,
+                      "column": 37
+                    }
+                  }
+                },
+                {
+                  "type": "Block",
+                  "value": "*\n   * move() - Event hook for the move of a gesture\n   * @param {Array} inputs - The array of Inputs on the screen\n   * @returns {null|Object} - Default of null\n   ",
+                  "range": [
+                    1748,
+                    1917
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 78,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 82,
+                      "column": 5
+                    }
+                  }
+                }
+              ],
+              "static": false
+            },
+            {
+              "type": "MethodDefinition",
+              "key": {
+                "type": "Identifier",
+                "name": "move",
+                "range": [
+                  1920,
+                  1924
+                ],
+                "loc": {
+                  "start": {
+                    "line": 83,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 83,
+                    "column": 6
+                  }
+                }
+              },
+              "value": {
+                "type": "FunctionExpression",
+                "id": null,
+                "params": [
+                  {
+                    "type": "Identifier",
+                    "name": "inputs",
+                    "range": [
+                      1925,
+                      1931
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 83,
+                        "column": 7
+                      },
+                      "end": {
+                        "line": 83,
+                        "column": 13
+                      }
+                    }
+                  }
+                ],
+                "body": {
+                  "type": "BlockStatement",
+                  "body": [
+                    {
+                      "type": "ReturnStatement",
+                      "argument": {
+                        "type": "Literal",
+                        "value": null,
+                        "raw": "null",
+                        "range": [
+                          1946,
+                          1950
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 84,
+                            "column": 11
+                          },
+                          "end": {
+                            "line": 84,
+                            "column": 15
+                          }
+                        }
+                      },
+                      "range": [
+                        1939,
+                        1951
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 84,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 84,
+                          "column": 16
+                        }
+                      }
+                    }
+                  ],
+                  "range": [
+                    1933,
+                    1955
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 83,
+                      "column": 15
+                    },
+                    "end": {
+                      "line": 85,
+                      "column": 3
+                    }
+                  }
+                },
+                "generator": false,
+                "expression": false,
+                "range": [
+                  1924,
+                  1955
+                ],
+                "loc": {
+                  "start": {
+                    "line": 83,
+                    "column": 6
+                  },
+                  "end": {
+                    "line": 85,
+                    "column": 3
+                  }
+                }
+              },
+              "kind": "method",
+              "computed": false,
+              "range": [
+                1920,
+                1955
+              ],
+              "loc": {
+                "start": {
+                  "line": 83,
+                  "column": 2
+                },
+                "end": {
+                  "line": 85,
+                  "column": 3
+                }
+              },
+              "leadingComments": [
+                {
+                  "type": "Block",
+                  "value": "start",
+                  "range": [
+                    1697,
+                    1706
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 75,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 75,
+                      "column": 11
+                    }
+                  }
+                },
+                {
+                  "type": "Line",
+                  "value": "noinspection JSUnusedLocalSymbols",
+                  "range": [
+                    1710,
+                    1745
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 77,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 77,
+                      "column": 37
+                    }
+                  }
+                },
+                {
+                  "type": "Block",
+                  "value": "*\n   * move() - Event hook for the move of a gesture\n   * @param {Array} inputs - The array of Inputs on the screen\n   * @returns {null|Object} - Default of null\n   ",
+                  "range": [
+                    1748,
+                    1917
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 78,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 82,
+                      "column": 5
+                    }
+                  }
+                }
+              ],
+              "trailingComments": [
+                {
+                  "type": "Block",
+                  "value": "move",
+                  "range": [
+                    1958,
+                    1966
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 86,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 86,
+                      "column": 10
+                    }
+                  }
+                },
+                {
+                  "type": "Line",
+                  "value": "noinspection JSUnusedLocalSymbols",
+                  "range": [
+                    1970,
+                    2005
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 88,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 88,
+                      "column": 37
+                    }
+                  }
+                },
+                {
+                  "type": "Block",
+                  "value": "*\n   * end() - Event hook for the move of a gesture\n   * @param {Array} inputs - The array of Inputs on the screen\n   * @returns {null|Object}  - Default of null\n   ",
+                  "range": [
+                    2008,
+                    2177
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 89,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 93,
+                      "column": 5
+                    }
+                  }
+                }
+              ],
+              "static": false
+            },
+            {
+              "type": "MethodDefinition",
+              "key": {
+                "type": "Identifier",
+                "name": "end",
+                "range": [
+                  2180,
+                  2183
+                ],
+                "loc": {
+                  "start": {
+                    "line": 94,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 94,
+                    "column": 5
+                  }
+                }
+              },
+              "value": {
+                "type": "FunctionExpression",
+                "id": null,
+                "params": [
+                  {
+                    "type": "Identifier",
+                    "name": "inputs",
+                    "range": [
+                      2184,
+                      2190
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 94,
+                        "column": 6
+                      },
+                      "end": {
+                        "line": 94,
+                        "column": 12
+                      }
+                    }
+                  }
+                ],
+                "body": {
+                  "type": "BlockStatement",
+                  "body": [
+                    {
+                      "type": "ReturnStatement",
+                      "argument": {
+                        "type": "Literal",
+                        "value": null,
+                        "raw": "null",
+                        "range": [
+                          2205,
+                          2209
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 95,
+                            "column": 11
+                          },
+                          "end": {
+                            "line": 95,
+                            "column": 15
+                          }
+                        }
+                      },
+                      "range": [
+                        2198,
+                        2210
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 95,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 95,
+                          "column": 16
+                        }
+                      }
+                    }
+                  ],
+                  "range": [
+                    2192,
+                    2214
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 94,
+                      "column": 14
+                    },
+                    "end": {
+                      "line": 96,
+                      "column": 3
+                    }
+                  }
+                },
+                "generator": false,
+                "expression": false,
+                "range": [
+                  2183,
+                  2214
+                ],
+                "loc": {
+                  "start": {
+                    "line": 94,
+                    "column": 5
+                  },
+                  "end": {
+                    "line": 96,
+                    "column": 3
+                  }
+                }
+              },
+              "kind": "method",
+              "computed": false,
+              "range": [
+                2180,
+                2214
+              ],
+              "loc": {
+                "start": {
+                  "line": 94,
+                  "column": 2
+                },
+                "end": {
+                  "line": 96,
+                  "column": 3
+                }
+              },
+              "leadingComments": [
+                {
+                  "type": "Block",
+                  "value": "move",
+                  "range": [
+                    1958,
+                    1966
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 86,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 86,
+                      "column": 10
+                    }
+                  }
+                },
+                {
+                  "type": "Line",
+                  "value": "noinspection JSUnusedLocalSymbols",
+                  "range": [
+                    1970,
+                    2005
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 88,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 88,
+                      "column": 37
+                    }
+                  }
+                },
+                {
+                  "type": "Block",
+                  "value": "*\n   * end() - Event hook for the move of a gesture\n   * @param {Array} inputs - The array of Inputs on the screen\n   * @returns {null|Object}  - Default of null\n   ",
+                  "range": [
+                    2008,
+                    2177
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 89,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 93,
+                      "column": 5
+                    }
+                  }
+                }
+              ],
+              "trailingComments": [
+                {
+                  "type": "Block",
+                  "value": "end",
+                  "range": [
+                    2217,
+                    2224
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 97,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 97,
+                      "column": 9
+                    }
+                  }
+                }
+              ],
+              "static": false
+            }
+          ],
+          "range": [
+            134,
+            2227
+          ],
+          "loc": {
+            "start": {
+              "line": 9,
+              "column": 14
+            },
+            "end": {
+              "line": 99,
+              "column": 1
+            }
+          }
+        },
+        "range": [
+          120,
+          2227
+        ],
+        "loc": {
+          "start": {
+            "line": 9,
+            "column": 0
+          },
+          "end": {
+            "line": 99,
+            "column": 1
+          }
+        },
+        "leadingComments": [
+          {
+            "type": "Block",
+            "value": "*\n * @file Gesture.js\n * Contains the Gesture class\n ",
+            "range": [
+              0,
+              57
+            ],
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 0
+              },
+              "end": {
+                "line": 4,
+                "column": 3
+              }
+            }
+          },
+          {
+            "type": "Block",
+            "value": "*\n * The Gesture class that all gestures inherit from.\n ",
+            "range": [
+              59,
+              119
+            ],
+            "loc": {
+              "start": {
+                "line": 6,
+                "column": 0
+              },
+              "end": {
+                "line": 8,
+                "column": 3
+              }
+            }
+          }
+        ],
+        "__esdoc__pseudo_export": false,
+        "trailingComments": []
+      },
+      "range": [
+        2229,
+        2252
+      ],
+      "loc": {
+        "start": {
+          "line": 101,
+          "column": 0
+        },
+        "end": {
+          "line": 101,
+          "column": 23
+        }
+      },
+      "leadingComments": null
+    }
+  ],
+  "sourceType": "module",
+  "range": [
+    120,
+    2252
+  ],
+  "loc": {
+    "start": {
+      "line": 9,
+      "column": 0
+    },
+    "end": {
+      "line": 101,
+      "column": 23
+    }
+  },
+  "comments": [
+    {
+      "type": "Block",
+      "value": "*\n * @file Gesture.js\n * Contains the Gesture class\n ",
+      "range": [
+        0,
+        57
+      ],
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 4,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "*\n * The Gesture class that all gestures inherit from.\n ",
+      "range": [
+        59,
+        119
+      ],
+      "loc": {
+        "start": {
+          "line": 6,
+          "column": 0
+        },
+        "end": {
+          "line": 8,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "*\n   * Constructor function for the Gesture class.\n   * @class Gesture\n   ",
+      "range": [
+        138,
+        216
+      ],
+      "loc": {
+        "start": {
+          "line": 10,
+          "column": 2
+        },
+        "end": {
+          "line": 13,
+          "column": 5
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "*\n     * The generic string type of gesture ('expand'|'pan'|'pinch'|'rotate'|'swipe'|'tap').\n     * @type {String}\n     ",
+      "range": [
+        239,
+        363
+      ],
+      "loc": {
+        "start": {
+          "line": 15,
+          "column": 4
+        },
+        "end": {
+          "line": 18,
+          "column": 7
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "*\n     * The unique identifier for each gesture determined at bind time by the state object. This\n     * allows for distinctions across instance variables of Gestures that are created on the fly\n     * (e.g. Tap-1, Tap-2, etc).\n     * @type {String|null}\n     ",
+      "range": [
+        391,
+        655
+      ],
+      "loc": {
+        "start": {
+          "line": 21,
+          "column": 4
+        },
+        "end": {
+          "line": 26,
+          "column": 7
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "*\n   * Set the type of the gesture to be called during an event\n   * @param {String} type - The unique identifier of the gesture being created.\n   ",
+      "range": [
+        683,
+        834
+      ],
+      "loc": {
+        "start": {
+          "line": 30,
+          "column": 2
+        },
+        "end": {
+          "line": 33,
+          "column": 5
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "setId",
+      "range": [
+        881,
+        890
+      ],
+      "loc": {
+        "start": {
+          "line": 37,
+          "column": 2
+        },
+        "end": {
+          "line": 37,
+          "column": 11
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "*\n   * getType() - Returns the generic type of the gesture\n   * @returns {String} - The type of gesture\n   ",
+      "range": [
+        894,
+        1005
+      ],
+      "loc": {
+        "start": {
+          "line": 39,
+          "column": 2
+        },
+        "end": {
+          "line": 42,
+          "column": 5
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "getType",
+      "range": [
+        1048,
+        1059
+      ],
+      "loc": {
+        "start": {
+          "line": 46,
+          "column": 2
+        },
+        "end": {
+          "line": 46,
+          "column": 13
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "*\n   * Set the id of the gesture to be called during an event\n   * @param {Number} id - The unique identifier of the gesture being created.\n   ",
+      "range": [
+        1063,
+        1210
+      ],
+      "loc": {
+        "start": {
+          "line": 48,
+          "column": 2
+        },
+        "end": {
+          "line": 51,
+          "column": 5
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "setId",
+      "range": [
+        1249,
+        1258
+      ],
+      "loc": {
+        "start": {
+          "line": 55,
+          "column": 2
+        },
+        "end": {
+          "line": 55,
+          "column": 11
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "*\n   * Return the id of the event. If the id does not exist, return the type.\n   * @return {String}\n   ",
+      "range": [
+        1262,
+        1369
+      ],
+      "loc": {
+        "start": {
+          "line": 57,
+          "column": 2
+        },
+        "end": {
+          "line": 60,
+          "column": 5
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "getId",
+      "range": [
+        1432,
+        1441
+      ],
+      "loc": {
+        "start": {
+          "line": 64,
+          "column": 2
+        },
+        "end": {
+          "line": 64,
+          "column": 11
+        }
+      }
+    },
+    {
+      "type": "Line",
+      "value": "noinspection JSUnusedLocalSymbols",
+      "range": [
+        1445,
+        1480
+      ],
+      "loc": {
+        "start": {
+          "line": 66,
+          "column": 2
+        },
+        "end": {
+          "line": 66,
+          "column": 37
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "*\n   * start() - Event hook for the start of a gesture\n   * @param {Array} inputs - The array of Inputs on the screen\n   * @returns {null|Object}  - Default of null\n   ",
+      "range": [
+        1483,
+        1655
+      ],
+      "loc": {
+        "start": {
+          "line": 67,
+          "column": 2
+        },
+        "end": {
+          "line": 71,
+          "column": 5
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "start",
+      "range": [
+        1697,
+        1706
+      ],
+      "loc": {
+        "start": {
+          "line": 75,
+          "column": 2
+        },
+        "end": {
+          "line": 75,
+          "column": 11
+        }
+      }
+    },
+    {
+      "type": "Line",
+      "value": "noinspection JSUnusedLocalSymbols",
+      "range": [
+        1710,
+        1745
+      ],
+      "loc": {
+        "start": {
+          "line": 77,
+          "column": 2
+        },
+        "end": {
+          "line": 77,
+          "column": 37
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "*\n   * move() - Event hook for the move of a gesture\n   * @param {Array} inputs - The array of Inputs on the screen\n   * @returns {null|Object} - Default of null\n   ",
+      "range": [
+        1748,
+        1917
+      ],
+      "loc": {
+        "start": {
+          "line": 78,
+          "column": 2
+        },
+        "end": {
+          "line": 82,
+          "column": 5
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "move",
+      "range": [
+        1958,
+        1966
+      ],
+      "loc": {
+        "start": {
+          "line": 86,
+          "column": 2
+        },
+        "end": {
+          "line": 86,
+          "column": 10
+        }
+      }
+    },
+    {
+      "type": "Line",
+      "value": "noinspection JSUnusedLocalSymbols",
+      "range": [
+        1970,
+        2005
+      ],
+      "loc": {
+        "start": {
+          "line": 88,
+          "column": 2
+        },
+        "end": {
+          "line": 88,
+          "column": 37
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "*\n   * end() - Event hook for the move of a gesture\n   * @param {Array} inputs - The array of Inputs on the screen\n   * @returns {null|Object}  - Default of null\n   ",
+      "range": [
+        2008,
+        2177
+      ],
+      "loc": {
+        "start": {
+          "line": 89,
+          "column": 2
+        },
+        "end": {
+          "line": 93,
+          "column": 5
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "end",
+      "range": [
+        2217,
+        2224
+      ],
+      "loc": {
+        "start": {
+          "line": 97,
+          "column": 2
+        },
+        "end": {
+          "line": 97,
+          "column": 9
+        }
+      }
+    }
+  ]
+}
