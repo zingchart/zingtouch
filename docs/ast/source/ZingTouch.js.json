@@ -10,8 +10,8 @@
             "type": "Identifier",
             "name": "Listener",
             "range": [
-              101,
-              109
+              100,
+              108
             ],
             "loc": {
               "start": {
@@ -25,8 +25,8 @@
             }
           },
           "range": [
-            101,
-            109
+            100,
+            108
           ],
           "loc": {
             "start": {
@@ -45,8 +45,8 @@
         "value": "./core/classes/Region.js",
         "raw": "'./core/classes/Region.js'",
         "range": [
-          115,
-          141
+          114,
+          140
         ],
         "loc": {
           "start": {
@@ -60,8 +60,8 @@
         }
       },
       "range": [
-        94,
-        142
+        93,
+        141
       ],
       "loc": {
         "start": {
@@ -76,10 +76,10 @@
       "leadingComments": [
         {
           "type": "Block",
-          "value": "*\n * @file ZingTouch.js\n * Main object containing API methods and Gesture constructors\n ",
+          "value": "*\n * @file ZingTouch.js\n * Main object containing API methods and Gesture constructors\n",
           "range": [
             0,
-            92
+            91
           ],
           "loc": {
             "start": {
@@ -88,7 +88,7 @@
             },
             "end": {
               "line": 4,
-              "column": 3
+              "column": 2
             }
           }
         }
@@ -103,8 +103,8 @@
             "type": "Identifier",
             "name": "Gesture",
             "range": [
-              150,
-              157
+              149,
+              156
             ],
             "loc": {
               "start": {
@@ -118,8 +118,8 @@
             }
           },
           "range": [
-            150,
-            157
+            149,
+            156
           ],
           "loc": {
             "start": {
@@ -138,8 +138,8 @@
         "value": "./gestures/Gesture.js",
         "raw": "'./gestures/Gesture.js'",
         "range": [
-          163,
-          186
+          162,
+          185
         ],
         "loc": {
           "start": {
@@ -153,8 +153,8 @@
         }
       },
       "range": [
-        143,
-        187
+        142,
+        186
       ],
       "loc": {
         "start": {
@@ -176,8 +176,8 @@
             "type": "Identifier",
             "name": "Expand",
             "range": [
-              195,
-              201
+              194,
+              200
             ],
             "loc": {
               "start": {
@@ -191,8 +191,8 @@
             }
           },
           "range": [
-            195,
-            201
+            194,
+            200
           ],
           "loc": {
             "start": {
@@ -211,8 +211,8 @@
         "value": "./gestures/Expand.js",
         "raw": "'./gestures/Expand.js'",
         "range": [
-          207,
-          229
+          206,
+          228
         ],
         "loc": {
           "start": {
@@ -226,8 +226,8 @@
         }
       },
       "range": [
-        188,
-        230
+        187,
+        229
       ],
       "loc": {
         "start": {
@@ -249,8 +249,8 @@
             "type": "Identifier",
             "name": "Pan",
             "range": [
-              238,
-              241
+              237,
+              240
             ],
             "loc": {
               "start": {
@@ -264,8 +264,8 @@
             }
           },
           "range": [
-            238,
-            241
+            237,
+            240
           ],
           "loc": {
             "start": {
@@ -284,8 +284,8 @@
         "value": "./gestures/Pan.js",
         "raw": "'./gestures/Pan.js'",
         "range": [
-          247,
-          266
+          246,
+          265
         ],
         "loc": {
           "start": {
@@ -299,8 +299,8 @@
         }
       },
       "range": [
-        231,
-        267
+        230,
+        266
       ],
       "loc": {
         "start": {
@@ -322,8 +322,8 @@
             "type": "Identifier",
             "name": "Pinch",
             "range": [
-              275,
-              280
+              274,
+              279
             ],
             "loc": {
               "start": {
@@ -337,8 +337,8 @@
             }
           },
           "range": [
-            275,
-            280
+            274,
+            279
           ],
           "loc": {
             "start": {
@@ -357,8 +357,8 @@
         "value": "./gestures/Pinch.js",
         "raw": "'./gestures/Pinch.js'",
         "range": [
-          286,
-          307
+          285,
+          306
         ],
         "loc": {
           "start": {
@@ -372,8 +372,8 @@
         }
       },
       "range": [
-        268,
-        308
+        267,
+        307
       ],
       "loc": {
         "start": {
@@ -395,8 +395,8 @@
             "type": "Identifier",
             "name": "Rotate",
             "range": [
-              316,
-              322
+              315,
+              321
             ],
             "loc": {
               "start": {
@@ -410,8 +410,8 @@
             }
           },
           "range": [
-            316,
-            322
+            315,
+            321
           ],
           "loc": {
             "start": {
@@ -430,8 +430,8 @@
         "value": "./gestures/Rotate.js",
         "raw": "'./gestures/Rotate.js'",
         "range": [
-          328,
-          350
+          327,
+          349
         ],
         "loc": {
           "start": {
@@ -445,8 +445,8 @@
         }
       },
       "range": [
-        309,
-        351
+        308,
+        350
       ],
       "loc": {
         "start": {
@@ -468,8 +468,8 @@
             "type": "Identifier",
             "name": "Swipe",
             "range": [
-              359,
-              364
+              358,
+              363
             ],
             "loc": {
               "start": {
@@ -483,8 +483,8 @@
             }
           },
           "range": [
-            359,
-            364
+            358,
+            363
           ],
           "loc": {
             "start": {
@@ -503,8 +503,8 @@
         "value": "./gestures/Swipe.js",
         "raw": "'./gestures/Swipe.js'",
         "range": [
-          370,
-          391
+          369,
+          390
         ],
         "loc": {
           "start": {
@@ -518,8 +518,8 @@
         }
       },
       "range": [
-        352,
-        392
+        351,
+        391
       ],
       "loc": {
         "start": {
@@ -541,8 +541,8 @@
             "type": "Identifier",
             "name": "Tap",
             "range": [
-              400,
-              403
+              399,
+              402
             ],
             "loc": {
               "start": {
@@ -556,8 +556,8 @@
             }
           },
           "range": [
-            400,
-            403
+            399,
+            402
           ],
           "loc": {
             "start": {
@@ -576,8 +576,8 @@
         "value": "./gestures/Tap.js",
         "raw": "'./gestures/Tap.js'",
         "range": [
-          409,
-          428
+          408,
+          427
         ],
         "loc": {
           "start": {
@@ -591,8 +591,8 @@
         }
       },
       "range": [
-        393,
-        429
+        392,
+        428
       ],
       "loc": {
         "start": {
@@ -609,8 +609,8 @@
           "type": "Block",
           "value": "*\n * The global API interface for ZingTouch. Contains a constructor for the Region Object,\n * and constructors for each predefined Gesture.\n * @type {Object}\n * @namespace ZingTouch\n ",
           "range": [
-            431,
-            618
+            430,
+            617
           ],
           "loc": {
             "start": {
@@ -634,8 +634,8 @@
             "type": "Identifier",
             "name": "ZingTouch",
             "range": [
-              623,
-              632
+              622,
+              631
             ],
             "loc": {
               "start": {
@@ -657,8 +657,8 @@
                   "type": "Identifier",
                   "name": "Listener",
                   "range": [
-                    656,
-                    664
+                    655,
+                    663
                   ],
                   "loc": {
                     "start": {
@@ -675,8 +675,8 @@
                   "type": "Identifier",
                   "name": "Listener",
                   "range": [
-                    666,
-                    674
+                    665,
+                    673
                   ],
                   "loc": {
                     "start": {
@@ -694,8 +694,8 @@
                 "shorthand": false,
                 "computed": false,
                 "range": [
-                  656,
-                  674
+                  655,
+                  673
                 ],
                 "loc": {
                   "start": {
@@ -712,8 +712,8 @@
                     "type": "Line",
                     "value": "Constructors",
                     "range": [
-                      639,
-                      653
+                      638,
+                      652
                     ],
                     "loc": {
                       "start": {
@@ -734,8 +734,8 @@
                   "type": "Identifier",
                   "name": "Gesture",
                   "range": [
-                    678,
-                    685
+                    677,
+                    684
                   ],
                   "loc": {
                     "start": {
@@ -752,8 +752,8 @@
                   "type": "Identifier",
                   "name": "Gesture",
                   "range": [
-                    687,
-                    694
+                    686,
+                    693
                   ],
                   "loc": {
                     "start": {
@@ -771,8 +771,8 @@
                 "shorthand": false,
                 "computed": false,
                 "range": [
-                  678,
-                  694
+                  677,
+                  693
                 ],
                 "loc": {
                   "start": {
@@ -791,8 +791,8 @@
                   "type": "Identifier",
                   "name": "Expand",
                   "range": [
-                    698,
-                    704
+                    697,
+                    703
                   ],
                   "loc": {
                     "start": {
@@ -809,8 +809,8 @@
                   "type": "Identifier",
                   "name": "Expand",
                   "range": [
-                    706,
-                    712
+                    705,
+                    711
                   ],
                   "loc": {
                     "start": {
@@ -828,8 +828,8 @@
                 "shorthand": false,
                 "computed": false,
                 "range": [
-                  698,
-                  712
+                  697,
+                  711
                 ],
                 "loc": {
                   "start": {
@@ -848,8 +848,8 @@
                   "type": "Identifier",
                   "name": "Pan",
                   "range": [
-                    716,
-                    719
+                    715,
+                    718
                   ],
                   "loc": {
                     "start": {
@@ -866,8 +866,8 @@
                   "type": "Identifier",
                   "name": "Pan",
                   "range": [
-                    721,
-                    724
+                    720,
+                    723
                   ],
                   "loc": {
                     "start": {
@@ -885,8 +885,8 @@
                 "shorthand": false,
                 "computed": false,
                 "range": [
-                  716,
-                  724
+                  715,
+                  723
                 ],
                 "loc": {
                   "start": {
@@ -905,8 +905,8 @@
                   "type": "Identifier",
                   "name": "Pinch",
                   "range": [
-                    728,
-                    733
+                    727,
+                    732
                   ],
                   "loc": {
                     "start": {
@@ -923,8 +923,8 @@
                   "type": "Identifier",
                   "name": "Pinch",
                   "range": [
-                    735,
-                    740
+                    734,
+                    739
                   ],
                   "loc": {
                     "start": {
@@ -942,8 +942,8 @@
                 "shorthand": false,
                 "computed": false,
                 "range": [
-                  728,
-                  740
+                  727,
+                  739
                 ],
                 "loc": {
                   "start": {
@@ -962,8 +962,8 @@
                   "type": "Identifier",
                   "name": "Rotate",
                   "range": [
-                    744,
-                    750
+                    743,
+                    749
                   ],
                   "loc": {
                     "start": {
@@ -980,8 +980,8 @@
                   "type": "Identifier",
                   "name": "Rotate",
                   "range": [
-                    752,
-                    758
+                    751,
+                    757
                   ],
                   "loc": {
                     "start": {
@@ -999,8 +999,8 @@
                 "shorthand": false,
                 "computed": false,
                 "range": [
-                  744,
-                  758
+                  743,
+                  757
                 ],
                 "loc": {
                   "start": {
@@ -1019,8 +1019,8 @@
                   "type": "Identifier",
                   "name": "Swipe",
                   "range": [
-                    762,
-                    767
+                    761,
+                    766
                   ],
                   "loc": {
                     "start": {
@@ -1037,8 +1037,8 @@
                   "type": "Identifier",
                   "name": "Swipe",
                   "range": [
-                    769,
-                    774
+                    768,
+                    773
                   ],
                   "loc": {
                     "start": {
@@ -1056,8 +1056,8 @@
                 "shorthand": false,
                 "computed": false,
                 "range": [
-                  762,
-                  774
+                  761,
+                  773
                 ],
                 "loc": {
                   "start": {
@@ -1076,8 +1076,8 @@
                   "type": "Identifier",
                   "name": "Tap",
                   "range": [
-                    778,
-                    781
+                    777,
+                    780
                   ],
                   "loc": {
                     "start": {
@@ -1094,8 +1094,8 @@
                   "type": "Identifier",
                   "name": "Tap",
                   "range": [
-                    783,
-                    786
+                    782,
+                    785
                   ],
                   "loc": {
                     "start": {
@@ -1113,8 +1113,8 @@
                 "shorthand": false,
                 "computed": false,
                 "range": [
-                  778,
-                  786
+                  777,
+                  785
                 ],
                 "loc": {
                   "start": {
@@ -1129,8 +1129,8 @@
               }
             ],
             "range": [
-              635,
-              788
+              634,
+              787
             ],
             "loc": {
               "start": {
@@ -1144,8 +1144,8 @@
             }
           },
           "range": [
-            623,
-            788
+            622,
+            787
           ],
           "loc": {
             "start": {
@@ -1161,8 +1161,8 @@
       ],
       "kind": "var",
       "range": [
-        619,
-        789
+        618,
+        788
       ],
       "loc": {
         "start": {
@@ -1184,8 +1184,8 @@
         "type": "Identifier",
         "name": "ZingTouch",
         "range": [
-          806,
-          815
+          805,
+          814
         ],
         "loc": {
           "start": {
@@ -1199,8 +1199,8 @@
         }
       },
       "range": [
-        791,
-        816
+        790,
+        815
       ],
       "loc": {
         "start": {
@@ -1227,8 +1227,8 @@
               "type": "Identifier",
               "name": "ZingTouch",
               "range": [
-                623,
-                632
+                622,
+                631
               ],
               "loc": {
                 "start": {
@@ -1250,8 +1250,8 @@
                     "type": "Identifier",
                     "name": "Listener",
                     "range": [
-                      656,
-                      664
+                      655,
+                      663
                     ],
                     "loc": {
                       "start": {
@@ -1268,8 +1268,8 @@
                     "type": "Identifier",
                     "name": "Listener",
                     "range": [
-                      666,
-                      674
+                      665,
+                      673
                     ],
                     "loc": {
                       "start": {
@@ -1287,8 +1287,8 @@
                   "shorthand": false,
                   "computed": false,
                   "range": [
-                    656,
-                    674
+                    655,
+                    673
                   ],
                   "loc": {
                     "start": {
@@ -1305,8 +1305,8 @@
                       "type": "Line",
                       "value": "Constructors",
                       "range": [
-                        639,
-                        653
+                        638,
+                        652
                       ],
                       "loc": {
                         "start": {
@@ -1327,8 +1327,8 @@
                     "type": "Identifier",
                     "name": "Gesture",
                     "range": [
-                      678,
-                      685
+                      677,
+                      684
                     ],
                     "loc": {
                       "start": {
@@ -1345,8 +1345,8 @@
                     "type": "Identifier",
                     "name": "Gesture",
                     "range": [
-                      687,
-                      694
+                      686,
+                      693
                     ],
                     "loc": {
                       "start": {
@@ -1364,8 +1364,8 @@
                   "shorthand": false,
                   "computed": false,
                   "range": [
-                    678,
-                    694
+                    677,
+                    693
                   ],
                   "loc": {
                     "start": {
@@ -1384,8 +1384,8 @@
                     "type": "Identifier",
                     "name": "Expand",
                     "range": [
-                      698,
-                      704
+                      697,
+                      703
                     ],
                     "loc": {
                       "start": {
@@ -1402,8 +1402,8 @@
                     "type": "Identifier",
                     "name": "Expand",
                     "range": [
-                      706,
-                      712
+                      705,
+                      711
                     ],
                     "loc": {
                       "start": {
@@ -1421,8 +1421,8 @@
                   "shorthand": false,
                   "computed": false,
                   "range": [
-                    698,
-                    712
+                    697,
+                    711
                   ],
                   "loc": {
                     "start": {
@@ -1441,8 +1441,8 @@
                     "type": "Identifier",
                     "name": "Pan",
                     "range": [
-                      716,
-                      719
+                      715,
+                      718
                     ],
                     "loc": {
                       "start": {
@@ -1459,8 +1459,8 @@
                     "type": "Identifier",
                     "name": "Pan",
                     "range": [
-                      721,
-                      724
+                      720,
+                      723
                     ],
                     "loc": {
                       "start": {
@@ -1478,8 +1478,8 @@
                   "shorthand": false,
                   "computed": false,
                   "range": [
-                    716,
-                    724
+                    715,
+                    723
                   ],
                   "loc": {
                     "start": {
@@ -1498,8 +1498,8 @@
                     "type": "Identifier",
                     "name": "Pinch",
                     "range": [
-                      728,
-                      733
+                      727,
+                      732
                     ],
                     "loc": {
                       "start": {
@@ -1516,8 +1516,8 @@
                     "type": "Identifier",
                     "name": "Pinch",
                     "range": [
-                      735,
-                      740
+                      734,
+                      739
                     ],
                     "loc": {
                       "start": {
@@ -1535,8 +1535,8 @@
                   "shorthand": false,
                   "computed": false,
                   "range": [
-                    728,
-                    740
+                    727,
+                    739
                   ],
                   "loc": {
                     "start": {
@@ -1555,8 +1555,8 @@
                     "type": "Identifier",
                     "name": "Rotate",
                     "range": [
-                      744,
-                      750
+                      743,
+                      749
                     ],
                     "loc": {
                       "start": {
@@ -1573,8 +1573,8 @@
                     "type": "Identifier",
                     "name": "Rotate",
                     "range": [
-                      752,
-                      758
+                      751,
+                      757
                     ],
                     "loc": {
                       "start": {
@@ -1592,8 +1592,8 @@
                   "shorthand": false,
                   "computed": false,
                   "range": [
-                    744,
-                    758
+                    743,
+                    757
                   ],
                   "loc": {
                     "start": {
@@ -1612,8 +1612,8 @@
                     "type": "Identifier",
                     "name": "Swipe",
                     "range": [
-                      762,
-                      767
+                      761,
+                      766
                     ],
                     "loc": {
                       "start": {
@@ -1630,8 +1630,8 @@
                     "type": "Identifier",
                     "name": "Swipe",
                     "range": [
-                      769,
-                      774
+                      768,
+                      773
                     ],
                     "loc": {
                       "start": {
@@ -1649,8 +1649,8 @@
                   "shorthand": false,
                   "computed": false,
                   "range": [
-                    762,
-                    774
+                    761,
+                    773
                   ],
                   "loc": {
                     "start": {
@@ -1669,8 +1669,8 @@
                     "type": "Identifier",
                     "name": "Tap",
                     "range": [
-                      778,
-                      781
+                      777,
+                      780
                     ],
                     "loc": {
                       "start": {
@@ -1687,8 +1687,8 @@
                     "type": "Identifier",
                     "name": "Tap",
                     "range": [
-                      783,
-                      786
+                      782,
+                      785
                     ],
                     "loc": {
                       "start": {
@@ -1706,8 +1706,8 @@
                   "shorthand": false,
                   "computed": false,
                   "range": [
-                    778,
-                    786
+                    777,
+                    785
                   ],
                   "loc": {
                     "start": {
@@ -1722,8 +1722,8 @@
                 }
               ],
               "range": [
-                635,
-                788
+                634,
+                787
               ],
               "loc": {
                 "start": {
@@ -1737,8 +1737,8 @@
               }
             },
             "range": [
-              623,
-              788
+              622,
+              787
             ],
             "loc": {
               "start": {
@@ -1754,8 +1754,8 @@
         ],
         "kind": "var",
         "range": [
-          619,
-          789
+          618,
+          788
         ],
         "loc": {
           "start": {
@@ -1772,8 +1772,8 @@
             "type": "Block",
             "value": "*\n * The global API interface for ZingTouch. Contains a constructor for the Region Object,\n * and constructors for each predefined Gesture.\n * @type {Object}\n * @namespace ZingTouch\n ",
             "range": [
-              431,
-              618
+              430,
+              617
             ],
             "loc": {
               "start": {
@@ -1790,8 +1790,8 @@
         "trailingComments": []
       },
       "range": [
-        791,
-        816
+        790,
+        815
       ],
       "loc": {
         "start": {
@@ -1807,8 +1807,8 @@
   ],
   "sourceType": "module",
   "range": [
-    94,
-    816
+    93,
+    815
   ],
   "loc": {
     "start": {
@@ -1823,10 +1823,10 @@
   "comments": [
     {
       "type": "Block",
-      "value": "*\n * @file ZingTouch.js\n * Main object containing API methods and Gesture constructors\n ",
+      "value": "*\n * @file ZingTouch.js\n * Main object containing API methods and Gesture constructors\n",
       "range": [
         0,
-        92
+        91
       ],
       "loc": {
         "start": {
@@ -1835,7 +1835,7 @@
         },
         "end": {
           "line": 4,
-          "column": 3
+          "column": 2
         }
       }
     },
@@ -1843,8 +1843,8 @@
       "type": "Block",
       "value": "*\n * The global API interface for ZingTouch. Contains a constructor for the Region Object,\n * and constructors for each predefined Gesture.\n * @type {Object}\n * @namespace ZingTouch\n ",
       "range": [
-        431,
-        618
+        430,
+        617
       ],
       "loc": {
         "start": {
@@ -1861,8 +1861,8 @@
       "type": "Line",
       "value": "Constructors",
       "range": [
-        639,
-        653
+        638,
+        652
       ],
       "loc": {
         "start": {

@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">test/gestures/Gesture.spec.js | API Document</title>
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">test/core/classes/Input.spec.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -54,28 +54,95 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">test/gestures/Gesture.spec.js</h1>
+<div class="content" data-ice="content"><h1 data-ice="title">test/core/classes/Input.spec.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
- * @file Gesture.js
- * Tests Gesture class
+ * @file Binding.js
+ * Tests Binding class
  */
-import Gesture from &apos;./../../src/gestures/Gesture.js&apos;;
+import Input from &apos;./../../../src/core/classes/Input.js&apos;;
+import ZingEvent from &apos;./../../../src/core/classes/ZingEvent.js&apos;;
+/** @test {Input} */
+describe(&apos;Input&apos;, function () {
+  var event = document.createEvent(&apos;Event&apos;);
+  var input = new Input(event, 1234);
 
-/** @test {Gesture} */
-describe(&apos;Gesture&apos;, function () {
   it(&apos;should be instantiated&apos;, function () {
-    expect(Gesture).to.not.equal(null);
+    expect(Input).to.not.equal(null);
+  });
+
+  it(&apos;should have an initial event&apos;, function () {
+    expect(input.initial).to.be.an.instanceof(ZingEvent);
+  });
+
+  it(&apos;should have an current event&apos;, function () {
+    expect(input.current).to.be.an.instanceof(ZingEvent);
+    expect(input.current).to.equal(input.current);
+  });
+
+  it(&apos;should have an previous event&apos;, function () {
+    expect(input.previous).to.be.an.instanceof(ZingEvent);
+    expect(input.previous).to.equal(input.current);
+  });
+
+});
+
+/** @test {Input.update} */
+describe(&apos;Input.update&apos;, function () {
+  var event = document.createEvent(&apos;Event&apos;);
+  var input = new Input(event, 1234);
+
+  it(&apos;should update the current event&apos;, function () {
+    var newEvent = document.createEvent(&apos;MouseEvent&apos;);
+    input.update(newEvent, 4321);
+    expect(input.previous).to.not.equal(input.current);
   });
 });
 
-/** @test {Gesture.getType} */
-describe(&apos;Gesture.getType&apos;, function () {
-  it(&apos;should return null for a generic gesture&apos;, function () {
-    var _gesture = new Gesture();
-    expect(_gesture.getType()).to.equal(null);
+/** @test {Input.getGestureProgress} */
+describe(&apos;Input.getGestureProgress&apos;, function () {
+  var event = document.createEvent(&apos;Event&apos;);
+  var input = new Input(event, 1234);
+
+  it(&apos;should have no progress initially&apos;, function () {
+    expect(input.getGestureProgress(&apos;tap&apos;)).to.be.empty;
+  });
+
+  it(&apos;should have be able to store metadata in the progress object.&apos;, function () {
+    expect(input.getGestureProgress(&apos;tap&apos;)).to.be.empty;
+    (input.getGestureProgress(&apos;tap&apos;)).foo = 8;
+    expect(input.getGestureProgress(&apos;tap&apos;).foo).to.equal(8);
   });
 });
 
+/** @test {Input.getCurrentEventType} */
+describe(&apos;Input.getCurrentEventType&apos;, function () {
+
+  it(&apos;should be null for an event it does not understand&apos;, function () {
+    var event = document.createEvent(&apos;Event&apos;);
+    var input = new Input(event, 1234);
+    expect(input.getCurrentEventType()).to.be.null;
+  });
+
+  it(&apos;should not be null for an event it does understand&apos;, function () {
+    var event = document.createEvent(&apos;TouchEvent&apos;);
+    event.initUIEvent(&apos;touchstart&apos;, true, true);
+    var touchInput = new Input(event, 1234);
+    expect(touchInput.getCurrentEventType()).to.equal(&apos;start&apos;);
+  });
+});
+
+/** @test {Input.getCurrentEventType} */
+describe(&apos;Input.resetProgress&apos;, function () {
+  var event = document.createEvent(&apos;Event&apos;);
+  var input = new Input(event, 1234);
+  it(&apos;should reset the progress of an existing progress state&apos;, function () {
+    expect(input.getGestureProgress(&apos;tap&apos;)).to.be.empty;
+    (input.getGestureProgress(&apos;tap&apos;)).foo = 8;
+    expect(input.getGestureProgress(&apos;tap&apos;).foo).to.equal(8);
+    input.resetProgress(&apos;tap&apos;);
+    expect(input.getGestureProgress(&apos;tap&apos;)).to.be.empty;
+  });
+});
 </code></pre>
 
 </div>

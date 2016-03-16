@@ -60,14 +60,31 @@
  * Tests Binding class
  */
 import Binding from &apos;./../../../src/core/classes/Binding.js&apos;;
+import Gesture from &apos;./../../../src/gestures/Gesture.js&apos;;
 
 /** @test {Binding} */
 describe(&apos;Binding&apos;, function () {
+  var gesture = new Gesture();
+  var element = document.createElement(&apos;div&apos;);
+  var binding = new Binding(element, gesture, function () {}, false, false);
+
   it(&apos;should be instantiated&apos;, function () {
     expect(Binding).to.not.equal(null);
   });
-});
 
+  it(&apos;should have an element as a member&apos;, function () {
+    expect(binding.element).to.exist;
+  });
+
+  it(&apos;should have an Gesture as a member&apos;, function () {
+    expect(binding.gesture).to.be.an.instanceof(Gesture);
+  });
+
+  it(&apos;should have an function as a member&apos;, function () {
+    expect(binding.handler).to.be.an.instanceof(Function);
+  });
+
+});
 </code></pre>
 
 </div>

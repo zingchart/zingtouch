@@ -55,131 +55,21 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">test/ZingTouch.spec.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {ZingTouch, isValidGesture} from &apos;./../src/ZingTouch.js&apos;;
-import Binder from &apos;./../src/core/classes/Binder.js&apos;;
-import state from &apos;./../src/core/state.js&apos;;
-import Gesture from  &apos;./../src/gestures/Gesture.js&apos;;
-import Tap from  &apos;./../src/gestures/Tap.js&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {ZingTouch} from &apos;./../src/ZingTouch.js&apos;;
 
 /** @test {ZingTouch} */
 describe(&apos;ZingTouch&apos;, function () {
 
-  /** @test {ZingTouch#constructor */
   it(&apos;should be instantiated&apos;, function () {
     expect(ZingTouch).to.not.equal(null);
   });
 
-  it(&apos;should not expose internal state&apos;, function () {
-    expect(ZingTouch.state).to.be.undefined;
-  });
+  it(&apos;should have constructors for all of the gestures&apos;, function () {
 
-  it(&apos;should have an unbind method&apos;, function () {
-    expect(ZingTouch.unbind).to.exist;
-  });
-
-});
-
-/** @test {ZingTouch.bind} */
-describe(&apos;ZingTouch.bind(element)&apos;, function () {
-  it(&apos;should exist&apos;, function () {
-    expect(ZingTouch.bind).to.exist;
-  });
-
-  it(&apos;should throw an error if the element parameter is invalid&apos;, function () {
-    expect(function () {
-      ZingTouch.bind({});
-
-    }).to.throw(Error);
-  });
-
-  it(&apos;should return a chainable Binder object if only an element parameter is provided&apos;, function () {
-    var ztBound = ZingTouch.bind(document.body);
-    expect(ztBound).to.be.an.instanceof(Binder);
-  });
-
-  it(&apos;should return a chainable Binder object that contains all of the registered gestures&apos;, function () {
-    var ztBound = ZingTouch.bind(document.body);
-    var registeredGestures = Object.keys(state.registeredGestures);
-    for (var gesture in ztBound) {
-      if (gesture !== &apos;element&apos;) {
-        expect(registeredGestures).to.include(gesture);
-      }
+    var gestures = [&apos;Expand&apos;, &apos;Gesture&apos;, &apos;Pan&apos;, &apos;Pinch&apos;, &apos;Rotate&apos;, &apos;Swipe&apos;, &apos;Tap&apos;];
+    for (var key in ZingTouch) {
+      expect(gestures.indexOf(key) !== -1);
     }
-  });
-
-  it(&apos;should properly create a Binding after a chained function&apos;, function () {
-    var handler = function (event) {
-    };
-
-    expect(state.retrieveBindings(document.body).length).to.equal(0);
-    ZingTouch.bind(document.body)
-      .tap(handler, false);
-
-    expect(state.retrieveBindings(document.body).length).to.equal(1);
-
-  });
-});
-
-/** @test {ZingTouch.bind} */
-describe(&apos;ZingTouch.bind(element, gesture, handler, [capture])&apos;, function () {
-  it(&apos;should exist&apos;, function () {
-    expect(ZingTouch.bind).to.exist;
-  });
-
-  it(&apos;should throw an error if the element parameter is invalid&apos;, function () {
-    expect(function () {
-      ZingTouch.bind({}, &apos;tap&apos;, function () {
-      }, false);
-
-    }).to.throw(Error);
-  });
-
-  it(&apos;should throw an error if the gesture parameter is invalid&apos;, function () {
-    expect(function () {
-      ZingTouch.bind(document.body, {}, function () {
-      }, false);
-
-    }).to.throw(Error);
-  });
-
-  it(&apos;should throw an error if the handler parameter is invalid&apos;, function () {
-    expect(function () {
-      ZingTouch.bind(document.body, &apos;tap&apos;, {}, false);
-
-    }).to.throw(Error);
-  });
-
-  it(&apos;should accept a Gesture object as the gesture parameter&apos;, function () {
-    expect(function () {
-      ZingTouch.bind(document.body, new ZingTouch.Tap(), function () {
-      }, false);
-
-    }).to.not.throw(Error);
-  });
-
-});
-
-/** @test {isValidGesture} */
-describe(&apos;isValidGesture&apos;, function () {
-  it(&apos;should return true for a valid key of a gesture&apos;, function () {
-    expect(isValidGesture(&apos;tap&apos;)).to.be.true;
-  });
-
-  it(&apos;should return false for an invalid key of a gesture &apos;, function () {
-    expect(isValidGesture(&apos;foobar&apos;)).to.be.false;
-  });
-
-  it(&apos;should return true for a valid gesture object&apos;, function () {
-    expect(isValidGesture(new Gesture())).to.be.true;
-    expect(isValidGesture(new Tap())).to.be.true;
-  });
-
-  it(&apos;should return false for an invalid gesture object&apos;, function () {
-    expect(isValidGesture({})).to.be.false;
-  });
-
-  it(&apos;should return false for an invalid gesture object&apos;, function () {
-    expect(isValidGesture({})).to.be.false;
   });
 
 });

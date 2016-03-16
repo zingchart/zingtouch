@@ -121,7 +121,7 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/core/classes/Binder.spec.js.html#lineNumber20",
+    "test-file/test/core/classes/Binder.spec.js.html#lineNumber21",
     "Binder should return a chainable object with all of the current registered gestures",
     "test"
   ],
@@ -133,14 +133,32 @@ window.esdocSearchIndex = [
   ],
   [
     "binding src/core/classes/binding.js~binding,binding",
-    "test-file/test/core/classes/Binding.spec.js.html#lineNumber8",
+    "test-file/test/core/classes/Binding.spec.js.html#lineNumber9",
     "Binding",
     "test"
   ],
   [
     "",
-    "test-file/test/core/classes/Binding.spec.js.html#lineNumber9",
+    "test-file/test/core/classes/Binding.spec.js.html#lineNumber14",
     "Binding should be instantiated",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/core/classes/Binding.spec.js.html#lineNumber22",
+    "Binding should have an Gesture as a member",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/core/classes/Binding.spec.js.html#lineNumber18",
+    "Binding should have an element as a member",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/core/classes/Binding.spec.js.html#lineNumber26",
+    "Binding should have an function as a member",
     "test"
   ],
   [
@@ -488,13 +506,235 @@ window.esdocSearchIndex = [
   [
     "gesture.gettype src/gestures/gesture.js~gesture#gettype,gesture.gettype",
     "test-file/test/gestures/Gesture.spec.js.html#lineNumber15",
-    "Gesture.getType()",
+    "Gesture.getType",
     "test"
   ],
   [
     "",
     "test-file/test/gestures/Gesture.spec.js.html#lineNumber16",
-    "Gesture.getType() should return null for a generic gesture",
+    "Gesture.getType should return null for a generic gesture",
+    "test"
+  ],
+  [
+    "input src/core/classes/input.js~input,input",
+    "test-file/test/core/classes/Input.spec.js.html#lineNumber8",
+    "Input",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/core/classes/Input.spec.js.html#lineNumber12",
+    "Input should be instantiated",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/core/classes/Input.spec.js.html#lineNumber20",
+    "Input should have an current event",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/core/classes/Input.spec.js.html#lineNumber16",
+    "Input should have an initial event",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/core/classes/Input.spec.js.html#lineNumber25",
+    "Input should have an previous event",
+    "test"
+  ],
+  [
+    "input.getcurrenteventtype src/core/classes/input.js~input#getcurrenteventtype,input.getcurrenteventtype",
+    "test-file/test/core/classes/Input.spec.js.html#lineNumber61",
+    "Input.getCurrentEventType",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/core/classes/Input.spec.js.html#lineNumber63",
+    "Input.getCurrentEventType should be null for an event it does not understand",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/core/classes/Input.spec.js.html#lineNumber69",
+    "Input.getCurrentEventType should not be null for an event it does understand",
+    "test"
+  ],
+  [
+    "input.getgestureprogress src/core/classes/input.js~input#getgestureprogress,input.getgestureprogress",
+    "test-file/test/core/classes/Input.spec.js.html#lineNumber45",
+    "Input.getGestureProgress",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/core/classes/Input.spec.js.html#lineNumber53",
+    "Input.getGestureProgress should have be able to store metadata in the progress object.",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/core/classes/Input.spec.js.html#lineNumber49",
+    "Input.getGestureProgress should have no progress initially",
+    "test"
+  ],
+  [
+    "input.getcurrenteventtype src/core/classes/input.js~input#getcurrenteventtype,input.getcurrenteventtype",
+    "test-file/test/core/classes/Input.spec.js.html#lineNumber78",
+    "Input.resetProgress",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/core/classes/Input.spec.js.html#lineNumber81",
+    "Input.resetProgress should reset the progress of an existing progress state",
+    "test"
+  ],
+  [
+    "input.update src/core/classes/input.js~input#update,input.update",
+    "test-file/test/core/classes/Input.spec.js.html#lineNumber33",
+    "Input.update",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/core/classes/Input.spec.js.html#lineNumber37",
+    "Input.update should update the current event",
+    "test"
+  ],
+  [
+    "region src/core/classes/region.js~region,region",
+    "test-file/test/core/classes/Region.spec.js.html#lineNumber9",
+    "Region",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/core/classes/Region.spec.js.html#lineNumber10",
+    "Region should be instantiated",
+    "test"
+  ],
+  [
+    "region.bind src/core/classes/region.js~region#bind,region.bind",
+    "test-file/test/core/classes/Region.spec.js.html#lineNumber16",
+    "Region.bind(element)",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/core/classes/Region.spec.js.html#lineNumber18",
+    "Region.bind(element) should exist",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/core/classes/Region.spec.js.html#lineNumber44",
+    "Region.bind(element) should properly create a Binding after a chained function",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/core/classes/Region.spec.js.html#lineNumber29",
+    "Region.bind(element) should return a chainable Binder object if only an element parameter is provided",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/core/classes/Region.spec.js.html#lineNumber34",
+    "Region.bind(element) should return a chainable Binder object that contains all of the registered gestures",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/core/classes/Region.spec.js.html#lineNumber22",
+    "Region.bind(element) should throw an error if the element parameter is invalid",
+    "test"
+  ],
+  [
+    "state src/core/classes/state.js~state,state",
+    "test-file/test/core/classes/state.spec.js.html#lineNumber5",
+    "State",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/core/classes/state.spec.js.html#lineNumber7",
+    "State should be instantiated",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/core/classes/state.spec.js.html#lineNumber23",
+    "State should have instances of the 6 default gestures",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/core/classes/state.spec.js.html#lineNumber15",
+    "State should have no bindings",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/core/classes/state.spec.js.html#lineNumber11",
+    "State should have no inputs",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/core/classes/state.spec.js.html#lineNumber19",
+    "State should have no registered gestures",
+    "test"
+  ],
+  [
+    "state.addbinding src/core/classes/state.js~state#addbinding,state.addbinding",
+    "test-file/test/core/classes/state.spec.js.html#lineNumber32",
+    "State.addBinding",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/core/classes/state.spec.js.html#lineNumber41",
+    "State.addBinding should add a binding to a gesture instance",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/core/classes/state.spec.js.html#lineNumber34",
+    "State.addBinding should add a binding to a registered gesture",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/core/classes/state.spec.js.html#lineNumber48",
+    "State.addBinding should not add a binding to a non-registered gesture",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/core/classes/state.spec.js.html#lineNumber53",
+    "State.addBinding should not add a binding to an object not of the Gesture type",
+    "test"
+  ],
+  [
+    "state.retrievebindings src/core/classes/state.js~state#retrievebindings,state.retrievebindings",
+    "test-file/test/core/classes/state.spec.js.html#lineNumber60",
+    "State.retrieveBindings",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/core/classes/state.spec.js.html#lineNumber68",
+    "State.retrieveBindings should retrieve bindings for elements that are bound",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/core/classes/state.spec.js.html#lineNumber64",
+    "State.retrieveBindings should retrieve no bindings for elements without any",
     "test"
   ],
   [
@@ -523,164 +763,20 @@ window.esdocSearchIndex = [
   ],
   [
     "zingtouch src/zingtouch.js~zingtouch,zingtouch",
-    "test-file/test/ZingTouch.spec.js.html#lineNumber8",
+    "test-file/test/ZingTouch.spec.js.html#lineNumber4",
     "ZingTouch",
     "test"
   ],
   [
-    "* *,*",
-    "test-file/test/ZingTouch.spec.js.html#lineNumber11",
+    "",
+    "test-file/test/ZingTouch.spec.js.html#lineNumber6",
     "ZingTouch should be instantiated",
     "test"
   ],
   [
     "",
-    "test-file/test/ZingTouch.spec.js.html#lineNumber19",
-    "ZingTouch should have an unbind method",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/ZingTouch.spec.js.html#lineNumber15",
-    "ZingTouch should not expose internal state",
-    "test"
-  ],
-  [
-    "zingtouch.bind zingtouch.bind,zingtouch.bind",
-    "test-file/test/ZingTouch.spec.js.html#lineNumber26",
-    "ZingTouch.bind(element)",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/ZingTouch.spec.js.html#lineNumber27",
-    "ZingTouch.bind(element) should exist",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/ZingTouch.spec.js.html#lineNumber53",
-    "ZingTouch.bind(element) should properly create a Binding after a chained function",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/ZingTouch.spec.js.html#lineNumber38",
-    "ZingTouch.bind(element) should return a chainable Binder object if only an element parameter is provided",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/ZingTouch.spec.js.html#lineNumber43",
-    "ZingTouch.bind(element) should return a chainable Binder object that contains all of the registered gestures",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/ZingTouch.spec.js.html#lineNumber31",
-    "ZingTouch.bind(element) should throw an error if the element parameter is invalid",
-    "test"
-  ],
-  [
-    "zingtouch.bind zingtouch.bind,zingtouch.bind",
-    "test-file/test/ZingTouch.spec.js.html#lineNumber67",
-    "ZingTouch.bind(element, gesture, handler, [capture])",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/ZingTouch.spec.js.html#lineNumber95",
-    "ZingTouch.bind(element, gesture, handler, [capture]) should accept a Gesture object as the gesture parameter",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/ZingTouch.spec.js.html#lineNumber68",
-    "ZingTouch.bind(element, gesture, handler, [capture]) should exist",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/ZingTouch.spec.js.html#lineNumber72",
-    "ZingTouch.bind(element, gesture, handler, [capture]) should throw an error if the element parameter is invalid",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/ZingTouch.spec.js.html#lineNumber80",
-    "ZingTouch.bind(element, gesture, handler, [capture]) should throw an error if the gesture parameter is invalid",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/ZingTouch.spec.js.html#lineNumber88",
-    "ZingTouch.bind(element, gesture, handler, [capture]) should throw an error if the handler parameter is invalid",
-    "test"
-  ],
-  [
-    "getgesturetype getgesturetype,getgesturetype",
-    "test-file/test/core/state.spec.js.html#lineNumber66",
-    "getGestureType",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/core/state.spec.js.html#lineNumber81",
-    "getGestureType should return null for an invalid object",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/core/state.spec.js.html#lineNumber72",
-    "getGestureType should return null for an invalid string key binding",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/core/state.spec.js.html#lineNumber76",
-    "getGestureType should return tap for a valid gesture object",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/core/state.spec.js.html#lineNumber68",
-    "getGestureType should return tap if the string is a valid binding",
-    "test"
-  ],
-  [
-    "isvalidgesture isvalidgesture,isvalidgesture",
-    "test-file/test/ZingTouch.spec.js.html#lineNumber106",
-    "isValidGesture",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/ZingTouch.spec.js.html#lineNumber120",
-    "isValidGesture should return false for an invalid gesture object",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/ZingTouch.spec.js.html#lineNumber124",
-    "isValidGesture should return false for an invalid gesture object",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/ZingTouch.spec.js.html#lineNumber111",
-    "isValidGesture should return false for an invalid key of a gesture ",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/ZingTouch.spec.js.html#lineNumber115",
-    "isValidGesture should return true for a valid gesture object",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/ZingTouch.spec.js.html#lineNumber107",
-    "isValidGesture should return true for a valid key of a gesture",
+    "test-file/test/ZingTouch.spec.js.html#lineNumber10",
+    "ZingTouch should have constructors for all of the gestures",
     "test"
   ],
   [
@@ -1290,48 +1386,6 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "state src/core/classes/region.js~region#state,state",
-    "test-file/test/core/state.spec.js.html#lineNumber6",
-    "state",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/core/state.spec.js.html#lineNumber7",
-    "state should be instantiated",
-    "test"
-  ],
-  [
-    "state.addbinding state.addbinding,state.addbinding",
-    "test-file/test/core/state.spec.js.html#lineNumber13",
-    "state.addBinding",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/core/state.spec.js.html#lineNumber34",
-    "state.addBinding should create a binding with a key of an existing gesture",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/core/state.spec.js.html#lineNumber18",
-    "state.addBinding should create a binding with a new gesture",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/core/state.spec.js.html#lineNumber48",
-    "state.addBinding should not create a binding with a key of a non-existing gesture",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/core/state.spec.js.html#lineNumber56",
-    "state.addBinding should not create a binding with an invalid object",
-    "test"
-  ],
-  [
     "test/zingtouch.spec.js",
     "test-file/test/ZingTouch.spec.js.html",
     "test/ZingTouch.spec.js",
@@ -1350,9 +1404,21 @@ window.esdocSearchIndex = [
     "testFile"
   ],
   [
-    "test/core/state.spec.js",
-    "test-file/test/core/state.spec.js.html",
-    "test/core/state.spec.js",
+    "test/core/classes/input.spec.js",
+    "test-file/test/core/classes/Input.spec.js.html",
+    "test/core/classes/Input.spec.js",
+    "testFile"
+  ],
+  [
+    "test/core/classes/region.spec.js",
+    "test-file/test/core/classes/Region.spec.js.html",
+    "test/core/classes/Region.spec.js",
+    "testFile"
+  ],
+  [
+    "test/core/classes/state.spec.js",
+    "test-file/test/core/classes/state.spec.js.html",
+    "test/core/classes/state.spec.js",
     "testFile"
   ],
   [
