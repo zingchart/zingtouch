@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl">
+  <title data-ice="title">API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ZingTouch">ZingTouch</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">core</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-arbiter">arbiter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dispatcher">dispatcher</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-interpreter">interpreter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-util">util</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">core/classes</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Binder.js~Binder.html">Binder</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Binding.js~Binding.html">Binding</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Input.js~Input.html">Input</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Region.js~Region.html">Region</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html">State</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/ZingEvent.js~ZingEvent.html">ZingEvent</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pan.js~Pan.html">Pan</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pinch.js~Pinch.html">Pinch</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Rotate.js~Rotate.html">Rotate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Swipe.js~Swipe.html">Swipe</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Tap.js~Tap.html">Tap</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="zingtouch">ZingTouch</h1>
+<p>A modern JavaScript touch gesture library. Allows developers to configure pre-existing gestures and even create their own using ZingTouch&apos;s life cycle.</p>
+<h3 id="quick-links">Quick Links</h3>
+<ul>
+<li>Demos</li>
+<li><a href="http://zingchart.github.io/zingtouch/docs/index.html">Codebase Documentation</a></li>
+<li>CDN</li>
+</ul>
+<h3 id="table-of-contents">Table of Contents</h3>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#getting-started">Getting Started</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#browser-support">Browser Support</a></li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<h1 id="overview">Overview</h1>
+<p>ZingTouch is built to make implementing gestures for the browser as easy or complex as you need it to be. ZingTouch comes with 6 main gestures : </p>
+<ul>
+<li>Tap</li>
+<li>Swipe</li>
+<li>Pinch</li>
+<li>Expand</li>
+<li>Pan </li>
+<li>Rotate</li>
+</ul>
+<p>These gestures can be customized including the number of inputs it accepts, or how sensitive the gesture is to be recognized. </p>
+<p>ZingTouch is also a fully capable touch library with lifecycle events that you can hook into to create new Gestures or to act upon certain touch events. We know supporting touch events across multiple browsers can be a pain; ZingTouch makes it easy by defining 3 hooks to pass callbacks to :</p>
+<ul>
+<li>start</li>
+<li>move</li>
+<li>end</li>
+</ul>
+<h1 id="getting-started">Getting Started</h1>
+<h3 id="include-the-library">Include the library</h3>
+<p><strong><em>ES6 / CommonJS</em></strong></p>
+<pre><code><code class="source-code prettyprint">var ZingTouch = require(&apos;ZingTouch&apos;);</code>
+</code></pre><p>or </p>
+<p><strong><em>Include the file</em></strong></p>
+<pre><code><code class="source-code prettyprint">&lt;script src=&apos;./path/to/zingtouch.js&apos;&gt;&lt;/script&gt;</code>
+</code></pre><h3 id="create-a-region">Create a Region</h3>
+<pre><code><code class="source-code prettyprint">var zt = new ZingTouch.Region(document.body);</code>
+</code></pre><h3 id="bind-an-element-to-a-gesture">Bind an element to a gesture</h3>
+<pre><code><code class="source-code prettyprint">var myElement = document.getElementById(&apos;my-div&apos;);
+
+zt.bind(myElement, &apos;tap&apos;, function(e){
+    //Actions here
+}, false);</code>
+</code></pre><h1 id="usage">Usage</h1>
+<h2 id="table-of-contents">Table of Contents</h2>
+<p><strong><a href="#constructs">Constructs</a></strong></p>
+<ul>
+<li><a href="#region">Region</a></li>
+</ul>
+<p><strong><a href="#gestures">Gestures</a></strong></p>
+<ul>
+<li><a href="#tap">Tap</a></li>
+<li><a href="#pan">Pan</a></li>
+<li><a href="#swipe">Swipe</a></li>
+<li><a href="#pinch">Pinch</a></li>
+<li><a href="#expand">Expand</a></li>
+<li><a href="#rotate">Rotate</a></li>
+<li><a href="#gesture">Gesture</a></li>
+</ul>
+<p><strong><a href="#methods">Methods</a></strong></p>
+<ul>
+<li><a href="#regionbindelement-gesture-handler-capture">Region.bind</a></li>
+<li><a href="#regionbindonce">Region.bindOnce</a></li>
+<li><a href="#regionunbindelement-gesture">Region.unbind</a></li>
+<li><a href="#regionregisterkey-gesture">Region.register</a></li>
+<li><a href="#regionunregisterkey">Region.unregister</a></li>
+</ul>
+<h2 id="constructs">Constructs</h2>
+<h3 id="region">Region</h3>
+<p>Regions specify an area to listen for all window events. ZingTouch needs to listen to all window events in order to determine if a gesture is recognized. You can reuse regions for multiple elements and gesture bindings. They simply specify an area where to listen for gestures.</p>
+<p>Suppose you had an element that you wanted to track gestures on, and we set the region on that element along with binding it to a gesture.</p>
+<pre><code><code class="source-code prettyprint">var touchArea = document.getElementById(&apos;#toucharea&apos;)
+var myRegion = new ZingTouch.Region(touchArea);
+
+myRegion.bind(touchArea, &apos;swipe&apos;, function(e){
+    console.log(e.detail);
+});</code>
+</code></pre><p>The shaded area in blue shows the area where ZingTouch will now listen for events such as touchstart, touchmove, touchend, etc.</p>
+<p><img src="http://demos.zingchart.com/assets/zingtouch-docs/region.png" alt="Region"></p>
+<p>But humans aren&apos;t perfect. Suppose the element #toucharea were to listen for the <code>Swipe</code> gesture. The tracking of the window events will stop when the user reaches the edges of #toucharea. But what if the user didn&apos;t finish until 10-50px <em>outside</em> the element? Regions are here to help.</p>
+<p>Suppose you set the Region to the parent of the #toucharea element instead.</p>
+<pre><code><code class="source-code prettyprint">var parentTouchArea = document.getElementById(&apos;#parent-toucharea&apos;)
+var touchArea = document.getElementById(&apos;#toucharea&apos;)
+var myRegion = new ZingTouch.Region(parentTouchArea);
+
+myRegion.bind(touchArea, &apos;swipe&apos;, function(e){
+    console.log(e.detail);
+});</code>
+</code></pre><p><img src="http://demos.zingchart.com/assets/zingtouch-docs/parent-region.png" alt="Parent Region"></p>
+<p>ZingTouch now tracks the swipe gesture inside the <code>#toucharea</code> element AND the #parent-toucharea. This allows some forgiveness when the user tries to swipe on the <code>#toucharea</code>, but lifts their finger somewhere in the <code>#parent-toucharea</code>. </p>
+<p><strong>Note:</strong> The swipe gesture can only be initiated on the area it is bound to. This means the user has to touch the <code>#toucharea</code> element first, but can move out and end within <code>#parent-toucharea</code>.</p>
+<h3 id="multiple-regions">Multiple Regions</h3>
+<p>Regions only are aware of themselves and their contents, not across regions. This allows for control at a larger scale so you can group similar gestures together. While you can throw a Region on top of the <code>document.body</code>, we suggest splitting up your application into regions for better performance -- the less bindings a single region has to iterate through to detect a gesture, the better.</p>
+<p><img src="http://demos.zingchart.com/assets/zingtouch-docs/multiple-regions.png" alt="Multiple Regions"></p>
+<h2 id="gestures">Gestures</h2>
+<p>Gesture classes can be instatiated to generate modified versions.</p>
+<h3 id="tap">Tap</h3>
+<p><img src="http://demos.zingchart.com/assets/zingtouch-docs/tap.gif" alt="Tap Gesture"></p>
+<p>A tap is detected when the user touches the screen and releases in quick succession.</p>
+<h4 id="options">Options</h4>
+<ul>
+<li><code>options.maxDelay</code> <em>optional</em> - The maximum delay between a start and end event. This number is measured in milliseconds.<ul>
+<li>default: 300</li>
+</ul>
+</li>
+<li><code>options.numInputs</code> <em>optional</em> - The number of inputs to trigger the tap event.<ul>
+<li>default: 1</li>
+</ul>
+</li>
+<li><code>options.moveTolerance</code> <em>optional</em> - A tolerance value which allows the user to move their finger about a radius measured in pixels. This allows the Tap gesture to be triggered more easily since a User might move their finger slightly during a tap event.<ul>
+<li>default: 10</li>
+</ul>
+</li>
+</ul>
+<h4 id="example">Example</h4>
+<pre><code><code class="source-code prettyprint">new ZingTouch.Tap({
+    maxDelay: 200,
+    numInputs: 2,
+    moveTolerance: 125
+})</code>
+</code></pre><h4 id="emits">Emits</h4>
+<ul>
+<li><code>interval</code> - a time measured in milliseconds between the start of the gesture, and the end.</li>
+</ul>
+<hr>
+<h3 id="swipe">Swipe</h3>
+<p><img src="http://demos.zingchart.com/assets/zingtouch-docs/swipe.gif" alt="Swipe Gesture"></p>
+<p>A swipe is detected when the user touches the screen and moves in a relatively increasing velocity, leaving the screen at some point before it drops below a certain velocity.</p>
+<h4 id="options">Options</h4>
+<ul>
+<li><code>options.numInputs</code> <em>optional</em> - The number of inputs to trigger the event.<ul>
+<li>Default: 1</li>
+</ul>
+</li>
+<li><code>options.maxRestTime</code> <em>optional</em> - The amount of time allowed in milliseconds inbetween events before a the motion becomes inelligible to be a swipe.<ul>
+<li>Default: 100</li>
+</ul>
+</li>
+<li><code>options.escapeVelocity</code> <em>optional</em> - The minimum velocity (px/ms) that the gesture has to obtain by the end event.<ul>
+<li>Default: 0.2</li>
+</ul>
+</li>
+</ul>
+<h4 id="example">Example</h4>
+<pre><code><code class="source-code prettyprint">new ZingTouch.Swipe({
+    numInputs: 2,
+    maxRestTime: 100,
+    escapeVelocity: 0.25
+})</code>
+</code></pre><h4 id="emits">Emits</h4>
+<ul>
+<li><code>velocity</code> - The value of pixels/milliseconds the gesture was travelling until it&apos;s ending point.</li>
+</ul>
+<hr>
+<h3 id="pinch">Pinch</h3>
+<p><img src="http://demos.zingchart.com/assets/zingtouch-docs/pinch.gif" alt="Pinch Gesture"></p>
+<p>An expand is detected when the user has two inputs on the screen and moves one or both closer towards the other input.</p>
+<h4 id="example">Example</h4>
+<pre><code><code class="source-code prettyprint">new ZingTouch.Pinch()</code>
+</code></pre><h4 id="emits">Emits</h4>
+<ul>
+<li><code>distance</code> - The distance in pixels between the two inputs.</li>
+</ul>
+<hr>
+<h3 id="expand">Expand</h3>
+<p><img src="http://demos.zingchart.com/assets/zingtouch-docs/expand.gif" alt="Expand Gesture"></p>
+<p>An expand is detected when the user has two inputs on the screen and moves one or both away from the other input.</p>
+<h4 id="example">Example</h4>
+<pre><code><code class="source-code prettyprint">new ZingTouch.Expand()</code>
+</code></pre><h4 id="emits">Emits</h4>
+<ul>
+<li><code>expand</code> - The distance in pixels between the two inputs.</li>
+</ul>
+<hr>
+<h3 id="pan">Pan</h3>
+<p><img src="http://demos.zingchart.com/assets/zingtouch-docs/pan.gif" alt="Pan Gesture"></p>
+<p>A pan is detected when the user touches the screen and moves about the area.</p>
+<h4 id="options">Options</h4>
+<ul>
+<li><code>options.numInputs</code> <em>optional</em> - The number of inputs to trigger the event.<ul>
+<li>Default: 1</li>
+</ul>
+</li>
+</ul>
+<h4 id="example">Example</h4>
+<pre><code><code class="source-code prettyprint">new ZingTouch.Pan({
+    numInputs: 2
+})</code>
+</code></pre><h4 id="emits">Emits</h4>
+<ul>
+<li><code>distanceFromOrigin</code> - The distance in pixels traveled from the current position from the starting position</li>
+</ul>
+<hr>
+<h3 id="rotate">Rotate</h3>
+<p><img src="http://demos.zingchart.com/assets/zingtouch-docs/rotate.gif" alt="Rotate Gesture"></p>
+<p>A Rotate is detected when the use has two inputs moving about a circle on the edges of a diameter.</p>
+<h4 id="example">Example</h4>
+<pre><code><code class="source-code prettyprint">new ZingTouch.Rotate()</code>
+</code></pre><h4 id="emits">Emits</h4>
+<ul>
+<li><code>angle</code> - The angle of the initial right most input, in relation to the unit circle.</li>
+<li><code>distance</code> - The angular distance travlled by the initial right most post.</li>
+<li><code>change</code> - The change of angle between the last position and the current position. Positive denotes a counter-clockwise motion, while negative denotes a clockwise motion.</li>
+</ul>
+<hr>
+<h3 id="gesture">Gesture</h3>
+<p>A generic gesture. By default, this gesture does not emit but is useful for hooking into ZingTouch&apos;s life cycle. See <a href="#zingtouch-life-cycle">ZingTouch Life Cycle</a> for more information.</p>
+<h4 id="example">Example</h4>
+<pre><code><code class="source-code prettyprint">new ZingTouch.Gesture()</code>
+</code></pre><h2 id="methods">Methods</h2>
+<h3 id="region-bind-element-gesture-handler-capture-">Region.bind(element, gesture, handler, [capture])</h3>
+<p>Binds a single element to a gesture, executing the handler when the gesture is emitted.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>element - A DOM element</li>
+<li>gesture - Either the key (string) of a default or registered gesture, or an instance of the <code>Gesture</code> class itself.</li>
+<li>handler - A function to be called every time the gesture is emitted.<ul>
+<li>The handler function has an Event object emitted from the <a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent">CustomEvent</a> interface. Any information relavant to the gesture will be in <code>event.detail</code>.</li>
+</ul>
+</li>
+<li><code>capture</code> - An optional boolean to designate the event to be fired on the capture or bubbling phase.</li>
+</ul>
+<p><strong>Example #1</strong></p>
+<pre><code><code class="source-code prettyprint">var myRegion = new ZingTouch.Region(document.body);
+var myElement = document.getElementById(&apos;some-div&apos;);
+
+myRegion.bind(myElement, &apos;tap&apos;, function(e) {
+    console.log(&apos;Tap gesture emitted: &apos; + e.detail.interval);
+});</code>
+</code></pre><p><strong>Example #2</strong></p>
+<pre><code><code class="source-code prettyprint">var myElement = document.getElementById(&apos;some-div&apos;);
+var myTapGesture = new ZingTouch.Tap({ maxDelay : 100 });
+var myRegion = new ZingTouch.Region(document.body);
+
+myRegion.bind(myElement, myTapGesture, function(e) {
+    console.log(&apos;Custom Tap gesture emitted: &apos; + e.detail.interval);
+}, false);</code>
+</code></pre><p><strong>Notes</strong></p>
+<ol>
+<li>Instance Gestures that are passed to bind will be stored and maintained in memory, therefore it is reccomended to reuse gestures object where possible, or to use the <code>Region.register</code> syntax -- they essentially do the same thing. Either works fine, but try to avoid using the following pattern where an instance variable is created at every bind :</li>
+</ol>
+<pre><code><code class="source-code prettyprint">//Poor performance
+var delay = 100;
+for (var i = 0; i &lt; 100; i++){
+    myRegion.bind(myElement, new ZingTouch.Tap({maxDelay : delay}),function(e){...});
+}</code>
+</code></pre><pre><code><code class="source-code prettyprint">//Better performance
+var delay = 100;
+var customTap = new ZingTouch.Tap({maxDelay : delay});
+for (var i = 0; i &lt; 100; i++){
+    myRegion.bind(myElement, customTap, function(e){...});
+}</code>
+</code></pre><hr>
+<h3 id="region-bind-element-">Region.bind(element)</h3>
+<p>Passing a qualified DOM element to the bind function will return an object that can be chainable with the 6 main gestures, or any other gestures that you may have registered with <code>Region.register</code></p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>element - A DOM element</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li><p>A chainable object that takes two parameters :</p>
+<ul>
+<li><p><code>handler</code> - A function to be called every time the gesture is emitted.</p>
+<ul>
+<li>The chainable object has 6 methods available at all times : <code>.tap()</code> ,<code>.swipe()</code> ,<code>.pinch()</code> ,<code>.expand()</code> ,<code>.pan()</code> ,<code>.rotate()</code>. Custom Gesture are accessible using the <code>ZingTouch.register</code> method.</li>
+<li>The handler function has an Event object emitted from the <a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent">CustomEvent</a> interface. Any information relavant to the gesture will be in <code>event.detail</code>.</li>
+</ul>
+</li>
+<li><p><code>capture</code> - An optional boolean to designate the event to be fired on the capture or bubbling phase.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code><code class="source-code prettyprint">var myElement = document.getElementById(&apos;mydiv&apos;);
+var myRegion = new ZingTouch.Region(myElement);
+var chainableObject = myRegion.bind(myElement);
+
+chainableObject
+    .tap(function(e){
+        console.log(e.detail);
+    })
+    .swipe(function(e){
+        console.log(e.detail);
+    }, true)</code>
+</code></pre><hr>
+<h3 id="region-bindonce-">Region.bindOnce()</h3>
+<p>Identical to both method signatures of bind, but is &quot;bound once&quot; meaning the event will only be captured once before it is destroyed. </p>
+<p>See <a href="#bind">Region.bind</a></p>
+<hr>
+<h3 id="region-unbind-element-gesture-">Region.unbind(element, [gesture])</h3>
+<p>Unbinds an element from a specific gesture, or all gestures if none is specified.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>element</code> - A DOM element</li>
+<li><code>gesture</code> <em>optional</em> - Either a registered gesture&apos;s key (String) or the gesture object used to bind the element.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>array - An array of bindings containing the gestures that were unbound.</li>
+</ul>
+<p><strong>Examples</strong></p>
+<p>Unbind from a specific gesture</p>
+<pre><code><code class="source-code prettyprint">var myElement = document.getElementById(&apos;mydiv&apos;);
+myRegion.unbind(myElement, &apos;tap&apos;);</code>
+</code></pre><p>Unbind from all gestures</p>
+<pre><code><code class="source-code prettyprint">var myElement = document.getElementById(&apos;mydiv&apos;);
+myRegion.unbind(myElement);</code>
+</code></pre><p>Unbind from a gesture instance.</p>
+<pre><code><code class="source-code prettyprint">var myElement = document.getElementById(&apos;mydiv&apos;);
+var myRegion = new ZingTouch.Region(document.body);
+var myTapGesture = new ZingTouch.Tap({ maxDelay : 100 });
+
+myRegion.bind(myElement, myTapGesture, function(e) {});
+
+myRegion.unbind(myElement, myTapGesture);</code>
+</code></pre><hr>
+<h3 id="region-register-key-gesture-">Region.register(key, gesture)</h3>
+<p>Register a gesture of the Gesture class to each Region. Allows the newly registered Gesture to be accessible in the bind/unbind syntax including the chainable object of bind.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>key</code> - A string to identify the new gesture.</li>
+<li><code>gesture</code> - An instance of the Gesture class</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>The gesture object registered</li>
+</ul>
+<p><strong>Examples</strong></p>
+<pre><code><code class="source-code prettyprint">var myTapGesture = new ZingTouch.Tap({ maxDelay : 60 });
+
+var myRegion = new ZingTouch.Region(document.body);
+myRegion.register(&apos;shortTap&apos;, myTapGesture);</code>
+</code></pre><p>And the usages :</p>
+<pre><code><code class="source-code prettyprint">myRegion.bind(myElement, &apos;shortTap&apos;, function(e){});</code>
+</code></pre><pre><code><code class="source-code prettyprint">myRegion.bind(myElement).shortTap(function(e){});</code>
+</code></pre><hr>
+<h3 id="region-unregister-key-">Region.unregister(key)</h3>
+<p>Unregisters a gesture that was previously registered. Unregistering a gesture will automatically unbind any elements that were bound to this gesture.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>key</code> - A string to identify the gesture that will be unregistered.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>The gesture that was unregistered.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code><code class="source-code prettyprint">myRegion.unregister(&apos;shortTap&apos;);</code>
+</code></pre><hr>
+<h1 id="zingtouch-life-cycle">ZingTouch Life Cycle</h1>
+<p>Creating new gestures and utilizing ZingTouch as a touch interface library.</p>
+<p>###<strong><em>In progress</em></strong></p>
+<hr>
+<h1 id="browser-support">Browser Support</h1>
+<p>###<strong><em>In progress</em></strong></p>
+<p><strong>Verified</strong></p>
+<ul>
+<li>Chrome (49+)</li>
+<li>iOS 9+</li>
+<li>Safari 8</li>
+</ul>
+<p><strong>Planned</strong></p>
+<ul>
+<li>Android (on Chrome)</li>
+<li>Microsoft Edge</li>
+<li>Safari 6-9+</li>
+</ul>
+<hr>
+<h1 id="contributing">Contributing</h1>
+<p><strong>Code Style</strong></p>
+<p>We use the <a href="https://github.com/airbnb/javascript">Airbnb</a> code style guide for our JavaScript.</p>
+<p><strong>Build dependencies</strong></p>
+<ul>
+<li>Build Tool: <a href="https://webpack.github.io/">Webpack</a><ul>
+<li><code>npm install -g webpack</code> </li>
+</ul>
+</li>
+<li>ES6 translator : <a href="https://babeljs.io/">Babel</a></li>
+</ul>
+<p><strong>Comments and Documentation</strong></p>
+<ul>
+<li>We follow <a href="http://usejsdoc.org/">JSDoc</a> guidelines but utilize <a href="https://esdoc.org/">ESDoc</a> to output documentation. We find ESDoc to be friendlier with ES6/class structured codebases.</li>
+</ul>
+<p><strong>Testing</strong></p>
+<ul>
+<li>Mocha</li>
+<li>Chai (Expect)</li>
+</ul>
+<h3 id="npm-scripts">npm scripts</h3>
+<ul>
+<li><code>npm run build:dev</code> - Builds the unminified library with webpack</li>
+<li><code>npm run build:prod</code> - Builds the minified library with webpack</li>
+<li><code>npm run docs</code> - Builds the docs with esdocs</li>
+</ul>
+<hr>
+<h1 id="license">License</h1>
+<p>MIT License </p>
+<p>&#xA9; 2016 ZingChart, Inc. </p>
+</div>
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.6)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

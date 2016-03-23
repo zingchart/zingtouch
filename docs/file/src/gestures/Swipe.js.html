@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/gestures/Swipe.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ZingTouch">ZingTouch</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">core</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-arbiter">arbiter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dispatcher">dispatcher</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-interpreter">interpreter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-util">util</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">core/classes</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Binder.js~Binder.html">Binder</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Binding.js~Binding.html">Binding</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Input.js~Input.html">Input</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Region.js~Region.html">Region</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html">State</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/ZingEvent.js~ZingEvent.html">ZingEvent</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pan.js~Pan.html">Pan</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pinch.js~Pinch.html">Pinch</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Rotate.js~Rotate.html">Rotate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Swipe.js~Swipe.html">Swipe</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Tap.js~Tap.html">Tap</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/gestures/Swipe.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * @file Swipe.js
+ * Contains the Swipe class
+ */
+
+import Gesture from &apos;./Gesture.js&apos;;
+import util from &apos;./../core/util.js&apos;;
+
+const DEFAULT_INPUTS = 1;
+const DEFAULT_MAX_REST_TIME = 100;
+const DEFAULT_ESCAPE_VELOCITY = 0.2;
+const DEFAULT_TIME_DISTORTION = 100;
+const DEFAULT_MAX_PROGRESS_STACK = 10;
+
+/**
+ * A swipe is defined as input(s) moving in the same direction in an relatively increasing velocity
+ * and leaving the screen at some point before it drops below it&apos;s escape velocity.
+ * @class Swipe
+ */
+class Swipe extends Gesture {
+
+  /**
+   * Constructor function for the Swipe class.
+   * @param {Object} options - The options object.
+   * @param {Number} [options.numInputs] - The number of inputs to trigger a Swipe can be variable,
+   *  and the maximum number being a factor of the browser.
+   * @param {Number} [options.maxRestTime] - The maximum resting time a point has between it&apos;s last
+   *  move and current move events.
+   * @param {Number} [options.escapeVelocity] - The minimum velocity the input has to be at to emit a swipe.
+   * @param {Number} [options.timeDistortion] - (EXPERIMENTAL) A value of time in milliseconds to distort between events.
+   * @param {Number} [options.maxProgressStack] - (EXPERIMENTAL)The maximum amount of move events to keep
+   * track of for a swipe.
+   */
+  constructor(options) {
+    super();
+    /**
+     * The type of the Gesture
+     * @type {String}
+     */
+    this.type = &apos;swipe&apos;;
+
+    /**
+     * The number of inputs to trigger a Swipe can be variable, and the maximum number being
+     * a factor of the browser.
+     * @type {Number}
+     */
+    this.numInputs = (options &amp;&amp; options.numInputs) ? options.numInputs : DEFAULT_INPUTS;
+
+    /**
+     * The maximum resting time a point has between it&apos;s last move and current move events.
+     * @type {Number}
+     */
+    this.maxRestTime = (options &amp;&amp; options.maxRestTime) ? options.maxRestTime : DEFAULT_MAX_REST_TIME;
+
+    /**
+     * The minimum velocity the input has to be at to emit a swipe. This is useful for determining
+     * the difference between
+     * a swipe and a pan gesture.
+     * @type {number}
+     */
+    this.escapeVelocity = (options &amp;&amp; options.escapeVelocity) ? options.escapeVelocity : DEFAULT_ESCAPE_VELOCITY;
+
+    /**
+     * (EXPERIMENTAL) A value of time in milliseconds to distort between events. Browsers do not accurately
+     * measure time with the Date constructor in milliseconds, so consecutive events sometimes
+     * display the same timestamp but different x/y coordinates. This will distort a previous time
+     * in such cases by the timeDistortion&apos;s value.
+     * @type {number}
+     */
+    this.timeDistortion = (options &amp;&amp; options.timeDistortion) ? options.timeDistortion : DEFAULT_TIME_DISTORTION;
+
+    /**
+     * (EXPERIMENTAL) The maximum amount of move events to keep track of for a swipe. This helps give a more
+     * accurate estimate of the user&apos;s velocity.
+     * @type {number}
+     */
+    this.maxProgressStack = (options &amp;&amp; options.maxProgressStack) ? options.maxProgressStack : DEFAULT_MAX_PROGRESS_STACK;
+  }
+
+  /**
+   * Event hook for the move of a gesture. Captures an input&apos;s x/y coordinates and the time of
+   * it&apos;s event on a stack.
+   * @param {Array} inputs - The array of Inputs on the screen.
+   * @returns {null} - Swipe does not emit from a move.
+   */
+  move(inputs) {
+    if (this.numInputs === inputs.length) {
+      var input = util.getRightMostInput(inputs);
+      var progress = input.getGestureProgress(this.getId());
+
+      if (!progress.moves) {
+        progress.moves = [];
+      }
+
+      progress.moves.push({
+        time: new Date().getTime(),
+        x: input.current.x,
+        y: input.current.y
+      });
+
+      if (progress.length &gt; this.maxProgressStack) {
+        progress.moves.shift();
+      }
+    }
+
+    return null;
+  }
+  /*move*/
+
+  /**
+   * Determines if the input&apos;s history validates a swipe motion. Determines if it did not come to
+   * a complete stop (maxRestTime), and if it had enough of a velocity to be considered
+   * (ESCAPE_VELOCITY).
+   * @param {Array} inputs - The array of Inputs on the screen
+   * @returns {null} - null if the gesture is not to be emitted, Object with information otherwise.
+   */
+  end(inputs) {
+    var input = util.getRightMostInput(inputs);
+    var progress = input.getGestureProgress(this.getId());
+
+    if (progress.moves &amp;&amp; progress.moves.length &gt; 2) {
+
+      //Return if the input has not moved in maxRestTime ms.
+      var currentMove = progress.moves.pop();
+
+      if ((new Date().getTime()) - currentMove.time &gt; this.maxRestTime) {
+        return null;
+      }
+ 
+      var lastMove;
+      var index = progress.moves.length - 1;
+
+      //Date is unreliable, so we retrieve the last move event where the time is not the same. .
+      while (index !== -1) {
+        if (progress.moves[index].time !== currentMove.time) {
+          lastMove = progress.moves[index];
+          break;
+        }
+
+        index--;
+      }
+
+      //If the date is REALLY unreliable, we apply a time distortion to the last event.
+      if (!lastMove) {
+        lastMove = progress.moves.pop();
+        lastMove.time += this.timeDistortion;
+      }
+
+      var velocity = util.getVelocity(lastMove.x, lastMove.y, lastMove.time,
+        currentMove.x, currentMove.y, currentMove.time);
+
+      if (velocity &gt; this.escapeVelocity) {
+        return {
+          velocity: velocity
+        };
+      }
+    }
+
+    return null;
+  }
+  /*end*/
+}
+
+export default Swipe;
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.6)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

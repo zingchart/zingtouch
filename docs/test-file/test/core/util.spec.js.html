@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">test/core/util.spec.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ZingTouch">ZingTouch</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">core</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-arbiter">arbiter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dispatcher">dispatcher</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-interpreter">interpreter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-util">util</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">core/classes</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Binder.js~Binder.html">Binder</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Binding.js~Binding.html">Binding</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Input.js~Input.html">Input</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Region.js~Region.html">Region</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html">State</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/ZingEvent.js~ZingEvent.html">ZingEvent</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pan.js~Pan.html">Pan</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pinch.js~Pinch.html">Pinch</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Rotate.js~Rotate.html">Rotate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Swipe.js~Swipe.html">Swipe</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Tap.js~Tap.html">Tap</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">test/core/util.spec.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * @file utils.js
+ * Tests the user-facing API, ensuring the object functions while not exposing private members.
+ */
+
+import util from &apos;./../../src/core/util.js&apos;;
+
+/** @test {util} */
+describe(&apos;util&apos;, function () {
+  it(&apos;should be instantiated&apos;, function () {
+    expect(util).to.not.equal(null);
+  });
+});
+
+/** @test {util.normalizeEvent} */
+describe(&apos;util.normalizeEvent&apos;, function () {
+  it(&apos;should expect to emit start&apos;, function () {
+    expect(util.normalizeEvent(&apos;mousedown&apos;)).to.equal(&apos;start&apos;);
+    expect(util.normalizeEvent(&apos;touchstart&apos;)).to.equal(&apos;start&apos;);
+  });
+
+  it(&apos;should expect to emit move&apos;, function () {
+    expect(util.normalizeEvent(&apos;mousemove&apos;)).to.equal(&apos;move&apos;);
+    expect(util.normalizeEvent(&apos;touchmove&apos;)).to.equal(&apos;move&apos;);
+  });
+
+  it(&apos;should expect to emit end&apos;, function () {
+    expect(util.normalizeEvent(&apos;mouseup&apos;)).to.equal(&apos;end&apos;);
+    expect(util.normalizeEvent(&apos;touchend&apos;)).to.equal(&apos;end&apos;);
+  });
+
+  it(&apos;should expect to emit null for unknown events&apos;, function () {
+    expect(util.normalizeEvent(&apos;foobar&apos;)).to.be.null;
+  });
+});
+
+/** @test {util.isWithin} */
+describe(&apos;util.isWithin&apos;, function () {
+
+  it(&apos;should expect be true when points are within a tolerance&apos;, function () {
+    expect(util.isWithin(0, 0, 0, 0, 10)).to.be.true;
+    expect(util.isWithin(10, 10, 10, 10, 0)).to.be.true;
+    expect(util.isWithin(0, -10, 9, 0, 10)).to.be.true;
+  });
+
+  it(&apos;should expect be false when points are outside a tolerance&apos;, function () {
+    expect(util.isWithin(0, 0, 0, 0, -1)).to.be.false;
+    expect(util.isWithin(10, 10, 20, 20, 0)).to.be.false;
+  });
+});
+
+/** @test {util.distanceBetweenTwoPoints} */
+describe(&apos;util.distanceBetweenTwoPoints&apos;, function () {
+  it(&apos;should return a distance of 5&apos;, function () {
+    expect(util.distanceBetweenTwoPoints(0, 4, 0, 3)).to.equal(5);
+  });
+
+  it(&apos;should return a distance of 0&apos;, function () {
+    expect(util.distanceBetweenTwoPoints(0, 0, 0, 0)).to.equal(0);
+  });
+
+  it(&apos;should return a distance of 0&apos;, function () {
+    expect(util.distanceBetweenTwoPoints(&apos;foo&apos;, 0, 0, 0)).to.be.NaN;
+  });
+});
+
+/** @test {util.getAngle} */
+describe(&apos;util.getAngle&apos;, function () {
+
+  it(&apos;should return an angle of 45&apos;, function () {
+    expect(util.getAngle(0, 0, 3, 3)).to.equal(315);
+  });
+
+  it(&apos;should return an angle of 360&apos;, function () {
+    expect(util.getAngle(0, 0, 0, 0)).to.equal(360);
+  });
+
+  it(&apos;should return an angle of 180&apos;, function () {
+    expect(util.getAngle(0, 0, -3, 0)).to.equal(180);
+  });
+});
+
+/** @test {util.getAngularDistance} */
+describe(&apos;util.getAngularDistance&apos;, function () {
+
+  it(&apos;should return an angle of 45&apos;, function () {
+    expect(util.getAngularDistance(270, 360)).to.equal(-90);
+  });
+
+  it(&apos;should return an angle of -15&apos;, function () {
+    expect(util.getAngularDistance(5, 350)).to.equal(-15);
+  });
+
+  it(&apos;should return an angle of +15&apos;, function () {
+    expect(util.getAngularDistance(350, 5)).to.equal(15);
+  });
+
+  it(&apos;should return an angle of 0&apos;, function () {
+    expect(util.getAngularDistance(360, 360)).to.equal(0);
+  });
+});
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.6)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

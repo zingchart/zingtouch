@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/gestures/Tap.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ZingTouch">ZingTouch</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">core</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-arbiter">arbiter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dispatcher">dispatcher</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-interpreter">interpreter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-util">util</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">core/classes</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Binder.js~Binder.html">Binder</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Binding.js~Binding.html">Binding</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Input.js~Input.html">Input</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Region.js~Region.html">Region</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html">State</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/ZingEvent.js~ZingEvent.html">ZingEvent</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pan.js~Pan.html">Pan</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pinch.js~Pinch.html">Pinch</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Rotate.js~Rotate.html">Rotate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Swipe.js~Swipe.html">Swipe</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Tap.js~Tap.html">Tap</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/gestures/Tap.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * @file Tap.js
+ * Contains the Tap class
+ */
+
+import Gesture from &apos;./Gesture.js&apos;;
+import util from &apos;./../core/util.js&apos;;
+
+const DEFAULT_DELAY_MS = 300;
+const DEFAULT_INPUTS = 1;
+const DEFAULT_MOVE_PX_TOLERANCE = 10;
+
+/**
+ * A Tap is defined as a touchstart to touchend event in quick succession.
+ * @class Tap
+ */
+class Tap extends Gesture {
+  /**
+   * Constructor function for the Tap class.
+   * @param {Object} options - The options object.
+   * @param {Number} [options.maxDelay=300] - The maximum delay between a touchstart and
+   * touchend can be configured in milliseconds.
+   * @param {Number} [options.numInputs=1] - Number of inputs for the Tap gesture.
+   * @param {Number} [options.moveTolerance=10] - The tolerance in pixels a user can move.
+   */
+  constructor(options) {
+    super();
+
+    /**
+     * The type of the Gesture.
+     * @type {String}
+     */
+    this.type = &apos;tap&apos;;
+
+    /**
+     * The maximum delay between a touchstart and touchend can be configured in milliseconds.
+     * The maximum delay starts to count down when the expected number of inputs are on
+     * the screen, and ends when ALL inputs are off the screen.
+     * @type {Number}
+     */
+    this.maxDelay = (options &amp;&amp; options.maxDelay) ? options.maxDelay : DEFAULT_DELAY_MS;
+
+    /**
+     * The number of inputs to trigger a Tap can be variable, and the maximum number being
+     * a factor of the browser.
+     * @type {Number}
+     */
+    this.numInputs = (options &amp;&amp; options.numInputs) ? options.numInputs : DEFAULT_INPUTS;
+
+    /**
+     * A move tolerance in pixels allows some slop between a user&apos;s start to end events. This
+     * allows the Tap
+     * gesture to be triggered more easily.
+     * @type {number}
+     */
+    this.moveTolerance = (options &amp;&amp; options.moveTolerance) ? options.moveTolerance : DEFAULT_MOVE_PX_TOLERANCE;
+  }
+  /*constructor*/
+
+  /**
+   * Event hook for the start of a gesture. Keeps track of when the inputs trigger the start event.
+   * @param {Array} inputs - The array of Inputs on the screen.
+   * @returns {null} - Tap does not trigger on a start event.
+   */
+  start(inputs) {
+
+    if (inputs.length === this.numInputs) {
+      for (var i = 0; i &lt; inputs.length; i++) {
+        var progress = inputs[i].getGestureProgress(this.type);
+        progress.start = new Date().getTime();
+      }
+    }
+
+    return null;
+  }
+  /*start*/
+
+  /**
+   * Event hook for the move of a gesture. The Tap event reaches here if the user
+   * starts to move their input
+   * before an &apos;end&apos; event is reached.
+   * @param {Array} inputs - The array of Inputs on the screen.
+   * @returns {null} - Tap does not trigger on a move event.
+   */
+  move(inputs) {
+    for (var i = 0; i &lt; inputs.length; i++) {
+      if (inputs[i].getCurrentEventType() === &apos;move&apos;) {
+        var current = inputs[i].current;
+        var previous = inputs[i].previous;
+        if (!util.isWithin(current.x, current.y, previous.x, previous.y, this.moveTolerance)) {
+          var type = this.type;
+          inputs.forEach(function (input) {
+            input.resetProgress(type);
+          });
+        }
+      }
+    }
+
+    return null;
+  }
+  /*move*/
+
+  /**
+   * Event hook for the end of a gesture.
+   * Determines if this the tap event can be fired if the delay and moveTolerance
+   * constraints are met. Also waits for all of the inputs to be off the screen before determining
+   * if the gesture is triggered.
+   * @param {Array} inputs - The array of Inputs on the screen.
+   * @returns {null|Object} - null if the gesture is not to be emitted, Object with information
+   * otherwise.
+   */
+  end(inputs) {
+    if (inputs.length !== this.numInputs) {
+      return null;
+    }
+
+    var startTime = Number.MAX_VALUE;
+    for (var i = 0; i &lt; inputs.length; i++) {
+      if (inputs[i].getCurrentEventType() !== &apos;end&apos;) {
+        return null;
+      }
+
+      var progress = inputs[i].getGestureProgress(this.type);
+      if (!progress.start) {
+        return null;
+      }
+
+      if (progress.start &lt; startTime) {
+        startTime = progress.start;
+      }
+    }
+
+    var interval = new Date().getTime() - startTime;
+    if (this.maxDelay &gt;= interval) {
+      return {
+        interval: interval
+      };
+    } else {
+      let type = this.type;
+      inputs.forEach(function (input) {
+        input.resetProgress(type);
+      });
+
+      return null;
+    }
+  }
+  /*end*/
+}
+
+export default Tap;
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.6)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">src/core/classes/State.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ZingTouch">ZingTouch</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">core</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-arbiter">arbiter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dispatcher">dispatcher</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-interpreter">interpreter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-util">util</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">core/classes</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Binder.js~Binder.html">Binder</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Binding.js~Binding.html">Binding</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Input.js~Input.html">Input</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Region.js~Region.html">Region</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html">State</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/ZingEvent.js~ZingEvent.html">ZingEvent</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pan.js~Pan.html">Pan</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pinch.js~Pinch.html">Pinch</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Rotate.js~Rotate.html">Rotate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Swipe.js~Swipe.html">Swipe</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Tap.js~Tap.html">Tap</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/core/classes/State.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * @file State.js
+ */
+
+import Gesture from &apos;./../../gestures/Gesture.js&apos;;
+import Expand from &apos;./../../gestures/Expand.js&apos;;
+import Pan from &apos;./../../gestures/Pan.js&apos;;
+import Pinch from &apos;./../../gestures/Pinch.js&apos;;
+import Rotate from &apos;./../../gestures/Rotate.js&apos;;
+import Swipe from &apos;./../../gestures/Swipe.js&apos;;
+import Tap from &apos;./../../gestures/Tap.js&apos;;
+
+import Binding from &apos;./Binding.js&apos;;
+import Input from &apos;./Input.js&apos;;
+import util from &apos;./../util.js&apos;;
+
+/**
+ * Creates an object related to a Region&apos;s state, and contains helper methods to update and clean up different
+ * states.
+ */
+class State {
+
+  /**
+   * Constructor for the State class.
+   */
+  constructor() {
+
+    /**
+     * An array of current and recently inactive Input objects related to a gesture.
+     * @type {Input}
+     */
+    this.inputs = [];
+
+    /**
+     * An array of Binding objects; relations between elements, their gestures, and the handlers.
+     * @type {Binding}
+     */
+    this.bindings = [];
+
+    /**
+     * The number of gestures registered to this Region
+     * @type {Number}
+     */
+    this.numRegisteredGestures = 0;
+
+    /**
+     * A key/value map all the registered gestures for the listener. Note: Can only have one gesture registered to one key.
+     * @type {Object}
+     */
+    this.registeredGestures = {
+      expand: new Expand(),
+      pan: new Pan(),
+      pinch: new Pinch(),
+      rotate: new Rotate(),
+      swipe: new Swipe(),
+      tap: new Tap()
+    };
+  }
+
+  /**
+   * Creates a new binding with the given element and gesture object.
+   * If the gesture object provided is unregistered, it&apos;s reference will be saved in as a binding to
+   * be later referenced.
+   * @param  {Element} element - The element the gesture is bound to.
+   * @param {String|Object} gesture  - Either a name of a registered gesture, or an unregistered
+   *  Gesture object.
+   * @param {Function} handler - The function handler to be called when the event is emitted.
+   * Used to bind/unbind.
+   * @param {Boolean} capture - Whether the gesture is to be detected in the capture of bubble
+   * phase. Used to bind/unbind.
+   * @param {Boolean} bindOnce - Option to bind once and only emit the event once.
+   * @returns {null|Binding} - null if the gesture could not be found, the new Binding otherwise
+   */
+  addBinding(element, gesture, handler, capture, bindOnce) {
+    if (typeof gesture === &apos;string&apos;) {
+      gesture = this.registeredGestures[gesture];
+      if (typeof gesture === &apos;undefined&apos;) {
+        return null;
+      }
+    } else if (!(gesture instanceof Gesture)) {
+      return null;
+    } else {
+      gesture.setId(this.numRegisteredGestures++);
+    }
+
+    if (gesture instanceof Gesture) {
+      var binding = new Binding(element, gesture, handler, capture, bindOnce);
+      this.bindings.push(binding);
+      element.addEventListener(gesture.getId(), handler, capture);
+      return binding;
+    }
+  }
+  /*addBinding*/
+
+  /**
+   * Retrieves the Binding by which an element is associated to.
+   * @param {Element} element - The element to find bindings to.
+   * @returns {Array} - An array of Bindings to which that element is bound
+   */
+  retrieveBindings(element) {
+    var matches = [];
+    for (var i = 0; i &lt; this.bindings.length; i++) {
+      if (this.bindings[i].element === element) {
+        matches.push(this.bindings[i]);
+      }
+    }
+
+    return matches;
+  }
+  /*retrieveBindings*/
+
+  /**
+   * Updates the inputs with new information based upon a new event being fired.
+   * @param {Event} event - The event being captured
+   * @returns {boolean} - returns true for a successful update, false if the event is invalid.
+   */
+  updateInputs(event) {
+    //Return if all gestures did not originate from the same target
+    if (event.touches &amp;&amp; event.touches.length !== event.targetTouches.length) {
+      state.resetInputs();
+      return false;
+    }
+
+    if (event.touches) {
+      for (var index in event.changedTouches) {
+        if (event.changedTouches.hasOwnProperty(index) &amp;&amp; util.isInteger((parseInt(index)))) {
+          var identifier = event.changedTouches[index].identifier;
+          if (util.normalizeEvent(event.type) === &apos;start&apos;) {
+            if (findInputById(this.inputs, identifier)) {
+              //This should restart the inputs and cancel out any gesture.
+              this.resetInputs();
+              return false;
+            } else {
+              this.inputs.push(new Input(event, identifier));
+            }
+          } else {
+            var input = findInputById(this.inputs, identifier);
+            if (input) {
+              input.update(event, identifier);
+            }
+          }
+        }
+      }
+    } else {
+      if (util.normalizeEvent(event.type) === &apos;start&apos;) {
+        this.inputs.push(new Input(event));
+      } else {
+        this.inputs[0].update(event);
+      }
+    }
+
+    return true;
+  }
+  /*updateInputs*/
+
+  /**
+   * Removes all inputs from the state, allowing for a new gesture.
+   */
+  resetInputs() {
+    this.inputs = [];
+  }
+  /*resetInputs*/
+
+  /**
+   * Counts the number of active inputs at any given time.
+   * @returns {Number} - The number of active inputs.
+   */
+  numActiveInputs() {
+    var count = 0;
+    for (var i = 0; i &lt; this.inputs.length; i++) {
+      if (this.inputs[i].current.type !== &apos;end&apos;) {
+        count++;
+      }
+    }
+
+    return count;
+  }
+  /*numActiveInputs*/
+
+}
+/**
+ * Searches through each input, comparing the browser&apos;s identifier key for touches, to the stored one
+ * in each input
+ * @param {Array} inputs - The array of inputs in state.
+ * @param {String} identifier - The identifier the browser has assigned.
+ * @returns {Input} - The input object with the corresponding identifier, null if it did not find any.
+ */
+function findInputById(inputs, identifier) {
+  for (var i = 0; i &lt; inputs.length; i++) {
+    if (inputs[i].identifier === identifier) {
+      return inputs[i];
+    }
+  }
+
+  return null;
+}
+/*findInputById*/
+
+export default State;
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.6)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
