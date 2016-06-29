@@ -43,7 +43,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Region.js~Region.html">Region</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html">State</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/ZingEvent.js~ZingEvent.html">ZingEvent</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Distance.js~Distance.html">Distance</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pan.js~Pan.html">Pan</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pinch.js~Pinch.html">Pinch</a></span></span></li>
@@ -78,20 +79,56 @@ class Region {
   /**
    * Constructor function for the Region class.
    * @param {Element} element - The element to capture all window events in that region to feed into ZingTouch.
+   * @param {boolean} [capture=false] - Whether the region listens for captures or bubbles.
+   * @param {boolean} [preventDefault=true] - Whether the default browser functionality should be disabled;
+   * @param {Number} id - The id of the region, assigned by the ZingTouch object.
    */
-  constructor(element) {
+  constructor(element, capture, preventDefault, id) {
+
+    /**
+     * The identifier for the Region. This is assigned by the ZingTouch object and is used to hash gesture ids
+     * for uniqueness.
+     * @type {Number}
+     */
+    this.id = id;
+
+    /**
+     * The element being bound to.
+     * @type {Element}
+     */
+    this.element = element;
+
+    /**
+     * Whether the region listens for captures or bubbles.
+     * @type {boolean}
+     */
+    this.capture = (typeof capture !== &apos;undefined&apos;) ? capture : false;
+
+    /**
+     * Boolean to disable browser functionality such as scrolling and zooming over the region
+     * @type {boolean}
+     */
+    this.preventDefault = (typeof preventDefault !== &apos;undefined&apos;) ? preventDefault : true;
+
     /**
      * The internal state object for a Region. Keeps track of registered gestures, inputs, and events.
      * @type {State}
      */
-    this.state = new State();
-    var eventNames = [&apos;mousedown&apos;, &apos;mousemove&apos;, &apos;mouseup&apos;, &apos;touchstart&apos;, &apos;touchmove&apos;, &apos;touchend&apos;];
-    for (var i = 0; i &lt; eventNames.length; i++) {
-      let state = this.state;
-      element.addEventListener(eventNames[i], function (e) {
-        arbiter(e, state);
-      });
+    this.state = new State(id);
+
+    var eventNames = [];
+    if (window.PointerEvent) {
+      eventNames = [&apos;pointerdown&apos;, &apos;pointermove&apos;, &apos;pointerup&apos;];
+    } else {
+      eventNames = [&apos;mousedown&apos;, &apos;mousemove&apos;, &apos;mouseup&apos;, &apos;touchstart&apos;, &apos;touchmove&apos;, &apos;touchend&apos;];
     }
+
+    //Bind detected browser events to the region element.
+    eventNames.map((name) =&gt; {
+      element.addEventListener(name, (e) =&gt; {
+        arbiter(e, this);
+      }, this.capture);
+    });
   }
 
   /**
@@ -108,28 +145,14 @@ class Region {
    * @returns {Object} - a chainable object that has the same function as bind.
    */
   bind(element, gesture, handler, capture, bindOnce) {
-    bindOnce = (bindOnce) ? bindOnce : false;
-
-    if (element &amp;&amp; typeof element.tagName === &apos;undefined&apos;) {
-      throw new Error(&apos;Parameter element is an invalid object.&apos;);
+    if (!element || (element &amp;&amp; !element.tagName)) {
+      throw &apos;Bind must contain an element&apos;;
     }
 
+    bindOnce = (typeof bindOnce !== &apos;undefined&apos;) ? bindOnce : false;
     if (!gesture) {
       return new Binder(element, bindOnce, this.state);
     } else {
-
-      if (
-        (typeof gesture === &apos;string&apos; &amp;&amp; Object.keys(this.state.registeredGestures).indexOf(gesture) === -1)
-      ||
-        (typeof gesture === &apos;object&apos; &amp;&amp; !(gesture instanceof Gesture))
-      ) {
-        throw new Error(&apos;Parameter gesture is invalid.&apos;);
-      }
-
-      if (typeof handler !== &apos;function&apos;) {
-        throw new Error(&apos;Parameter handler is invalid.&apos;);
-      }
-
       this.state.addBinding(element, gesture, handler, capture, bindOnce);
     }
   }
@@ -141,7 +164,7 @@ class Region {
    * for the first time.
    * 1. bind(element) - chainable
    * 2. bind(element, gesture, handler, [capture])
-   * @param {Object} element - The element object.
+   * @param {Element} element - The element object.
    * @param {String|Object} gesture - Gesture key, or a Gesture object.
    * @param {Function} handler - The function to execute when an event is emitted.
    * @param {Boolean} capture - capture/bubble
@@ -153,31 +176,31 @@ class Region {
 
   /*bindOnce*/
 
+  //noinspection JSMethodCanBeStatic
   /**
    * Unbinds an element from either the specified gesture or all if no element is specified.
-   * @param {Element|String} element - Either the element to remove or a string key
-   * @param {String} gesture - A String representing the gesture
+   * @param {Element} element -The element to remove.
+   * @param {String | Object} [gesture] - A String representing the gesture, or the actual object being used.
    * @returns {Array} - An array of Bindings that were unbound to the element;
    */
   unbind(element, gesture) {
-    var bindings = state.retrieveBindings(element);
+    var bindings = this.state.retrieveBindingsByElement(element);
     var unbound = [];
-    var i = bindings.length - 1;
-    while (i &gt; -1) {
+
+    bindings.forEach((binding) =&gt; {
       if (gesture) {
-        if (bindings[i].element === element) {
-          element.removeEventListener(bindings[i].gesture.getId(),
-            bindings[i].handler, bindings[i].capture);
-          unbound.push(bindings.splice(i, 1));
+        if (typeof gesture === &apos;string&apos; &amp;&amp; this.state.registeredGestures[gesture]) {
+          var registeredGesture = this.state.registeredGestures[gesture];
+          if (registeredGesture.id === binding.gesture.id) {
+            element.removeEventListener(binding.gesture.getId(), binding.handler, binding.capture);
+            unbound.push(binding);
+          }
         }
       } else {
-        element.removeEventListener(bindings[i].gesture.getId(),
-          bindings[i].handler, bindings[i].capture);
-        unbound.push(bindings.splice(i, 1));
+        element.removeEventListener(binding.gesture.getId(), binding.handler, binding.capture);
+        unbound.push(binding);
       }
-
-      i--;
-    }
+    });
 
     return unbound;
   }
@@ -187,7 +210,7 @@ class Region {
   /**
    * Registers a new gesture with an assigned key
    * @param {String} key - The key used to register an element to that gesture
-   * @param {Object} gesture - A gesture object
+   * @param {Gesture} gesture - A gesture object
    */
   register(key, gesture) {
     if (typeof key !== &apos;string&apos;) {
@@ -199,7 +222,7 @@ class Region {
     }
 
     gesture.setType(key);
-    this.state.registeredGestures[key] = gesture;
+    this.state.registerGesture(gesture, key);
   }
 
   /*register*/
@@ -211,13 +234,12 @@ class Region {
    * @returns {Object} - The Gesture object that was unregistered or null if it could not be found.
    */
   unregister(key) {
-    for (var i = 0; i &lt; this.state.bindings.length; i++) {
-      var binding = this.state.bindings[i];
+    this.state.bindings.forEach((binding) =&gt; {
       if (binding.gesture.getType() === key) {
         binding.element.removeEventListener(binding.gesture.getId(),
           binding.handler, binding.capture);
       }
-    }
+    });
 
     var registeredGesture = this.state.registeredGestures[key];
     delete this.state.registeredGestures[key];

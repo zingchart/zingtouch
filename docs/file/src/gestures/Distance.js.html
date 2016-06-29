@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">test/core/state.spec.js | API Document</title>
+  <title data-ice="title">src/gestures/Distance.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -43,7 +43,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Region.js~Region.html">Region</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html">State</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/ZingEvent.js~ZingEvent.html">ZingEvent</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Distance.js~Distance.html">Distance</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pan.js~Pan.html">Pan</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pinch.js~Pinch.html">Pinch</a></span></span></li>
@@ -54,92 +55,100 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">test/core/state.spec.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {state, getGestureType} from &apos;./../../src/core/state.js&apos;;
-import Tap from &apos;./../../src/gestures/Tap.js&apos;;
-import Gesture from &apos;./../../src/gestures/Gesture.js&apos;;
+<div class="content" data-ice="content"><h1 data-ice="title">src/gestures/Distance.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * @file Distance.js
+ * Contains the abstract Distance class
+ */
 
-/** @test {state} */
-describe(&apos;state&apos;, function () {
-  it(&apos;should be instantiated&apos;, function () {
-    expect(state).to.not.equal(null);
-  });
-});
+import Gesture from &apos;./Gesture.js&apos;;
+import util from &apos;./../core/util.js&apos;;
 
-/** @test {state.addBinding} */
-describe(&apos;state.addBinding&apos;, function () {
-  beforeEach(function () {
-    state.bindings = [];
-  });
+const DEFAULT_INPUTS = 2;
+const DEFAULT_MIN_THRESHOLD = 1;
 
-  it(&apos;should create a binding with a new gesture&apos;, function () {
-    expect(state.bindings).to.be.empty;
-    var gesture = new Gesture();
-    var handler = function () {};
+/**
+ * A Distance is defined as two inputs moving either together or apart.
+ * @class Distance
+ */
+class Distance extends Gesture {
+  /**
+   * Constructor function for the Distance class.
+   */
+  constructor(options) {
+    super();
 
-    var binding = state.addBinding(document.body, gesture, handler);
-    expect(binding).to.not.be.null;
-    expect(state.bindings).to.not.be.empty;
-    expect(binding.element).to.equal(document.body);
-    expect(binding.gesture).to.equal(gesture);
-    expect(binding.gesture).to.not.equal(new Gesture());
-    expect(binding.handler).to.equal(handler);
-    expect(binding.handler).to.not.equal(function () {});
+    /**
+     * The type of the Gesture.
+     * @type {String}
+     */
+    this.type = &apos;distance&apos;;
 
-  });
+    /**
+     * The minimum amount in pixels the inputs must move until it is fired.
+     * @type {Number}
+     */
+    this.threshold = (options &amp;&amp; options.threshold) ? options.threshold : DEFAULT_MIN_THRESHOLD;
+  }
 
-  it(&apos;should create a binding with a key of an existing gesture&apos;, function () {
-    expect(state.bindings).to.be.empty;
-    var handler = function () {};
+  /**
+   * start() - Event hook for the start of a gesture. Initialized the lastEmitted gesture and stores it in the first input for reference.
+   * events.
+   * @param inputs
+   */
+  start(inputs) {
 
-    var binding = state.addBinding(document.body, &apos;tap&apos;, handler);
-    expect(binding).to.not.be.null;
-    expect(state.bindings).to.not.be.empty;
-    expect(binding.element).to.equal(document.body);
-    expect(binding.gesture).to.equal(state.registeredGestures.tap);
-    expect(binding.gesture).to.not.equal(new Gesture());
-    expect(binding.handler).to.equal(handler);
-    expect(binding.handler).to.not.equal(function () {});
-  });
+    if (inputs.length === DEFAULT_INPUTS) {
+      //Store the progress in the first input.
+      var progress = inputs[0].getGestureProgress(this.type);
+      progress.lastEmittedDistance = util.distanceBetweenTwoPoints(inputs[0].current.x, inputs[1].current.x,
+        inputs[0].current.y, inputs[1].current.y);
+    }
+  }
 
-  it(&apos;should not create a binding with a key of a non-existing gesture&apos;, function () {
-    expect(state.bindings).to.be.empty;
-    var binding = state.addBinding(document.body, &apos;tapfoo&apos;, function () {});
+  /**
+   * Event hook for the move of a gesture. Determines if the two points are moved in the expected
+   * direction relative to the current distance and the last distance.
+   * @param {Array} inputs - The array of Inputs on the screen.
+   * @param {Object} state - The state object of the current region.
+   * @returns {Object | null} - Returns the distance in pixels between the two inputs.
+   */
+  move(inputs, state) {
+    if (state.numActiveInputs() === DEFAULT_INPUTS) {
+      var currentDistance = util.distanceBetweenTwoPoints(inputs[0].current.x, inputs[1].current.x,
+        inputs[0].current.y, inputs[1].current.y);
+      var lastDistance = util.distanceBetweenTwoPoints(inputs[0].previous.x, inputs[1].previous.x,
+        inputs[0].previous.y, inputs[1].previous.y);
 
-    expect(binding).to.be.null;
-    expect(state.bindings).to.be.empty;
-  });
+      //Retrieve the first input&apos;s progress.
+      var progress = inputs[0].getGestureProgress(this.type);
 
-  it(&apos;should not create a binding with an invalid object&apos;, function () {
-    expect(state.bindings).to.be.empty;
-    var binding = state.addBinding(document.body, {}, function () {});
+      if (this.type === &apos;expand&apos;) {
+        if (currentDistance &lt; lastDistance) {
+          progress.lastEmittedDistance = currentDistance;
+        } else if ((currentDistance - progress.lastEmittedDistance &gt;= this.threshold)) {
+          progress.lastEmittedDistance = currentDistance;
+          return {
+            distance: currentDistance
+          };
+        }
+      } else {
+        if (currentDistance &gt; lastDistance) {
+          progress.lastEmittedDistance = currentDistance;
+        } else if (currentDistance &lt; lastDistance &amp;&amp; (progress.lastEmittedDistance - currentDistance &gt;= this.threshold)) {
+          progress.lastEmittedDistance = currentDistance;
+          return {
+            distance: currentDistance
+          };
+        }
+      }
 
-    expect(binding).to.be.null;
-    expect(state.bindings).to.be.empty;
-  });
-});
+      return null;
+    }
+  }
+}
 
-/** @test {getGestureType} */
-describe(&apos;getGestureType&apos;, function () {
-
-  it(&apos;should return tap if the string is a valid binding&apos;, function () {
-    expect(getGestureType(&apos;tap&apos;)).to.equal(&apos;tap&apos;);
-  });
-
-  it(&apos;should return null for an invalid string key binding&apos;, function () {
-    expect(getGestureType(&apos;quadruple-tap&apos;)).to.be.null;
-  });
-
-  it(&apos;should return tap for a valid gesture object&apos;, function () {
-    var tapGesture = new Tap();
-    expect(getGestureType(tapGesture)).to.equal(&apos;tap&apos;);
-  });
-
-  it(&apos;should return null for an invalid object&apos;, function () {
-    expect(getGestureType({})).to.be.null;
-  });
-
-});
+export default Distance;
 </code></pre>
 
 </div>

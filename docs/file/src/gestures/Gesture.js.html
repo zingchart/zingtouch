@@ -43,7 +43,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Region.js~Region.html">Region</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html">State</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/ZingEvent.js~ZingEvent.html">ZingEvent</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Distance.js~Distance.html">Distance</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pan.js~Pan.html">Pan</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pinch.js~Pinch.html">Pinch</a></span></span></li>
@@ -104,7 +105,7 @@ class Gesture {
 
   /**
    * Set the id of the gesture to be called during an event
-   * @param {Number} id - The unique identifier of the gesture being created.
+   * @param {String} id - The unique identifier of the gesture being created.
    */
   setId(id) {
     this.id = id;
@@ -116,9 +117,22 @@ class Gesture {
    * @return {String}
    */
   getId() {
-    return (this.id) ? this.id : this.type;
+    return (this.id !== null) ? this.id : this.type;
   }
   /*getId*/
+
+  /**
+   * Updates internal properties with new ones, only if the properties exist.
+   * @param object
+   */
+  update(object) {
+
+    for (var key in object) {
+      if (this[key]) {
+        this[key] = object[key];
+      }
+    }
+  }
 
   //noinspection JSUnusedLocalSymbols
   /**
@@ -135,9 +149,10 @@ class Gesture {
   /**
    * move() - Event hook for the move of a gesture
    * @param {Array} inputs - The array of Inputs on the screen
+   * @param {Object} state - The state object of the current region.
    * @returns {null|Object} - Default of null
    */
-  move(inputs) {
+  move(inputs, state) {
     return null;
   }
   /*move*/

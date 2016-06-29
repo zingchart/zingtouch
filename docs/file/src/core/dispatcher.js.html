@@ -43,7 +43,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Region.js~Region.html">Region</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html">State</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/ZingEvent.js~ZingEvent.html">ZingEvent</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Distance.js~Distance.html">Distance</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pan.js~Pan.html">Pan</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pinch.js~Pinch.html">Pinch</a></span></span></li>
@@ -64,32 +65,32 @@
  * Emits data at the target element if available, and bubbles up from the target to the parent
  * until the document has been reached. Called from the arbiter.
  * @param {Binding} binding - An object of type Binding
- * @param {Object|null} data - The metadata computed by the gesture being emitted.
+ * @param {Object} data - The metadata computed by the gesture being emitted.
+ * @param {Array} events - An array of ZingEvents, corresponding to the inputs on the screen.
  */
-function dispatcher(binding, data) {
+function dispatcher(binding, data, events) {
+  data.events = events;
 
   //noinspection JSCheckFunctionSignatures
   var newEvent = new CustomEvent(binding.gesture.getId(), {
-    detail: data
+    detail: data,
+    bubbles: true,
+    cancelable: true
   });
   emitEvent(binding.element, newEvent, binding);
 }
 /*dispatcher*/
 
 /**
- * Emits the new event recursively until the document is reached.
+ * Emits the new event. Unbinds the event if the event was registered at bindOnce.
  * @param {Element} target - Element object to emit the event to.
  * @param {Event} event - The CustomEvent to emit.
+ * @param {Binding} binding - An object of type Binding
  */
 function emitEvent(target, event, binding) {
   target.dispatchEvent(event);
-  if (target.parentNode &amp;&amp; target.parentNode !== document) {
-    emitEvent(target.parentNode, event, binding);
-  } else {
-    if (binding.bindOnce) {
-      ZingTouch.unbind(binding.element, binding.gesture.getType());
-    }
-
+  if (binding.bindOnce) {
+    ZingTouch.unbind(binding.element, binding.gesture.getType());
   }
 }
 /*emitEvent*/

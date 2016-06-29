@@ -43,7 +43,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Region.js~Region.html">Region</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html">State</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/ZingEvent.js~ZingEvent.html">ZingEvent</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Distance.js~Distance.html">Distance</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pan.js~Pan.html">Pan</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pinch.js~Pinch.html">Pinch</a></span></span></li>
@@ -75,23 +76,23 @@ import util from &apos;./util.js&apos;;
 function interpreter(bindings, event, state) {
   var evType = util.normalizeEvent(event.type);
   var candidates = [];
-  bindings.forEach(function (binding) {
+  bindings.forEach(binding =&gt; {
     let result = binding.gesture[evType](state.inputs, state);
     if (result) {
+
+      var events = [];
+      state.inputs.forEach(input =&gt; {
+        events.push(input.current);
+      });
+
       candidates.push({
         binding: binding,
-        data: result
+        data: result,
+        events: events
       });
     }
   });
 
-  //TODO : Determine which gesture to emit, or all. For now, we return the bindings
-  // in order which they were bound.
-  //if (candidates.length &gt; 0) {
-  //  return candidates[0];
-  //} else {
-  //  return null;
-  //}
   return candidates;
 
 }

@@ -43,7 +43,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Region.js~Region.html">Region</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html">State</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/ZingEvent.js~ZingEvent.html">ZingEvent</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Distance.js~Distance.html">Distance</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pan.js~Pan.html">Pan</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pinch.js~Pinch.html">Pinch</a></span></span></li>
@@ -55,13 +56,13 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import Tap from &apos;<span><a href="file/src/gestures/Tap.js.html#lineNumber17">zingtouch/src/gestures/Tap.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import Tap from &apos;<span><a href="file/src/gestures/Tap.js.html#lineNumber18">zingtouch/src/gestures/Tap.js</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/src/gestures/Tap.js.html#lineNumber17">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/src/gestures/Tap.js.html#lineNumber18">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
@@ -175,15 +176,13 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/gestures/Tap.js~Tap.html#instance-member-moveTolerance">moveTolerance</a></span></span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+           <span data-ice="name"><span><a href="class/src/gestures/Tap.js~Tap.html#instance-member-minDelay">minDelay</a></span></span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>A move tolerance in pixels allows some slop between a user&apos;s start to end events. This
-allows the Tap
-gesture to be triggered more easily.</p>
+        <div data-ice="description"><p>The minimum amount between a touchstart and a touchend can be configured in milliseconds.</p>
 </div>
       </div>
     </td>
@@ -211,6 +210,33 @@ gesture to be triggered more easily.</p>
         
         <div data-ice="description"><p>The number of inputs to trigger a Tap can be variable, and the maximum number being
 a factor of the browser.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/gestures/Tap.js~Tap.html#instance-member-tolerance">tolerance</a></span></span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>A move tolerance in pixels allows some slop between a user&apos;s start to end events. This
+allows the Tap gesture to be triggered more easily.</p>
 </div>
       </div>
     </td>
@@ -289,7 +315,7 @@ a factor of the browser.</p>
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/gestures/Tap.js~Tap.html#instance-method-move">move</a></span></span><span data-ice="signature">(inputs: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span></span>
+           <span data-ice="name"><span><a href="class/src/gestures/Tap.js~Tap.html#instance-method-move">move</a></span></span><span data-ice="signature">(inputs: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>, state: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span></span>
         </p>
       </div>
       <div>
@@ -479,7 +505,7 @@ a factor of the browser.</p>
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html#instance-method-move">move</a></span></span><span data-ice="signature">(inputs: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+           <span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html#instance-method-move">move</a></span></span><span data-ice="signature">(inputs: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>, state: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
         </p>
       </div>
       <div>
@@ -505,7 +531,7 @@ a factor of the browser.</p>
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html#instance-method-setId">setId</a></span></span><span data-ice="signature">(id: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span>)</span>
+           <span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html#instance-method-setId">setId</a></span></span><span data-ice="signature">(id: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>)</span>
         </p>
       </div>
       <div>
@@ -572,6 +598,32 @@ a factor of the browser.</p>
       
     </td>
   </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html#instance-method-update">update</a></span></span><span data-ice="signature">(object: <span>*</span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Updates internal properties with new ones, only if the properties exist.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
 </tbody>
 </table>
 </div>
@@ -591,7 +643,7 @@ a factor of the browser.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gestures/Tap.js.html#lineNumber26">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gestures/Tap.js.html#lineNumber29">source</a></span></span>
     </span>
   </h3>
 
@@ -614,8 +666,17 @@ a factor of the browser.</p>
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" data-depth="0">options</td>
       <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
-      <td data-ice="appendix"></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
       <td data-ice="description"><p>The options object.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">options.minDelay</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: 0</li></ul></td>
+      <td data-ice="description"><p>The minimum delay between a touchstart and
+touchend can be configured in milliseconds.</p>
 </td>
     </tr>
 <tr data-ice="property" data-depth="1">
@@ -636,7 +697,7 @@ touchend can be configured in milliseconds.</p>
 </td>
     </tr>
 <tr data-ice="property" data-depth="1">
-      <td data-ice="name" data-depth="1">options.moveTolerance</td>
+      <td data-ice="name" data-depth="1">options.tolerance</td>
       <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li>
 <li>default: 10</li></ul></td>
@@ -677,7 +738,7 @@ touchend can be configured in milliseconds.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gestures/Tap.js.html#lineNumber41">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gestures/Tap.js.html#lineNumber52">source</a></span></span>
     </span>
   </h3>
 
@@ -710,26 +771,26 @@ the screen, and ends when ALL inputs are off the screen.</p>
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-member-moveTolerance">
+  <h3 data-ice="anchor" id="instance-member-minDelay">
     <span class="access" data-ice="access">public</span>
     
     
     
     
-    <span data-ice="name">moveTolerance</span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+    <span data-ice="name">minDelay</span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gestures/Tap.js.html#lineNumber56">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gestures/Tap.js.html#lineNumber44">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>A move tolerance in pixels allows some slop between a user&apos;s start to end events. This
-allows the Tap
-gesture to be triggered more easily.</p>
+  <div data-ice="description"><p>The minimum amount between a touchstart and a touchend can be configured in milliseconds.
+The minimum delay starts to count down when the expected number of inputs are on
+the screen, and ends when ALL inputs are off the screen.</p>
 </div>
 
   
@@ -763,7 +824,7 @@ gesture to be triggered more easily.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gestures/Tap.js.html#lineNumber48">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gestures/Tap.js.html#lineNumber59">source</a></span></span>
     </span>
   </h3>
 
@@ -772,6 +833,48 @@ gesture to be triggered more easily.</p>
   
   <div data-ice="description"><p>The number of inputs to trigger a Tap can be variable, and the maximum number being
 a factor of the browser.</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-member-tolerance">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">tolerance</span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/gestures/Tap.js.html#lineNumber66">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>A move tolerance in pixels allows some slop between a user&apos;s start to end events. This
+allows the Tap gesture to be triggered more easily.</p>
 </div>
 
   
@@ -805,7 +908,7 @@ a factor of the browser.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gestures/Tap.js.html#lineNumber33">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gestures/Tap.js.html#lineNumber36">source</a></span></span>
     </span>
   </h3>
 
@@ -849,7 +952,7 @@ a factor of the browser.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gestures/Tap.js.html#lineNumber112">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gestures/Tap.js.html#lineNumber127">source</a></span></span>
     </span>
   </h3>
 
@@ -857,7 +960,7 @@ a factor of the browser.</p>
   
   
   <div data-ice="description"><p>Event hook for the end of a gesture.
-Determines if this the tap event can be fired if the delay and moveTolerance
+Determines if this the tap event can be fired if the delay and tolerance
 constraints are met. Also waits for all of the inputs to be off the screen before determining
 if the gesture is triggered.</p>
 </div>
@@ -890,7 +993,7 @@ if the gesture is triggered.</p>
       <tr>
         <td class="return-type" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
         <td class="return-desc" data-ice="returnDescription"><p>null if the gesture is not to be emitted, Object with information
-otherwise.</p>
+otherwise. Returns the interval time between start and end events.</p>
 </td>
       </tr>
     </table>
@@ -918,11 +1021,11 @@ otherwise.</p>
     
     
     
-    <span data-ice="name">move</span><span data-ice="signature">(inputs: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span></span>
+    <span data-ice="name">move</span><span data-ice="signature">(inputs: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>, state: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gestures/Tap.js.html#lineNumber85">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gestures/Tap.js.html#lineNumber97">source</a></span></span>
     </span>
   </h3>
 
@@ -949,6 +1052,13 @@ before an &apos;end&apos; event is reached.</p>
       <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span></td>
       <td data-ice="appendix"></td>
       <td data-ice="description"><p>The array of Inputs on the screen.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">state</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>The state object of the current region.</p>
 </td>
     </tr>
 </tbody>
@@ -993,7 +1103,7 @@ before an &apos;end&apos; event is reached.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gestures/Tap.js.html#lineNumber65">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gestures/Tap.js.html#lineNumber76">source</a></span></span>
     </span>
   </h3>
 

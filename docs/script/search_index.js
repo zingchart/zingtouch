@@ -12,6 +12,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "zingtouch/src/gestures/distance.js~distance",
+    "class/src/gestures/Distance.js~Distance.html",
+    "<span>Distance</span> <span class=\"search-result-import-path\">zingtouch/src/gestures/Distance.js</span>",
+    "class"
+  ],
+  [
     "zingtouch/src/gestures/expand.js~expand",
     "class/src/gestures/Expand.js~Expand.html",
     "<span>Expand</span> <span class=\"search-result-import-path\">zingtouch/src/gestures/Expand.js</span>",
@@ -631,19 +637,13 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/core/classes/Region.spec.js.html#lineNumber44",
-    "Region.bind(element) should properly create a Binding after a chained function",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/core/classes/Region.spec.js.html#lineNumber29",
+    "test-file/test/core/classes/Region.spec.js.html#lineNumber28",
     "Region.bind(element) should return a chainable Binder object if only an element parameter is provided",
     "test"
   ],
   [
     "",
-    "test-file/test/core/classes/Region.spec.js.html#lineNumber34",
+    "test-file/test/core/classes/Region.spec.js.html#lineNumber33",
     "Region.bind(element) should return a chainable Binder object that contains all of the registered gestures",
     "test"
   ],
@@ -667,7 +667,7 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/core/classes/state.spec.js.html#lineNumber23",
+    "test-file/test/core/classes/state.spec.js.html#lineNumber19",
     "State should have instances of the 6 default gestures",
     "test"
   ],
@@ -684,56 +684,50 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
-    "",
-    "test-file/test/core/classes/state.spec.js.html#lineNumber19",
-    "State should have no registered gestures",
-    "test"
-  ],
-  [
     "state.addbinding src/core/classes/state.js~state#addbinding,state.addbinding",
-    "test-file/test/core/classes/state.spec.js.html#lineNumber32",
+    "test-file/test/core/classes/state.spec.js.html#lineNumber28",
     "State.addBinding",
     "test"
   ],
   [
     "",
-    "test-file/test/core/classes/state.spec.js.html#lineNumber41",
+    "test-file/test/core/classes/state.spec.js.html#lineNumber37",
     "State.addBinding should add a binding to a gesture instance",
     "test"
   ],
   [
     "",
-    "test-file/test/core/classes/state.spec.js.html#lineNumber34",
+    "test-file/test/core/classes/state.spec.js.html#lineNumber30",
     "State.addBinding should add a binding to a registered gesture",
     "test"
   ],
   [
     "",
-    "test-file/test/core/classes/state.spec.js.html#lineNumber48",
+    "test-file/test/core/classes/state.spec.js.html#lineNumber44",
     "State.addBinding should not add a binding to a non-registered gesture",
     "test"
   ],
   [
     "",
-    "test-file/test/core/classes/state.spec.js.html#lineNumber53",
+    "test-file/test/core/classes/state.spec.js.html#lineNumber51",
     "State.addBinding should not add a binding to an object not of the Gesture type",
     "test"
   ],
   [
-    "state.retrievebindings src/core/classes/state.js~state#retrievebindings,state.retrievebindings",
-    "test-file/test/core/classes/state.spec.js.html#lineNumber60",
+    "state.retrievebindings state.retrievebindings,state.retrievebindings",
+    "test-file/test/core/classes/state.spec.js.html#lineNumber66",
     "State.retrieveBindings",
     "test"
   ],
   [
     "",
-    "test-file/test/core/classes/state.spec.js.html#lineNumber68",
+    "test-file/test/core/classes/state.spec.js.html#lineNumber74",
     "State.retrieveBindings should retrieve bindings for elements that are bound",
     "test"
   ],
   [
     "",
-    "test-file/test/core/classes/state.spec.js.html#lineNumber64",
+    "test-file/test/core/classes/state.spec.js.html#lineNumber70",
     "State.retrieveBindings should retrieve no bindings for elements without any",
     "test"
   ],
@@ -936,10 +930,34 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/core/classes/region.js~region#capture",
+    "class/src/core/classes/Region.js~Region.html#instance-member-capture",
+    "src/core/classes/Region.js~Region#capture",
+    "member"
+  ],
+  [
     "src/core/classes/region.js~region#constructor",
     "class/src/core/classes/Region.js~Region.html#instance-constructor-constructor",
     "src/core/classes/Region.js~Region#constructor",
     "method"
+  ],
+  [
+    "src/core/classes/region.js~region#element",
+    "class/src/core/classes/Region.js~Region.html#instance-member-element",
+    "src/core/classes/Region.js~Region#element",
+    "member"
+  ],
+  [
+    "src/core/classes/region.js~region#id",
+    "class/src/core/classes/Region.js~Region.html#instance-member-id",
+    "src/core/classes/Region.js~Region#id",
+    "member"
+  ],
+  [
+    "src/core/classes/region.js~region#preventdefault",
+    "class/src/core/classes/Region.js~Region.html#instance-member-preventDefault",
+    "src/core/classes/Region.js~Region#preventDefault",
+    "member"
   ],
   [
     "src/core/classes/region.js~region#register",
@@ -978,6 +996,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/core/classes/state.js~state#assigngestureid",
+    "class/src/core/classes/State.js~State.html#instance-method-assignGestureId",
+    "src/core/classes/State.js~State#assignGestureId",
+    "method"
+  ],
+  [
     "src/core/classes/state.js~state#bindings",
     "class/src/core/classes/State.js~State.html#instance-member-bindings",
     "src/core/classes/State.js~State#bindings",
@@ -1002,10 +1026,22 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/core/classes/state.js~state#numregisteredgestures",
-    "class/src/core/classes/State.js~State.html#instance-member-numRegisteredGestures",
-    "src/core/classes/State.js~State#numRegisteredGestures",
+    "src/core/classes/state.js~state#numgestures",
+    "class/src/core/classes/State.js~State.html#instance-member-numGestures",
+    "src/core/classes/State.js~State#numGestures",
     "member"
+  ],
+  [
+    "src/core/classes/state.js~state#regionid",
+    "class/src/core/classes/State.js~State.html#instance-member-regionId",
+    "src/core/classes/State.js~State#regionId",
+    "member"
+  ],
+  [
+    "src/core/classes/state.js~state#registergesture",
+    "class/src/core/classes/State.js~State.html#instance-method-registerGesture",
+    "src/core/classes/State.js~State#registerGesture",
+    "method"
   ],
   [
     "src/core/classes/state.js~state#registeredgestures",
@@ -1020,9 +1056,15 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/core/classes/state.js~state#retrievebindings",
-    "class/src/core/classes/State.js~State.html#instance-method-retrieveBindings",
-    "src/core/classes/State.js~State#retrieveBindings",
+    "src/core/classes/state.js~state#retrievebindingsbyelement",
+    "class/src/core/classes/State.js~State.html#instance-method-retrieveBindingsByElement",
+    "src/core/classes/State.js~State#retrieveBindingsByElement",
+    "method"
+  ],
+  [
+    "src/core/classes/state.js~state#retrievebindingsbyinitialpos",
+    "class/src/core/classes/State.js~State.html#instance-method-retrieveBindingsByInitialPos",
+    "src/core/classes/State.js~State#retrieveBindingsByInitialPos",
     "method"
   ],
   [
@@ -1047,6 +1089,30 @@ window.esdocSearchIndex = [
     "src/core/classes/zingevent.js~zingevent#originalevent",
     "class/src/core/classes/ZingEvent.js~ZingEvent.html#instance-member-originalEvent",
     "src/core/classes/ZingEvent.js~ZingEvent#originalEvent",
+    "member"
+  ],
+  [
+    "src/core/classes/zingevent.js~zingevent#pagex",
+    "class/src/core/classes/ZingEvent.js~ZingEvent.html#instance-member-pageX",
+    "src/core/classes/ZingEvent.js~ZingEvent#pageX",
+    "member"
+  ],
+  [
+    "src/core/classes/zingevent.js~zingevent#pagey",
+    "class/src/core/classes/ZingEvent.js~ZingEvent.html#instance-member-pageY",
+    "src/core/classes/ZingEvent.js~ZingEvent#pageY",
+    "member"
+  ],
+  [
+    "src/core/classes/zingevent.js~zingevent#screenx",
+    "class/src/core/classes/ZingEvent.js~ZingEvent.html#instance-member-screenX",
+    "src/core/classes/ZingEvent.js~ZingEvent#screenX",
+    "member"
+  ],
+  [
+    "src/core/classes/zingevent.js~zingevent#screeny",
+    "class/src/core/classes/ZingEvent.js~ZingEvent.html#instance-member-screenY",
+    "src/core/classes/ZingEvent.js~ZingEvent#screenY",
     "member"
   ],
   [
@@ -1092,6 +1158,42 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/gestures/distance.js",
+    "file/src/gestures/Distance.js.html",
+    "src/gestures/Distance.js",
+    "file"
+  ],
+  [
+    "src/gestures/distance.js~distance#constructor",
+    "class/src/gestures/Distance.js~Distance.html#instance-constructor-constructor",
+    "src/gestures/Distance.js~Distance#constructor",
+    "method"
+  ],
+  [
+    "src/gestures/distance.js~distance#move",
+    "class/src/gestures/Distance.js~Distance.html#instance-method-move",
+    "src/gestures/Distance.js~Distance#move",
+    "method"
+  ],
+  [
+    "src/gestures/distance.js~distance#start",
+    "class/src/gestures/Distance.js~Distance.html#instance-method-start",
+    "src/gestures/Distance.js~Distance#start",
+    "method"
+  ],
+  [
+    "src/gestures/distance.js~distance#threshold",
+    "class/src/gestures/Distance.js~Distance.html#instance-member-threshold",
+    "src/gestures/Distance.js~Distance#threshold",
+    "member"
+  ],
+  [
+    "src/gestures/distance.js~distance#type",
+    "class/src/gestures/Distance.js~Distance.html#instance-member-type",
+    "src/gestures/Distance.js~Distance#type",
+    "member"
+  ],
+  [
     "src/gestures/expand.js",
     "file/src/gestures/Expand.js.html",
     "src/gestures/Expand.js",
@@ -1101,12 +1203,6 @@ window.esdocSearchIndex = [
     "src/gestures/expand.js~expand#constructor",
     "class/src/gestures/Expand.js~Expand.html#instance-constructor-constructor",
     "src/gestures/Expand.js~Expand#constructor",
-    "method"
-  ],
-  [
-    "src/gestures/expand.js~expand#move",
-    "class/src/gestures/Expand.js~Expand.html#instance-method-move",
-    "src/gestures/Expand.js~Expand#move",
     "method"
   ],
   [
@@ -1182,6 +1278,12 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/gestures/gesture.js~gesture#update",
+    "class/src/gestures/Gesture.js~Gesture.html#instance-method-update",
+    "src/gestures/Gesture.js~Gesture#update",
+    "method"
+  ],
+  [
     "src/gestures/pan.js",
     "file/src/gestures/Pan.js.html",
     "src/gestures/Pan.js",
@@ -1218,6 +1320,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/gestures/pan.js~pan#threshold",
+    "class/src/gestures/Pan.js~Pan.html#instance-member-threshold",
+    "src/gestures/Pan.js~Pan#threshold",
+    "member"
+  ],
+  [
     "src/gestures/pan.js~pan#type",
     "class/src/gestures/Pan.js~Pan.html#instance-member-type",
     "src/gestures/Pan.js~Pan#type",
@@ -1233,12 +1341,6 @@ window.esdocSearchIndex = [
     "src/gestures/pinch.js~pinch#constructor",
     "class/src/gestures/Pinch.js~Pinch.html#instance-constructor-constructor",
     "src/gestures/Pinch.js~Pinch#constructor",
-    "method"
-  ],
-  [
-    "src/gestures/pinch.js~pinch#move",
-    "class/src/gestures/Pinch.js~Pinch.html#instance-method-move",
-    "src/gestures/Pinch.js~Pinch#move",
     "method"
   ],
   [
@@ -1356,16 +1458,16 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/gestures/tap.js~tap#mindelay",
+    "class/src/gestures/Tap.js~Tap.html#instance-member-minDelay",
+    "src/gestures/Tap.js~Tap#minDelay",
+    "member"
+  ],
+  [
     "src/gestures/tap.js~tap#move",
     "class/src/gestures/Tap.js~Tap.html#instance-method-move",
     "src/gestures/Tap.js~Tap#move",
     "method"
-  ],
-  [
-    "src/gestures/tap.js~tap#movetolerance",
-    "class/src/gestures/Tap.js~Tap.html#instance-member-moveTolerance",
-    "src/gestures/Tap.js~Tap#moveTolerance",
-    "member"
   ],
   [
     "src/gestures/tap.js~tap#numinputs",
@@ -1378,6 +1480,12 @@ window.esdocSearchIndex = [
     "class/src/gestures/Tap.js~Tap.html#instance-method-start",
     "src/gestures/Tap.js~Tap#start",
     "method"
+  ],
+  [
+    "src/gestures/tap.js~tap#tolerance",
+    "class/src/gestures/Tap.js~Tap.html#instance-member-tolerance",
+    "src/gestures/Tap.js~Tap#tolerance",
+    "member"
   ],
   [
     "src/gestures/tap.js~tap#type",

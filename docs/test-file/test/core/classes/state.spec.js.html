@@ -43,7 +43,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Region.js~Region.html">Region</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html">State</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/ZingEvent.js~ZingEvent.html">ZingEvent</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Distance.js~Distance.html">Distance</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pan.js~Pan.html">Pan</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pinch.js~Pinch.html">Pinch</a></span></span></li>
@@ -73,10 +74,6 @@ describe(&apos;State&apos;, function () {
     expect(state.bindings).to.be.empty;
   });
 
-  it(&apos;should have no registered gestures&apos;, function () {
-    expect(state.numRegisteredGestures).to.equal(0);
-  });
-
   it(&apos;should have instances of the 6 default gestures&apos;, function () {
     var gestures = [&apos;expand&apos;, &apos;pan&apos;, &apos;pinch&apos;, &apos;rotate&apos;, &apos;swipe&apos;, &apos;tap&apos;];
     for (var i = 0; i &lt; state.registeredGestures.length; i++) {
@@ -103,14 +100,24 @@ describe(&apos;State.addBinding&apos;, function () {
   });
 
   it(&apos;should not add a binding to a non-registered gesture&apos;, function () {
-    var state = new State();
-    expect(state.addBinding(document.body, &apos;foobar&apos;, function () {}, false, false)).to.be.null;
+    expect(function () {
+      var state = new State();
+      state.addBinding(document.body, &apos;foobar&apos;, function () {}, false, false);
+    }).to.throw(&apos;Parameter foobar is not a registered gesture&apos;);
   });
 
   it(&apos;should not add a binding to an object not of the Gesture type&apos;, function () {
-    var state = new State();
-    expect(state.addBinding(document.body, {}, function () {}, false, false)).to.be.null;
+    expect(function () {
+      var state = new State();
+      state.addBinding(document.body, {}, function () {}, false, false);
+    }).to.throw(&apos;Parameter for the gesture is not of a Gesture type&apos;);
   });
+
+  //it(&apos;should not add a binding to an object not of the Gesture type&apos;, function () {
+  //  var state = new State();
+  //  expect(state.addBinding(document.body, {}, function () {}, false, false)).to.be.null;
+  //});
+
 });
 
 /** @test {State.retrieveBindings} */
@@ -119,11 +126,11 @@ describe(&apos;State.retrieveBindings&apos;, function () {
   state.addBinding(document.body, &apos;tap&apos;, function () {}, false, false);
 
   it(&apos;should retrieve no bindings for elements without any&apos;, function () {
-    expect(state.retrieveBindings(document)).to.be.empty;
+    expect(state.retrieveBindingsByElement(document)).to.be.empty;
   });
 
   it(&apos;should retrieve bindings for elements that are bound&apos;, function () {
-    expect(state.retrieveBindings(document.body)).to.not.be.empty;
+    expect(state.retrieveBindingsByElement(document.body)).to.not.be.empty;
   });
 });
 </code></pre>

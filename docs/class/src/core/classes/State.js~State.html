@@ -43,7 +43,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Region.js~Region.html">Region</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html">State</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/ZingEvent.js~ZingEvent.html">ZingEvent</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Distance.js~Distance.html">Distance</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pan.js~Pan.html">Pan</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pinch.js~Pinch.html">Pinch</a></span></span></li>
@@ -55,13 +56,13 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import State from &apos;<span><a href="file/src/core/classes/State.js.html#lineNumber21">zingtouch/src/core/classes/State.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import State from &apos;<span><a href="file/src/core/classes/State.js.html#lineNumber22">zingtouch/src/core/classes/State.js</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/src/core/classes/State.js.html#lineNumber21">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/src/core/classes/State.js.html#lineNumber22">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
@@ -117,7 +118,7 @@ states.</p>
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html#instance-constructor-constructor">constructor</a></span></span>
+           <span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html#instance-constructor-constructor">constructor</a></span></span><span data-ice="signature">(regionId: <span>*</span>)</span>
         </p>
       </div>
       <div>
@@ -156,7 +157,7 @@ states.</p>
       <div>
         
         
-        <div data-ice="description"><p>An array of Binding objects; relations between elements, their gestures, and the handlers.</p>
+        <div data-ice="description"><p>An array of Binding objects; The list of relations between elements, their gestures, and the handlers.</p>
 </div>
       </div>
     </td>
@@ -202,13 +203,39 @@ states.</p>
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html#instance-member-numRegisteredGestures">numRegisteredGestures</a></span></span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span></span>
+           <span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html#instance-member-numGestures">numGestures</a></span></span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>The number of gestures registered to this Region</p>
+        <div data-ice="description"><p>The number of gestures that have been registered with this state</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html#instance-member-regionId">regionId</a></span></span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>The id for the region this state is bound to.</p>
 </div>
       </div>
     </td>
@@ -261,13 +288,39 @@ states.</p>
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html#instance-method-addBinding">addBinding</a></span></span><span data-ice="signature">(element: <span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element">Element</a></span>, gesture: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, handler: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a></span>, capture: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span>, bindOnce: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span> | <span><a href="class/src/core/classes/Binding.js~Binding.html">Binding</a></span></span>
+           <span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html#instance-method-addBinding">addBinding</a></span></span><span data-ice="signature">(element: <span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element">Element</a></span>, gesture: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, handler: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a></span>, capture: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span>, bindOnce: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span>)</span>
         </p>
       </div>
       <div>
         
         
         <div data-ice="description"><p>Creates a new binding with the given element and gesture object.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html#instance-method-assignGestureId">assignGestureId</a></span></span><span data-ice="signature">(gesture: <span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Tracks the gesture to this state object to become uniquely identifiable.</p>
 </div>
       </div>
     </td>
@@ -313,6 +366,32 @@ states.</p>
     <td>
       <div>
         <p>
+           <span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html#instance-method-registerGesture">registerGesture</a></span></span><span data-ice="signature">(gesture: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, key: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Register the gesture to the current region.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
            <span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html#instance-method-resetInputs">resetInputs</a></span></span><span data-ice="signature">()</span>
         </p>
       </div>
@@ -339,7 +418,7 @@ states.</p>
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html#instance-method-retrieveBindings">retrieveBindings</a></span></span><span data-ice="signature">(element: <span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element">Element</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span></span>
+           <span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html#instance-method-retrieveBindingsByElement">retrieveBindingsByElement</a></span></span><span data-ice="signature">(element: <span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element">Element</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span></span>
         </p>
       </div>
       <div>
@@ -365,7 +444,33 @@ states.</p>
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html#instance-method-updateInputs">updateInputs</a></span></span><span data-ice="signature">(event: <span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
+           <span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html#instance-method-retrieveBindingsByInitialPos">retrieveBindingsByInitialPos</a></span></span><span data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Retrieves all bindings based upon the initial X/Y position of the inputs.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html#instance-method-updateInputs">updateInputs</a></span></span><span data-ice="signature">(event: <span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a></span>, regionElement: <span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element">Element</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
         </p>
       </div>
       <div>
@@ -397,11 +502,11 @@ states.</p>
     
     
     
-    <span data-ice="name">constructor</span>
+    <span data-ice="name">constructor</span><span data-ice="signature">(regionId: <span>*</span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/core/classes/State.js.html#lineNumber26">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/core/classes/State.js.html#lineNumber27">source</a></span></span>
     </span>
   </h3>
 
@@ -413,7 +518,23 @@ states.</p>
 
   
 
-  <div data-ice="properties">
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">regionId</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
 </div>
 
   
@@ -445,14 +566,14 @@ states.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/core/classes/State.js.html#lineNumber38">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/core/classes/State.js.html#lineNumber45">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>An array of Binding objects; relations between elements, their gestures, and the handlers.</p>
+  <div data-ice="description"><p>An array of Binding objects; The list of relations between elements, their gestures, and the handlers.</p>
 </div>
 
   
@@ -486,7 +607,7 @@ states.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/core/classes/State.js.html#lineNumber32">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/core/classes/State.js.html#lineNumber39">source</a></span></span>
     </span>
   </h3>
 
@@ -517,24 +638,65 @@ states.</p>
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-member-numRegisteredGestures">
+  <h3 data-ice="anchor" id="instance-member-numGestures">
     <span class="access" data-ice="access">public</span>
     
     
     
     
-    <span data-ice="name">numRegisteredGestures</span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span></span>
+    <span data-ice="name">numGestures</span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/core/classes/State.js.html#lineNumber44">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/core/classes/State.js.html#lineNumber51">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>The number of gestures registered to this Region</p>
+  <div data-ice="description"><p>The number of gestures that have been registered with this state</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-member-regionId">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">regionId</span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/core/classes/State.js.html#lineNumber33">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>The id for the region this state is bound to.</p>
 </div>
 
   
@@ -568,7 +730,7 @@ states.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/core/classes/State.js.html#lineNumber50">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/core/classes/State.js.html#lineNumber57">source</a></span></span>
     </span>
   </h3>
 
@@ -608,11 +770,11 @@ states.</p>
     
     
     
-    <span data-ice="name">addBinding</span><span data-ice="signature">(element: <span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element">Element</a></span>, gesture: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, handler: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a></span>, capture: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span>, bindOnce: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span> | <span><a href="class/src/core/classes/Binding.js~Binding.html">Binding</a></span></span>
+    <span data-ice="name">addBinding</span><span data-ice="signature">(element: <span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element">Element</a></span>, gesture: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, handler: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a></span>, capture: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span>, bindOnce: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/core/classes/State.js.html#lineNumber74">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/core/classes/State.js.html#lineNumber80">source</a></span></span>
     </span>
   </h3>
 
@@ -677,18 +839,7 @@ phase. Used to bind/unbind.</p>
 </div>
 </div>
 
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tr>
-        <td class="return-type" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span> | <span><a href="class/src/core/classes/Binding.js~Binding.html">Binding</a></span></td>
-        <td class="return-desc" data-ice="returnDescription"><p>null if the gesture could not be found, the new Binding otherwise</p>
-</td>
-      </tr>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
+  
 
   
 
@@ -702,9 +853,68 @@ phase. Used to bind/unbind.</p>
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/core/classes/state.spec.js.html#lineNumber32">State.addBinding</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/core/classes/state.spec.js.html#lineNumber28">State.addBinding</a></span></li>
 </ul>
   </div>
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-assignGestureId">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">assignGestureId</span><span data-ice="signature">(gesture: <span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/core/classes/State.js.html#lineNumber259">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Tracks the gesture to this state object to become uniquely identifiable.
+Useful for nested Regions.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">gesture</td>
+      <td data-ice="type"><span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>The gesture to track</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
   
   
@@ -720,7 +930,7 @@ phase. Used to bind/unbind.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/core/classes/State.js.html#lineNumber168">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/core/classes/State.js.html#lineNumber233">source</a></span></span>
     </span>
   </h3>
 
@@ -762,6 +972,71 @@ phase. Used to bind/unbind.</p>
   
 </div>
 <div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-registerGesture">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">registerGesture</span><span data-ice="signature">(gesture: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, key: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/core/classes/State.js.html#lineNumber247">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Register the gesture to the current region.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">gesture</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>The gesture to register</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">key</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>The key to define the new gesture as.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="instance-method-resetInputs">
     <span class="access" data-ice="access">public</span>
     
@@ -772,7 +1047,7 @@ phase. Used to bind/unbind.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/core/classes/State.js.html#lineNumber159">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/core/classes/State.js.html#lineNumber223">source</a></span></span>
     </span>
   </h3>
 
@@ -803,17 +1078,17 @@ phase. Used to bind/unbind.</p>
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-retrieveBindings">
+  <h3 data-ice="anchor" id="instance-method-retrieveBindingsByElement">
     <span class="access" data-ice="access">public</span>
     
     
     
     
-    <span data-ice="name">retrieveBindings</span><span data-ice="signature">(element: <span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element">Element</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span></span>
+    <span data-ice="name">retrieveBindingsByElement</span><span data-ice="signature">(element: <span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element">Element</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/core/classes/State.js.html#lineNumber100">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/core/classes/State.js.html#lineNumber116">source</a></span></span>
     </span>
   </h3>
 
@@ -866,13 +1141,61 @@ phase. Used to bind/unbind.</p>
 
   
 
-  <div data-ice="tests">
-    <h4>Test:</h4>
-    <ul>
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-retrieveBindingsByInitialPos">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">retrieveBindingsByInitialPos</span><span data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span></span>
+    <span class="right-info">
       
-    <li data-ice="test"><span><a href="test-file/test/core/classes/state.spec.js.html#lineNumber60">State.retrieveBindings</a></span></li>
-</ul>
+      
+      <span data-ice="source"><span><a href="file/src/core/classes/State.js.html#lineNumber134">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Retrieves all bindings based upon the initial X/Y position of the inputs.
+e.g. if gesture started on the correct target element, but diverted away into the correct region,
+this would still be valid.</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span></td>
+        <td class="return-desc" data-ice="returnDescription"><p>An array of Bindings to which that element is bound</p>
+</td>
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
   </div>
+
+  
+
+  
+
+  
+
+  
+
+  
 
   
   
@@ -884,11 +1207,11 @@ phase. Used to bind/unbind.</p>
     
     
     
-    <span data-ice="name">updateInputs</span><span data-ice="signature">(event: <span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
+    <span data-ice="name">updateInputs</span><span data-ice="signature">(event: <span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a></span>, regionElement: <span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element">Element</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/core/classes/State.js.html#lineNumber117">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/core/classes/State.js.html#lineNumber156">source</a></span></span>
     </span>
   </h3>
 
@@ -913,6 +1236,13 @@ phase. Used to bind/unbind.</p>
       <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a></span></td>
       <td data-ice="appendix"></td>
       <td data-ice="description"><p>The event being captured</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">regionElement</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element">Element</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>The element where this current Region is bound to.</p>
 </td>
     </tr>
 </tbody>

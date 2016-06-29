@@ -43,7 +43,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Region.js~Region.html">Region</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html">State</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/ZingEvent.js~ZingEvent.html">ZingEvent</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Distance.js~Distance.html">Distance</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pan.js~Pan.html">Pan</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pinch.js~Pinch.html">Pinch</a></span></span></li>
@@ -79,12 +80,15 @@ var util = {
     switch (type) {
       case &apos;mousedown&apos; :
       case &apos;touchstart&apos; :
+      case &apos;pointerdown&apos; :
         return &apos;start&apos;;
       case &apos;mousemove&apos; :
       case &apos;touchmove&apos; :
+      case &apos;pointermove&apos; :
         return &apos;move&apos;;
       case &apos;mouseup&apos; :
       case &apos;touchend&apos; :
+      case &apos;pointerup&apos; :
         return &apos;end&apos;;
       default :
         return null;
@@ -116,7 +120,7 @@ var util = {
    * @returns {number} The numerical value between two points
    */
   distanceBetweenTwoPoints(x0, x1, y0, y1) {
-    var dist =  (Math.sqrt(((x1 - x0) * (x1 - x0)) + ((y1 - y0) * (y1 - y0))));
+    var dist = (Math.sqrt(((x1 - x0) * (x1 - x0)) + ((y1 - y0) * (y1 - y0))));
     return Math.round(dist * 100) / 100;
   },
 
@@ -126,7 +130,7 @@ var util = {
    * @param x1
    * @param y0
    * @param y1
-   * @returns {Array} The coordinates of the midpoint.
+   * @returns {Object} The coordinates of the midpoint.
    */
   getMidpoint(x0, x1, y0, y1) {
     return {
@@ -184,23 +188,83 @@ var util = {
     return (distance / (endTime - startTime));
   },
   /**
-   * Returns the input of the farthest right.
+   * Returns the farthest right input
    * @param inputs
    */
   getRightMostInput(inputs) {
-    var input = null;
+    var rightMost = null;
     var distance = Number.MIN_VALUE;
-    for (var i = 0; i &lt; inputs.length; i++) {
-      if (inputs[0].initial.x &gt; distance) {
-        input = inputs[0];
+    inputs.forEach(input =&gt; {
+      if (input.initial.x &gt; distance) {
+        rightMost = input;
       }
-    }
-
-    return input;
+    });
+    return rightMost;
   },
 
+  /**
+   * Determines is the value is an integer and not a floating point
+   * @param value
+   * @returns {boolean}
+   */
   isInteger(value) {
     return (typeof value === &apos;number&apos;) &amp;&amp; (value % 1 === 0);
+  },
+  /**
+   * Determines if the x,y position of the input is within then target.
+   * @param x -clientX
+   * @param y -clientY
+   * @param target
+   */
+  isInside(x, y, target) {
+    var rect = target.getBoundingClientRect();
+    return ((x &gt; rect.left &amp;&amp; x &lt; rect.left + rect.width) &amp;&amp; (y &gt; rect.top &amp;&amp; y &lt; rect.top + rect.height));
+  },
+  /**
+   * Polyfill for event.propagationPath
+   * @param event
+   */
+  getPropagationPath(event) {
+    if (event.path) {
+      return event.path;
+    } else {
+      var path = [];
+      var node = event.target;
+      while (node != document) {
+        path.push(node);
+        node = node.parentNode;
+      }
+
+      return path;
+    }
+  },
+
+  /**
+   * Retrieve the index inside the path array
+   * @param path
+   * @param element
+   * @returns {element}
+   */
+  getPathIndex(path, element) {
+    var index = path.length;
+
+    path.forEach(obj =&gt; {
+      if (obj === element) {
+        index = i;
+      }
+    });
+
+    return index;
+  },
+
+  setMSPreventDefault(element) {
+    element.style[&apos;-ms-content-zooming&apos;] = &apos;none&apos;;
+    element.style[&apos;touch-action&apos;] = &apos;none&apos;;
+  },
+
+  removeMSPreventDefault(element) {
+    element.style[&apos;-ms-content-zooming&apos;] = &apos;&apos;;
+    element.style[&apos;touch-action&apos;] = &apos;&apos;;
   }
 };
 export default util;

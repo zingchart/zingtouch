@@ -43,7 +43,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Region.js~Region.html">Region</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html">State</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/ZingEvent.js~ZingEvent.html">ZingEvent</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Distance.js~Distance.html">Distance</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pan.js~Pan.html">Pan</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pinch.js~Pinch.html">Pinch</a></span></span></li>
@@ -78,11 +79,11 @@ class Swipe extends Gesture {
 
   /**
    * Constructor function for the Swipe class.
-   * @param {Object} options - The options object.
+   * @param {Object} [options] - The options object.
    * @param {Number} [options.numInputs] - The number of inputs to trigger a Swipe can be variable,
    *  and the maximum number being a factor of the browser.
-   * @param {Number} [options.maxRestTime] - The maximum resting time a point has between it&apos;s last
    *  move and current move events.
+   * @param {Number} [options.maxRestTime] - The maximum resting time a point has between it&apos;s last
    * @param {Number} [options.escapeVelocity] - The minimum velocity the input has to be at to emit a swipe.
    * @param {Number} [options.timeDistortion] - (EXPERIMENTAL) A value of time in milliseconds to distort between events.
    * @param {Number} [options.maxProgressStack] - (EXPERIMENTAL)The maximum amount of move events to keep
@@ -138,30 +139,33 @@ class Swipe extends Gesture {
    * Event hook for the move of a gesture. Captures an input&apos;s x/y coordinates and the time of
    * it&apos;s event on a stack.
    * @param {Array} inputs - The array of Inputs on the screen.
+   * @param {Object} state - The state object of the current region.
    * @returns {null} - Swipe does not emit from a move.
    */
-  move(inputs) {
+  move(inputs, state) {
     if (this.numInputs === inputs.length) {
-      var input = util.getRightMostInput(inputs);
-      var progress = input.getGestureProgress(this.getId());
+      for (var i = 0; i &lt; inputs.length; i++) {
+        var progress = inputs[i].getGestureProgress(this.getId());
+        if (!progress.moves) {
+          progress.moves = [];
+        }
 
-      if (!progress.moves) {
-        progress.moves = [];
+        progress.moves.push({
+          time: new Date().getTime(),
+          x: inputs[i].current.x,
+          y: inputs[i].current.y
+        });
+
+        if (progress.length &gt; this.maxProgressStack) {
+          progress.moves.shift();
+        }
       }
 
-      progress.moves.push({
-        time: new Date().getTime(),
-        x: input.current.x,
-        y: input.current.y
-      });
-
-      if (progress.length &gt; this.maxProgressStack) {
-        progress.moves.shift();
-      }
     }
 
     return null;
   }
+
   /*move*/
 
   /**
@@ -169,52 +173,77 @@ class Swipe extends Gesture {
    * a complete stop (maxRestTime), and if it had enough of a velocity to be considered
    * (ESCAPE_VELOCITY).
    * @param {Array} inputs - The array of Inputs on the screen
-   * @returns {null} - null if the gesture is not to be emitted, Object with information otherwise.
+   * @returns {null|Object} - null if the gesture is not to be emitted, Object with information otherwise.
    */
   end(inputs) {
-    var input = util.getRightMostInput(inputs);
-    var progress = input.getGestureProgress(this.getId());
 
-    if (progress.moves &amp;&amp; progress.moves.length &gt; 2) {
+    if (this.numInputs === inputs.length) {
 
-      //Return if the input has not moved in maxRestTime ms.
-      var currentMove = progress.moves.pop();
+      var output = {
+        data: []
+      };
 
-      if ((new Date().getTime()) - currentMove.time &gt; this.maxRestTime) {
-        return null;
-      }
- 
-      var lastMove;
-      var index = progress.moves.length - 1;
+      for (var i = 0; i &lt; inputs.length; i++) {
 
-      //Date is unreliable, so we retrieve the last move event where the time is not the same. .
-      while (index !== -1) {
-        if (progress.moves[index].time !== currentMove.time) {
-          lastMove = progress.moves[index];
-          break;
+        //Determine if all input events are on the &apos;end&apos; event.
+        if (inputs[i].current.type !== &apos;end&apos;) {
+          return;
         }
 
-        index--;
+        var progress = inputs[i].getGestureProgress(this.getId());
+        if (progress.moves &amp;&amp; progress.moves.length &gt; 2) {
+          //CHECK : Return if the input has not moved in maxRestTime ms.
+
+          var currentMove = progress.moves.pop();
+          if ((new Date().getTime()) - currentMove.time &gt; this.maxRestTime) {
+            return null;
+          }
+
+          var lastMove;
+          var index = progress.moves.length - 1;
+
+          //CHECK : Date is unreliable, so we retrieve the last move event where the time is not the same.
+          while (index !== -1) {
+            if (progress.moves[index].time !== currentMove.time) {
+              lastMove = progress.moves[index];
+              break;
+            }
+
+            index--;
+          }
+
+          //If the date is REALLY unreliable, we apply a time distortion to the last event.
+          if (!lastMove) {
+            lastMove = progress.moves.pop();
+            lastMove.time += this.timeDistortion;
+          }
+
+          var velocity = util.getVelocity(lastMove.x, lastMove.y, lastMove.time,
+            currentMove.x, currentMove.y, currentMove.time);
+
+          output.data[i] = {
+            velocity: velocity,
+            currentDirection: util.getAngle(lastMove.x, lastMove.y, currentMove.x, currentMove.y)
+          };
+        }
       }
 
-      //If the date is REALLY unreliable, we apply a time distortion to the last event.
-      if (!lastMove) {
-        lastMove = progress.moves.pop();
-        lastMove.time += this.timeDistortion;
+      for (var i = 0; i &lt; output.data.length; i++) {
+        if (velocity &lt; this.escapeVelocity) {
+          return null;
+        }
       }
 
-      var velocity = util.getVelocity(lastMove.x, lastMove.y, lastMove.time,
-        currentMove.x, currentMove.y, currentMove.time);
-
-      if (velocity &gt; this.escapeVelocity) {
-        return {
-          velocity: velocity
-        };
+      if (output.data.length &gt; 0) {
+        return output;
       }
+
     }
 
     return null;
+
   }
+
   /*end*/
 }
 

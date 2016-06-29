@@ -43,7 +43,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Region.js~Region.html">Region</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html">State</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/ZingEvent.js~ZingEvent.html">ZingEvent</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Distance.js~Distance.html">Distance</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pan.js~Pan.html">Pan</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pinch.js~Pinch.html">Pinch</a></span></span></li>
@@ -70,7 +71,7 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="function/index.html#static-function-arbiter">arbiter</a></span></span><span data-ice="signature">(event: <span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a></span>, state: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>)</span>
+           <span data-ice="name"><span><a href="function/index.html#static-function-arbiter">arbiter</a></span></span><span data-ice="signature">(event: <span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a></span>, region: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>)</span>
         </p>
       </div>
       <div>
@@ -96,7 +97,7 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="function/index.html#static-function-dispatcher">dispatcher</a></span></span><span data-ice="signature">(binding: <span><a href="class/src/core/classes/Binding.js~Binding.html">Binding</a></span>, data: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span>)</span>
+           <span data-ice="name"><span><a href="function/index.html#static-function-dispatcher">dispatcher</a></span></span><span data-ice="signature">(binding: <span><a href="class/src/core/classes/Binding.js~Binding.html">Binding</a></span>, data: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, events: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>)</span>
         </p>
       </div>
       <div>
@@ -151,7 +152,7 @@ what event will be emitted.</p>
     
     
     
-    <span data-ice="name">arbiter</span><span data-ice="signature">(event: <span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a></span>, state: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>)</span>
+    <span data-ice="name">arbiter</span><span data-ice="signature">(event: <span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a></span>, region: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>)</span>
     <span class="right-info">
       
       
@@ -189,10 +190,10 @@ what event will be emitted.</p>
 </td>
     </tr>
 <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">state</td>
+      <td data-ice="name" data-depth="0">region</td>
       <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>The state object of the current listener.</p>
+      <td data-ice="description"><p>The region object of the current listener.</p>
 </td>
     </tr>
 </tbody>
@@ -222,15 +223,15 @@ what event will be emitted.</p>
     
     
     
-    <span data-ice="name">dispatcher</span><span data-ice="signature">(binding: <span><a href="class/src/core/classes/Binding.js~Binding.html">Binding</a></span>, data: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span>)</span>
+    <span data-ice="name">dispatcher</span><span data-ice="signature">(binding: <span><a href="class/src/core/classes/Binding.js~Binding.html">Binding</a></span>, data: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, events: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/core/dispatcher.js.html#lineNumber12">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/core/dispatcher.js.html#lineNumber13">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import dispatcher from &apos;<span><a href="file/src/core/dispatcher.js.html#lineNumber12">zingtouch/src/core/dispatcher.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import dispatcher from &apos;<span><a href="file/src/core/dispatcher.js.html#lineNumber13">zingtouch/src/core/dispatcher.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>Emits data at the target element if available, and bubbles up from the target to the parent
@@ -256,9 +257,16 @@ until the document has been reached. Called from the arbiter.</p>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" data-depth="0">data</td>
-      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span></td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
       <td data-ice="appendix"></td>
       <td data-ice="description"><p>The metadata computed by the gesture being emitted.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">events</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>An array of ZingEvents, corresponding to the inputs on the screen.</p>
 </td>
     </tr>
 </tbody>

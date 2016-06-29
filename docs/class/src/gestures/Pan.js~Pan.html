@@ -43,7 +43,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Region.js~Region.html">Region</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html">State</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/ZingEvent.js~ZingEvent.html">ZingEvent</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Distance.js~Distance.html">Distance</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pan.js~Pan.html">Pan</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pinch.js~Pinch.html">Pinch</a></span></span></li>
@@ -55,13 +56,13 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import Pan from &apos;<span><a href="file/src/gestures/Pan.js.html#lineNumber16">zingtouch/src/gestures/Pan.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import Pan from &apos;<span><a href="file/src/gestures/Pan.js.html#lineNumber17">zingtouch/src/gestures/Pan.js</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/src/gestures/Pan.js.html#lineNumber16">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/src/gestures/Pan.js.html#lineNumber17">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
@@ -171,6 +172,32 @@ being a factor of the browser.</p>
     <td>
       <div>
         <p>
+           <span data-ice="name"><span><a href="class/src/gestures/Pan.js~Pan.html#instance-member-threshold">threshold</a></span></span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>The minimum amount in pixels the pan must move until it is fired.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
            <span data-ice="name"><span><a href="class/src/gestures/Pan.js~Pan.html#instance-member-type">type</a></span></span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></span>
         </p>
       </div>
@@ -230,7 +257,7 @@ being a factor of the browser.</p>
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/gestures/Pan.js~Pan.html#instance-method-move">move</a></span></span><span data-ice="signature">(inputs: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+           <span data-ice="name"><span><a href="class/src/gestures/Pan.js~Pan.html#instance-method-move">move</a></span></span><span data-ice="signature">(inputs: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>, state: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
         </p>
       </div>
       <div>
@@ -420,7 +447,7 @@ being a factor of the browser.</p>
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html#instance-method-move">move</a></span></span><span data-ice="signature">(inputs: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+           <span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html#instance-method-move">move</a></span></span><span data-ice="signature">(inputs: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>, state: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
         </p>
       </div>
       <div>
@@ -446,7 +473,7 @@ being a factor of the browser.</p>
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html#instance-method-setId">setId</a></span></span><span data-ice="signature">(id: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span>)</span>
+           <span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html#instance-method-setId">setId</a></span></span><span data-ice="signature">(id: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>)</span>
         </p>
       </div>
       <div>
@@ -513,6 +540,32 @@ being a factor of the browser.</p>
       
     </td>
   </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html#instance-method-update">update</a></span></span><span data-ice="signature">(object: <span>*</span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Updates internal properties with new ones, only if the properties exist.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
 </tbody>
 </table>
 </div>
@@ -532,7 +585,7 @@ being a factor of the browser.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gestures/Pan.js.html#lineNumber22">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gestures/Pan.js.html#lineNumber25">source</a></span></span>
     </span>
   </h3>
 
@@ -555,7 +608,7 @@ being a factor of the browser.</p>
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" data-depth="0">options</td>
       <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
-      <td data-ice="appendix"></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
       <td data-ice="description"><p>The options object.</p>
 </td>
     </tr>
@@ -565,6 +618,15 @@ being a factor of the browser.</p>
       <td data-ice="appendix"><ul><li>optional</li>
 <li>default: 1</li></ul></td>
       <td data-ice="description"><p>Number of inputs for the Pan gesture.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">options.threshold</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: 1</li></ul></td>
+      <td data-ice="description"><p>The minimum number of pixels the input
+has to move to trigger this gesture.</p>
 </td>
     </tr>
 </tbody>
@@ -601,7 +663,7 @@ being a factor of the browser.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gestures/Pan.js.html#lineNumber36">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gestures/Pan.js.html#lineNumber39">source</a></span></span>
     </span>
   </h3>
 
@@ -610,6 +672,47 @@ being a factor of the browser.</p>
   
   <div data-ice="description"><p>The number of inputs to trigger a Pan can be variable, and the maximum number
 being a factor of the browser.</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-member-threshold">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">threshold</span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/gestures/Pan.js.html#lineNumber45">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>The minimum amount in pixels the pan must move until it is fired.</p>
 </div>
 
   
@@ -643,7 +746,7 @@ being a factor of the browser.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gestures/Pan.js.html#lineNumber29">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gestures/Pan.js.html#lineNumber32">source</a></span></span>
     </span>
   </h3>
 
@@ -687,7 +790,7 @@ being a factor of the browser.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gestures/Pan.js.html#lineNumber86">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gestures/Pan.js.html#lineNumber119">source</a></span></span>
     </span>
   </h3>
 
@@ -755,11 +858,11 @@ before all inputs are fully off the screen should not fire.</p>
     
     
     
-    <span data-ice="name">move</span><span data-ice="signature">(inputs: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+    <span data-ice="name">move</span><span data-ice="signature">(inputs: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>, state: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gestures/Pan.js.html#lineNumber58">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gestures/Pan.js.html#lineNumber75">source</a></span></span>
     </span>
   </h3>
 
@@ -785,6 +888,13 @@ and keeps a boolean flag that the gesture has fired at least once.</p>
       <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span></td>
       <td data-ice="appendix"></td>
       <td data-ice="description"><p>The array of Inputs on the screen</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">state</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>The state object of the current region.</p>
 </td>
     </tr>
 </tbody>
@@ -829,7 +939,7 @@ and keeps a boolean flag that the gesture has fired at least once.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gestures/Pan.js.html#lineNumber45">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gestures/Pan.js.html#lineNumber56">source</a></span></span>
     </span>
   </h3>
 

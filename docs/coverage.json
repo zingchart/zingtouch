@@ -1,7 +1,7 @@
 {
   "coverage": "100%",
-  "expectCount": 100,
-  "actualCount": 100,
+  "expectCount": 119,
+  "actualCount": 119,
   "files": {
     "src/core/classes/Binder.js": {
       "expectCount": 3,
@@ -13,14 +13,19 @@
       "actualCount": 7,
       "undocumentLines": []
     },
+    "src/gestures/Distance.js": {
+      "expectCount": 6,
+      "actualCount": 6,
+      "undocumentLines": []
+    },
     "src/gestures/Expand.js": {
-      "expectCount": 4,
-      "actualCount": 4,
+      "expectCount": 3,
+      "actualCount": 3,
       "undocumentLines": []
     },
     "src/gestures/Gesture.js": {
-      "expectCount": 11,
-      "actualCount": 11,
+      "expectCount": 12,
+      "actualCount": 12,
       "undocumentLines": []
     },
     "src/core/classes/Input.js": {
@@ -29,18 +34,18 @@
       "undocumentLines": []
     },
     "src/gestures/Pan.js": {
-      "expectCount": 7,
-      "actualCount": 7,
+      "expectCount": 8,
+      "actualCount": 8,
       "undocumentLines": []
     },
     "src/gestures/Pinch.js": {
-      "expectCount": 4,
-      "actualCount": 4,
+      "expectCount": 3,
+      "actualCount": 3,
       "undocumentLines": []
     },
     "src/core/classes/Region.js": {
-      "expectCount": 8,
-      "actualCount": 8,
+      "expectCount": 12,
+      "actualCount": 12,
       "undocumentLines": []
     },
     "src/gestures/Rotate.js": {
@@ -49,8 +54,8 @@
       "undocumentLines": []
     },
     "src/core/classes/State.js": {
-      "expectCount": 11,
-      "actualCount": 11,
+      "expectCount": 15,
+      "actualCount": 15,
       "undocumentLines": []
     },
     "src/gestures/Swipe.js": {
@@ -59,13 +64,13 @@
       "undocumentLines": []
     },
     "src/gestures/Tap.js": {
-      "expectCount": 9,
-      "actualCount": 9,
+      "expectCount": 10,
+      "actualCount": 10,
       "undocumentLines": []
     },
     "src/core/classes/ZingEvent.js": {
-      "expectCount": 6,
-      "actualCount": 6,
+      "expectCount": 10,
+      "actualCount": 10,
       "undocumentLines": []
     },
     "src/ZingTouch.js": {

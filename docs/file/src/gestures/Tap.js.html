@@ -43,7 +43,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Region.js~Region.html">Region</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html">State</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/ZingEvent.js~ZingEvent.html">ZingEvent</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Distance.js~Distance.html">Distance</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pan.js~Pan.html">Pan</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pinch.js~Pinch.html">Pinch</a></span></span></li>
@@ -63,7 +64,8 @@
 import Gesture from &apos;./Gesture.js&apos;;
 import util from &apos;./../core/util.js&apos;;
 
-const DEFAULT_DELAY_MS = 300;
+const DEFAULT_MIN_DELAY_MS = 0;
+const DEFAULT_MAX_DELAY_MS = 300;
 const DEFAULT_INPUTS = 1;
 const DEFAULT_MOVE_PX_TOLERANCE = 10;
 
@@ -74,11 +76,13 @@ const DEFAULT_MOVE_PX_TOLERANCE = 10;
 class Tap extends Gesture {
   /**
    * Constructor function for the Tap class.
-   * @param {Object} options - The options object.
+   * @param {Object} [options] - The options object.
+   * @param {Number} [options.minDelay=0] - The minimum delay between a touchstart and
+   * touchend can be configured in milliseconds.
    * @param {Number} [options.maxDelay=300] - The maximum delay between a touchstart and
    * touchend can be configured in milliseconds.
    * @param {Number} [options.numInputs=1] - Number of inputs for the Tap gesture.
-   * @param {Number} [options.moveTolerance=10] - The tolerance in pixels a user can move.
+   * @param {Number} [options.tolerance=10] - The tolerance in pixels a user can move.
    */
   constructor(options) {
     super();
@@ -90,12 +94,20 @@ class Tap extends Gesture {
     this.type = &apos;tap&apos;;
 
     /**
+     * The minimum amount between a touchstart and a touchend can be configured in milliseconds.
+     * The minimum delay starts to count down when the expected number of inputs are on
+     * the screen, and ends when ALL inputs are off the screen.
+     * @type {Number}
+     */
+    this.minDelay = (options &amp;&amp; options.minDelay) ? options.minDelay : DEFAULT_MIN_DELAY_MS;
+
+    /**
      * The maximum delay between a touchstart and touchend can be configured in milliseconds.
      * The maximum delay starts to count down when the expected number of inputs are on
      * the screen, and ends when ALL inputs are off the screen.
      * @type {Number}
      */
-    this.maxDelay = (options &amp;&amp; options.maxDelay) ? options.maxDelay : DEFAULT_DELAY_MS;
+    this.maxDelay = (options &amp;&amp; options.maxDelay) ? options.maxDelay : DEFAULT_MAX_DELAY_MS;
 
     /**
      * The number of inputs to trigger a Tap can be variable, and the maximum number being
@@ -106,12 +118,12 @@ class Tap extends Gesture {
 
     /**
      * A move tolerance in pixels allows some slop between a user&apos;s start to end events. This
-     * allows the Tap
-     * gesture to be triggered more easily.
+     * allows the Tap gesture to be triggered more easily.
      * @type {number}
      */
-    this.moveTolerance = (options &amp;&amp; options.moveTolerance) ? options.moveTolerance : DEFAULT_MOVE_PX_TOLERANCE;
+    this.tolerance = (options &amp;&amp; options.tolerance) ? options.tolerance : DEFAULT_MOVE_PX_TOLERANCE;
   }
+
   /*constructor*/
 
   /**
@@ -120,16 +132,16 @@ class Tap extends Gesture {
    * @returns {null} - Tap does not trigger on a start event.
    */
   start(inputs) {
-
     if (inputs.length === this.numInputs) {
-      for (var i = 0; i &lt; inputs.length; i++) {
-        var progress = inputs[i].getGestureProgress(this.type);
+      inputs.forEach(input =&gt; {
+        var progress = input.getGestureProgress(this.type);
         progress.start = new Date().getTime();
-      }
+      });
     }
 
     return null;
   }
+
   /*start*/
 
   /**
@@ -137,34 +149,38 @@ class Tap extends Gesture {
    * starts to move their input
    * before an &apos;end&apos; event is reached.
    * @param {Array} inputs - The array of Inputs on the screen.
+   * @param {Object} state - The state object of the current region.
    * @returns {null} - Tap does not trigger on a move event.
    */
-  move(inputs) {
+  move(inputs, state) {
     for (var i = 0; i &lt; inputs.length; i++) {
       if (inputs[i].getCurrentEventType() === &apos;move&apos;) {
         var current = inputs[i].current;
         var previous = inputs[i].previous;
-        if (!util.isWithin(current.x, current.y, previous.x, previous.y, this.moveTolerance)) {
+        if (!util.isWithin(current.x, current.y, previous.x, previous.y, this.tolerance)) {
           var type = this.type;
           inputs.forEach(function (input) {
             input.resetProgress(type);
           });
+
+          return null;
         }
       }
     }
 
     return null;
   }
+
   /*move*/
 
   /**
    * Event hook for the end of a gesture.
-   * Determines if this the tap event can be fired if the delay and moveTolerance
+   * Determines if this the tap event can be fired if the delay and tolerance
    * constraints are met. Also waits for all of the inputs to be off the screen before determining
    * if the gesture is triggered.
    * @param {Array} inputs - The array of Inputs on the screen.
    * @returns {null|Object} - null if the gesture is not to be emitted, Object with information
-   * otherwise.
+   * otherwise. Returns the interval time between start and end events.
    */
   end(inputs) {
     if (inputs.length !== this.numInputs) {
@@ -182,13 +198,14 @@ class Tap extends Gesture {
         return null;
       }
 
+      //Find the most recent input&apos;s startTime
       if (progress.start &lt; startTime) {
         startTime = progress.start;
       }
     }
 
     var interval = new Date().getTime() - startTime;
-    if (this.maxDelay &gt;= interval) {
+    if ((this.minDelay &lt;= interval) &amp;&amp; (this.maxDelay &gt;= interval)) {
       return {
         interval: interval
       };
@@ -201,6 +218,7 @@ class Tap extends Gesture {
       return null;
     }
   }
+
   /*end*/
 }
 

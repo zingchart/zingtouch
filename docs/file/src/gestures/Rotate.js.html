@@ -43,7 +43,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Region.js~Region.html">Region</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html">State</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/ZingEvent.js~ZingEvent.html">ZingEvent</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Distance.js~Distance.html">Distance</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pan.js~Pan.html">Pan</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pinch.js~Pinch.html">Pinch</a></span></span></li>
@@ -93,9 +94,9 @@ class Rotate extends Gesture {
    * @param {Object} state - The state object of the current listener.
    * @returns {null} - null if this event did not occur
    * @returns {Object} obj.angle - The current angle along the unit circle
-   * @returns {Object} obj.distance - The angular distance travelled from the initial right
+   * @returns {Object} obj.distanceFromOrigin - The angular distance travelled from the initial right
    * most point.
-   * @returns {Object} obj.change - The change of angle between the last position and
+   * @returns {Object} obj.distanceFromLast - The change of angle between the last position and
    * the current position.
    */
   move(inputs, state) {
@@ -126,8 +127,8 @@ class Rotate extends Gesture {
 
       return {
         angle: currentAngle,
-        distance: progress.distance,
-        change: progress.change
+        distanceFromOrigin: progress.distance,
+        distanceFromLast: progress.change
       };
     }
 

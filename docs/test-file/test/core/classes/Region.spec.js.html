@@ -43,7 +43,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Region.js~Region.html">Region</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html">State</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/ZingEvent.js~ZingEvent.html">ZingEvent</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Distance.js~Distance.html">Distance</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pan.js~Pan.html">Pan</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pinch.js~Pinch.html">Pinch</a></span></span></li>
@@ -79,8 +80,7 @@ describe(&apos;Region.bind(element)&apos;, function () {
   it(&apos;should throw an error if the element parameter is invalid&apos;, function () {
     expect(function () {
       region.bind({});
-
-    }).to.throw(Error);
+    }).to.throw(&apos;Bind must contain an element&apos;);
   });
 
   it(&apos;should return a chainable Binder object if only an element parameter is provided&apos;, function () {
@@ -96,17 +96,6 @@ describe(&apos;Region.bind(element)&apos;, function () {
         expect(registeredGestures).to.include(gesture);
       }
     }
-  });
-
-  it(&apos;should properly create a Binding after a chained function&apos;, function () {
-    var handler = function (event) {};
-
-    expect(region.state.retrieveBindings(document.body).length).to.equal(0);
-    region.bind(document.body)
-      .tap(handler, false);
-
-    expect(region.state.retrieveBindings(document.body).length).to.equal(1);
-
   });
 });
 </code></pre>

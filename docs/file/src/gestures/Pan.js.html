@@ -43,7 +43,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Region.js~Region.html">Region</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html">State</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/ZingEvent.js~ZingEvent.html">ZingEvent</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Distance.js~Distance.html">Distance</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pan.js~Pan.html">Pan</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pinch.js~Pinch.html">Pinch</a></span></span></li>
@@ -64,6 +65,7 @@ import Gesture from &apos;./Gesture.js&apos;;
 import util from &apos;./../core/util.js&apos;;
 
 const DEFAULT_INPUTS = 1;
+const DEFAULT_MIN_THRESHOLD = 1;
 
 /**
  * A Pan is defined as a normal movement in any direction on a screen. Pan gestures do not
@@ -73,8 +75,10 @@ const DEFAULT_INPUTS = 1;
 class Pan extends Gesture {
   /**
    * Constructor function for the Pan class.
-   * @param {Object} options - The options object.
+   * @param {Object} [options] - The options object.
    * @param {Number} [options.numInputs=1] - Number of inputs for the Pan gesture.
+   * @param {Number} [options.threshold=1] - The minimum number of pixels the input
+   * has to move to trigger this gesture.
    */
   constructor(options) {
     super();
@@ -91,7 +95,15 @@ class Pan extends Gesture {
      * @type {Number}
      */
     this.numInputs = (options &amp;&amp; options.numInputs) ? options.numInputs : DEFAULT_INPUTS;
+
+    /**
+     * The minimum amount in pixels the pan must move until it is fired.
+     * @type {Number}
+     */
+    this.threshold = (options &amp;&amp; options.threshold) ? options.threshold : DEFAULT_MIN_THRESHOLD;
+    
   }
+
   /*constructor*/
 
   /**
@@ -100,36 +112,58 @@ class Pan extends Gesture {
    * @param inputs
    */
   start(inputs) {
-    for (var i = 0; i &lt; inputs.length; i++) {
-      var progress = inputs[i].getGestureProgress(this.getId());
+
+    inputs.forEach(input =&gt; {
+      var progress = input.getGestureProgress(this.getId());
       progress.active = true;
-    }
+      progress.lastEmitted = {
+        x: input.current.x,
+        y: input.current.y
+      };
+    });
   }
 
   /**
    * move() - Event hook for the move of a gesture. Fired whenever the input length is met,
    * and keeps a boolean flag that the gesture has fired at least once.
    * @param {Array} inputs - The array of Inputs on the screen
+   * @param {Object} state - The state object of the current region.
    * @returns {Object} - Returns the distance in pixels between the two inputs.
    */
-  move(inputs) {
+  move(inputs, state) {
     if (this.numInputs === inputs.length) {
-      var data = {};
+      var output = {
+        data: []
+      };
       for (var i = 0; i &lt; inputs.length; i++) {
         var progress = inputs[i].getGestureProgress(this.getId());
-        if (!progress.active) {
+
+        var reachedThreshold = false;
+
+        //Check threshold distance
+        reachedThreshold =  (Math.abs(inputs[i].current.y - progress.lastEmitted.y) &gt; this.threshold ||
+        Math.abs(inputs[i].current.x - progress.lastEmitted.x) &gt; this.threshold);
+
+        if (progress.active &amp;&amp; reachedThreshold) {
+
+          output.data[i] = {
+            distanceFromOrigin: util.distanceBetweenTwoPoints(inputs[i].initial.x, inputs[i].current.x,
+              inputs[i].initial.y, inputs[i].current.y),
+            directionFromOrigin: util.getAngle(inputs[i].initial.x, inputs[i].initial.y, inputs[i].current.x, inputs[i].current.y),
+            currentDirection: util.getAngle(progress.lastEmitted.x, progress.lastEmitted.y, inputs[i].current.x, inputs[i].current.y)
+          };
+          progress.lastEmitted.x = inputs[i].current.x;
+          progress.lastEmitted.y = inputs[i].current.y;
+
+        } else {
           return null;
         }
-
-        data[i] = {
-          distanceFromOrigin: util.distanceBetweenTwoPoints(inputs[i].initial.x, inputs[i].current.x,
-            inputs[i].initial.y, inputs[i].current.y)
-        };
       }
     }
 
-    return data;
+    return output;
   }
+
   /*move*/
 
   /**
@@ -141,16 +175,13 @@ class Pan extends Gesture {
    * @returns {null} - null if the gesture is not to be emitted, Object with information otherwise.
    */
   end(inputs) {
-    for (var i = 0; i &lt; inputs.length; i++) {
-      var progress = inputs[i].getGestureProgress(this.getId());
-      if (progress.active) {
-        progress.active = false;
-        break;
-      }
-    }
-
+    inputs.forEach(input =&gt; {
+      var progress = input.getGestureProgress(this.getId());
+      progress.active = false;
+    });
     return null;
   }
+
   /*end*/
 }
 

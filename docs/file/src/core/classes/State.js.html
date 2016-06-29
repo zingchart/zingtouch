@@ -43,7 +43,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Region.js~Region.html">Region</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html">State</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/ZingEvent.js~ZingEvent.html">ZingEvent</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Distance.js~Distance.html">Distance</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pan.js~Pan.html">Pan</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pinch.js~Pinch.html">Pinch</a></span></span></li>
@@ -66,10 +67,11 @@ import Pinch from &apos;./../../gestures/Pinch.js&apos;;
 import Rotate from &apos;./../../gestures/Rotate.js&apos;;
 import Swipe from &apos;./../../gestures/Swipe.js&apos;;
 import Tap from &apos;./../../gestures/Tap.js&apos;;
-
 import Binding from &apos;./Binding.js&apos;;
 import Input from &apos;./Input.js&apos;;
 import util from &apos;./../util.js&apos;;
+
+const DEFAULT_MOUSE_ID = 0;
 
 /**
  * Creates an object related to a Region&apos;s state, and contains helper methods to update and clean up different
@@ -80,7 +82,13 @@ class State {
   /**
    * Constructor for the State class.
    */
-  constructor() {
+  constructor(regionId) {
+
+    /**
+     * The id for the region this state is bound to.
+     * @type {String}
+     */
+    this.regionId = regionId;
 
     /**
      * An array of current and recently inactive Input objects related to a gesture.
@@ -89,29 +97,29 @@ class State {
     this.inputs = [];
 
     /**
-     * An array of Binding objects; relations between elements, their gestures, and the handlers.
+     * An array of Binding objects; The list of relations between elements, their gestures, and the handlers.
      * @type {Binding}
      */
     this.bindings = [];
 
     /**
-     * The number of gestures registered to this Region
+     * The number of gestures that have been registered with this state
      * @type {Number}
      */
-    this.numRegisteredGestures = 0;
+    this.numGestures = 0;
 
     /**
      * A key/value map all the registered gestures for the listener. Note: Can only have one gesture registered to one key.
      * @type {Object}
      */
-    this.registeredGestures = {
-      expand: new Expand(),
-      pan: new Pan(),
-      pinch: new Pinch(),
-      rotate: new Rotate(),
-      swipe: new Swipe(),
-      tap: new Tap()
-    };
+    this.registeredGestures = {};
+
+    this.registerGesture(new Expand(), &apos;expand&apos;);
+    this.registerGesture(new Pan(), &apos;pan&apos;);
+    this.registerGesture(new Rotate(), &apos;rotate&apos;);
+    this.registerGesture(new Pinch(), &apos;pinch&apos;);
+    this.registerGesture(new Swipe(), &apos;swipe&apos;);
+    this.registerGesture(new Tap(), &apos;tap&apos;);
   }
 
   /**
@@ -126,27 +134,36 @@ class State {
    * @param {Boolean} capture - Whether the gesture is to be detected in the capture of bubble
    * phase. Used to bind/unbind.
    * @param {Boolean} bindOnce - Option to bind once and only emit the event once.
-   * @returns {null|Binding} - null if the gesture could not be found, the new Binding otherwise
    */
   addBinding(element, gesture, handler, capture, bindOnce) {
-    if (typeof gesture === &apos;string&apos;) {
-      gesture = this.registeredGestures[gesture];
-      if (typeof gesture === &apos;undefined&apos;) {
-        return null;
-      }
-    } else if (!(gesture instanceof Gesture)) {
-      return null;
-    } else {
-      gesture.setId(this.numRegisteredGestures++);
+    var boundGesture;
+
+    //Error type checking.
+    if (element &amp;&amp; typeof element.tagName === &apos;undefined&apos;) {
+      throw new Error(&apos;Parameter element is an invalid object.&apos;);
     }
 
-    if (gesture instanceof Gesture) {
-      var binding = new Binding(element, gesture, handler, capture, bindOnce);
-      this.bindings.push(binding);
-      element.addEventListener(gesture.getId(), handler, capture);
-      return binding;
+    if (typeof handler !== &apos;function&apos;) {
+      throw new Error(&apos;Parameter handler is invalid.&apos;);
     }
+
+    if (typeof gesture === &apos;string&apos; &amp;&amp; Object.keys(this.registeredGestures).indexOf(gesture) === -1) {
+      throw new Error(&apos;Parameter &apos; + gesture + &apos; is not a registered gesture&apos;);
+    } else if (typeof gesture === &apos;object&apos; &amp;&amp; !(gesture instanceof Gesture)) {
+      throw new Error(&apos;Parameter for the gesture is not of a Gesture type&apos;);
+    }
+
+    if (typeof gesture === &apos;string&apos;) {
+      boundGesture = this.registeredGestures[gesture];
+    } else {
+      boundGesture = gesture;
+      this.assignGestureId(boundGesture);
+    }
+
+    this.bindings.push(new Binding(element, boundGesture, handler, capture, bindOnce));
+    element.addEventListener(boundGesture.getId(), handler, capture);
   }
+
   /*addBinding*/
 
   /**
@@ -154,61 +171,109 @@ class State {
    * @param {Element} element - The element to find bindings to.
    * @returns {Array} - An array of Bindings to which that element is bound
    */
-  retrieveBindings(element) {
+  retrieveBindingsByElement(element) {
     var matches = [];
-    for (var i = 0; i &lt; this.bindings.length; i++) {
-      if (this.bindings[i].element === element) {
-        matches.push(this.bindings[i]);
+    this.bindings.map(binding =&gt; {
+      if (binding.element === element) {
+        matches.push(binding);
       }
-    }
-
+    });
     return matches;
   }
-  /*retrieveBindings*/
+
+  /*retrieveBindingsByElement*/
+
+  /**
+   * Retrieves all bindings based upon the initial X/Y position of the inputs.
+   * e.g. if gesture started on the correct target element, but diverted away into the correct region,
+   * this would still be valid.
+   * @returns {Array} - An array of Bindings to which that element is bound
+   */
+  retrieveBindingsByInitialPos() {
+    var matches = [];
+    this.bindings.forEach(binding =&gt; {
+      // Determine if at least one input is in the target element. They should all be in the region based upon a prior check
+      var inputsInside = this.inputs.filter(input =&gt; {
+        return util.isInside(input.initial.x, input.initial.y, binding.element);
+      });
+      if (inputsInside.length &gt; 0) {
+        matches.push(binding);
+      }
+    });
+    return matches;
+  }
+
+  /* retrieveBindingsByInitialPos */
 
   /**
    * Updates the inputs with new information based upon a new event being fired.
    * @param {Event} event - The event being captured
+   * @param {Element} regionElement - The element where this current Region is bound to.
    * @returns {boolean} - returns true for a successful update, false if the event is invalid.
    */
-  updateInputs(event) {
-    //Return if all gestures did not originate from the same target
-    if (event.touches &amp;&amp; event.touches.length !== event.targetTouches.length) {
-      state.resetInputs();
-      return false;
-    }
+  updateInputs(event, regionElement) {
+    var identifier = DEFAULT_MOUSE_ID;
+    var eventType = (event.touches) ? &apos;TouchEvent&apos; : (event.pointerType) ? &apos;PointerEvent&apos; : &apos;MouseEvent&apos;;
 
-    if (event.touches) {
-      for (var index in event.changedTouches) {
-        if (event.changedTouches.hasOwnProperty(index) &amp;&amp; util.isInteger((parseInt(index)))) {
-          var identifier = event.changedTouches[index].identifier;
-          if (util.normalizeEvent(event.type) === &apos;start&apos;) {
-            if (findInputById(this.inputs, identifier)) {
-              //This should restart the inputs and cancel out any gesture.
-              this.resetInputs();
-              return false;
-            } else {
-              this.inputs.push(new Input(event, identifier));
-            }
-          } else {
-            var input = findInputById(this.inputs, identifier);
-            if (input) {
-              input.update(event, identifier);
-            }
+    switch (eventType) {
+      case &apos;TouchEvent&apos;:
+
+        //Return if all gestures did not originate from the same target
+        if (event.touches.length !== event.targetTouches.length) {
+          return false;
+        }
+
+        for (var index in event.changedTouches) {
+          if (event.changedTouches.hasOwnProperty(index) &amp;&amp; util.isInteger((parseInt(index)))) {
+            identifier = event.changedTouches[index].identifier;
+            update(event, this, identifier, regionElement);
           }
         }
+
+        break;
+
+      case &apos;PointerEvent&apos;:
+        identifier = event.pointerId;
+        update(event, this, identifier, regionElement);
+        break;
+
+      case &apos;MouseEvent&apos;:
+      default:
+        update(event, this, DEFAULT_MOUSE_ID, regionElement);
+        break;
+    }
+    return true;
+
+    function update(event, state, identifier, regionElement) {
+      var eventType = util.normalizeEvent(event.type);
+      var input = findInputById(state.inputs, identifier);
+
+      //A starting input was not cleaned up properly and still exists.
+      if (eventType === &apos;start&apos; &amp;&amp; input) {
+        state.resetInputs();
+        return;
       }
-    } else {
-      if (util.normalizeEvent(event.type) === &apos;start&apos;) {
-        this.inputs.push(new Input(event));
+
+      //An input has moved outside the region.
+      if (eventType !== &apos;start&apos; &amp;&amp; input &amp;&amp; !util.isInside(input.current.x, input.current.y, regionElement)) {
+        state.resetInputs();
+        return;
+      }
+
+      if (eventType !== &apos;start&apos; &amp;&amp; !input) {
+        state.resetInputs();
+        return;
+      }
+
+      if (eventType === &apos;start&apos;) {
+        state.inputs.push(new Input(event, identifier));
       } else {
-        this.inputs[0].update(event);
+        input.update(event, identifier);
       }
     }
-
-    return true;
   }
-  /*updateInputs*/
+
+  /* updateInputs */
 
   /**
    * Removes all inputs from the state, allowing for a new gesture.
@@ -216,23 +281,44 @@ class State {
   resetInputs() {
     this.inputs = [];
   }
-  /*resetInputs*/
+
+  /* resetInputs */
 
   /**
    * Counts the number of active inputs at any given time.
    * @returns {Number} - The number of active inputs.
    */
   numActiveInputs() {
-    var count = 0;
-    for (var i = 0; i &lt; this.inputs.length; i++) {
-      if (this.inputs[i].current.type !== &apos;end&apos;) {
-        count++;
-      }
-    }
-
-    return count;
+    var endType = this.inputs.filter(input =&gt; {
+      return input.current.type !== &apos;end&apos;;
+    });
+    return endType.length;
   }
-  /*numActiveInputs*/
+
+  /* numActiveInputs */
+
+  /**
+   * Register the gesture to the current region.
+   * @param {Object} gesture - The gesture to register
+   * @param {String} key - The key to define the new gesture as.
+   */
+  registerGesture(gesture, key) {
+    this.assignGestureId(gesture);
+    this.registeredGestures[key] = gesture;
+  }
+
+  /* registerGesture */
+
+  /**
+   * Tracks the gesture to this state object to become uniquely identifiable.
+   * Useful for nested Regions.
+   * @param {Gesture} gesture - The gesture to track
+   */
+  assignGestureId(gesture) {
+    gesture.setId(this.regionId + &apos;-&apos; + this.numGestures++);
+  }
+
+  /* assignGestureId */
 
 }
 /**
@@ -251,7 +337,7 @@ function findInputById(inputs, identifier) {
 
   return null;
 }
-/*findInputById*/
+/* findInputById */
 
 export default State;
 </code></pre>

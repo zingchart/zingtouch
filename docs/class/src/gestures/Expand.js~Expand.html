@@ -43,7 +43,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Region.js~Region.html">Region</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html">State</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/ZingEvent.js~ZingEvent.html">ZingEvent</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Distance.js~Distance.html">Distance</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pan.js~Pan.html">Pan</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pinch.js~Pinch.html">Pinch</a></span></span></li>
@@ -55,13 +56,13 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import Expand from &apos;<span><a href="file/src/gestures/Expand.js.html#lineNumber17">zingtouch/src/gestures/Expand.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import Expand from &apos;<span><a href="file/src/gestures/Expand.js.html#lineNumber15">zingtouch/src/gestures/Expand.js</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/src/gestures/Expand.js.html#lineNumber17">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/src/gestures/Expand.js.html#lineNumber15">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
@@ -71,7 +72,7 @@
 
   
   
-  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span> &#x2192; Expand</div></div>
+  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span> &#x2192; <span><a href="class/src/gestures/Distance.js~Distance.html">Distance</a></span> &#x2192; Expand</div></div>
   
   
   
@@ -112,7 +113,7 @@ events.</p>
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html#instance-constructor-constructor">constructor</a></span></span>
+           <span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html#instance-constructor-constructor">constructor</a></span></span><span data-ice="signature">(options: <span>*</span>)</span>
         </p>
       </div>
       <div>
@@ -163,39 +164,7 @@ events.</p>
 </tbody>
 </table>
 </div>
-<div data-ice="methodSummary"><h2>Method Summary</h2><table class="summary" data-ice="summary">
-  <thead><tr><td data-ice="title" colspan="3">Public Methods</td></tr></thead>
-  <tbody>
-  
-  <tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-           <span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html#instance-method-move">move</a></span></span><span data-ice="signature">(inputs: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>): <span>Object </span> | <span> null</span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Event hook for the move of a gesture.</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-</tbody>
-</table>
-</div>
+
 
 <div class="inherited-summary" data-ice="inheritedSummary"><h2>Inherited Summary</h2><table class="summary" data-ice="summary">
   <thead><tr><td data-ice="title" colspan="3"><span class="toggle closed"></span> From class <span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span></td></tr></thead>
@@ -342,7 +311,7 @@ events.</p>
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html#instance-method-move">move</a></span></span><span data-ice="signature">(inputs: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+           <span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html#instance-method-move">move</a></span></span><span data-ice="signature">(inputs: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>, state: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
         </p>
       </div>
       <div>
@@ -368,7 +337,7 @@ events.</p>
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html#instance-method-setId">setId</a></span></span><span data-ice="signature">(id: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span>)</span>
+           <span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html#instance-method-setId">setId</a></span></span><span data-ice="signature">(id: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>)</span>
         </p>
       </div>
       <div>
@@ -435,6 +404,143 @@ events.</p>
       
     </td>
   </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html#instance-method-update">update</a></span></span><span data-ice="signature">(object: <span>*</span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Updates internal properties with new ones, only if the properties exist.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+
+<table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3"><span class="toggle closed"></span> From class <span><a href="class/src/gestures/Distance.js~Distance.html">Distance</a></span></td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/gestures/Distance.js~Distance.html#instance-member-threshold">threshold</a></span></span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>The minimum amount in pixels the inputs must move until it is fired.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/gestures/Distance.js~Distance.html#instance-member-type">type</a></span></span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>The type of the Gesture.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/gestures/Distance.js~Distance.html#instance-method-move">move</a></span></span><span data-ice="signature">(inputs: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>, state: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span>Object </span> | <span> null</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Event hook for the move of a gesture.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/gestures/Distance.js~Distance.html#instance-method-start">start</a></span></span><span data-ice="signature">(inputs: <span>*</span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>start() - Event hook for the start of a gesture.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
 </tbody>
 </table>
 </div>
@@ -450,11 +556,11 @@ events.</p>
     
     
     
-    <span data-ice="name">constructor</span>
+    <span data-ice="name">constructor</span><span data-ice="signature">(options: <span>*</span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gestures/Expand.js.html#lineNumber21">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gestures/Expand.js.html#lineNumber19">source</a></span></span>
     </span>
   </h3>
 
@@ -464,9 +570,25 @@ events.</p>
   <div data-ice="description"><p>Constructor function for the Expand class.</p>
 </div>
 
-  <div data-ice="override"><h4>Override:</h4><span><a href="class/src/gestures/Gesture.js~Gesture.html#instance-constructor-constructor">Gesture#constructor</a></span></div>
+  <div data-ice="override"><h4>Override:</h4><span><a href="class/src/gestures/Distance.js~Distance.html#instance-constructor-constructor">Distance#constructor</a></span></div>
 
-  <div data-ice="properties">
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">options</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
 </div>
 
   
@@ -498,7 +620,7 @@ events.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gestures/Expand.js.html#lineNumber28">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gestures/Expand.js.html#lineNumber26">source</a></span></span>
     </span>
   </h3>
 
@@ -508,7 +630,7 @@ events.</p>
   <div data-ice="description"><p>The type of the Gesture.</p>
 </div>
 
-  <div data-ice="override"><h4>Override:</h4><span><a href="class/src/gestures/Gesture.js~Gesture.html#instance-member-type">Gesture#type</a></span></div>
+  <div data-ice="override"><h4>Override:</h4><span><a href="class/src/gestures/Distance.js~Distance.html#instance-member-type">Distance#type</a></span></div>
 
   <div data-ice="properties">
 </div>
@@ -529,80 +651,7 @@ events.</p>
   
 </div>
 </div>
-<div data-ice="methodDetails"><h2 data-ice="title">Public Methods</h2>
 
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-move">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    <span data-ice="name">move</span><span data-ice="signature">(inputs: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>): <span>Object </span> | <span> null</span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/gestures/Expand.js.html#lineNumber38">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Event hook for the move of a gesture. Determines if the two points moved away from each
-other between.
-the current distance and the last distance.</p>
-</div>
-
-  <div data-ice="override"><h4>Override:</h4><span><a href="class/src/gestures/Gesture.js~Gesture.html#instance-method-move">Gesture#move</a></span></div>
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">inputs</td>
-      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>The array of Inputs on the screen.</p>
-</td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tr>
-        <td class="return-type" data-ice="returnType"><span>Object </span> | <span> null</span></td>
-        <td class="return-desc" data-ice="returnDescription"><p>Returns the distance in pixels between the two inputs.</p>
-</td>
-      </tr>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-</div>
 </div>
 
 <footer class="footer">

@@ -43,7 +43,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Region.js~Region.html">Region</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html">State</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/ZingEvent.js~ZingEvent.html">ZingEvent</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Distance.js~Distance.html">Distance</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pan.js~Pan.html">Pan</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pinch.js~Pinch.html">Pinch</a></span></span></li>
@@ -270,7 +271,7 @@
   <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/core/classes/Region.spec.js.html#lineNumber16"><p>Region.bind(element)</p>
 </a></span></td>
   <td data-ice="testTarget" class="test-target"><span><a href="class/src/core/classes/Region.js~Region.html#instance-method-bind">Region.bind</a></span></td>
-  <td data-ice="testCount">5</td>
+  <td data-ice="testCount">4</td>
 </tr>
 
 <tr data-ice="testIt" style="display: none;" data-test-depth="1">
@@ -286,19 +287,13 @@
   <td></td>
 </tr>
 <tr data-ice="testIt" style="display: none;" data-test-depth="1">
-  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/core/classes/Region.spec.js.html#lineNumber29"><p>should return a chainable Binder object if only an element parameter is provided</p>
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/core/classes/Region.spec.js.html#lineNumber28"><p>should return a chainable Binder object if only an element parameter is provided</p>
 </a></span></td>
   <td data-ice="testTarget" class="test-target">-</td>
   <td></td>
 </tr>
 <tr data-ice="testIt" style="display: none;" data-test-depth="1">
-  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/core/classes/Region.spec.js.html#lineNumber34"><p>should return a chainable Binder object that contains all of the registered gestures</p>
-</a></span></td>
-  <td data-ice="testTarget" class="test-target">-</td>
-  <td></td>
-</tr>
-<tr data-ice="testIt" style="display: none;" data-test-depth="1">
-  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/core/classes/Region.spec.js.html#lineNumber44"><p>should properly create a Binding after a chained function</p>
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/core/classes/Region.spec.js.html#lineNumber33"><p>should return a chainable Binder object that contains all of the registered gestures</p>
 </a></span></td>
   <td data-ice="testTarget" class="test-target">-</td>
   <td></td>
@@ -309,7 +304,7 @@
   <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/core/classes/state.spec.js.html#lineNumber5"><p>State</p>
 </a></span></td>
   <td data-ice="testTarget" class="test-target"><span><a href="class/src/core/classes/State.js~State.html">State</a></span></td>
-  <td data-ice="testCount">5</td>
+  <td data-ice="testCount">4</td>
 </tr>
 
 <tr data-ice="testIt" style="display: none;" data-test-depth="1">
@@ -331,13 +326,7 @@
   <td></td>
 </tr>
 <tr data-ice="testIt" style="display: none;" data-test-depth="1">
-  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/core/classes/state.spec.js.html#lineNumber19"><p>should have no registered gestures</p>
-</a></span></td>
-  <td data-ice="testTarget" class="test-target">-</td>
-  <td></td>
-</tr>
-<tr data-ice="testIt" style="display: none;" data-test-depth="1">
-  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/core/classes/state.spec.js.html#lineNumber23"><p>should have instances of the 6 default gestures</p>
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/core/classes/state.spec.js.html#lineNumber19"><p>should have instances of the 6 default gestures</p>
 </a></span></td>
   <td data-ice="testTarget" class="test-target">-</td>
   <td></td>
@@ -345,32 +334,32 @@
 
 
 <tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
-  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/core/classes/state.spec.js.html#lineNumber32"><p>State.addBinding</p>
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/core/classes/state.spec.js.html#lineNumber28"><p>State.addBinding</p>
 </a></span></td>
   <td data-ice="testTarget" class="test-target"><span><a href="class/src/core/classes/State.js~State.html#instance-method-addBinding">State.addBinding</a></span></td>
   <td data-ice="testCount">4</td>
 </tr>
 
 <tr data-ice="testIt" style="display: none;" data-test-depth="1">
-  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/core/classes/state.spec.js.html#lineNumber34"><p>should add a binding to a registered gesture</p>
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/core/classes/state.spec.js.html#lineNumber30"><p>should add a binding to a registered gesture</p>
 </a></span></td>
   <td data-ice="testTarget" class="test-target">-</td>
   <td></td>
 </tr>
 <tr data-ice="testIt" style="display: none;" data-test-depth="1">
-  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/core/classes/state.spec.js.html#lineNumber41"><p>should add a binding to a gesture instance</p>
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/core/classes/state.spec.js.html#lineNumber37"><p>should add a binding to a gesture instance</p>
 </a></span></td>
   <td data-ice="testTarget" class="test-target">-</td>
   <td></td>
 </tr>
 <tr data-ice="testIt" style="display: none;" data-test-depth="1">
-  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/core/classes/state.spec.js.html#lineNumber48"><p>should not add a binding to a non-registered gesture</p>
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/core/classes/state.spec.js.html#lineNumber44"><p>should not add a binding to a non-registered gesture</p>
 </a></span></td>
   <td data-ice="testTarget" class="test-target">-</td>
   <td></td>
 </tr>
 <tr data-ice="testIt" style="display: none;" data-test-depth="1">
-  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/core/classes/state.spec.js.html#lineNumber53"><p>should not add a binding to an object not of the Gesture type</p>
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/core/classes/state.spec.js.html#lineNumber51"><p>should not add a binding to an object not of the Gesture type</p>
 </a></span></td>
   <td data-ice="testTarget" class="test-target">-</td>
   <td></td>
@@ -378,20 +367,20 @@
 
 
 <tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
-  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/core/classes/state.spec.js.html#lineNumber60"><p>State.retrieveBindings</p>
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/core/classes/state.spec.js.html#lineNumber66"><p>State.retrieveBindings</p>
 </a></span></td>
-  <td data-ice="testTarget" class="test-target"><span><a href="class/src/core/classes/State.js~State.html#instance-method-retrieveBindings">State.retrieveBindings</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>State.retrieveBindings</span></td>
   <td data-ice="testCount">2</td>
 </tr>
 
 <tr data-ice="testIt" style="display: none;" data-test-depth="1">
-  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/core/classes/state.spec.js.html#lineNumber64"><p>should retrieve no bindings for elements without any</p>
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/core/classes/state.spec.js.html#lineNumber70"><p>should retrieve no bindings for elements without any</p>
 </a></span></td>
   <td data-ice="testTarget" class="test-target">-</td>
   <td></td>
 </tr>
 <tr data-ice="testIt" style="display: none;" data-test-depth="1">
-  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/core/classes/state.spec.js.html#lineNumber68"><p>should retrieve bindings for elements that are bound</p>
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/core/classes/state.spec.js.html#lineNumber74"><p>should retrieve bindings for elements that are bound</p>
 </a></span></td>
   <td data-ice="testTarget" class="test-target">-</td>
   <td></td>

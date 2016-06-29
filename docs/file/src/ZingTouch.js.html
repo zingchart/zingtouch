@@ -43,7 +43,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/Region.js~Region.html">Region</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/State.js~State.html">State</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/classes/ZingEvent.js~ZingEvent.html">ZingEvent</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">gestures</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Distance.js~Distance.html">Distance</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Expand.js~Expand.html">Expand</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Gesture.js~Gesture.html">Gesture</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pan.js~Pan.html">Pan</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gestures/Pinch.js~Pinch.html">Pinch</a></span></span></li>
@@ -58,9 +59,9 @@
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
  * @file ZingTouch.js
  * Main object containing API methods and Gesture constructors
-*/
+ */
 
-import Listener from &apos;./core/classes/Region.js&apos;;
+import Region from &apos;./core/classes/Region.js&apos;;
 import Gesture from &apos;./gestures/Gesture.js&apos;;
 import Expand from &apos;./gestures/Expand.js&apos;;
 import Pan from &apos;./gestures/Pan.js&apos;;
@@ -76,15 +77,22 @@ import Tap from &apos;./gestures/Tap.js&apos;;
  * @namespace ZingTouch
  */
 var ZingTouch = {
+  _regions: [],
+
   //Constructors
-  Listener: Listener,
   Gesture: Gesture,
   Expand: Expand,
   Pan: Pan,
   Pinch: Pinch,
   Rotate: Rotate,
   Swipe: Swipe,
-  Tap: Tap
+  Tap: Tap,
+  Region: function (element, capture, preventDefault) {
+    var id = ZingTouch._regions.length;
+    var region = new Region(element, capture, preventDefault, id);
+    ZingTouch._regions.push(region);
+    return region;
+  }
 };
 
 export default ZingTouch;
