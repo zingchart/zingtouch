@@ -6,7 +6,7 @@
     <title>ZingTouch</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
     <style>
@@ -45,45 +45,6 @@
     <div class="wrap">
         <h1 id="hero-title" data-font="light">zingtouch</h1>
         <h2>A JavaScript gesture detection library for the modern web</h2>
-
-        <div class="grid gutter collapse reverse">
-            <div class="cell">
-                <!--
-                <section id="phone-container">
-                    <div class="container">
-                        <div id="phone-wrapper">
-                            <div id="phone">
-                                <section class="phone-left">
-                                    <div class="column1">
-                                        <div class="sensor"></div>
-                                    </div>
-                                    <div class="column2">
-                                        <div class="speaker"></div>
-                                        <div class="camera"></div>
-                                    </div>
-                                </section>
-                                <section class="phone-center">
-                                    <div id="screen" class="screen output">
-                                        <h1 id="screen-output-1"></h1>
-                                        <h2 id="screen-output-2"></h2>
-                                    </div>
-                                </section>
-                                <section class="phone-bottom">
-                                    <div class="button flex-center"></div>
-                                </section>
-                                <div class="finger-wrapper">
-                                    <div class="finger">
-                                        <div class="nail"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                End Phone -->
-            </div>
-        </div>
-
         <ul class="ctas">
             <!-- <li><a href="" data-button='white outline' style="background: #FFF">View Demos</a></li> -->
             <li><a href="https://github.com/zingchart/zingtouch" data-button="white" style="color:#00AEF1"><i class="fa fa-github" style="color:#00AEF1"></i>
@@ -156,7 +117,7 @@
                 </div>
 
                 <div class="cell">
-                    <h4>Zoom in and out of the chart below</h4>
+                    <h4>Zoom in and out of the chart below by pinching and expanding two fingers on the chart itself.</h4>
                     <p data-height="350" data-theme-id="19632" data-slug-hash="436a1d2688578932cb3243a94ed3d084" data-default-tab="result" data-user="zingchart" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/zingchart/pen/436a1d2688578932cb3243a94ed3d084/">ZingTouch | Pinch&Expand</a> by ZingChart (<a href="http://codepen.io/zingchart">@zingchart</a>) on <a href="http://codepen.io">CodePen</a>.</p>
                     <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
                 </div>
@@ -245,7 +206,7 @@
                 <div class="cell" style="display: flex; flex-direction: column; flex:4">
                     <p>Regions in ZingTouch are areas where all input events including mouse, touch, and pointer events
                         are listened to. They hold any number of gestures you create and attach to elements.</p>
-                    <div style="background-color: #FFF;border: 1px solid #A5A5A5;padding: 0.5rem; width: 40%; margin: 60px 30%">
+                    <div style="background-color: #EFEFEF;border: 1px solid #A5A5A5;padding: 0.5rem; width: 40%; margin: 60px 30%">
                         #container
                         <div style="border: 1px solid #A5A5A5;padding: 2rem 0.5rem; margin: 1rem;">
                             #object
@@ -295,19 +256,12 @@ activeRegion.bind(childElement, 'pan', function(event){
                 <div class="cell" style="flex:4;">
                     <h3>4. Try it!</h3>
                     <p>Panning - Start anywhere in the
-                        <span style="color:#99BEF9; padding:0.2em;font-weight:400;">lavender</span> area, and move about
+                        <span style="color:#99BEF9; padding:0.2em;font-weight:400;">child</span> area, and move about
                         the
-                        <span style="color:#99BEF9; padding:0.2em;font-weight:400;">lavender</span> or
-                        <span style="color: #679AEF;padding:0.2em;font-weight:400;">indigo</span> area.</p>
+                        <span style="color:#99BEF9; padding:0.2em;font-weight:400;">child</span> or
+                        <span style="color: #679AEF;padding:0.2em;font-weight:400;">into the parent</span> area.</p>
                         <p data-height="352" data-theme-id="19632" data-slug-hash="5a379a7391bc69f135a0e249b8cd28e4" data-default-tab="result" data-user="zingchart" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/zingchart/pen/5a379a7391bc69f135a0e249b8cd28e4/">ZingTouch | Region Demo</a> by ZingChart (<a href="http://codepen.io/zingchart">@zingchart</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-                    <!-- <div style="background-color: #679AEF;padding: 0.5rem;width: 65%; height: 220px;margin: 1rem 19%; color: #FFF">
-                        container
-                        <div style="background-color: #99BEF9; padding: 1.2rem 0.5rem; margin: 1rem;color: #FFF; height: 150px; width: 80%;">
-                            object
-                        </div>
-                    </div>
-                    <h4>Input currently panning:</h4> -->
+                        <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
                 </div>
             </div>
 
@@ -451,9 +405,9 @@ activeRegion.bind(childElement, 'pan', function(event){
             </div>
             <div class="cell" style="color:white; text-align: center">
                 <!-- <img src="assets/zingchart-mobile.gif"> -->
-                <video src="assets/zingchart-mobile.mov" autoplay loop style="width:100%">
+                <video src="assets/zingchart-mobile.mp4" autoplay loop style="width:100%">
   Sorry, your browser doesn't support embedded videos,
-  but don't worry, you can <a href="assets/zingchart-mobile.mov">download it</a>
+  but don't worry, you can <a href="assets/zingchart-mobile.mp4">download it</a>
   and watch it with your favorite video player!
 </video>
             </div>
@@ -504,13 +458,7 @@ activeRegion.bind(childElement, 'pan', function(event){
     }
 </script>
 <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
-<script src="js/charts.js">
-
-</script>
-<!-- <script src="js/swipe.js"></script> -->
-<!-- <script src="js/tap.js"></script> -->
-<!-- <script src="js/touchchart.js"></script> -->
-
+<script src="js/charts.js"></script>
 </body>
 
 </html>
