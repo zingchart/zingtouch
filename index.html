@@ -145,12 +145,7 @@
             </div>
             <hr>
 
-            <div class="grid gutter collapse reverse">
-                <div class="cell">
-                    <h4>Zoom in and out of the chart below</h4>
-                    <p data-height="350" data-theme-id="19632" data-slug-hash="436a1d2688578932cb3243a94ed3d084" data-default-tab="result" data-user="zingchart" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/zingchart/pen/436a1d2688578932cb3243a94ed3d084/">ZingTouch | Pinch&Expand</a> by ZingChart (<a href="http://codepen.io/zingchart">@zingchart</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-                    <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-                </div>
+            <div class="grid gutter collapse">
                 <div class="cell">
                     <h3>Pinch and Expand</h3>
                     <p>A pinch is detected when the user has two inputs on the screen and moves one or both closer towards the other input, while expand is detected when the two inputs move further away from each other</p>
@@ -160,16 +155,14 @@
                     </ul>
                 </div>
 
+                <div class="cell">
+                    <h4>Zoom in and out of the chart below</h4>
+                    <p data-height="350" data-theme-id="19632" data-slug-hash="436a1d2688578932cb3243a94ed3d084" data-default-tab="result" data-user="zingchart" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/zingchart/pen/436a1d2688578932cb3243a94ed3d084/">ZingTouch | Pinch&Expand</a> by ZingChart (<a href="http://codepen.io/zingchart">@zingchart</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+                    <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
             </div>
 
             <hr>
-
-            <div class="grid gutter collapse">
-              <div class="cell">
-                  <p data-height="350" data-theme-id="19632" data-slug-hash="9d096c10b81b891a329e4acb11466ea7" data-default-tab="result" data-user="zingchart" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/zingchart/pen/9d096c10b81b891a329e4acb11466ea7/">ZingTouch | Bubble Swipe</a> by ZingChart (<a href="http://codepen.io/zingchart">@zingchart</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-                  <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-              </div>
-            </div>
 
             <div class="grid gutter collapse">
                 <div class="cell">
@@ -204,6 +197,12 @@
                 </div>
             </div>
 
+            <div class="grid gutter collapse">
+              <div class="cell">
+                  <p data-height="350" data-theme-id="19632" data-slug-hash="9d096c10b81b891a329e4acb11466ea7" data-default-tab="result" data-user="zingchart" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/zingchart/pen/9d096c10b81b891a329e4acb11466ea7/">ZingTouch | Bubble Swipe</a> by ZingChart (<a href="http://codepen.io/zingchart">@zingchart</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+                  <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+              </div>
+            </div>
 
         </div>
     </div>
@@ -418,8 +417,8 @@ activeRegion.bind(childElement, 'pan', function(event){
 </section>
 
 <a name="about"></a>
-<section class="content" style="background-color: #5B6E8C;">
-    <div class="wrap">
+<section id="about" class="content" style="background-color: #5B6E8C;">
+    <div class="narrow wrap">
         <div class="grid center gutter" style="margin-bottom: 2rem; justify-content: center;">
           <div style="color:#e2eeff;margin: 0 10px 0px 0;vertical-align:bottom;display:  flex;align-items: flex-end;font-size:30px;font-weight: bold;">Brought to you by</div>
           <img src="assets/zc-logo.png" style="max-height:70px;">
@@ -441,21 +440,28 @@ activeRegion.bind(childElement, 'pan', function(event){
           </div>
         </div>
 
-        <div class="grid gutter">
-            <div class="cell" style="color:white;">
+        <div class="grid column gutter collapse" style=" justify-content: center;">
+            <div class="cell" style="color:white; ">
+                <p style="color: white;">
               ZingTouch was conceived by our desire to make ZingChart work better on mobile devices. Chart interactions such as zooming and panning
               are hard to get right on mobile since we are used to gestures such as zooming and panning. The ZingChart-Mobile plugin was created in order to add features
               such as zooming, panning, as well as a unique context menu that helps our mobile users interact with our charts effortlessly. A working example is included above in this page.
+          </p>
+
             </div>
-            <div class="cell" style="color:white; border: 1px solid white; height: 300px;">
+            <div class="cell" style="color:white; text-align: center">
+                <!-- <img src="assets/zingchart-mobile.gif"> -->
+                <video src="assets/zingchart-mobile.mov" autoplay loop style="width:100%">
+  Sorry, your browser doesn't support embedded videos,
+  but don't worry, you can <a href="assets/zingchart-mobile.mov">download it</a>
+  and watch it with your favorite video player!
+</video>
             </div>
         </div>
-
         <div class="grid gutter">
             <div class="cell" style="color:white; font-size: 1.2em;  text-align: center; justify-content: center;">
               Check us and our mobile-plugin out at <a href="https://www.zingchart.com">www.zingchart.com</a>
             </div>
-
         </div>
 
     </div>

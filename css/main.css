@@ -64,6 +64,9 @@ canvas {
 .wrap {
 	padding: 0 1rem;
 }
+.wrap.narrow {
+    max-width: 750px;
+}
 
 /* Default Block Padding/Margin -------------------------------------------- */
 
@@ -397,6 +400,8 @@ margin-top: 5px;
   transform: rotate(-45deg);
   transform-origin:6px 50%;
 }
+
+/* Content ----------------------------------------------------------------- */
 
 /* Charts ----------------------------------------------------------------- */
 .charts-container {
