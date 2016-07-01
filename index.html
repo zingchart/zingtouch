@@ -8,7 +8,7 @@
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/prod.min.css">
     <style>
       iframe{
         overflow: hidden;
@@ -16,7 +16,7 @@
     </style>
 </head>
 
-<body class="-wireframe">
+<body>
 
 <header id="navbar">
     <div class="wrap">
@@ -49,6 +49,7 @@
             <!-- <li><a href="" data-button='white outline' style="background: #FFF">View Demos</a></li> -->
             <li><a href="https://github.com/zingchart/zingtouch" data-button="white" style="color:#00AEF1"><i class="fa fa-github" style="color:#00AEF1"></i>
                 View On Github</a></li>
+            <li>
         </ul>
     </div>
 </section>
@@ -60,24 +61,24 @@
             <header>
               <div class="cell">
                 <h2>Standard Gestures</h2>
-                <p>ZingTouch provides six standard gestures that are completely customizable. Note: These demos are best viewed on a touch capable device.</p>
+                <p>ZingTouch provides six standard gestures that are completely customizable. <br><strong>Note: These demos are best viewed on a touch capable device.</strong></p>
               </div>
             </header>
             <h3>Tap</h3>
             <div class="grid gutter collapse">
                 <div class="cell">
-                    <p>A tap event is a down event followed quickly by an up event. Tap gestures can be configured with
-                        the amount of time inbetween a start and stop, and how many inputs it accepts.</p>
+                    <p>A tap event is a quick start and end of an input. Tap gestures can be configured with
+                        the amount of time inbetween a start and end, and the number of inputs it requires.</p>
                     <h4>Emits</h4>
                     <ul>
-                        <li><b>interval</b> - a time measured in milliseconds between the start of the gesture, and the end.</li>
+                        <li><strong>interval</strong> - a time measured in milliseconds between the start and end of the gesture.</li>
                     </ul>
 
                     <h4>Options</h4>
                     <ul>
-                        <li><b>maxDelay</b> - The maximum delay between a start and end event. This number is measured in milliseconds.</li>
-                        <li><b>numInputs</b> - The number of inputs to trigger the tap event.</li>
-                        <li><b>tolerance</b> - A tolerance value which allows the user to move their finger about a radius measured in pixels. This allows the Tap gesture to be triggered more easily since a User might move their finger slightly during a tap event.</li>
+                        <li><strong>maxDelay</strong> - The maximum delay between a start and end event. This number is measured in milliseconds.</li>
+                        <li><strong>numInputs</strong> - The number of inputs to trigger the tap event.</li>
+                        <li><strong>tolerance</strong> - A tolerance value which allows the user to move their finger about a radius measured in pixels. This allows the Tap gesture to be triggered more easily since a User might move their finger slightly during a tap event.</li>
                     </ul>
                 </div>
                 <div class="cell">
@@ -95,12 +96,12 @@
                 </div>
                 <div class="cell">
                     <h3>Rotate</h3>
-                    <p>A Rotate is detected when the use has two inputs moving about a circle on the edges of a diameter.</p>
+                    <p>A Rotate is detected when the user has two inputs moving about a circle on the edges of a diameter.</p>
                     <h4>Emits</h4>
                     <ul>
-                        <li><b>angle</b> - The angle of the initial right most input, in relation to the unit circle.</li>
-                        <li><b>distanceFromOrigin</b> - The angular distance travelled by the initial right most post.</li>
-                        <li><b>distanceFromLast</b> - The change of angle between the last position and the current position. Positive denotes a counter-clockwise motion, while negative denotes a clockwise motion.</li>
+                        <li><strong>angle</strong> - The angle of the initial right most input, in relation to the unit circle.</li>
+                        <li><strong>distanceFromOrigin</strong> - The angular distance travelled by the initial right most post.</li>
+                        <li><strong>distanceFromLast</strong> - The change of angle between the last position and the current position. Positive denotes a counter-clockwise motion, while negative denotes a clockwise motion.</li>
                     </ul>
                 </div>
             </div>
@@ -109,10 +110,10 @@
             <div class="grid gutter collapse">
                 <div class="cell">
                     <h3>Pinch and Expand</h3>
-                    <p>A pinch is detected when the user has two inputs on the screen and moves one or both closer towards the other input, while expand is detected when the two inputs move further away from each other</p>
+                    <p>A pinch is detected when the user has two inputs on the screen and moves one or both closer towards the other input, while expand is detected when the two inputs move further away from each other.</p>
                     <h4>Emits</h4>
                     <ul>
-                        <li><b>distance</b> - The distance in pixels between the two inputs.</li>
+                        <li><strong>distance</strong> - The distance in pixels between the two inputs.</li>
                     </ul>
                 </div>
 
@@ -131,14 +132,14 @@
                     <p>A pan is detected when the user touches the screen and moves about the area.</p>
                     <h4>Emits</h4>
                     <ul>
-                        <li><b>distanceFromOrigin</b> - The distance in pixels traveled from the current position from the starting position.</li>
-                        <li><b>directionFromOrigin</b> - The angle of the pan in degrees, relative to the unit circle.(e.g. straight down is 270deg while straight left is 180deg). The starting point of where the input began during the "start" event denotes the origin point.</li>
-                        <li><b>currentDirection</b> - The angle of the pan gesture in degrees, relative to the unit circle. The previously emitted point is used as an origin point.</li>
+                        <li><strong>distanceFromOrigin</strong> - The distance in pixels traveled from the current position from the starting position.</li>
+                        <li><strong>directionFromOrigin</strong> - The angle of the pan in degrees, relative to the unit circle.(e.g. straight down is 270deg while straight left is 180deg). The starting point of where the input began during the "start" event denotes the origin point.</li>
+                        <li><strong>currentDirection</strong> - The angle of the pan gesture in degrees, relative to the unit circle. The previously emitted point is used as an origin point.</li>
                     </ul>
                     <h4>Options</h4>
                     <ul>
-                        <li><b>numInputs</b>  - The number of inputs to trigger the event.</li>
-                        <li><b>threshold</b> - The minimum number of pixels the input has to move to trigget this gesture.</li>
+                        <li><strong>numInputs</strong>  - The number of inputs to trigger the event.</li>
+                        <li><strong>threshold</strong> - The minimum number of pixels the input has to move to trigget this gesture.</li>
                     </ul>
                 </div>
                 <div class="cell">
@@ -146,14 +147,14 @@
                     <p>A swipe is detected when the user touches the screen and moves in a relatively increasing velocity, leaving the screen at some point before it drops below a certain velocity.</p>
                     <h4>Emits</h4>
                     <ul>
-                        <li><b>velocity</b> - The value in units of pixels per millisecond the gesture was travelling until it's ending point.</li>
-                        <li><b>currentDirection</b> - The angle the swipe ended at in degrees, relative to the unit circle. (e.g. straight down is 270deg while straight left is 180deg).</li>
+                        <li><strong>velocity</strong> - The value in units of pixels per millisecond the gesture was travelling until it's ending point.</li>
+                        <li><strong>currentDirection</strong> - The angle the swipe ended at in degrees, relative to the unit circle. (e.g. straight down is 270deg while straight left is 180deg).</li>
                     </ul>
                     <h4>Options</h4>
                     <ul>
-                        <li><b>numInputs</b> - The number of inputs to trigger the event.</li>
-                        <li><b>escapeVelocity</b> - The minimum velocity (px/ms) that the gesture has to obtain by the end event.</li>
-                        <li><b>maxRestTime</b> - The amount of time allowed in milliseconds inbetween events before a the motion becomes inelligible to be a swipe</li>
+                        <li><strong>numInputs</strong> - The number of inputs to trigger the event.</li>
+                        <li><strong>escapeVelocity</strong> - The minimum velocity (px/ms) that the gesture has to obtain by the end event.</li>
+                        <li><strong>maxRestTime</strong> - The amount of time allowed in milliseconds inbetween events before a the motion becomes inelligible to be a swipe</li>
                     </ul>
                 </div>
             </div>
@@ -203,7 +204,7 @@
             <h3>2. Create a Region to listen for events</h3>
             <div class="grid collapse">
 
-                <div class="cell" style="display: flex; flex-direction: column; flex:4">
+                <div class="cell column" style="display: flex; flex:4">
                     <p>Regions in ZingTouch are areas where all input events including mouse, touch, and pointer events
                         are listened to. They hold any number of gestures you create and attach to elements.</p>
                     <div style="background-color: #EFEFEF;border: 1px solid #A5A5A5;padding: 0.5rem; width: 40%; margin: 60px 30%">
@@ -221,14 +222,7 @@
 							<pre class="prettyprint lang-js">
 var containerElement = document.getElementById('container');
 var activeRegion = ZingTouch.Region(containerElement);</pre>
-                    <div style="background-color: #EFEFEF;border: 1px solid #A5A5A5;padding: 0.5rem; width: 40%; margin: 10px 30%">
-                        #container
-                        <div style="border: 1px solid #A5A5A5;padding: 2rem 0.5rem; margin: 1rem;">
-                            #object
-                        </div>
-                    </div>
                     <p>The region is now created and listening to every browser event inside of it.</p>
-
                 </div>
 
             </div>
@@ -258,8 +252,8 @@ activeRegion.bind(childElement, 'pan', function(event){
                     <p>Panning - Start anywhere in the
                         <span style="color:#99BEF9; padding:0.2em;font-weight:400;">child</span> area, and move about
                         the
-                        <span style="color:#99BEF9; padding:0.2em;font-weight:400;">child</span> or
-                        <span style="color: #679AEF;padding:0.2em;font-weight:400;">into the parent</span> area.</p>
+                        <span style="color:#99BEF9; padding:0.2em;font-weight:400;">child</span> or into the
+                        <span style="color: #679AEF;padding:0.2em;font-weight:400;">parent</span> area.</p>
                         <p data-height="352" data-theme-id="19632" data-slug-hash="5a379a7391bc69f135a0e249b8cd28e4" data-default-tab="result" data-user="zingchart" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/zingchart/pen/5a379a7391bc69f135a0e249b8cd28e4/">ZingTouch | Region Demo</a> by ZingChart (<a href="http://codepen.io/zingchart">@zingchart</a>) on <a href="http://codepen.io">CodePen</a>.</p>
                         <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
                 </div>
@@ -283,56 +277,7 @@ activeRegion.bind(childElement, 'pan', function(event){
             </div>
 
             <div class="cell mid center">
-              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-               width="370.087px" height="89.37px" viewBox="0 0 370.087 89.37" enable-background="new 0 0 370.087 89.37" xml:space="preserve">
-              <polygon fill="#36B6E9" points="313.069,0 370.088,44.685 313.069,89.37 313.069,74.122 219.687,74.122 219.687,15.249
-              313.069,15.249 "/>
-              <g>
-              <path fill="#FFFFFF" d="M286.602,42.13h-7.83v7.29h8.76v2.19h-11.399V31.39h10.949v2.19h-8.31v6.39h7.83V42.13z"/>
-              <path fill="#FFFFFF" d="M290.832,41.02c0-1.53-0.03-2.73-0.12-3.93h2.34l0.15,2.4h0.06c0.72-1.35,2.4-2.7,4.8-2.7
-                c2.01,0,5.13,1.2,5.13,6.18v8.64h-2.64v-8.37c0-2.34-0.87-4.29-3.36-4.29c-1.71,0-3.06,1.23-3.54,2.7
-                c-0.12,0.33-0.18,0.78-0.18,1.23v8.729h-2.64V41.02z"/>
-              <path fill="#FFFFFF" d="M319.991,30.31v17.549c0,1.29,0.061,2.76,0.12,3.75h-2.34l-0.12-2.52h-0.09
-                c-0.779,1.62-2.52,2.85-4.89,2.85c-3.511,0-6.239-2.97-6.239-7.38c-0.031-4.83,2.999-7.77,6.51-7.77c2.249,0,3.719,1.05,4.379,2.19
-                h0.061v-8.67H319.991z M317.381,43c0-0.33-0.03-0.78-0.12-1.11c-0.39-1.65-1.83-3.03-3.81-3.03c-2.73,0-4.35,2.4-4.35,5.58
-                c0,2.94,1.469,5.37,4.289,5.37c1.77,0,3.391-1.2,3.87-3.15c0.09-0.36,0.12-0.72,0.12-1.14V43z"/>
-              </g>
-              <polygon fill="#5C6E8C" points="203.403,0 260.422,44.685 203.403,89.37 203.403,74.122 110.021,74.122 110.021,15.249
-              203.403,15.249 "/>
-              <g>
-              <path fill="#FFFFFF" d="M175.537,43.097c-0.15-2.82-0.33-6.239-0.33-8.729h-0.06c-0.72,2.34-1.53,4.89-2.55,7.68l-3.57,9.81h-1.98
-                l-3.3-9.629c-0.96-2.88-1.74-5.46-2.31-7.86h-0.06c-0.06,2.52-0.21,5.88-0.39,8.94l-0.54,8.669h-2.49l1.41-20.219h3.33l3.45,9.78
-                c0.84,2.49,1.5,4.709,2.04,6.81h0.06c0.54-2.04,1.26-4.26,2.16-6.81l3.6-9.78h3.33l1.26,20.219h-2.58L175.537,43.097z"/>
-              <path fill="#FFFFFF" d="M195.846,44.597c0,5.37-3.75,7.71-7.23,7.71c-3.9,0-6.959-2.88-6.959-7.47c0-4.83,3.209-7.68,7.2-7.68
-                C193.026,37.157,195.846,40.187,195.846,44.597z M184.356,44.747c0,3.18,1.8,5.58,4.38,5.58c2.52,0,4.41-2.37,4.41-5.64
-                c0-2.46-1.23-5.55-4.35-5.55C185.707,39.137,184.356,42.017,184.356,44.747z"/>
-              <path fill="#FFFFFF" d="M199.987,37.457l2.85,8.13c0.48,1.35,0.87,2.55,1.17,3.75h0.09c0.33-1.2,0.75-2.4,1.23-3.75l2.82-8.13h2.76
-                l-5.7,14.52h-2.52l-5.52-14.52H199.987z"/>
-              <path fill="#FFFFFF" d="M214.566,45.197c0.06,3.57,2.31,5.04,4.98,5.04c1.89,0,3.06-0.33,4.02-0.75l0.48,1.89
-                c-0.93,0.42-2.55,0.93-4.86,0.93c-4.47,0-7.14-2.97-7.14-7.35s2.58-7.8,6.81-7.8c4.77,0,6,4.14,6,6.81c0,0.54-0.03,0.93-0.09,1.23
-                H214.566z M222.306,43.307c0.03-1.65-0.689-4.26-3.66-4.26c-2.7,0-3.84,2.43-4.05,4.26H222.306z"/>
-              </g>
-              <polygon fill="#94B4DB" points="93.383,0 150.401,44.685 93.383,89.37 93.383,74.122 0,74.122 0,15.249 93.383,15.249 "/>
-              <g>
-              <path fill="#FFFFFF" d="M23.479,48.797c1.17,0.75,2.85,1.32,4.65,1.32c2.67,0,4.23-1.41,4.23-3.45c0-1.86-1.08-2.97-3.81-3.99
-                c-3.3-1.2-5.34-2.94-5.34-5.76c0-3.15,2.61-5.49,6.54-5.49c2.04,0,3.57,0.48,4.44,0.99l-0.72,2.13c-0.63-0.39-1.98-0.96-3.81-0.96
-                c-2.76,0-3.81,1.65-3.81,3.03c0,1.89,1.23,2.82,4.02,3.9c3.42,1.32,5.129,2.97,5.129,5.939c0,3.12-2.28,5.85-7.049,5.85
-                c-1.95,0-4.08-0.6-5.16-1.32L23.479,48.797z"/>
-              <path fill="#FFFFFF" d="M41.6,33.977v3.48h3.78v2.01H41.6v7.83c0,1.8,0.51,2.82,1.98,2.82c0.72,0,1.14-0.06,1.53-0.18l0.12,2.01
-                c-0.51,0.18-1.32,0.36-2.34,0.36c-1.23,0-2.22-0.42-2.85-1.11c-0.72-0.81-1.02-2.1-1.02-3.81v-7.919h-2.25v-2.01h2.25v-2.7
-                L41.6,33.977z"/>
-              <path fill="#FFFFFF" d="M58.549,48.497c0,1.26,0.06,2.49,0.21,3.48h-2.37l-0.21-1.83h-0.09c-0.81,1.14-2.37,2.16-4.44,2.16
-                c-2.94,0-4.44-2.07-4.44-4.17c0-3.51,3.12-5.43,8.73-5.4v-0.3c0-1.17-0.33-3.36-3.3-3.33c-1.38,0-2.79,0.39-3.81,1.08l-0.6-1.77
-                c1.2-0.75,2.97-1.26,4.8-1.26c4.44,0,5.52,3.03,5.52,5.91V48.497z M56,44.567c-2.88-0.06-6.15,0.45-6.15,3.27
-                c0,1.74,1.14,2.52,2.46,2.52c1.92,0,3.15-1.2,3.57-2.43c0.09-0.3,0.12-0.6,0.12-0.84V44.567z"/>
-              <path fill="#FFFFFF" d="M62.81,41.987c0-1.71-0.03-3.18-0.12-4.53H65l0.12,2.88h0.09c0.66-1.95,2.28-3.18,4.05-3.18
-                c0.27,0,0.48,0.03,0.72,0.06v2.49c-0.27-0.06-0.54-0.06-0.9-0.06c-1.86,0-3.18,1.38-3.54,3.36c-0.06,0.36-0.09,0.81-0.09,1.23v7.74
-                h-2.64V41.987z"/>
-              <path fill="#FFFFFF" d="M76.519,33.977v3.48h3.78v2.01h-3.78v7.83c0,1.8,0.51,2.82,1.98,2.82c0.72,0,1.14-0.06,1.53-0.18l0.12,2.01
-                c-0.51,0.18-1.32,0.36-2.34,0.36c-1.23,0-2.22-0.42-2.85-1.11c-0.72-0.81-1.02-2.1-1.02-3.81v-7.919h-2.25v-2.01h2.25v-2.7
-                L76.519,33.977z"/>
-              </g>
-              </svg>
+              <img src="assets/arrows.png"/>
             </div>
         </div>
     </div>
@@ -343,7 +288,7 @@ activeRegion.bind(childElement, 'pan', function(event){
     <div class="wrap">
         <!--Row 2-->
         <div class="grid gutter collapse center">
-            <div class="cell" style="display: flex; flex: 4; flex-direction: column; justify-content: space-between;">
+            <div class="cell column" style="flex: 4;">
                 <h2>Documentation</h2>
                 <p><i class="fa fa-book fa-5x"></i></p>
                 <h3>Ready to Start?</h3>
@@ -356,15 +301,17 @@ activeRegion.bind(childElement, 'pan', function(event){
             </div>
             <div class="vr">
             </div>
-            <div class="cell" style="display: flex; flex: 4; flex-direction: column; justify-content: space-between;">
+            <div class="cell column" style="flex: 4">
                 <h2>Contribute</h2>
                 <p><i class="fa fa-code-fork fa-5x"></i></p>
                 <h3>Help support the library!</h3>
-                <!-- <div><img src="assets/stars.png"></div> -->
+                <iframe src="https://ghbtns.com/github-btn.html?user=zingchart&repo=zingtouch&type=watch&count=true&size=large" frameborder="0" scrolling="0" width="170px" height="30px"></iframe>
+
                 <p>Fork us, Share us, Fix bugs with us. Any contribution is greatly appreciated.</p>
-                <div><a href="javascript:openTwitter()" data-button='blue'><i class="fa fa-twitter"></i> Tweet Us</a><a href="https://github.com/zingchart/zingtouch/issues"
-                                                                                                 data-button='blue'><i
-                        class="fa fa-bug"></i> Submit a Bug</a></div>
+                <div>
+                  <a href="javascript:openTwitter()" data-button='blue'><i class="fa fa-twitter"></i> Tweet Us</a>
+                  <a href="https://github.com/zingchart/zingtouch/issues" data-button='blue'><i class="fa fa-bug"></i> Submit a Bug</a>
+                </div>
             </div>
         </div>
     </div>
@@ -373,13 +320,14 @@ activeRegion.bind(childElement, 'pan', function(event){
 <a name="about"></a>
 <section id="about" class="content" style="background-color: #5B6E8C;">
     <div class="narrow wrap">
-        <div class="grid center gutter" style="margin-bottom: 2rem; justify-content: center;">
-          <div style="color:#e2eeff;margin: 0 10px 0px 0;vertical-align:bottom;display:  flex;align-items: flex-end;font-size:30px;font-weight: bold;">Brought to you by</div>
-          <img src="assets/zc-logo.png" style="max-height:70px;">
+        <div id="about-title" class="grid center gutter">
+          <div>Brought to you by</div>
+          <div>
+            <img src="assets/zc-logo.png" style="max-height:70px;">
+          </div>
+
         </div>
 
-
-        <!--Row 2-->
         <div class="grid gutter">
             <div class="cell" style="color:white; text-align: center;">
               ZingChart is a declarative JavaScript charting library with over 25 different customizable chart types. Every visual aspect can be customized to a user's liking, and supports a rich API that integrates well into just about any app.
@@ -397,9 +345,10 @@ activeRegion.bind(childElement, 'pan', function(event){
         <div class="grid column gutter collapse" style=" justify-content: center;">
             <div class="cell" style="color:white; ">
                 <p style="color: white;">
-              ZingTouch was conceived by our desire to make ZingChart work better on mobile devices. Chart interactions such as zooming and panning
-              are hard to get right on mobile since we are used to gestures such as zooming and panning. The ZingChart-Mobile plugin was created in order to add features
-              such as zooming, panning, as well as a unique context menu that helps our mobile users interact with our charts effortlessly. A working example is included above in this page.
+                ZingTouch was created as a by-product for enabling ZingChart to work better on mobile devices by adding a layer of gestures for interactivity.
+                We needed gestures to make the user experience charts more seemless between mobile-centric interactions such as zooming and panning to explore data in a chart.
+                The ZingChart-Mobile plugin was created in order to improve these features and enable ZingChart end-users to explore data differently on a mobile device.
+                A live example is included in the gestures section of this page.
           </p>
 
             </div>
@@ -413,7 +362,7 @@ activeRegion.bind(childElement, 'pan', function(event){
             </div>
         </div>
         <div class="grid gutter">
-            <div class="cell" style="color:white; font-size: 1.2em;  text-align: center; justify-content: center;">
+            <div class="cell center" style="color:white; font-size: 1.2em; justify-content: center;">
               Check us and our mobile-plugin out at <a href="https://www.zingchart.com">www.zingchart.com</a>
             </div>
         </div>

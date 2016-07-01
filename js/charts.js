@@ -1,3 +1,4 @@
+ZC.LICENSE = ['0102a060093e8f2b06c09b25bd703c8f'];
 var color2 = "#5B6E8C";
 var color1 = "#1EB8F3";
 var color3 = "#94B4DB";
