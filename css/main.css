@@ -222,15 +222,22 @@ a:hover {
     margin-bottom: 0.5rem;
 }
 #hero .ctas {
-    display:flex;
-    justify-content:center;
-    list-style-type:none;
-    margin:auto;
+  display:flex;
+  justify-content:center;
+  flex-direction: column;
+  align-items: center;
+  list-style-type:none;
+  margin:auto;
 	padding:0;
 }
 #hero .ctas a {
     display:block;
-	width: 12rem;
+	width: 20rem;
+}
+
+#hero li.cta-flare {
+  display: flex;
+  flex-direction: row;
 }
 
 #hero .ctas a:last-of-type {
@@ -266,7 +273,6 @@ a:hover {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-  align-items
 }
 
 .cell.horizontal {
@@ -419,9 +425,15 @@ margin-top: 5px;
 	display: inline-block;
     padding: 1rem;
     text-decoration: none;
-    transition:0.1s background-color ease-in-out;
+  transition:0.1s background-color ease-in-out;
 	margin: 0.2rem;
+  cursor: pointer;
 }
+[data-button].small {
+    padding: 0.2rem 1rem;
+    margin: 0;
+}
+
 a[data-button]:after {
     display: none;
 }
@@ -578,6 +590,8 @@ a[data-button]:after {
 		flex-direction: column;
 		align-items: center;
 	}
+
+
 
 	#hero .ctas a {
 		width: 15rem;

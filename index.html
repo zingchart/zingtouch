@@ -50,6 +50,10 @@
             <li><a href="https://github.com/zingchart/zingtouch" data-button="white" style="color:#00AEF1"><i class="fa fa-github" style="color:#00AEF1"></i>
                 View On Github</a></li>
             <li>
+            <li class="cta-flare">
+              <iframe src="https://ghbtns.com/github-btn.html?user=zingchart&repo=zingtouch&type=watch&count=true&size=large" frameborder="0" scrolling="0" width="170px" height="30px"></iframe>
+              <div data-button="white" onclick="openTwitter()" class="small" style="color: #00AEF3"><i class="fa fa-twitter" style="color: #00AEF3" ></i> Tweet</div>
+            </li>
         </ul>
     </div>
 </section>
@@ -305,7 +309,6 @@ activeRegion.bind(childElement, 'pan', function(event){
                 <h2>Contribute</h2>
                 <p><i class="fa fa-code-fork fa-5x"></i></p>
                 <h3>Help support the library!</h3>
-                <iframe src="https://ghbtns.com/github-btn.html?user=zingchart&repo=zingtouch&type=watch&count=true&size=large" frameborder="0" scrolling="0" width="170px" height="30px"></iframe>
 
                 <p>Fork us, Share us, Fix bugs with us. Any contribution is greatly appreciated.</p>
                 <div>
@@ -370,6 +373,22 @@ activeRegion.bind(childElement, 'pan', function(event){
     </div>
 </section>
 
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(["setDomains", ["*.zingchart.github.io/zingtouch"]]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//tracking.zingchart.com/piwik/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 7]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//tracking.zingchart.com/piwik/piwik.php?idsite=7" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
 <script>
     window.addEventListener('scroll', function (e) {
         var heroElement = document.getElementById('hero-title');
@@ -403,7 +422,7 @@ activeRegion.bind(childElement, 'pan', function(event){
     function openTwitter(){
       var tweet = 'Check out ZingTouch - A JavaScript gesture library. https://zingchart.github.io/zingtouch/ Brought to you by @ZingChart #javascript ';
       url = 'https://twitter.com/intent/tweet?text=' + encodeURI(tweet);
-      window.open(url, ' ZingTouch - A JavaScript gesture library', 'height=200, width=400');
+      window.open(url, ' ZingTouch - A JavaScript gesture library', 'height=440, width=600');
     }
 </script>
 <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
