@@ -20,17 +20,19 @@ class Binding {
    * @param {Boolean} [bindOnce=false] - A boolean flag
    * used for the bindOnce syntax.
    */
-  constructor(element, gesture, handler, capture, bindOnce) {
+  constructor(element, gesture, handler, capture = false, bindOnce = false) {
     /**
      * The element to associate the gesture to.
      * @type {Element}
      */
     this.element = element;
+
     /**
      * A instance of the Gesture type.
      * @type {Gesture}
      */
     this.gesture = gesture;
+
     /**
      * The function handler to execute when a gesture is
      * recognized on the associated element.
@@ -43,13 +45,13 @@ class Binding {
      * emitted during the capture or bubble phase.
      * @type {Boolean}
      */
-    this.capture = (typeof capture !== 'undefined') ? capture : false;
+    this.capture = capture;
 
     /**
      * A boolean flag used for the bindOnce syntax.
      * @type {Boolean}
      */
-    this.bindOnce = (typeof bindOnce !== 'undefined') ? bindOnce : false;
+    this.bindOnce = bindOnce;
   }
 
 }

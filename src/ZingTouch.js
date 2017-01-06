@@ -11,6 +11,7 @@ import Pinch from './gestures/Pinch.js';
 import Rotate from './gestures/Rotate.js';
 import Swipe from './gestures/Swipe.js';
 import Tap from './gestures/Tap.js';
+import DoubleTap from './gestures/DoubleTap.js';
 
 /**
  * The global API interface for ZingTouch. Contains a constructor for the
@@ -22,13 +23,14 @@ let ZingTouch = {
   _regions: [],
 
   // Constructors
-  Gesture: Gesture,
-  Expand: Expand,
-  Pan: Pan,
-  Pinch: Pinch,
-  Rotate: Rotate,
-  Swipe: Swipe,
-  Tap: Tap,
+  Gesture,
+  Expand,
+  Pan,
+  Pinch,
+  Rotate,
+  Swipe,
+  Tap,
+  DoubleTap,
   Region: function(element, capture, preventDefault) {
     let id = ZingTouch._regions.length;
     let region = new Region(element, capture, preventDefault, id);

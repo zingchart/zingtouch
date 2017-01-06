@@ -64,7 +64,7 @@ class Region {
     this.state = new State(id);
 
     let eventNames = [];
-    if (window.PointerEvent) {
+    if (false) {
       eventNames = [
         'pointerdown',
         'pointermove',
@@ -107,7 +107,7 @@ class Region {
    */
   bind(element, gesture, handler, capture, bindOnce) {
     if (!element || (element && !element.tagName)) {
-      throw 'Bind must contain an element';
+      throw new Error('Bind must contain an element');
     }
 
     bindOnce = (typeof bindOnce !== 'undefined') ? bindOnce : false;

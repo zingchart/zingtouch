@@ -13,10 +13,10 @@ const config = {
   output: {
     filename: filename,
   },
+  devtool: 'source-map',
   module: {
     loaders: [
       {
-        // test: path.join(__dirname, 'src'),
         test: /\.js$/,
         loader: 'babel-loader',
         query: {

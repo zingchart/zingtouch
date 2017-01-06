@@ -19,14 +19,14 @@ import util from './util.js';
  */
 function arbiter(event, region) {
   const state = region.state;
-
+  debugger;
   /*
    Return if a gesture is not in progress and won't be. Also catches the case
    where a previous event is in a partial state (2 finger pan, waits for both
    inputs to reach touchend)
    */
-  if (state.inputs.length === 0 && util.normalizeEvent(event.type) !==
-    'start') {
+  if (state.inputs.length === 0 &&
+     util.normalizeEvent(event.type) !== 'start') {
     return;
   }
 

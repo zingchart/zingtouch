@@ -9,6 +9,7 @@ import Pinch from './../../gestures/Pinch.js';
 import Rotate from './../../gestures/Rotate.js';
 import Swipe from './../../gestures/Swipe.js';
 import Tap from './../../gestures/Tap.js';
+import DoubleTap from './../../gestures/DoubleTap.js';
 import Binding from './Binding.js';
 import Input from './Input.js';
 import util from './../util.js';
@@ -65,6 +66,7 @@ class State {
     this.registerGesture(new Pinch(), 'pinch');
     this.registerGesture(new Swipe(), 'swipe');
     this.registerGesture(new Tap(), 'tap');
+    this.registerGesture(new DoubleTap(), 'double-tap');
   }
 
   /**
@@ -197,6 +199,7 @@ class State {
 
       // A starting input was not cleaned up properly and still exists.
       if (eventType === 'start' && input) {
+        console.log('should not reset');
         state.resetInputs();
         return;
       }
@@ -215,6 +218,7 @@ class State {
       }
 
       if (eventType === 'start') {
+        console.log('should not be recreated');
         state.inputs.push(new Input(event, identifier));
       } else {
         input.update(event, identifier);
@@ -226,7 +230,17 @@ class State {
    * Removes all inputs from the state, allowing for a new gesture.
    */
   resetInputs() {
-    this.inputs = [];
+    let doubleTap = 0;
+    this.inputs.forEach( (input) => {
+      const progress = input.getGestureProgress('double-tap');
+      if (Object.keys(progress).length > 0) {
+        doubleTap++;
+      }
+    });
+    console.log(doubleTap);
+    if(doubleTap == 0) {
+      this.inputs = [];
+    }
   }
 
   /**
