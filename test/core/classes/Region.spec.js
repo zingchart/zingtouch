@@ -44,3 +44,11 @@ describe('Region.bind(element)', function() {
     }
   });
 });
+
+/** @test {Region.destroy} */
+describe('Region.destroy()', function() {
+  let region = new Region(document.body);
+  it('should exists', function() {
+    expect(region.destroy).to.exist;
+  });
+});

@@ -82,10 +82,10 @@ class Region {
     }
 
     // Bind detected browser events to the region element.
-    eventNames.map((name) => {
-      element.addEventListener(name, (e) => {
-        arbiter(e, this);
-      }, this.capture);
+    this.eventHandlers = eventNames.map((name) => {
+      let fn = (e) => arbiter(e, this);
+      element.addEventListener(name, fn, this.capture);
+      return [name, fn];
     });
   }
 
@@ -212,6 +212,17 @@ class Region {
     let registeredGesture = this.state.registeredGestures[key];
     delete this.state.registeredGestures[key];
     return registeredGesture;
+  }
+
+  /* destroy */
+
+  /**
+   * Destroy a region by removing all attached event listeners
+   */
+  destroy() {
+    this.eventHandlers.forEach(([name, handler]) => {
+      this.element.removeEventListener(name, handler);
+    });
   }
 }
 
