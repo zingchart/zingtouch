@@ -1,4 +1,4 @@
-# [ZingTouch] (https://zingchart.github.io/zingtouch)
+# [ZingTouch](https://zingchart.github.io/zingtouch)
 
 A modern JavaScript touch gesture library. The library allows developers to configure pre-existing gestures as well as create their own using ZingTouch's life cycle.
 
