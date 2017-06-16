@@ -7,7 +7,7 @@ import Gesture from './Gesture.js';
 import util from './../core/util.js';
 
 const MAX_INPUTS = 2;
-
+const DEFAULT_MIN = 1;
 /**
  * A Rotate is defined as two inputs moving about a circle,
  * maintaining a relatively equal radius.
@@ -16,8 +16,10 @@ const MAX_INPUTS = 2;
 class Rotate extends Gesture {
   /**
    * Constructor function for the Rotate class.
+   * @param {Object} [options] - The options object.
+   * @param {Number} [options.minInputs=1] - The minimum number of inputs needed
    */
-  constructor() {
+  constructor(options) {
     super();
 
     /**
@@ -25,6 +27,13 @@ class Rotate extends Gesture {
      * @type {String}
      */
     this.type = 'rotate';
+
+    /**
+     * The minimum number of inputs to detect a rotation
+     */
+    this.minInputs = (options && options.minInputs) ?
+      options.minInputs : DEFAULT_MIN;
+
   }
 
   /**
@@ -45,7 +54,7 @@ class Rotate extends Gesture {
    * last position and the current position.
    */
   move(inputs, state, element) {
-    if (state.numActiveInputs() <= MAX_INPUTS) {
+    if (state.numActiveInputs() <= MAX_INPUTS && state.numActiveInputs() >= this.minInputs) {
       let referencePivot;
       let diffX;
       let diffY;

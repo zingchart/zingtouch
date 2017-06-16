@@ -1892,7 +1892,7 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 	
 	var MAX_INPUTS = 2;
-	
+	var DEFAULT_MIN = 1;
 	/**
 	 * A Rotate is defined as two inputs moving about a circle,
 	 * maintaining a relatively equal radius.
@@ -1904,8 +1904,10 @@
 	
 	  /**
 	   * Constructor function for the Rotate class.
+	   * @param {Object} [options] - The options object.
+	   * @param {Number} [options.minInputs=1] - The minimum number of inputs needed
 	   */
-	  function Rotate() {
+	  function Rotate(options) {
 	    _classCallCheck(this, Rotate);
 	
 	    /**
@@ -1915,6 +1917,12 @@
 	    var _this = _possibleConstructorReturn(this, (Rotate.__proto__ || Object.getPrototypeOf(Rotate)).call(this));
 	
 	    _this.type = 'rotate';
+	
+	    /**
+	     * The minimum number of inputs to detect a rotation
+	     */
+	    _this.minInputs = options && options.minInputs ? options.minInputs : DEFAULT_MIN;
+	
 	    return _this;
 	  }
 	
@@ -1940,7 +1948,7 @@
 	  _createClass(Rotate, [{
 	    key: 'move',
 	    value: function move(inputs, state, element) {
-	      if (state.numActiveInputs() <= MAX_INPUTS) {
+	      if (state.numActiveInputs() <= MAX_INPUTS && state.numActiveInputs() >= this.minInputs) {
 	        var referencePivot = void 0;
 	        var diffX = void 0;
 	        var diffY = void 0;
