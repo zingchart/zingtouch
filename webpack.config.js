@@ -13,6 +13,8 @@ const config = {
   entry: './src/core/main.js',
   output: {
     filename: filename,
+    library: 'ZingTouch',
+    libraryTarget: 'umd',
   },
   devtool: 'source-map',
   module: {
