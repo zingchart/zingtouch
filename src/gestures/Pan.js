@@ -108,6 +108,10 @@ class Pan extends Gesture {
               progress.lastEmitted.y,
               inputs[i].current.x,
               inputs[i].current.y),
+            movement: {
+              x: inputs[i].current.x - progress.lastEmitted.x,
+              y: inputs[i].current.y - progress.lastEmitted.y,
+            },
           };
           progress.lastEmitted.x = inputs[i].current.x;
           progress.lastEmitted.y = inputs[i].current.y;
