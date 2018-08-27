@@ -11,8 +11,7 @@ const DEFAULT_MIN_THRESHOLD = 1;
 
 /**
  * A Pan is defined as a normal movement in any direction on a screen.
- * Pan gestures do not track start events and can interact with pinch and \
- *  expand gestures.
+ * Pan gestures do not track start events and can interact with distance gestures
  * @class Pan
  */
 class Pan extends Gesture {
@@ -95,7 +94,7 @@ class Pan extends Gesture {
         output.data[index] = packData( input, progress );
         progress.lastEmitted.x = input.current.x;
         progress.lastEmitted.y = input.current.y;
-      } 
+      }
     });
 
     return output;

@@ -1,6 +1,6 @@
 /*!
  * 
- * ZingTouch v1.0.5
+ * ZingTouch v2.0.0
  * Author: ZingChart http://zingchart.com
  * License: MIT
  */
@@ -48,7 +48,7 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -64,9 +64,9 @@
 	                                         * and to expose the ZingTouch object
 	                                         */
 
-/***/ }),
+/***/ },
 /* 1 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -86,9 +86,9 @@
 	
 	var _Pan2 = _interopRequireDefault(_Pan);
 	
-	var _Pinch = __webpack_require__(11);
+	var _Distance = __webpack_require__(11);
 	
-	var _Pinch2 = _interopRequireDefault(_Pinch);
+	var _Distance2 = _interopRequireDefault(_Distance);
 	
 	var _Rotate = __webpack_require__(12);
 	
@@ -116,7 +116,7 @@
 	  // Constructors
 	  Gesture: _Gesture2.default,
 	  Pan: _Pan2.default,
-	  Pinch: _Pinch2.default,
+	  Distance: _Distance2.default,
 	  Rotate: _Rotate2.default,
 	  Swipe: _Swipe2.default,
 	  Tap: _Tap2.default,
@@ -133,9 +133,9 @@
 	
 	exports.default = ZingTouch;
 
-/***/ }),
+/***/ },
 /* 2 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -383,9 +383,9 @@
 	
 	exports.default = Region;
 
-/***/ }),
+/***/ },
 /* 3 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -434,9 +434,9 @@
 	
 	exports.default = Binder;
 
-/***/ }),
+/***/ },
 /* 4 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -469,7 +469,7 @@
 	    _classCallCheck(this, Gesture);
 	
 	    /**
-	     * The generic string type of gesture ('expand'|'pan'|'pinch'|
+	     * The generic string type of gesture ('expand'|'distance'|
 	     *  'rotate'|'swipe'|'tap').
 	     * @type {String}
 	     */
@@ -606,9 +606,9 @@
 	
 	exports.default = Gesture;
 
-/***/ }),
+/***/ },
 /* 5 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	'use strict';
 	
@@ -846,9 +846,9 @@
 	
 	exports.default = util;
 
-/***/ }),
+/***/ },
 /* 6 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -959,9 +959,9 @@
 	
 	exports.default = arbiter;
 
-/***/ }),
+/***/ },
 /* 7 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -1009,9 +1009,9 @@
 	
 	exports.default = dispatcher;
 
-/***/ }),
+/***/ },
 /* 8 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -1055,9 +1055,9 @@
 	
 	exports.default = interpreter;
 
-/***/ }),
+/***/ },
 /* 9 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -1079,9 +1079,9 @@
 	
 	var _Pan2 = _interopRequireDefault(_Pan);
 	
-	var _Pinch = __webpack_require__(11);
+	var _Distance = __webpack_require__(11);
 	
-	var _Pinch2 = _interopRequireDefault(_Pinch);
+	var _Distance2 = _interopRequireDefault(_Distance);
 	
 	var _Rotate = __webpack_require__(12);
 	
@@ -1162,7 +1162,7 @@
 	
 	    this.registerGesture(new _Pan2.default(), 'pan');
 	    this.registerGesture(new _Rotate2.default(), 'rotate');
-	    this.registerGesture(new _Pinch2.default(), 'pinch');
+	    this.registerGesture(new _Distance2.default(), 'distance');
 	    this.registerGesture(new _Swipe2.default(), 'swipe');
 	    this.registerGesture(new _Tap2.default(), 'tap');
 	  }
@@ -1381,9 +1381,9 @@
 	
 	exports.default = State;
 
-/***/ }),
+/***/ },
 /* 10 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -1417,8 +1417,7 @@
 	
 	/**
 	 * A Pan is defined as a normal movement in any direction on a screen.
-	 * Pan gestures do not track start events and can interact with pinch and \
-	 *  expand gestures.
+	 * Pan gestures do not track start events and can interact with distance gestures
 	 * @class Pan
 	 */
 	
@@ -1568,9 +1567,9 @@
 	
 	exports.default = Pan;
 
-/***/ }),
+/***/ },
 /* 11 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -1595,35 +1594,35 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file Pinch.js
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Contains the abstract Pinch class
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file Distance.js
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Contains the abstract Distance class
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 	
 	var DEFAULT_INPUTS = 2;
 	var DEFAULT_MIN_THRESHOLD = 1;
 	
 	/**
-	 * A Pinch is defined as two inputs moving either together or apart.
-	 * @class Pinch
+	 * A Distance is defined as two inputs moving either together or apart.
+	 * @class Distance
 	 */
 	
-	var Pinch = function (_Gesture) {
-	  _inherits(Pinch, _Gesture);
+	var Distance = function (_Gesture) {
+	  _inherits(Distance, _Gesture);
 	
 	  /**
-	   * Constructor function for the Pinch class.
+	   * Constructor function for the Distance class.
 	   * @param {Object} options
 	   */
-	  function Pinch(options) {
-	    _classCallCheck(this, Pinch);
+	  function Distance(options) {
+	    _classCallCheck(this, Distance);
 	
 	    /**
 	     * The type of the Gesture.
 	     * @type {String}
 	     */
-	    var _this = _possibleConstructorReturn(this, (Pinch.__proto__ || Object.getPrototypeOf(Pinch)).call(this));
+	    var _this = _possibleConstructorReturn(this, (Distance.__proto__ || Object.getPrototypeOf(Distance)).call(this));
 	
-	    _this.type = 'pinch';
+	    _this.type = 'distance';
 	
 	    /**
 	     * The minimum amount in pixels the inputs must move until it is fired.
@@ -1640,7 +1639,7 @@
 	   */
 	
 	
-	  _createClass(Pinch, [{
+	  _createClass(Distance, [{
 	    key: 'start',
 	    value: function start(inputs, state, element) {
 	      if (!this.isValid(inputs, state, element)) {
@@ -1688,14 +1687,14 @@
 	    }
 	  }]);
 	
-	  return Pinch;
+	  return Distance;
 	}(_Gesture3.default);
 	
-	exports.default = Pinch;
+	exports.default = Distance;
 
-/***/ }),
+/***/ },
 /* 12 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -1830,9 +1829,9 @@
 	
 	exports.default = Rotate;
 
-/***/ }),
+/***/ },
 /* 13 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -2070,9 +2069,9 @@
 	
 	exports.default = Swipe;
 
-/***/ }),
+/***/ },
 /* 14 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -2298,9 +2297,9 @@
 	
 	exports.default = Tap;
 
-/***/ }),
+/***/ },
 /* 15 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	'use strict';
 	
@@ -2368,9 +2367,9 @@
 	
 	exports.default = Binding;
 
-/***/ }),
+/***/ },
 /* 16 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -2502,9 +2501,9 @@
 	
 	exports.default = Input;
 
-/***/ }),
+/***/ },
 /* 17 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -2588,6 +2587,6 @@
 	
 	exports.default = ZingEvent;
 
-/***/ })
+/***/ }
 /******/ ]);
 //# sourceMappingURL=zingtouch.js.map

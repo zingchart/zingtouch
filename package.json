@@ -1,13 +1,13 @@
 {
   "name": "zingtouch",
-  "version": "1.0.5",
+  "version": "2.0.0",
   "description": "A modern JavaScript touch gesture library",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "build": "node_modules/webpack/bin/webpack.js",
+    "build": "npm run build:dev && npm run build:prod",
     "build:dev": "node_modules/webpack/bin/webpack.js",
     "build:prod": "node_modules/webpack/bin/webpack.js --minimize",
     "dev": "node_modules/webpack-dev-server/bin/webpack-dev-server.js --quiet --inline --hot --dashboard",

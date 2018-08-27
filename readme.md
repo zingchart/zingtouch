@@ -1,4 +1,4 @@
-# ZingTouch 
+# ZingTouch
 https://zingchart.github.io/zingtouch
 
 A modern JavaScript touch gesture library. The library allows developers to configure pre-existing gestures as well as create their own using ZingTouch's life cycle.
@@ -26,8 +26,7 @@ ZingTouch is built to make implementing gestures for the browser as easy or comp
 
 * Tap
 * Swipe
-* Pinch
-* Expand
+* Distance
 * Pan
 * Rotate
 
@@ -96,8 +95,7 @@ zt.bind(myElement, 'tap', function(e){
 * [Tap](#tap)
 * [Pan](#pan)
 * [Swipe](#swipe)
-* [Pinch](#pinch)
-* [Expand](#expand)
+* [Distance](#distance)
 * [Rotate](#rotate)
 * [Gesture](#gesture)
 
@@ -234,39 +232,24 @@ Each index represents an input that participated in the event.
 
 ---
 
-### Pinch
+### Distance
 
 ![Pinch Gesture](http://demos.zingchart.com/assets/zingtouch-docs/pinch.gif)
+![Expand Gesture](http://demos.zingchart.com/assets/zingtouch-docs/expand.gif)
 
-A pinch is detected when the user has two inputs on the screen and moves one or both closer towards the other input.
+A distance gesture is detected when the user has two inputs on the screen moving either closer or away from the other input.
 
 #### Example
 ```js
-new ZingTouch.Pinch()
+new ZingTouch.Distance()
 ```
 
 #### Emits
 
 * `distance` - The distance in pixels between the two inputs.
+* `center` - The X/Y coordinates of the gesture's center
+* `change` - The amount of pixels changed from the last emitted event. Positive implies an "expand" gesture while a negative value implies a "pinch".
 
----
-
-### Expand
-
-![Expand Gesture](http://demos.zingchart.com/assets/zingtouch-docs/expand.gif)
-
-An expand is detected when the user has two inputs on the screen and moves one or both away from the other input.
-
-#### Example
-```js
-new ZingTouch.Expand()
-```
-
-#### Emits
-
-* `expand` - The distance in pixels between the two inputs.
-
----
 
 ### Pan
 
@@ -541,11 +524,11 @@ The syntax for utilizing the life cycle is still to be determined, but will be r
 # Pitfalls
 
 **Binding an event and DOM mutation to an element**
-ZingTouch treats a gesture as a non-mutable event, meaning that the element is bound to is not expected to change between the start and end. Binding a transformation of an element's bounding box to the middle of a gesture event could provide unwanted results. 
+ZingTouch treats a gesture as a non-mutable event, meaning that the element is bound to is not expected to change between the start and end. Binding a transformation of an element's bounding box to the middle of a gesture event could provide unwanted results.
 
-Example: Binding a pan event directly to an element that you want to move around every time the callback is fired. The initial state of when the gesture was registered changes throughout the event, and the initial reference point is no longer valid. 
+Example: Binding a pan event directly to an element that you want to move around every time the callback is fired. The initial state of when the gesture was registered changes throughout the event, and the initial reference point is no longer valid.
 
-Solution: Attach the gesture listener to a non-mutating element such as a parent container, and modify your target element in the callback. This will provide a more predictable state that zingtouch can recognize. 
+Solution: Attach the gesture listener to a non-mutating element such as a parent container, and modify your target element in the callback. This will provide a more predictable state that zingtouch can recognize.
 ---
 
 # Contributing
@@ -578,8 +561,8 @@ Below is a list of confirmed browser and device compatibility that I have confir
 **Confirmed browser compatibility with:**
 * Chrome 22+
 * Firefox 18+
-* Safari 7+ 
-* Edge 13+ 
+* Safari 7+
+* Edge 13+
 
 **Tested/ Developed on :**
 * iPhone 4, 5, 6, 6+

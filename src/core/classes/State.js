@@ -4,7 +4,7 @@
 
 import Gesture from './../../gestures/Gesture.js';
 import Pan from './../../gestures/Pan.js';
-import Pinch from './../../gestures/Pinch.js';
+import Distance from './../../gestures/Distance.js';
 import Rotate from './../../gestures/Rotate.js';
 import Swipe from './../../gestures/Swipe.js';
 import Tap from './../../gestures/Tap.js';
@@ -60,7 +60,7 @@ class State {
 
     this.registerGesture(new Pan(), 'pan');
     this.registerGesture(new Rotate(), 'rotate');
-    this.registerGesture(new Pinch(), 'pinch');
+    this.registerGesture(new Distance(), 'distance');
     this.registerGesture(new Swipe(), 'swipe');
     this.registerGesture(new Tap(), 'tap');
   }
