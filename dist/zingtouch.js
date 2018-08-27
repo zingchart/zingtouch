@@ -48,7 +48,7 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -64,9 +64,9 @@
 	                                         * and to expose the ZingTouch object
 	                                         */
 
-/***/ },
+/***/ }),
 /* 1 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -82,27 +82,23 @@
 	
 	var _Gesture2 = _interopRequireDefault(_Gesture);
 	
-	var _Expand = __webpack_require__(10);
-	
-	var _Expand2 = _interopRequireDefault(_Expand);
-	
-	var _Pan = __webpack_require__(12);
+	var _Pan = __webpack_require__(10);
 	
 	var _Pan2 = _interopRequireDefault(_Pan);
 	
-	var _Pinch = __webpack_require__(13);
+	var _Pinch = __webpack_require__(11);
 	
 	var _Pinch2 = _interopRequireDefault(_Pinch);
 	
-	var _Rotate = __webpack_require__(14);
+	var _Rotate = __webpack_require__(12);
 	
 	var _Rotate2 = _interopRequireDefault(_Rotate);
 	
-	var _Swipe = __webpack_require__(15);
+	var _Swipe = __webpack_require__(13);
 	
 	var _Swipe2 = _interopRequireDefault(_Swipe);
 	
-	var _Tap = __webpack_require__(16);
+	var _Tap = __webpack_require__(14);
 	
 	var _Tap2 = _interopRequireDefault(_Tap);
 	
@@ -114,17 +110,11 @@
 	 * @type {Object}
 	 * @namespace ZingTouch
 	 */
-	/**
-	 * @file ZingTouch.js
-	 * Main object containing API methods and Gesture constructors
-	 */
-	
 	var ZingTouch = {
 	  _regions: [],
 	
 	  // Constructors
 	  Gesture: _Gesture2.default,
-	  Expand: _Expand2.default,
 	  Pan: _Pan2.default,
 	  Pinch: _Pinch2.default,
 	  Rotate: _Rotate2.default,
@@ -136,13 +126,16 @@
 	    ZingTouch._regions.push(region);
 	    return region;
 	  }
-	};
+	}; /**
+	    * @file ZingTouch.js
+	    * Main object containing API methods and Gesture constructors
+	    */
 	
 	exports.default = ZingTouch;
 
-/***/ },
+/***/ }),
 /* 2 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -241,7 +234,7 @@
 	    }
 	
 	    // Bind detected browser events to the region element.
-	    eventNames.map(function (name) {
+	    eventNames.forEach(function (name) {
 	      element.addEventListener(name, function (e) {
 	        (0, _arbiter2.default)(e, _this);
 	      }, _this.capture);
@@ -390,9 +383,9 @@
 	
 	exports.default = Region;
 
-/***/ },
+/***/ }),
 /* 3 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	"use strict";
 	
@@ -441,9 +434,9 @@
 	
 	exports.default = Binder;
 
-/***/ },
+/***/ }),
 /* 4 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -544,11 +537,11 @@
 	  }, {
 	    key: 'update',
 	    value: function update(object) {
-	      for (var key in object) {
-	        if (this[key]) {
-	          this[key] = object[key];
-	        }
-	      }
+	      var _this = this;
+	
+	      Object.keys(object).forEach(function (key) {
+	        _this[key] = object[key];
+	      });
 	    }
 	
 	    /**
@@ -602,16 +595,9 @@
 	  }, {
 	    key: 'isValid',
 	    value: function isValid(inputs, state, element) {
-	      var valid = true;
-	      // Checks to see if all touches originated from within the target element.
-	      if (inputs.length > 1) {
-	        inputs.forEach(function (input) {
-	          if (!_util2.default.isInside(input.initial.x, input.initial.y, element)) {
-	            valid = false;
-	          }
-	        });
-	      }
-	      return valid;
+	      return inputs.every(function (input) {
+	        return _util2.default.isInside(input.initial.x, input.initial.y, element);
+	      });
 	    }
 	  }]);
 	
@@ -620,9 +606,9 @@
 	
 	exports.default = Gesture;
 
-/***/ },
+/***/ }),
 /* 5 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -650,25 +636,19 @@
 	   * @return {null|String} - The normalized event, or null if it is an
 	   * event not predetermined.
 	   */
-	  normalizeEvent: function normalizeEvent(type) {
-	    switch (type) {
-	      case 'mousedown':
-	      case 'touchstart':
-	      case 'pointerdown':
-	        return 'start';
-	      case 'mousemove':
-	      case 'touchmove':
-	      case 'pointermove':
-	        return 'move';
-	      case 'mouseup':
-	      case 'touchend':
-	      case 'pointerup':
-	        return 'end';
-	      default:
-	        return null;
-	    }
-	  },
+	  normalizeEvent: Object.freeze({
+	    mousedown: 'start',
+	    touchstart: 'start',
+	    pointerdown: 'start',
 	
+	    mousemove: 'move',
+	    touchmove: 'move',
+	    pointermove: 'move',
+	
+	    mouseup: 'end',
+	    touchend: 'end',
+	    pointerup: 'end'
+	  }),
 	  /* normalizeEvent*/
 	
 	  /**
@@ -854,13 +834,21 @@
 	  removeMSPreventDefault: function removeMSPreventDefault(element) {
 	    element.style['-ms-content-zooming'] = '';
 	    element.style['touch-action'] = '';
+	  },
+	  preventDefault: function preventDefault(event) {
+	    if (event.preventDefault) {
+	      event.preventDefault();
+	    } else {
+	      event.returnValue = false;
+	    }
 	  }
 	};
+	
 	exports.default = util;
 
-/***/ },
+/***/ }),
 /* 6 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -894,13 +882,14 @@
 	 */
 	function arbiter(event, region) {
 	  var state = region.state;
+	  var eventType = _util2.default.normalizeEvent[event.type];
 	
 	  /*
 	   Return if a gesture is not in progress and won't be. Also catches the case
 	   where a previous event is in a partial state (2 finger pan, waits for both
 	   inputs to reach touchend)
 	   */
-	  if (state.inputs.length === 0 && _util2.default.normalizeEvent(event.type) !== 'start') {
+	  if (state.inputs.length === 0 && eventType !== 'start') {
 	    return;
 	  }
 	
@@ -909,7 +898,7 @@
 	   (e.g. a pan goes off screen/off region.)
 	   Does not affect mobile devices.
 	   */
-	  if (typeof event.buttons !== 'undefined' && _util2.default.normalizeEvent(event.type) !== 'end' && event.buttons === 0) {
+	  if (typeof event.buttons !== 'undefined' && eventType !== 'end' && event.buttons === 0) {
 	    state.resetInputs();
 	    return;
 	  }
@@ -922,37 +911,35 @@
 	  // Retrieve the initial target from any one of the inputs
 	  var bindings = state.retrieveBindingsByInitialPos();
 	  if (bindings.length > 0) {
-	    (function () {
-	      if (region.preventDefault) {
-	        _util2.default.setMSPreventDefault(region.element);
-	        event.preventDefault ? event.preventDefault() : event.returnValue = false;
-	      } else {
-	        _util2.default.removeMSPreventDefault(region.element);
-	      }
+	    if (region.preventDefault) {
+	      _util2.default.setMSPreventDefault(region.element);
+	      _util2.default.preventDefault(event);
+	    } else {
+	      _util2.default.removeMSPreventDefault(region.element);
+	    }
 	
-	      var toBeDispatched = {};
-	      var gestures = (0, _interpreter2.default)(bindings, event, state);
+	    var toBeDispatched = {};
+	    var gestures = (0, _interpreter2.default)(bindings, event, state);
 	
-	      /* Determine the deepest path index to emit the event
-	       from, to avoid duplicate events being fired. */
+	    /* Determine the deepest path index to emit the event
+	     from, to avoid duplicate events being fired. */
 	
-	      gestures.forEach(function (gesture) {
-	        var id = gesture.binding.gesture.id;
-	        if (toBeDispatched[id]) {
-	          var path = _util2.default.getPropagationPath(event);
-	          if (_util2.default.getPathIndex(path, gesture.binding.element) < _util2.default.getPathIndex(path, toBeDispatched[id].binding.element)) {
-	            toBeDispatched[id] = gesture;
-	          }
-	        } else {
+	    var path = _util2.default.getPropagationPath(event);
+	    gestures.forEach(function (gesture) {
+	      var id = gesture.binding.gesture.getId();
+	      if (toBeDispatched[id]) {
+	        if (_util2.default.getPathIndex(path, gesture.binding.element) < _util2.default.getPathIndex(path, toBeDispatched[id].binding.element)) {
 	          toBeDispatched[id] = gesture;
 	        }
-	      });
+	      } else {
+	        toBeDispatched[id] = gesture;
+	      }
+	    });
 	
-	      Object.keys(toBeDispatched).forEach(function (index) {
-	        var gesture = toBeDispatched[index];
-	        (0, _dispatcher2.default)(gesture.binding, gesture.data, gesture.events);
-	      });
-	    })();
+	    Object.keys(toBeDispatched).forEach(function (index) {
+	      var gesture = toBeDispatched[index];
+	      (0, _dispatcher2.default)(gesture.binding, gesture.data, gesture.events);
+	    });
 	  }
 	
 	  var endCount = 0;
@@ -972,9 +959,9 @@
 	
 	exports.default = arbiter;
 
-/***/ },
+/***/ }),
 /* 7 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	"use strict";
 	
@@ -1022,9 +1009,9 @@
 	
 	exports.default = dispatcher;
 
-/***/ },
+/***/ }),
 /* 8 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -1049,25 +1036,16 @@
 	 * metadata, or null if a gesture will not be emitted.
 	 */
 	function interpreter(bindings, event, state) {
-	  var evType = _util2.default.normalizeEvent(event.type);
-	  var candidates = [];
-	  bindings.forEach(function (binding) {
-	    var result = binding.gesture[evType](state.inputs, state, binding.element);
-	    if (result) {
-	      (function () {
-	        var events = [];
-	        state.inputs.forEach(function (input) {
-	          events.push(input.current);
-	        });
-	
-	        candidates.push({
-	          binding: binding,
-	          data: result,
-	          events: events
-	        });
-	      })();
-	    }
+	  var evType = _util2.default.normalizeEvent[event.type];
+	  var events = state.inputs.map(function (input) {
+	    return input.current;
 	  });
+	
+	  var candidates = bindings.reduce(function (accumulator, binding) {
+	    var data = binding.gesture[evType](state.inputs, state, binding.element);
+	    if (data) accumulator.push({ binding: binding, data: data, events: events });
+	    return accumulator;
+	  }, []);
 	
 	  return candidates;
 	} /**
@@ -1077,9 +1055,9 @@
 	
 	exports.default = interpreter;
 
-/***/ },
+/***/ }),
 /* 9 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -1097,35 +1075,31 @@
 	
 	var _Gesture2 = _interopRequireDefault(_Gesture);
 	
-	var _Expand = __webpack_require__(10);
-	
-	var _Expand2 = _interopRequireDefault(_Expand);
-	
-	var _Pan = __webpack_require__(12);
+	var _Pan = __webpack_require__(10);
 	
 	var _Pan2 = _interopRequireDefault(_Pan);
 	
-	var _Pinch = __webpack_require__(13);
+	var _Pinch = __webpack_require__(11);
 	
 	var _Pinch2 = _interopRequireDefault(_Pinch);
 	
-	var _Rotate = __webpack_require__(14);
+	var _Rotate = __webpack_require__(12);
 	
 	var _Rotate2 = _interopRequireDefault(_Rotate);
 	
-	var _Swipe = __webpack_require__(15);
+	var _Swipe = __webpack_require__(13);
 	
 	var _Swipe2 = _interopRequireDefault(_Swipe);
 	
-	var _Tap = __webpack_require__(16);
+	var _Tap = __webpack_require__(14);
 	
 	var _Tap2 = _interopRequireDefault(_Tap);
 	
-	var _Binding = __webpack_require__(17);
+	var _Binding = __webpack_require__(15);
 	
 	var _Binding2 = _interopRequireDefault(_Binding);
 	
-	var _Input = __webpack_require__(18);
+	var _Input = __webpack_require__(16);
 	
 	var _Input2 = _interopRequireDefault(_Input);
 	
@@ -1186,7 +1160,6 @@
 	     */
 	    this.registeredGestures = {};
 	
-	    this.registerGesture(new _Expand2.default(), 'expand');
 	    this.registerGesture(new _Pan2.default(), 'pan');
 	    this.registerGesture(new _Rotate2.default(), 'rotate');
 	    this.registerGesture(new _Pinch2.default(), 'pinch');
@@ -1252,13 +1225,9 @@
 	  }, {
 	    key: 'retrieveBindingsByElement',
 	    value: function retrieveBindingsByElement(element) {
-	      var matches = [];
-	      this.bindings.map(function (binding) {
-	        if (binding.element === element) {
-	          matches.push(binding);
-	        }
+	      return this.bindings.filter(function (b) {
+	        return b.element === element;
 	      });
-	      return matches;
 	    }
 	
 	    /**
@@ -1273,18 +1242,11 @@
 	    value: function retrieveBindingsByInitialPos() {
 	      var _this = this;
 	
-	      var matches = [];
-	      this.bindings.forEach(function (binding) {
-	        // Determine if at least one input is in the target element.
-	        // They should all be in the region based upon a prior check
-	        var inputsInside = _this.inputs.filter(function (input) {
+	      return this.bindings.filter(function (binding) {
+	        return _this.inputs.some(function (input) {
 	          return _util2.default.isInside(input.initial.x, input.initial.y, binding.element);
 	        });
-	        if (inputsInside.length > 0) {
-	          matches.push(binding);
-	        }
 	      });
-	      return matches;
 	    }
 	
 	    /**
@@ -1299,22 +1261,18 @@
 	  }, {
 	    key: 'updateInputs',
 	    value: function updateInputs(event, regionElement) {
-	      var identifier = DEFAULT_MOUSE_ID;
+	      var _this2 = this;
+	
 	      var eventType = event.touches ? 'TouchEvent' : event.pointerType ? 'PointerEvent' : 'MouseEvent';
 	      switch (eventType) {
 	        case 'TouchEvent':
-	
-	          for (var index in event.changedTouches) {
-	            if (event.changedTouches.hasOwnProperty(index) && _util2.default.isInteger(parseInt(index))) {
-	              identifier = event.changedTouches[index].identifier;
-	              update(event, this, identifier, regionElement);
-	            }
-	          }
+	          Array.from(event.changedTouches).forEach(function (touch) {
+	            update(event, _this2, touch.identifier, regionElement);
+	          });
 	          break;
 	
 	        case 'PointerEvent':
-	          identifier = event.pointerId;
-	          update(event, this, identifier, regionElement);
+	          update(event, this, event.pointerId, regionElement);
 	          break;
 	
 	        case 'MouseEvent':
@@ -1325,7 +1283,7 @@
 	      return true;
 	
 	      function update(event, state, identifier, regionElement) {
-	        var eventType = _util2.default.normalizeEvent(event.type);
+	        var eventType = _util2.default.normalizeEvent[event.type];
 	        var input = findInputById(state.inputs, identifier);
 	
 	        // A starting input was not cleaned up properly and still exists.
@@ -1416,215 +1374,16 @@
 	
 	
 	function findInputById(inputs, identifier) {
-	  for (var i = 0; i < inputs.length; i++) {
-	    if (inputs[i].identifier === identifier) {
-	      return inputs[i];
-	    }
-	  }
-	
-	  return null;
+	  return inputs.find(function (i) {
+	    return i.identifier === identifier;
+	  });
 	}
 	
 	exports.default = State;
 
-/***/ },
+/***/ }),
 /* 10 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _Distance2 = __webpack_require__(11);
-	
-	var _Distance3 = _interopRequireDefault(_Distance2);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file Expand.js
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Contains the Expand class
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-	
-	/**
-	 * An Expand is defined as two inputs moving farther away from each other.
-	 * This gesture does not account for any start/end events to allow for the
-	 * event to interact with the Pan and Pinch events.
-	 * @class Expand
-	 */
-	var Expand = function (_Distance) {
-	  _inherits(Expand, _Distance);
-	
-	  /**
-	   * Constructor function for the Expand class.
-	   * @param {object} options
-	   */
-	  function Expand(options) {
-	    _classCallCheck(this, Expand);
-	
-	    /**
-	     * The type of the Gesture.
-	     * @type {String}
-	     */
-	    var _this = _possibleConstructorReturn(this, (Expand.__proto__ || Object.getPrototypeOf(Expand)).call(this, options));
-	
-	    _this.type = 'expand';
-	    return _this;
-	  }
-	
-	  return Expand;
-	}(_Distance3.default);
-	
-	exports.default = Expand;
-
-/***/ },
-/* 11 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _Gesture2 = __webpack_require__(4);
-	
-	var _Gesture3 = _interopRequireDefault(_Gesture2);
-	
-	var _util = __webpack_require__(5);
-	
-	var _util2 = _interopRequireDefault(_util);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file Distance.js
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Contains the abstract Distance class
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-	
-	var DEFAULT_INPUTS = 2;
-	var DEFAULT_MIN_THRESHOLD = 1;
-	
-	/**
-	 * A Distance is defined as two inputs moving either together or apart.
-	 * @class Distance
-	 */
-	
-	var Distance = function (_Gesture) {
-	  _inherits(Distance, _Gesture);
-	
-	  /**
-	   * Constructor function for the Distance class.
-	   * @param {Object} options
-	   */
-	  function Distance(options) {
-	    _classCallCheck(this, Distance);
-	
-	    /**
-	     * The type of the Gesture.
-	     * @type {String}
-	     */
-	    var _this = _possibleConstructorReturn(this, (Distance.__proto__ || Object.getPrototypeOf(Distance)).call(this));
-	
-	    _this.type = 'distance';
-	
-	    /**
-	     * The minimum amount in pixels the inputs must move until it is fired.
-	     * @type {Number}
-	     */
-	    _this.threshold = options && options.threshold ? options.threshold : DEFAULT_MIN_THRESHOLD;
-	    return _this;
-	  }
-	
-	  /**
-	   * Event hook for the start of a gesture. Initialized the lastEmitted
-	   * gesture and stores it in the first input for reference events.
-	   * @param {Array} inputs
-	   */
-	
-	
-	  _createClass(Distance, [{
-	    key: 'start',
-	    value: function start(inputs, state, element) {
-	      if (!this.isValid(inputs, state, element)) {
-	        return null;
-	      }
-	      if (inputs.length === DEFAULT_INPUTS) {
-	        // Store the progress in the first input.
-	        var progress = inputs[0].getGestureProgress(this.type);
-	        progress.lastEmittedDistance = _util2.default.distanceBetweenTwoPoints(inputs[0].current.x, inputs[1].current.x, inputs[0].current.y, inputs[1].current.y);
-	      }
-	    }
-	
-	    /**
-	     * Event hook for the move of a gesture.
-	     *  Determines if the two points are moved in the expected direction relative
-	     *  to the current distance and the last distance.
-	     * @param {Array} inputs - The array of Inputs on the screen.
-	     * @param {Object} state - The state object of the current region.
-	     * @param {Element} element - The element associated to the binding.
-	     * @return {Object | null} - Returns the distance in pixels between two inputs
-	     */
-	
-	  }, {
-	    key: 'move',
-	    value: function move(inputs, state, element) {
-	      if (state.numActiveInputs() === DEFAULT_INPUTS) {
-	        var currentDistance = _util2.default.distanceBetweenTwoPoints(inputs[0].current.x, inputs[1].current.x, inputs[0].current.y, inputs[1].current.y);
-	        var lastDistance = _util2.default.distanceBetweenTwoPoints(inputs[0].previous.x, inputs[1].previous.x, inputs[0].previous.y, inputs[1].previous.y);
-	
-	        var centerPoint = _util2.default.getMidpoint(inputs[0].current.x, inputs[1].current.x, inputs[0].current.y, inputs[1].current.y);
-	
-	        // Retrieve the first input's progress.
-	        var progress = inputs[0].getGestureProgress(this.type);
-	
-	        if (this.type === 'expand') {
-	          if (currentDistance < lastDistance) {
-	            progress.lastEmittedDistance = currentDistance;
-	          } else if (currentDistance - progress.lastEmittedDistance >= this.threshold) {
-	            progress.lastEmittedDistance = currentDistance;
-	            return {
-	              distance: currentDistance,
-	              center: centerPoint
-	            };
-	          }
-	        } else {
-	          if (currentDistance > lastDistance) {
-	            progress.lastEmittedDistance = currentDistance;
-	          } else if (currentDistance < lastDistance && progress.lastEmittedDistance - currentDistance >= this.threshold) {
-	            progress.lastEmittedDistance = currentDistance;
-	            return {
-	              distance: currentDistance,
-	              center: centerPoint
-	            };
-	          }
-	        }
-	
-	        return null;
-	      }
-	    }
-	  }]);
-	
-	  return Distance;
-	}(_Gesture3.default);
-	
-	exports.default = Distance;
-
-/***/ },
-/* 12 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -1735,35 +1494,44 @@
 	  }, {
 	    key: 'move',
 	    value: function move(inputs, state, element) {
-	      if (this.numInputs === inputs.length) {
-	        var output = {
-	          data: []
-	        };
-	        for (var i = 0; i < inputs.length; i++) {
-	          var progress = inputs[i].getGestureProgress(this.getId());
+	      var _this3 = this;
 	
-	          var reachedThreshold = false;
+	      if (this.numInputs !== inputs.length) return null;
 	
-	          // Check threshold distance
-	          var yThreshold = Math.abs(inputs[i].current.y - progress.lastEmitted.y) > this.threshold;
-	          var xThreshold = Math.abs(inputs[i].current.x - progress.lastEmitted.x) > this.threshold;
-	          reachedThreshold = yThreshold || xThreshold;
+	      var output = {
+	        data: []
+	      };
 	
-	          if (progress.active && reachedThreshold) {
-	            output.data[i] = {
-	              distanceFromOrigin: _util2.default.distanceBetweenTwoPoints(inputs[i].initial.x, inputs[i].current.x, inputs[i].initial.y, inputs[i].current.y),
-	              directionFromOrigin: _util2.default.getAngle(inputs[i].initial.x, inputs[i].initial.y, inputs[i].current.x, inputs[i].current.y),
-	              currentDirection: _util2.default.getAngle(progress.lastEmitted.x, progress.lastEmitted.y, inputs[i].current.x, inputs[i].current.y)
-	            };
-	            progress.lastEmitted.x = inputs[i].current.x;
-	            progress.lastEmitted.y = inputs[i].current.y;
-	          } else {
-	            return null;
-	          }
+	      inputs.forEach(function (input, index) {
+	        var progress = input.getGestureProgress(_this3.getId());
+	        var distanceFromLastEmit = _util2.default.distanceBetweenTwoPoints(progress.lastEmitted.x, progress.lastEmitted.y, input.current.x, input.current.y);
+	        var reachedThreshold = distanceFromLastEmit >= _this3.threshold;
+	
+	        if (progress.active && reachedThreshold) {
+	          output.data[index] = packData(input, progress);
+	          progress.lastEmitted.x = input.current.x;
+	          progress.lastEmitted.y = input.current.y;
 	        }
-	      }
+	      });
 	
 	      return output;
+	
+	      function packData(input, progress) {
+	        var distanceFromOrigin = _util2.default.distanceBetweenTwoPoints(input.initial.x, input.current.x, input.initial.y, input.current.y);
+	        var directionFromOrigin = _util2.default.getAngle(input.initial.x, input.initial.y, input.current.x, input.current.y);
+	        var currentDirection = _util2.default.getAngle(progress.lastEmitted.x, progress.lastEmitted.y, input.current.x, input.current.y);
+	        var change = {
+	          x: input.current.x - progress.lastEmitted.x,
+	          y: input.current.y - progress.lastEmitted.y
+	        };
+	
+	        return {
+	          distanceFromOrigin: distanceFromOrigin,
+	          directionFromOrigin: directionFromOrigin,
+	          currentDirection: currentDirection,
+	          change: change
+	        };
+	      }
 	    }
 	
 	    /* move*/
@@ -1782,10 +1550,10 @@
 	  }, {
 	    key: 'end',
 	    value: function end(inputs) {
-	      var _this3 = this;
+	      var _this4 = this;
 	
 	      inputs.forEach(function (input) {
-	        var progress = input.getGestureProgress(_this3.getId());
+	        var progress = input.getGestureProgress(_this4.getId());
 	        progress.active = false;
 	      });
 	      return null;
@@ -1800,9 +1568,9 @@
 	
 	exports.default = Pan;
 
-/***/ },
-/* 13 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -1810,9 +1578,11 @@
 	  value: true
 	});
 	
-	var _Distance2 = __webpack_require__(11);
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _Distance3 = _interopRequireDefault(_Distance2);
+	var _Gesture2 = __webpack_require__(4);
+	
+	var _Gesture3 = _interopRequireDefault(_Gesture2);
 	
 	var _util = __webpack_require__(5);
 	
@@ -1826,17 +1596,19 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file Pinch.js
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Contains the Pinch class
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Contains the abstract Pinch class
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 	
+	var DEFAULT_INPUTS = 2;
+	var DEFAULT_MIN_THRESHOLD = 1;
+	
 	/**
-	 * An Pinch is defined as two inputs moving closer to each other.
-	 * This gesture does not account for any start/end events to allow for the event
-	 * to interact with the Pan and Pinch events.
+	 * A Pinch is defined as two inputs moving either together or apart.
 	 * @class Pinch
 	 */
-	var Pinch = function (_Distance) {
-	  _inherits(Pinch, _Distance);
+	
+	var Pinch = function (_Gesture) {
+	  _inherits(Pinch, _Gesture);
 	
 	  /**
 	   * Constructor function for the Pinch class.
@@ -1849,20 +1621,81 @@
 	     * The type of the Gesture.
 	     * @type {String}
 	     */
-	    var _this = _possibleConstructorReturn(this, (Pinch.__proto__ || Object.getPrototypeOf(Pinch)).call(this, options));
+	    var _this = _possibleConstructorReturn(this, (Pinch.__proto__ || Object.getPrototypeOf(Pinch)).call(this));
 	
 	    _this.type = 'pinch';
+	
+	    /**
+	     * The minimum amount in pixels the inputs must move until it is fired.
+	     * @type {Number}
+	     */
+	    _this.threshold = options && options.threshold ? options.threshold : DEFAULT_MIN_THRESHOLD;
 	    return _this;
 	  }
 	
+	  /**
+	   * Event hook for the start of a gesture. Initialized the lastEmitted
+	   * gesture and stores it in the first input for reference events.
+	   * @param {Array} inputs
+	   */
+	
+	
+	  _createClass(Pinch, [{
+	    key: 'start',
+	    value: function start(inputs, state, element) {
+	      if (!this.isValid(inputs, state, element)) {
+	        return null;
+	      }
+	      if (inputs.length === DEFAULT_INPUTS) {
+	        // Store the progress in the first input.
+	        var progress = inputs[0].getGestureProgress(this.type);
+	        progress.lastEmittedDistance = _util2.default.distanceBetweenTwoPoints(inputs[0].current.x, inputs[1].current.x, inputs[0].current.y, inputs[1].current.y);
+	      }
+	    }
+	
+	    /**
+	     * Event hook for the move of a gesture.
+	     *  Determines if the two points are moved in the expected direction relative
+	     *  to the current distance and the last distance.
+	     * @param {Array} inputs - The array of Inputs on the screen.
+	     * @param {Object} state - The state object of the current region.
+	     * @param {Element} element - The element associated to the binding.
+	     * @return {Object | null} - Returns the distance in pixels between two inputs
+	     */
+	
+	  }, {
+	    key: 'move',
+	    value: function move(inputs, state, element) {
+	      if (state.numActiveInputs() === DEFAULT_INPUTS) {
+	        var currentDistance = _util2.default.distanceBetweenTwoPoints(inputs[0].current.x, inputs[1].current.x, inputs[0].current.y, inputs[1].current.y);
+	        var centerPoint = _util2.default.getMidpoint(inputs[0].current.x, inputs[1].current.x, inputs[0].current.y, inputs[1].current.y);
+	
+	        // Progress is stored in the first input.
+	        var progress = inputs[0].getGestureProgress(this.type);
+	        var change = currentDistance - progress.lastEmittedDistance;
+	
+	        if (Math.abs(change) >= this.threshold) {
+	          progress.lastEmittedDistance = currentDistance;
+	          return {
+	            distance: currentDistance,
+	            center: centerPoint,
+	            change: change
+	          };
+	        }
+	      }
+	
+	      return null;
+	    }
+	  }]);
+	
 	  return Pinch;
-	}(_Distance3.default);
+	}(_Gesture3.default);
 	
 	exports.default = Pinch;
 
-/***/ },
-/* 14 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -1891,7 +1724,7 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Contains the Rotate class
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 	
-	var MAX_INPUTS = 2;
+	var DEFAULT_INPUTS = 2;
 	
 	/**
 	 * A Rotate is defined as two inputs moving about a circle,
@@ -1906,6 +1739,8 @@
 	   * Constructor function for the Rotate class.
 	   */
 	  function Rotate() {
+	    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	
 	    _classCallCheck(this, Rotate);
 	
 	    /**
@@ -1915,6 +1750,12 @@
 	    var _this = _possibleConstructorReturn(this, (Rotate.__proto__ || Object.getPrototypeOf(Rotate)).call(this));
 	
 	    _this.type = 'rotate';
+	
+	    /**
+	     * The number of touches required to emit Rotate events.
+	     * @type {Number}
+	     */
+	    _this.numInputs = options.numInputs || DEFAULT_INPUTS;
 	    return _this;
 	  }
 	
@@ -1940,49 +1781,44 @@
 	  _createClass(Rotate, [{
 	    key: 'move',
 	    value: function move(inputs, state, element) {
-	      if (state.numActiveInputs() <= MAX_INPUTS) {
-	        var referencePivot = void 0;
-	        var diffX = void 0;
-	        var diffY = void 0;
-	        var input = void 0;
-	        if (state.numActiveInputs() === 1) {
-	          var bRect = element.getBoundingClientRect();
-	          referencePivot = {
-	            x: bRect.left + bRect.width / 2,
-	            y: bRect.top + bRect.height / 2
-	          };
-	          input = inputs[0];
-	          diffX = diffY = 0;
-	        } else {
-	          referencePivot = _util2.default.getMidpoint(inputs[0].initial.x, inputs[1].initial.x, inputs[0].initial.y, inputs[1].initial.y);
-	          var currentPivot = _util2.default.getMidpoint(inputs[0].current.x, inputs[1].current.x, inputs[0].current.y, inputs[1].current.y);
-	          diffX = referencePivot.x - currentPivot.x;
-	          diffY = referencePivot.y - currentPivot.y;
-	          input = _util2.default.getRightMostInput(inputs);
-	        }
+	      var numActiveInputs = state.numActiveInputs();
+	      if (this.numInputs !== numActiveInputs) return null;
 	
-	        // Translate the current pivot point.
-	        var currentAngle = _util2.default.getAngle(referencePivot.x, referencePivot.y, input.current.x + diffX, input.current.y + diffY);
-	
-	        var progress = input.getGestureProgress(this.getId());
-	        if (!progress.initialAngle) {
-	          progress.initialAngle = progress.previousAngle = currentAngle;
-	          progress.distance = progress.change = 0;
-	        } else {
-	          progress.change = _util2.default.getAngularDistance(progress.previousAngle, currentAngle);
-	          progress.distance = progress.distance + progress.change;
-	        }
-	
-	        progress.previousAngle = currentAngle;
-	
-	        return {
-	          angle: currentAngle,
-	          distanceFromOrigin: progress.distance,
-	          distanceFromLast: progress.change
+	      var currentPivot = void 0,
+	          initialPivot = void 0;
+	      var input = void 0;
+	      if (numActiveInputs === 1) {
+	        var bRect = element.getBoundingClientRect();
+	        currentPivot = {
+	          x: bRect.left + bRect.width / 2,
+	          y: bRect.top + bRect.height / 2
 	        };
+	        initialPivot = currentPivot;
+	        input = inputs[0];
+	      } else {
+	        currentPivot = _util2.default.getMidpoint(inputs[0].current.x, inputs[1].current.x, inputs[0].current.y, inputs[1].current.y);
+	        input = _util2.default.getRightMostInput(inputs);
 	      }
 	
-	      return null;
+	      // Translate the current pivot point.
+	      var currentAngle = _util2.default.getAngle(currentPivot.x, currentPivot.y, input.current.x, input.current.y);
+	
+	      var progress = input.getGestureProgress(this.getId());
+	      if (!progress.initialAngle) {
+	        progress.initialAngle = progress.previousAngle = currentAngle;
+	        progress.distance = progress.change = 0;
+	      } else {
+	        progress.change = _util2.default.getAngularDistance(progress.previousAngle, currentAngle);
+	        progress.distance = progress.distance + progress.change;
+	      }
+	
+	      progress.previousAngle = currentAngle;
+	
+	      return {
+	        angle: currentAngle,
+	        distanceFromOrigin: progress.distance,
+	        distanceFromLast: progress.change
+	      };
 	    }
 	
 	    /* move*/
@@ -1994,9 +1830,9 @@
 	
 	exports.default = Rotate;
 
-/***/ },
-/* 15 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -2204,6 +2040,8 @@
 	
 	            output.data[i] = {
 	              velocity: velocity,
+	              distance: _util2.default.distanceBetweenTwoPoints(lastMove.x, currentMove.x, lastMove.y, currentMove.y),
+	              duration: currentMove.time - lastMove.time,
 	              currentDirection: _util2.default.getAngle(lastMove.x, lastMove.y, currentMove.x, currentMove.y)
 	            };
 	          }
@@ -2232,9 +2070,9 @@
 	
 	exports.default = Swipe;
 
-/***/ },
-/* 16 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -2415,8 +2253,6 @@
 	  }, {
 	    key: 'end',
 	    value: function end(inputs) {
-	      var _this4 = this;
-	
 	      if (inputs.length !== this.numInputs) {
 	        return null;
 	      }
@@ -2444,18 +2280,12 @@
 	          interval: interval
 	        };
 	      } else {
-	        var _ret2 = function () {
-	          var type = _this4.type;
-	          inputs.forEach(function (input) {
-	            input.resetProgress(type);
-	          });
+	        var type = this.type;
+	        inputs.forEach(function (input) {
+	          input.resetProgress(type);
+	        });
 	
-	          return {
-	            v: null
-	          };
-	        }();
-	
-	        if ((typeof _ret2 === 'undefined' ? 'undefined' : _typeof(_ret2)) === "object") return _ret2.v;
+	        return null;
 	      }
 	    }
 	
@@ -2468,9 +2298,9 @@
 	
 	exports.default = Tap;
 
-/***/ },
-/* 17 */
-/***/ function(module, exports) {
+/***/ }),
+/* 15 */
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -2538,9 +2368,9 @@
 	
 	exports.default = Binding;
 
-/***/ },
-/* 18 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -2552,7 +2382,7 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @file Input.js
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
 	
-	var _ZingEvent = __webpack_require__(19);
+	var _ZingEvent = __webpack_require__(17);
 	
 	var _ZingEvent2 = _interopRequireDefault(_ZingEvent);
 	
@@ -2672,9 +2502,9 @@
 	
 	exports.default = Input;
 
-/***/ },
-/* 19 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -2723,7 +2553,7 @@
 	   * @see util.normalizeEvent
 	   * @type {String | null}
 	   */
-	  this.type = _util2.default.normalizeEvent(event.type);
+	  this.type = _util2.default.normalizeEvent[event.type];
 	
 	  /**
 	   * The X coordinate for the event, based off of the client.
@@ -2739,12 +2569,9 @@
 	
 	  var eventObj = void 0;
 	  if (event.touches && event.changedTouches) {
-	    for (var i = 0; i < event.changedTouches.length; i++) {
-	      if (event.changedTouches[i].identifier === touchIdentifier) {
-	        eventObj = event.changedTouches[i];
-	        break;
-	      }
-	    }
+	    eventObj = Array.from(event.changedTouches).find(function (t) {
+	      return t.identifier === touchIdentifier;
+	    });
 	  } else {
 	    eventObj = event;
 	  }
@@ -2761,6 +2588,6 @@
 	
 	exports.default = ZingEvent;
 
-/***/ }
+/***/ })
 /******/ ]);
 //# sourceMappingURL=zingtouch.js.map

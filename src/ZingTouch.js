@@ -5,7 +5,6 @@
 
 import Region from './core/classes/Region.js';
 import Gesture from './gestures/Gesture.js';
-import Expand from './gestures/Expand.js';
 import Pan from './gestures/Pan.js';
 import Pinch from './gestures/Pinch.js';
 import Rotate from './gestures/Rotate.js';
@@ -23,7 +22,6 @@ let ZingTouch = {
 
   // Constructors
   Gesture: Gesture,
-  Expand: Expand,
   Pan: Pan,
   Pinch: Pinch,
   Rotate: Rotate,

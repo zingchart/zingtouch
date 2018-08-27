@@ -67,11 +67,9 @@ class Gesture {
    * @param {Object} object
    */
   update(object) {
-    for (let key in object) {
-      if (this[key]) {
-        this[key] = object[key];
-      }
-    }
+    Object.keys(object).forEach( key => {
+      this[key] = object[key];
+    });
   }
 
   /**
@@ -113,17 +111,10 @@ class Gesture {
 	* @return {boolean} - If the gesture is valid
 	*/
 	isValid(inputs, state, element) {
-    let valid = true;
-    // Checks to see if all touches originated from within the target element.
-    if (inputs.length > 1) {
-      inputs.forEach((input) => {
-        if (!util.isInside(input.initial.x, input.initial.y, element)) {
-          valid = false;
-        }
-      });
-    }
-    return valid;
-    }
+    return inputs.every( input => {
+        return util.isInside(input.initial.x, input.initial.y, element);
+    });
+  }
 
 }
 

@@ -56,7 +56,7 @@ class Pan extends Gesture {
    */
   start(inputs) {
     inputs.forEach((input) => {
-      let progress = input.getGestureProgress(this.getId());
+      const progress = input.getGestureProgress(this.getId());
       progress.active = true;
       progress.lastEmitted = {
         x: input.current.x,
@@ -75,49 +75,62 @@ class Pan extends Gesture {
    * @return {Object} - Returns the distance in pixels between the two inputs.
    */
   move(inputs, state, element) {
-    if (this.numInputs === inputs.length) {
-      var output = {
-        data: [],
-      };
-      for (let i = 0; i < inputs.length; i++) {
-        let progress = inputs[i].getGestureProgress(this.getId());
+    if (this.numInputs !== inputs.length) return null;
 
-        let reachedThreshold = false;
+    const output = {
+      data: [],
+    };
 
-        // Check threshold distance
-        const yThreshold = Math.abs(inputs[i].current.y -
-            progress.lastEmitted.y) > this.threshold;
-        const xThreshold = Math.abs(inputs[i].current.x -
-            progress.lastEmitted.x) > this.threshold;
-        reachedThreshold = yThreshold || xThreshold;
+    inputs.forEach( (input, index) => {
+      const progress = input.getGestureProgress(this.getId());
+      const distanceFromLastEmit = util.distanceBetweenTwoPoints(
+        progress.lastEmitted.x,
+        progress.lastEmitted.y,
+        input.current.x,
+        input.current.y
+      );
+      const reachedThreshold = distanceFromLastEmit >= this.threshold;
 
-        if (progress.active && reachedThreshold) {
-          output.data[i] = {
-            distanceFromOrigin: util.distanceBetweenTwoPoints(
-              inputs[i].initial.x,
-              inputs[i].current.x,
-              inputs[i].initial.y,
-              inputs[i].current.y),
-            directionFromOrigin: util.getAngle(
-              inputs[i].initial.x,
-              inputs[i].initial.y,
-              inputs[i].current.x,
-              inputs[i].current.y),
-            currentDirection: util.getAngle(
-              progress.lastEmitted.x,
-              progress.lastEmitted.y,
-              inputs[i].current.x,
-              inputs[i].current.y),
-          };
-          progress.lastEmitted.x = inputs[i].current.x;
-          progress.lastEmitted.y = inputs[i].current.y;
-        } else {
-          return null;
-        }
-      }
-    }
+      if (progress.active && reachedThreshold) {
+        output.data[index] = packData( input, progress );
+        progress.lastEmitted.x = input.current.x;
+        progress.lastEmitted.y = input.current.y;
+      } 
+    });
 
     return output;
+
+    function packData( input, progress ) {
+      const distanceFromOrigin = util.distanceBetweenTwoPoints(
+        input.initial.x,
+        input.current.x,
+        input.initial.y,
+        input.current.y
+      );
+      const directionFromOrigin = util.getAngle(
+        input.initial.x,
+        input.initial.y,
+        input.current.x,
+        input.current.y
+      );
+      const currentDirection = util.getAngle(
+        progress.lastEmitted.x,
+        progress.lastEmitted.y,
+        input.current.x,
+        input.current.y
+      );
+      const change = {
+        x: input.current.x - progress.lastEmitted.x,
+        y: input.current.y - progress.lastEmitted.y,
+      };
+
+      return {
+        distanceFromOrigin,
+        directionFromOrigin,
+        currentDirection,
+        change,
+      };
+    }
   }
 
   /* move*/
@@ -134,7 +147,7 @@ class Pan extends Gesture {
    */
   end(inputs) {
     inputs.forEach((input) => {
-      let progress = input.getGestureProgress(this.getId());
+      const progress = input.getGestureProgress(this.getId());
       progress.active = false;
     });
     return null;

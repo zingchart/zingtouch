@@ -15,6 +15,10 @@
     "test": "karma start karma.conf.js"
   },
   "author": "ZingChart",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zingchart/zingtouch"
+  },
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.5.2",
