@@ -1,45 +1,40 @@
 const webpack = require('webpack');
 const minimize = process.argv.indexOf('--minimize') !== -1;
 
-const plugins = [];
-const filename = (minimize) ? 'zingtouch.min.js' : 'zingtouch.js';
-
-
-const config = {
-  entry: './src/core/main.js',
-  output: {
-    filename: filename,
-  },
-  devtool: 'source-map',
-  module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['es2015'],
-        },
-      },
-    ],
-  },
-  plugins: plugins,
-};
-
-if (minimize) {
-  plugins.push(new webpack.optimize.UglifyJsPlugin({
-    sourceMap: true,
-    mangle: true,
-    outputs: {
-      comments: false,
+module.exports = (env, argv) => {
+  argv.mode = argv.mode || 'production';
+  const plugins = [];
+  const filename = (argv.mode === 'production') ? 'zingtouch.min.js' : 'zingtouch.js';
+  const config = {
+    mode: argv.mode,
+    entry: './src/core/main.js',
+    output: {
+      filename: filename,
     },
-  }));
-}
-config.output.filename = __dirname + '/dist/' + filename;
+    devtool: 'source-map',
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          exclude: /(node_modules|bower_components)/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env']
+            }
+          }
+        }
+      ]
+    },
+    plugins: plugins,
+  };
 
-plugins.push(new webpack.BannerPlugin(`
-ZingTouch v${process.env.npm_package_version}
-Author: ZingChart http://zingchart.com
-License: MIT`
-));
+  config.output.filename = filename;
+  plugins.push(new webpack.BannerPlugin(`
+  ZingTouch v${process.env.npm_package_version}
+  Author: ZingChart http://zingchart.com
+  License: MIT`
+  ));
 
-module.exports = config;
+  return config;
+};
