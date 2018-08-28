@@ -15,6 +15,12 @@ module.exports = function(config) {
       './test/**/*.js': ['webpack', 'sourcemap'],
     },
     browsers: ['ChromeHeadless'],
+    customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox'],
+      },
+    },
     webpack: webpackConfig,
     webpackMiddleware: {noInfo: true},
     singleRun: true,
