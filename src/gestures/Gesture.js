@@ -15,7 +15,7 @@ class Gesture {
    */
   constructor() {
     /**
-     * The generic string type of gesture ('expand'|'pan'|'pinch'|
+     * The generic string type of gesture ('expand'|'distance'|
      *  'rotate'|'swipe'|'tap').
      * @type {String}
      */

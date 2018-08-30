@@ -18,8 +18,8 @@ describe('State', function() {
     expect(state.bindings).to.be.empty;
   });
 
-  it('should have instances of the 6 default gestures', function() {
-    let gestures = ['expand', 'pan', 'pinch', 'rotate', 'swipe', 'tap'];
+  it('should have instances of the 5 default gestures', function() {
+    let gestures = ['pan', 'distance', 'rotate', 'swipe', 'tap'];
     for (let i = 0; i < state.registeredGestures.length; i++) {
       expect(gestures.indexOf(state.registeredGestures[i].type))
         .to.not.equal(-1);

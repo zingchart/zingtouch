@@ -8,10 +8,9 @@ describe('ZingTouch', function() {
 
   it('should have constructors for all of the gestures', function() {
     let gestures = [
-      'Expand',
+      'Distance',
       'Gesture',
       'Pan',
-      'Pinch',
       'Rotate',
       'Swipe',
       'Tap',

@@ -1,6 +1,6 @@
 /**
- * @file Pinch.js
- * Contains the abstract Pinch class
+ * @file Distance.js
+ * Contains the abstract Distance class
  */
 
 import Gesture from './Gesture.js';
@@ -10,12 +10,12 @@ const DEFAULT_INPUTS = 2;
 const DEFAULT_MIN_THRESHOLD = 1;
 
 /**
- * A Pinch is defined as two inputs moving either together or apart.
- * @class Pinch
+ * A Distance is defined as two inputs moving either together or apart.
+ * @class Distance
  */
-class Pinch extends Gesture {
+class Distance extends Gesture {
   /**
-   * Constructor function for the Pinch class.
+   * Constructor function for the Distance class.
    * @param {Object} options
    */
   constructor(options) {
@@ -25,7 +25,7 @@ class Pinch extends Gesture {
      * The type of the Gesture.
      * @type {String}
      */
-    this.type = 'pinch';
+    this.type = 'distance';
 
     /**
      * The minimum amount in pixels the inputs must move until it is fired.
@@ -86,7 +86,7 @@ class Pinch extends Gesture {
         return {
           distance: currentDistance,
           center: centerPoint,
-          change: change,
+          change,
         };
       }
     }
@@ -95,4 +95,4 @@ class Pinch extends Gesture {
   }
 }
 
-export default Pinch;
+export default Distance;

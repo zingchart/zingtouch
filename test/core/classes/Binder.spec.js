@@ -16,7 +16,7 @@ describe('Binder', function() {
   it('should return a new object with a valid element parameter', function() {
     let myState = new State();
     let myBinder = new Binder(document.body, false, myState);
-    expect(myBinder).to.not.equal.null;
+    expect(myBinder).to.not.equal(null);
     expect(myBinder.element).to.equal(document.body);
   });
 

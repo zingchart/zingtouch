@@ -66,13 +66,6 @@ describe('Input.getCurrentEventType', function() {
     let input = new Input(event, 1234);
     expect(input.getCurrentEventType()).to.be.undefined;
   });
-
-  it('should not be null for an event it does understand', function() {
-    let event = document.createEvent('TouchEvent');
-    event.initUIEvent('touchstart', true, true);
-    let touchInput = new Input(event, 1234);
-    expect(touchInput.getCurrentEventType()).to.equal('start');
-  });
 });
 
 /** @test {Input.getCurrentEventType} */
