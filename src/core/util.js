@@ -77,6 +77,7 @@ let util = {
       y: ((y0 + y1) / 2),
     };
   },
+
   /**
    * Calculates the angle between the projection and an origin point.
    *   |                (projectionX,projectionY)
@@ -90,28 +91,22 @@ let util = {
    * @param {number} originY
    * @param {number} projectionX
    * @param {number} projectionY
-   * @return {number} - Degree along the unit circle where the project lies
+   * @return {number} - Radians along the unit circle where the projection lies
    */
   getAngle(originX, originY, projectionX, projectionY) {
-    let angle = Math.atan2(projectionY - originY, projectionX - originX) *
-      ((HALF_CIRCLE_DEGREES) / Math.PI);
-    return CIRCLE_DEGREES - ((angle < 0) ? (CIRCLE_DEGREES + angle) : angle);
+    return Math.atan2(projectionY - originY, projectionX - originX);
   },
+
   /**
-   * Calculates the angular distance in degrees between two angles
-   *  along the unit circle
-   * @param {number} start - The starting point in degrees
-   * @param {number} end - The ending point in degrees
-   * @return {number} The number of degrees between the
-   * starting point and ending point. Negative degrees denote a clockwise
-   * direction, and positive a counter-clockwise direction.
+   * Calculates the angular distance in radians between two angles along the
+   * unit circle
+   * @param {number} start - The starting point in radians
+   * @param {number} end - The ending point in radians
+   * @return {number} The number of radians between the starting point and
+   * ending point. 
    */
   getAngularDistance(start, end) {
-    let angle = (end - start) % CIRCLE_DEGREES;
-    let sign = (angle < 0) ? 1 : -1;
-    angle = Math.abs(angle);
-    return (angle > HALF_CIRCLE_DEGREES) ?
-    sign * (CIRCLE_DEGREES - angle) : sign * angle;
+    return end - start;
   },
 
   /**

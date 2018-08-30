@@ -68,34 +68,36 @@ describe('util.distanceBetweenTwoPoints', function() {
 
 /** @test {util.getAngle} */
 describe('util.getAngle', function() {
-  it('should return an angle of 45', function() {
-    expect(util.getAngle(0, 0, 3, 3)).to.equal(315);
+  it('should return an angle of PI/4', function() {
+    expect(util.getAngle(0, 0, 3, 3)).to.equal(Math.PI / 4);
   });
 
-  it('should return an angle of 360', function() {
-    expect(util.getAngle(0, 0, 0, 0)).to.equal(360);
+  it('should return an angle of 0', function() {
+    expect(util.getAngle(0, 0, 0, 0)).to.equal(0);
   });
 
-  it('should return an angle of 180', function() {
-    expect(util.getAngle(0, 0, -3, 0)).to.equal(180);
+  it('should return an angle of PI', function() {
+    expect(util.getAngle(0, 0, -3, 0)).to.equal(Math.PI);
   });
 });
 
 /** @test {util.getAngularDistance} */
 describe('util.getAngularDistance', function() {
-  it('should return an angle of 45', function() {
-    expect(util.getAngularDistance(270, 360)).to.equal(-90);
+  it('should return an angle of PI / 2', function() {
+    expect(util.getAngularDistance(Math.PI * 3/2, Math.PI * 2)).to.equal(
+      Math.PI / 2
+    );
   });
 
-  it('should return an angle of -15', function() {
-    expect(util.getAngularDistance(5, 350)).to.equal(-15);
+  it('should return an angle of PI', function() {
+    expect(util.getAngularDistance(0, Math.PI)).to.equal(Math.PI);
   });
 
-  it('should return an angle of +15', function() {
-    expect(util.getAngularDistance(350, 5)).to.equal(15);
+  it('should return an angle of -PI', function() {
+    expect(util.getAngularDistance(Math.PI, 0)).to.equal(-Math.PI);
   });
 
   it('should return an angle of 0', function() {
-    expect(util.getAngularDistance(360, 360)).to.equal(0);
+    expect(util.getAngularDistance(Math.PI, Math.PI)).to.equal(0);
   });
 });
