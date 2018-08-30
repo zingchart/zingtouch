@@ -3,9 +3,6 @@
  * Various accessor and mutator functions to handle state and validation.
  */
 
-const CIRCLE_DEGREES = 360;
-const HALF_CIRCLE_DEGREES = 180;
-
 /**
  *  Contains generic helper functions
  * @type {Object}
