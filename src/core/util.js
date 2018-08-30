@@ -60,8 +60,7 @@ let util = {
    * @return {number} The numerical value between two points
    */
   distanceBetweenTwoPoints(x0, x1, y0, y1) {
-    let dist = (Math.sqrt(((x1 - x0) * (x1 - x0)) + ((y1 - y0) * (y1 - y0))));
-    return Math.round(dist * 100) / 100;
+    return Math.hypot(x1 - x0, y1 - y0);
   },
 
   /**

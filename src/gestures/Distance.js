@@ -46,7 +46,7 @@ class Distance extends Gesture {
     }
     if (inputs.length === DEFAULT_INPUTS) {
       // Store the progress in the first input.
-      const progress = inputs[0].getGestureProgress(this.type);
+      const progress = inputs[0].getGestureProgress(this.getId());
       progress.lastEmittedDistance = util.distanceBetweenTwoPoints(
         inputs[0].current.x,
         inputs[1].current.x,
@@ -78,7 +78,7 @@ class Distance extends Gesture {
         inputs[1].current.y);
 
       // Progress is stored in the first input.
-      const progress = inputs[0].getGestureProgress(this.type);
+      const progress = inputs[0].getGestureProgress(this.getId());
       const change = currentDistance - progress.lastEmittedDistance;
 
       if (Math.abs(change) >= this.threshold) {
