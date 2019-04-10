@@ -3,9 +3,6 @@
  * Various accessor and mutator functions to handle state and validation.
  */
 
-const CIRCLE_DEGREES = 360;
-const HALF_CIRCLE_DEGREES = 180;
-
 /**
  *  Contains generic helper functions
  * @type {Object}
@@ -19,24 +16,19 @@ let util = {
    * @return {null|String} - The normalized event, or null if it is an
    * event not predetermined.
    */
-  normalizeEvent(type) {
-    switch (type) {
-      case 'mousedown' :
-      case 'touchstart' :
-      case 'pointerdown' :
-        return 'start';
-      case 'mousemove' :
-      case 'touchmove' :
-      case 'pointermove' :
-        return 'move';
-      case 'mouseup' :
-      case 'touchend' :
-      case 'pointerup' :
-        return 'end';
-      default :
-        return null;
-    }
-  },
+  normalizeEvent: Object.freeze({
+      mousedown:   'start',
+      touchstart:  'start',
+      pointerdown: 'start',
+
+      mousemove:   'move',
+      touchmove:   'move',
+      pointermove: 'move',
+
+      mouseup:   'end',
+      touchend:  'end',
+      pointerup: 'end',
+  }),
   /* normalizeEvent*/
 
   /**
@@ -65,8 +57,7 @@ let util = {
    * @return {number} The numerical value between two points
    */
   distanceBetweenTwoPoints(x0, x1, y0, y1) {
-    let dist = (Math.sqrt(((x1 - x0) * (x1 - x0)) + ((y1 - y0) * (y1 - y0))));
-    return Math.round(dist * 100) / 100;
+    return Math.hypot(x1 - x0, y1 - y0);
   },
 
   /**
@@ -83,6 +74,7 @@ let util = {
       y: ((y0 + y1) / 2),
     };
   },
+
   /**
    * Calculates the angle between the projection and an origin point.
    *   |                (projectionX,projectionY)
@@ -96,28 +88,22 @@ let util = {
    * @param {number} originY
    * @param {number} projectionX
    * @param {number} projectionY
-   * @return {number} - Degree along the unit circle where the project lies
+   * @return {number} - Radians along the unit circle where the projection lies
    */
   getAngle(originX, originY, projectionX, projectionY) {
-    let angle = Math.atan2(projectionY - originY, projectionX - originX) *
-      ((HALF_CIRCLE_DEGREES) / Math.PI);
-    return CIRCLE_DEGREES - ((angle < 0) ? (CIRCLE_DEGREES + angle) : angle);
+    return Math.atan2(projectionY - originY, projectionX - originX);
   },
+
   /**
-   * Calculates the angular distance in degrees between two angles
-   *  along the unit circle
-   * @param {number} start - The starting point in degrees
-   * @param {number} end - The ending point in degrees
-   * @return {number} The number of degrees between the
-   * starting point and ending point. Negative degrees denote a clockwise
-   * direction, and positive a counter-clockwise direction.
+   * Calculates the angular distance in radians between two angles along the
+   * unit circle
+   * @param {number} start - The starting point in radians
+   * @param {number} end - The ending point in radians
+   * @return {number} The number of radians between the starting point and
+   * ending point. 
    */
   getAngularDistance(start, end) {
-    let angle = (end - start) % CIRCLE_DEGREES;
-    let sign = (angle < 0) ? 1 : -1;
-    angle = Math.abs(angle);
-    return (angle > HALF_CIRCLE_DEGREES) ?
-    sign * (CIRCLE_DEGREES - angle) : sign * angle;
+    return end - start;
   },
 
   /**
@@ -219,5 +205,14 @@ let util = {
     element.style['-ms-content-zooming'] = '';
     element.style['touch-action'] = '';
   },
+
+  preventDefault(event) {
+    if (event.preventDefault) {
+      event.preventDefault();
+    } else {
+      event.returnValue = false;
+    }
+  }
 };
+
 export default util;

@@ -19,14 +19,14 @@ import util from './util.js';
  */
 function arbiter(event, region) {
   const state = region.state;
+  const eventType = util.normalizeEvent[ event.type ];
 
   /*
    Return if a gesture is not in progress and won't be. Also catches the case
    where a previous event is in a partial state (2 finger pan, waits for both
    inputs to reach touchend)
    */
-  if (state.inputs.length === 0 && util.normalizeEvent(event.type) !==
-    'start') {
+  if (state.inputs.length === 0 && eventType !== 'start') {
     return;
   }
 
@@ -36,7 +36,7 @@ function arbiter(event, region) {
    Does not affect mobile devices.
    */
   if (typeof event.buttons !== 'undefined' &&
-    util.normalizeEvent(event.type) !== 'end' &&
+    eventType !== 'end' &&
     event.buttons === 0) {
     state.resetInputs();
     return;
@@ -52,7 +52,7 @@ function arbiter(event, region) {
   if (bindings.length > 0) {
     if (region.preventDefault) {
       util.setMSPreventDefault(region.element);
-      event.preventDefault ? event.preventDefault():(event.returnValue = false);
+      util.preventDefault(event);
     } else {
       util.removeMSPreventDefault(region.element);
     }
@@ -63,10 +63,10 @@ function arbiter(event, region) {
     /* Determine the deepest path index to emit the event
      from, to avoid duplicate events being fired. */
 
+    const path = util.getPropagationPath(event);
     gestures.forEach((gesture) => {
-      const id = gesture.binding.gesture.id;
+      const id = gesture.binding.gesture.getId();
       if (toBeDispatched[id]) {
-        const path = util.getPropagationPath(event);
         if (util.getPathIndex(path, gesture.binding.element) <
           util.getPathIndex(path, toBeDispatched[id].binding.element)) {
           toBeDispatched[id] = gesture;

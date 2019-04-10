@@ -1,40 +1,41 @@
 {
   "name": "zingtouch",
-  "version": "1.0.5",
+  "version": "2.0.0",
   "description": "A modern JavaScript touch gesture library",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "build": "node_modules/webpack/bin/webpack.js",
-    "build:dev": "node_modules/webpack/bin/webpack.js",
-    "build:prod": "node_modules/webpack/bin/webpack.js --minimize",
-    "dev": "node_modules/webpack-dev-server/bin/webpack-dev-server.js --quiet --inline --hot --dashboard",
+    "build": "npm run build:dev && npm run build:prod",
+    "build:dev": "node_modules/webpack/bin/webpack.js --mode=development",
+    "build:prod": "node_modules/webpack/bin/webpack.js --mode=production",
     "docs": "esdoc -c esdoc.json",
-    "test": "karma start karma.conf.js"
+    "test": "karma start karma.conf.js --mode=production"
   },
   "author": "ZingChart",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zingchart/zingtouch"
+  },
   "license": "MIT",
   "devDependencies": {
-    "babel-core": "^6.5.2",
-    "babel-loader": "^6.2.3",
-    "babel-preset-es2015": "^6.9.0",
-    "babelify": "~5.0.3",
-    "chai": "^3.5.0",
-    "eslint": "^3.12.2",
-    "eslint-config-google": "^0.7.1",
-    "karma": "^0.13.15",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babel-loader": "^8.0.0",
+    "chai": "^4.1.2",
+    "eslint": "^5.4.0",
+    "eslint-config-google": "^0.9.1",
+    "karma": "^3.0.0",
     "karma-chai": "^0.1.0",
-    "karma-jasmine": "~0.3.5",
-    "karma-mocha": "^0.2.2",
-    "karma-phantomjs-launcher": "~0.1.4",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-mocha": "^1.3.0",
     "karma-sourcemap-loader": "^0.3.7",
-    "karma-webpack": "^1.7.0",
-    "mocha": "^2.4.5",
-    "webpack": "^1.12.13",
-    "webpack-dashboard": "^0.2.1",
-    "webpack-dev-server": "^1.16.2"
+    "karma-webpack": "^3.0.0",
+    "mocha": "^5.2.0",
+    "puppeteer": "^1.7.0",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0"
   },
   "dependencies": {}
 }

@@ -178,6 +178,8 @@ class Swipe extends Gesture {
 
           output.data[i] = {
             velocity: velocity,
+            distance: util.distanceBetweenTwoPoints(lastMove.x, currentMove.x, lastMove.y, currentMove.y),
+            duration:  currentMove.time - lastMove.time,
             currentDirection: util.getAngle(
               lastMove.x,
               lastMove.y,

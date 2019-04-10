@@ -41,12 +41,12 @@ class Distance extends Gesture {
    * @param {Array} inputs
    */
   start(inputs, state, element) {
-  if(!this.isValid(inputs, state, element)) {
-    return null;
-  }
+    if(!this.isValid(inputs, state, element)) {
+      return null;
+    }
     if (inputs.length === DEFAULT_INPUTS) {
       // Store the progress in the first input.
-      let progress = inputs[0].getGestureProgress(this.type);
+      const progress = inputs[0].getGestureProgress(this.getId());
       progress.lastEmittedDistance = util.distanceBetweenTwoPoints(
         inputs[0].current.x,
         inputs[1].current.x,
@@ -66,52 +66,32 @@ class Distance extends Gesture {
    */
   move(inputs, state, element) {
     if (state.numActiveInputs() === DEFAULT_INPUTS) {
-      let currentDistance = util.distanceBetweenTwoPoints(
+      const currentDistance = util.distanceBetweenTwoPoints(
         inputs[0].current.x,
         inputs[1].current.x,
         inputs[0].current.y,
         inputs[1].current.y);
-      let lastDistance = util.distanceBetweenTwoPoints(
-        inputs[0].previous.x,
-        inputs[1].previous.x,
-        inputs[0].previous.y,
-        inputs[1].previous.y);
-
       const centerPoint = util.getMidpoint(
         inputs[0].current.x,
         inputs[1].current.x,
         inputs[0].current.y,
         inputs[1].current.y);
 
-      // Retrieve the first input's progress.
-      let progress = inputs[0].getGestureProgress(this.type);
+      // Progress is stored in the first input.
+      const progress = inputs[0].getGestureProgress(this.getId());
+      const change = currentDistance - progress.lastEmittedDistance;
 
-      if (this.type === 'expand') {
-        if (currentDistance < lastDistance) {
-          progress.lastEmittedDistance = currentDistance;
-        } else if ((currentDistance - progress.lastEmittedDistance >=
-          this.threshold)) {
-          progress.lastEmittedDistance = currentDistance;
-          return {
-            distance: currentDistance,
-            center: centerPoint,
-          };
-        }
-      } else {
-        if (currentDistance > lastDistance) {
-          progress.lastEmittedDistance = currentDistance;
-        } else if (currentDistance < lastDistance &&
-          (progress.lastEmittedDistance - currentDistance >= this.threshold)) {
-          progress.lastEmittedDistance = currentDistance;
-          return {
-            distance: currentDistance,
-            center: centerPoint,
-          };
-        }
+      if (Math.abs(change) >= this.threshold) {
+        progress.lastEmittedDistance = currentDistance;
+        return {
+          distance: currentDistance,
+          center: centerPoint,
+          change,
+        };
       }
-
-      return null;
     }
+
+    return null;
   }
 }
 

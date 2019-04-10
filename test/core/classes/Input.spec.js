@@ -64,14 +64,7 @@ describe('Input.getCurrentEventType', function() {
   it('should be null for an event it does not understand', function() {
     let event = document.createEvent('Event');
     let input = new Input(event, 1234);
-    expect(input.getCurrentEventType()).to.be.null;
-  });
-
-  it('should not be null for an event it does understand', function() {
-    let event = document.createEvent('TouchEvent');
-    event.initUIEvent('touchstart', true, true);
-    let touchInput = new Input(event, 1234);
-    expect(touchInput.getCurrentEventType()).to.equal('start');
+    expect(input.getCurrentEventType()).to.be.undefined;
   });
 });
 

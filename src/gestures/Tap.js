@@ -84,7 +84,7 @@ class Tap extends Gesture {
   start(inputs) {
     if (inputs.length === this.numInputs) {
       inputs.forEach((input) => {
-        let progress = input.getGestureProgress(this.type);
+        let progress = input.getGestureProgress(this.getId());
         progress.start = new Date().getTime();
       });
     }
@@ -149,7 +149,7 @@ class Tap extends Gesture {
         return null;
       }
 
-      let progress = inputs[i].getGestureProgress(this.type);
+      let progress = inputs[i].getGestureProgress(this.getId());
       if (!progress.start) {
         return null;
       }

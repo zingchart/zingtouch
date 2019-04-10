@@ -16,23 +16,14 @@ import util from './util.js';
  * metadata, or null if a gesture will not be emitted.
  */
 function interpreter(bindings, event, state) {
-  const evType = util.normalizeEvent(event.type);
-  const candidates = [];
-  bindings.forEach((binding) => {
-    let result = binding.gesture[evType](state.inputs, state, binding.element);
-    if (result) {
-      const events = [];
-      state.inputs.forEach((input) => {
-        events.push(input.current);
-      });
+  const evType = util.normalizeEvent[ event.type ];
+  const events = state.inputs.map( input => input.current );
 
-      candidates.push({
-        binding: binding,
-        data: result,
-        events: events,
-      });
-    }
-  });
+  const candidates = bindings.reduce( (accumulator, binding) => {
+    const data = binding.gesture[evType](state.inputs, state, binding.element);
+    if (data) accumulator.push({ binding, data, events });
+    return accumulator;
+  }, []);
 
   return candidates;
 }
