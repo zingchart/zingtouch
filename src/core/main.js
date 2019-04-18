@@ -5,4 +5,9 @@
  */
 
 import ZingTouch from './../ZingTouch.js';
-window.ZingTouch = ZingTouch;
+
+if (typeof window !== 'undefined') {
+  window.ZingTouch = ZingTouch;
+}
+
+export default ZingTouch;
