@@ -134,7 +134,7 @@ myRegion.bind(touchArea, 'swipe', function(e){
 
 The shaded area in blue shows the area where ZingTouch will now listen for events such as touchstart, touchmove, touchend, etc.
 
-![Region](http://demos.zingchart.com/assets/zingtouch-docs/region.png)
+![Region](/assets/region.png)
 
 
 But humans aren't perfect. Suppose the element #toucharea were to listen for the `Swipe` gesture. The tracking of the window events will stop when the user reaches the edges of #toucharea. But what if the user didn't finish until say 10-50px ***outside*** the element? Regions are here to help.
@@ -151,7 +151,7 @@ myRegion.bind(touchArea, 'swipe', function(e){
 });
 ```
 
-![Parent Region](http://demos.zingchart.com/assets/zingtouch-docs/parent-region.png)
+![Parent Region](/assets/parent-region.png)
 
 ZingTouch now tracks the swipe gesture inside the `#toucharea` element AND the #parent-toucharea. This allows some forgiveness when the user tries to swipe on the `#toucharea`, but lifts their finger somewhere in the `#parent-toucharea`.
 
@@ -162,7 +162,7 @@ ZingTouch now tracks the swipe gesture inside the `#toucharea` element AND the #
 
 Regions only are aware of themselves and their contents, not across regions. This allows for control at a larger scale so you can group similar gestures together. While you can throw a Region on top of the `document.body`, we suggest splitting up your application into regions for better performance -- the less bindings a single region has to iterate through to detect a gesture, the better.
 
-![Multiple Regions](http://demos.zingchart.com/assets/zingtouch-docs/multiple-regions.png)
+![Multiple Regions](/assets/multiple-regions.png)
 
 
 ## Gestures
@@ -170,7 +170,7 @@ Gesture classes can be instatiated to generate modified versions.
 
 ### Tap
 
-![Tap Gesture](http://demos.zingchart.com/assets/zingtouch-docs/tap.gif)
+![Tap Gesture](/assets/tap.gif)
 
 A tap is detected when the user touches the screen and releases in quick succession.
 
@@ -201,7 +201,7 @@ new ZingTouch.Tap({
 
 ### Swipe
 
-![Swipe Gesture](http://demos.zingchart.com/assets/zingtouch-docs/swipe.gif)
+![Swipe Gesture](/assets/swipe.gif)
 
 A swipe is detected when the user touches the screen and moves in a relatively increasing velocity, leaving the screen at some point before it drops below a certain velocity.
 
@@ -235,8 +235,8 @@ Each index represents an input that participated in the event.
 
 ### Distance
 
-![Pinch Gesture](http://demos.zingchart.com/assets/zingtouch-docs/pinch.gif)
-![Expand Gesture](http://demos.zingchart.com/assets/zingtouch-docs/expand.gif)
+![Pinch Gesture](/assets/pinch.gif)
+![Expand Gesture](/assets/expand.gif)
 
 A distance gesture is detected when the user has two inputs on the screen moving either closer or away from the other input.
 
@@ -254,7 +254,7 @@ new ZingTouch.Distance()
 
 ### Pan
 
-![Pan Gesture](http://demos.zingchart.com/assets/zingtouch-docs/pan.gif)
+![Pan Gesture](/assets/pan.gif)
 
 A pan is detected when the user touches the screen and moves about the area.
 
@@ -285,7 +285,7 @@ Each index represents an input that participated in the event.
 
 ### Rotate
 
-![Rotate Gesture](http://demos.zingchart.com/assets/zingtouch-docs/rotate.gif)
+![Rotate Gesture](/assets/rotate.gif)
 
 A Rotate is detected when:
  * the user has two inputs moving about a circle on the edges of a diameter.
