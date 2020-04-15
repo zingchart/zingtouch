@@ -31,6 +31,13 @@ class Rotate extends Gesture {
      * @type {Number}
      */
     this.numInputs = options.numInputs || DEFAULT_INPUTS;
+
+    /**
+     * The on move callback
+     */
+    if (options && options.onMove && typeof options.onMove === 'function') {
+      this.onMove = options.onMove
+    }
   }
 
   /**
@@ -75,7 +82,7 @@ class Rotate extends Gesture {
 
     // Translate the current pivot point.
     const currentAngle = util.getAngle(
-      currentPivot.x, 
+      currentPivot.x,
       currentPivot.y,
       input.current.x,
       input.current.y);
@@ -93,6 +100,9 @@ class Rotate extends Gesture {
 
     progress.previousAngle = currentAngle;
 
+    if(this.onMove) {
+      this.onMove(inputs, state, element);
+    }
     return {
       angle: currentAngle,
       distanceFromOrigin: progress.distance,

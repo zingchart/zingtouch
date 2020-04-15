@@ -87,6 +87,19 @@ class Swipe extends Gesture {
      */
     this.maxProgressStack = (options && options.maxProgressStack) ?
       options.maxProgressStack : DEFAULT_MAX_PROGRESS_STACK;
+
+    /**
+     * The on move callback
+     */
+    if (options && options.onMove && typeof options.onMove === 'function') {
+      this.onMove = options.onMove
+    }
+    /**
+     * The on end callback
+     */
+    if (options && options.onEnd && typeof options.onEnd === 'function') {
+      this.onEnd = options.onEnd
+    }
   }
 
   /**
@@ -117,6 +130,10 @@ class Swipe extends Gesture {
       }
     }
 
+    if(this.onMove) {
+      this.onMove(inputs, state, element);
+    }
+
     return null;
   }
 
@@ -136,7 +153,10 @@ class Swipe extends Gesture {
         data: [],
       };
 
-      for (var i = 0; i < inputs.length; i++) {
+      if(this.onEnd) {
+        this.onEnd(inputs);
+      }
+      for (let i = 0; i < inputs.length; i++) {
         // Determine if all input events are on the 'end' event.
         if (inputs[i].current.type !== 'end') {
           return;

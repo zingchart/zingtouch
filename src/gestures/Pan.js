@@ -53,19 +53,19 @@ class Pan extends Gesture {
     /**
      * The on start callback
      */
-    if (options && options.onStart && typeof options.onStart === "function") {
+    if (options && options.onStart && typeof options.onStart === 'function') {
       this.onStart = options.onStart
     }
     /**
      * The on move callback
      */
-    if (options && options.onMove && typeof options.onMove === "function") {
+    if (options && options.onMove && typeof options.onMove === 'function') {
       this.onMove = options.onMove
     }
     /**
      * The on end callback
      */
-    if (options && options.onEnd && typeof options.onEnd === "function") {
+    if (options && options.onEnd && typeof options.onEnd === 'function') {
       this.onEnd = options.onEnd
     }
   }
@@ -122,7 +122,7 @@ class Pan extends Gesture {
     });
 
     if(this.onMove) {
-      this.onMove(inputs, state, element);
+      this.onMove(inputs, state, element, output);
     }
     return output;
 
