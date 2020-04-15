@@ -100,7 +100,7 @@ let util = {
    * @param {number} start - The starting point in radians
    * @param {number} end - The ending point in radians
    * @return {number} The number of radians between the starting point and
-   * ending point. 
+   * ending point.
    */
   getAngularDistance(start, end) {
     return end - start;
