@@ -28,31 +28,19 @@ describe('Tap', function() {
     });
   it('should return onStart, onMove and onEnd as functions',
     function() {
-      const onStart = () => {};
-      const onMove = () => {};
       const onEnd = () => {};
       let _tap = new Tap({
-        onStart,
-        onMove,
         onEnd
       });
-      expect(typeof _tap.onStart).to.equal('function');
-      expect(typeof _tap.onMove).to.equal('function');
       expect(typeof _tap.onEnd).to.equal('function');
     });
 
   it('should return onStart, onMove and onEnd as undefined if they are not functions',
     function() {
-      const onStart = 'hello';
-      const onMove = 23;
       const onEnd = { happy: 'kitty'};
       let _tap = new Tap({
-        onStart,
-        onMove,
         onEnd
       });
-      expect(typeof _tap.onStart).to.equal('undefined');
-      expect(typeof _tap.onMove).to.equal('undefined');
       expect(typeof _tap.onEnd).to.equal('undefined');
     });
 });

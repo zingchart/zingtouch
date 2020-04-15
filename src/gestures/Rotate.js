@@ -99,15 +99,15 @@ class Rotate extends Gesture {
     }
 
     progress.previousAngle = currentAngle;
-
-    if(this.onMove) {
-      this.onMove(inputs, state, element);
-    }
-    return {
+    const rotate = {
       angle: currentAngle,
       distanceFromOrigin: progress.distance,
       distanceFromLast: progress.change,
     };
+    if(this.onMove) {
+      this.onMove(inputs, state, element, rotate);
+    }
+    return rotate;
   }
 
   /* move*/

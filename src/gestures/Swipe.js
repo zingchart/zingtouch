@@ -153,9 +153,6 @@ class Swipe extends Gesture {
         data: [],
       };
 
-      if(this.onEnd) {
-        this.onEnd(inputs);
-      }
       for (let i = 0; i < inputs.length; i++) {
         // Determine if all input events are on the 'end' event.
         if (inputs[i].current.type !== 'end') {
@@ -216,6 +213,9 @@ class Swipe extends Gesture {
       }
 
       if (output.data.length > 0) {
+        if(this.onEnd) {
+          this.onEnd(inputs, output);
+        }
         return output;
       }
     }

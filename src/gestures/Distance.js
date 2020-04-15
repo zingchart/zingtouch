@@ -19,7 +19,7 @@ class Distance extends Gesture {
    * @param {Object} options
    * @param {Object} [options] - The options object.
    * @param {Number} [options.threshold=1] - The minimum number of
-   * pixels the input has to move to trigger this gesture.
+   *  pixels the input has to move to trigger this gesture.
    * @param {Function} [options.onStart] - The on start callback
    * @param {Function} [options.onMove] - The on move callback
    */
@@ -57,6 +57,8 @@ class Distance extends Gesture {
    * Event hook for the start of a gesture. Initialized the lastEmitted
    * gesture and stores it in the first input for reference events.
    * @param {Array} inputs
+   * @param {Object} state - The state object of the current region.
+   * @param {Element} element - The element associated to the binding.
    */
   start(inputs, state, element) {
     if(!this.isValid(inputs, state, element)) {
