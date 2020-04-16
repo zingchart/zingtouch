@@ -17,6 +17,11 @@ class Distance extends Gesture {
   /**
    * Constructor function for the Distance class.
    * @param {Object} options
+   * @param {Object} [options] - The options object.
+   * @param {Number} [options.threshold=1] - The minimum number of
+   *  pixels the input has to move to trigger this gesture.
+   * @param {Function} [options.onStart] - The on start callback
+   * @param {Function} [options.onMove] - The on move callback
    */
   constructor(options) {
     super();
@@ -33,12 +38,27 @@ class Distance extends Gesture {
      */
     this.threshold = (options && options.threshold) ?
       options.threshold : DEFAULT_MIN_THRESHOLD;
+
+    /**
+     * The on start callback
+     */
+    if (options && options.onStart && typeof options.onStart === 'function') {
+      this.onStart = options.onStart
+    }
+    /**
+     * The on move callback
+     */
+    if (options && options.onMove && typeof options.onMove === 'function') {
+      this.onMove = options.onMove
+    }
   }
 
   /**
    * Event hook for the start of a gesture. Initialized the lastEmitted
    * gesture and stores it in the first input for reference events.
    * @param {Array} inputs
+   * @param {Object} state - The state object of the current region.
+   * @param {Element} element - The element associated to the binding.
    */
   start(inputs, state, element) {
     if(!this.isValid(inputs, state, element)) {
@@ -52,6 +72,9 @@ class Distance extends Gesture {
         inputs[1].current.x,
         inputs[0].current.y,
         inputs[1].current.y);
+    }
+    if(this.onStart) {
+      this.onStart(inputs, state, element);
     }
   }
 
@@ -83,14 +106,17 @@ class Distance extends Gesture {
 
       if (Math.abs(change) >= this.threshold) {
         progress.lastEmittedDistance = currentDistance;
-        return {
+        const movement = {
           distance: currentDistance,
           center: centerPoint,
           change,
         };
+        if(this.onMove) {
+          this.onMove(inputs, state, element, movement);
+        }
+        return movement;
       }
     }
-
     return null;
   }
 }

@@ -26,4 +26,21 @@ describe('Tap', function() {
       expect(_tap.maxDelay).to.equal(2000);
       expect(_tap.numInputs).to.equal(2);
     });
+  it('should return onStart, onMove and onEnd as functions',
+    function() {
+      const onEnd = () => {};
+      let _tap = new Tap({
+        onEnd
+      });
+      expect(typeof _tap.onEnd).to.equal('function');
+    });
+
+  it('should return onStart, onMove and onEnd as undefined if they are not functions',
+    function() {
+      const onEnd = { happy: 'kitty'};
+      let _tap = new Tap({
+        onEnd
+      });
+      expect(typeof _tap.onEnd).to.equal('undefined');
+    });
 });

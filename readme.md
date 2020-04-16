@@ -553,6 +553,7 @@ Solution: Attach the gesture listener to a non-mutating element such as a parent
 * `npm run build:dev` - Builds the unminified library with webpack
 * `npm run build:prod` - Builds the minified library with webpack
 * `npm run docs` - Builds the docs with esdocs
+* `npm run test` - Run the tests
 
 
 ## Browser Compatibility

@@ -26,6 +26,9 @@ class Tap extends Gesture {
    * @param {Number} [options.numInputs=1] - Number of inputs for Tap gesture.
    * @param {Number} [options.tolerance=10] - The tolerance in pixels
    *  a user can move.
+   * @param {Function} [options.onStart] - The on start callback
+   * @param {Function} [options.onMove] - The on move callback
+   * @param {Function} [options.onEnd] - The on end callback
    */
   constructor(options) {
     super();
@@ -71,6 +74,13 @@ class Tap extends Gesture {
      */
     this.tolerance = (options && options.tolerance) ?
       options.tolerance : DEFAULT_MOVE_PX_TOLERANCE;
+
+    /**
+     * The on end callback
+     */
+    if (options && options.onEnd && typeof options.onEnd === 'function') {
+      this.onEnd = options.onEnd
+    }
   }
 
   /* constructor*/
@@ -88,7 +98,6 @@ class Tap extends Gesture {
         progress.start = new Date().getTime();
       });
     }
-
     return null;
   }
 
@@ -122,7 +131,6 @@ class Tap extends Gesture {
         }
       }
     }
-
     return null;
   }
 
@@ -142,7 +150,6 @@ class Tap extends Gesture {
     if (inputs.length !== this.numInputs) {
       return null;
     }
-
     let startTime = Number.MAX_VALUE;
     for (let i = 0; i < inputs.length; i++) {
       if (inputs[i].getCurrentEventType() !== 'end') {
@@ -162,9 +169,12 @@ class Tap extends Gesture {
 
     let interval = new Date().getTime() - startTime;
     if ((this.minDelay <= interval) && (this.maxDelay >= interval)) {
-      return {
-        interval: interval,
-      };
+
+      const timing = { interval }
+      if(this.onEnd) {
+        this.onEnd(inputs, timing);
+      }
+      return timing;
     } else {
       let type = this.type;
       inputs.forEach(function(input) {
