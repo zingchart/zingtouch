@@ -207,7 +207,7 @@ class Swipe extends Gesture {
       }
 
       for (var i = 0; i < output.data.length; i++) {
-        if (velocity < this.escapeVelocity) {
+        if (output.data[i].velocity < this.escapeVelocity) {
           return null;
         }
       }
